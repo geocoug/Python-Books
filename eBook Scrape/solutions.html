@@ -1,0 +1,4651 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="solutions">
+  Solutions to Problems
+ </h1>
+ <h2 id="chapter-2-solutions">
+  Chapter 2 Solutions
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  The power operator (**) is right associative. We would not evaluate
+  <span class="math">
+   2
+   <sup>
+    2
+    <sup>
+     2
+    </sup>
+   </sup>
+  </span>
+  as
+  <span class="math">
+   4
+   <sup>
+    2
+   </sup>
+  </span>
+  , instead it is evaluated as
+  <span class="math">
+   2
+   <sup>
+    4
+   </sup>
+  </span>
+  .
+ </p>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <h4 id="is-the-operator-left-or-right-associative">
+  Is the % operator left or right associative?
+ </h4>
+ <p>
+  The modulo (%) operator is left associative
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <h4 id="where-in-the-precedence-hierarchy-do-and-appear">
+  Where in the precedence hierarchy do ** and % appear?
+ </h4>
+ <p>
+  The power (**) operator appears at the top of the precedence hierarchy. The modulo (%) operator appears at the same level as multiplication and division operators.
+ </p>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <h4 id="how-are-the-following-expressions-evaluated">
+  How are the following expressions evaluated?
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># 1 + 4 - 5 * 7 // 3</span>
+    <span class="dv">1</span> + <span class="dv">4</span> - <span class="dv">5</span> * (<span class="dv">7</span> // <span class="dv">3</span>)
+    <span class="dv">1</span> + <span class="dv">4</span> - (<span class="dv">5</span> * (<span class="dv">7</span> // <span class="dv">3</span>))
+    <span class="dv">1</span> + (<span class="dv">4</span> - (<span class="dv">5</span> * (<span class="dv">7</span> // <span class="dv">3</span>)))
+    (<span class="dv">1</span> + (<span class="dv">4</span> - (<span class="dv">5</span> * (<span class="dv">7</span> // <span class="dv">3</span>))))
+    
+<span class="co"># 2 ** 3 * 4 + 8 // 3</span>
+    (<span class="dv">2</span> ** <span class="dv">3</span>) * <span class="dv">4</span> + <span class="dv">8</span> // <span class="dv">3</span>
+    ((<span class="dv">2</span> ** <span class="dv">3</span>) * <span class="dv">4</span>) + <span class="dv">8</span> // <span class="dv">3</span>
+    ((<span class="dv">2</span> ** <span class="dv">3</span>) * <span class="dv">4</span>) + (<span class="dv">8</span> // <span class="dv">3</span>)
+    (((<span class="dv">2</span> ** <span class="dv">3</span>) * <span class="dv">4</span>) + (<span class="dv">8</span> // <span class="dv">3</span>))
+    
+<span class="co"># 4 % 3 ** 5 - 2 ** 2</span>
+    <span class="dv">4</span> % (<span class="dv">3</span> ** <span class="dv">5</span>) - <span class="dv">2</span> ** <span class="dv">2</span>
+    <span class="dv">4</span> % (<span class="dv">3</span> ** <span class="dv">5</span>) - (<span class="dv">2</span> ** <span class="dv">2</span>)
+    (<span class="dv">4</span> % (<span class="dv">3</span> ** <span class="dv">5</span>)) - (<span class="dv">2</span> ** <span class="dv">2</span>)
+    ((<span class="dv">4</span> % (<span class="dv">3</span> ** <span class="dv">5</span>)) - (<span class="dv">2</span> ** <span class="dv">2</span>))</code></pre>
+ <h3 id="question-5">
+  Question 5
+ </h3>
+ <h4 id="from-the-following-list-of-integer-expressions-which-expressions-have-invalid-syntax">
+  From the following list of integer expressions, which expression(s) have invalid syntax?
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">((<span class="dv">4</span> * <span class="dv">6</span> - (<span class="dv">4</span> // <span class="dv">2</span>)) 
+   - INVALID!
+
+<span class="dv">9</span> * - <span class="dv">11</span> + <span class="dv">6</span>
+   - VALID
+ 
+<span class="dv">6</span> - +<span class="dv">4</span>
+   - VALID</code></pre>
+ <h2 id="chapter-3-solutions">
+  Chapter 3 Solutions
+ </h2>
+ <h3 id="question-1-1">
+  Question 1
+ </h3>
+ <p>
+  Assume a population of rabbits
+  <em>
+   doubles
+  </em>
+  every 3 months. Further assume the current population is 11 rabbits i.e.
+  <code>
+   number_of_rabbits = 11
+  </code>
+ </p>
+ <p>
+  Write a Python program to calculate the rabbit population after 2 years and
+  <em>
+   print
+  </em>
+  the result to the terminal.
+ </p>
+ <h4 id="solution">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">number_of_rabbits = <span class="dv">11</span>
+years = <span class="dv">2</span>
+
+months_passed = <span class="dv">12</span> * years
+times_pop_doubles = months_passed // <span class="dv">3</span>
+
+pop_after_time = number_of_rabbits * (<span class="dv">2</span> ** times_pop_doubles)
+<span class="dt">print</span>(pop_after_time)</code></pre>
+ <h3 id="question-2-1">
+  Question 2
+ </h3>
+ <p>
+  Extend the above program to allow the user to
+  <em>
+   input
+  </em>
+  the number of rabbits and the time period after which you want to know the rabbit population e.g. 4 years
+ </p>
+ <h4 id="solution-1">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">number_of_rabbits = <span class="dv">11</span>
+years = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter number of years: "</span>))
+
+months_passed = <span class="dv">12</span> * years
+times_pop_doubles = months_passed // <span class="dv">3</span>
+
+pop_after_time = number_of_rabbits * (<span class="dv">2</span> ** times_pop_doubles)
+<span class="dt">print</span>(pop_after_time)</code></pre>
+ <h3 id="question-3-1">
+  Question 3
+ </h3>
+ <p>
+  Assume the user is going to input 2 numbers,
+  <code>
+   x
+  </code>
+  and
+  <code>
+   y
+  </code>
+  for example. Write a Python program that will swap the numbers stored in these variables e.g.
+ </p>
+ <pre><code># Assume the user has input these
+x = 3
+y = 11
+# Your code to swap here
+# After, the variables should be:
+# x = 11
+# y = 3</code></pre>
+ <h4 id="solution-2">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">x = <span class="dt">input</span>(<span class="st">"X value: "</span>)
+y = <span class="dt">input</span>(<span class="st">"Y value: "</span>)
+
+tmp = x
+x = y
+y = tmp
+
+<span class="dt">print</span>(<span class="st">"X after swap: "</span> + x)
+<span class="dt">print</span>(<span class="st">"Y after swap: "</span> + y)</code></pre>
+ <h3 id="question-4-1">
+  Question 4
+ </h3>
+ <p>
+  The goal of this task is to derive a
+  <strong>
+   single assignment statement
+  </strong>
+  for the following sequences such that, if the variable
+  <code>
+   x
+  </code>
+  has the first value in a sequence, then
+  <code>
+   x
+  </code>
+  will have the next value in the sequence after the
+  <em>
+   assignment statement
+  </em>
+  is executed. And if the
+  <em>
+   assignment statement
+  </em>
+  were executed repeatedly, then
+  <code>
+   x
+  </code>
+  would cycle through all of the values in the sequence.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE</span>
+
+<span class="co"># Sequence:</span>
+<span class="co"># 0 1 2 3 4 5 6 7 ...</span>
+
+<span class="co">#SOLUTION</span>
+x = x + <span class="dv">1</span></code></pre>
+ <h5 id="sequence-1">
+  Sequence 1:
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">0</span> <span class="dv">2</span> <span class="dv">4</span> <span class="dv">6</span> <span class="dv">8</span> <span class="dv">10</span> <span class="dv">12</span> ...</code></pre>
+ <h5 id="sequence-2">
+  Sequence 2:
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">0</span> -<span class="dv">1</span> -<span class="dv">2</span> -<span class="dv">3</span> -<span class="dv">4</span> -<span class="dv">5</span> -<span class="dv">6</span> ...</code></pre>
+ <h5 id="sequence-3">
+  Sequence 3:
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">6</span> -<span class="dv">6</span> <span class="dv">6</span> -<span class="dv">6</span> <span class="dv">6</span> -<span class="dv">6</span> ...</code></pre>
+ <h5 id="sequence-4-difficult">
+  Sequence 4 (Difficult)
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">0</span> -<span class="dv">6</span> -<span class="dv">3</span> <span class="dv">0</span> -<span class="dv">6</span> -<span class="dv">3</span> <span class="dv">0</span> -<span class="dv">6</span> -<span class="dv">3</span> <span class="dv">0</span> ...</code></pre>
+ <h3 id="solution-3">
+  Solution
+ </h3>
+ <h5 id="sequence-1-1">
+  Sequence 1
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python">x = <span class="dv">0</span>
+x = x + <span class="dv">2</span></code></pre>
+ <h5 id="sequence-2-1">
+  Sequence 2
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python">x = <span class="dv">0</span>
+x = x - <span class="dv">1</span></code></pre>
+ <h5 id="sequence-3-1">
+  Sequence 3
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python">x = <span class="dv">6</span>
+x = x * -<span class="dv">1</span></code></pre>
+ <h5 id="sequence-4">
+  Sequence 4
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python">x = <span class="dv">0</span>
+x = x % <span class="dv">9</span> - <span class="dv">6</span></code></pre>
+ <h2 id="chapter-4-solutions">
+  Chapter 4 Solutions
+ </h2>
+ <h3 id="question-1-2">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes three inputs,
+  <code>
+   a
+  </code>
+  ,
+  <code>
+   b
+  </code>
+  and
+  <code>
+   c
+  </code>
+  and prints out whether or not those numbers form a right angled triangle. The formula you'll need is:
+  <br>
+   <span class="math">
+    $$
+c = \sqrt{(a^2 + b ^2)}
+$$
+   </span>
+   <br/>
+  </br>
+ </p>
+ <h4 id="solution-4">
+  Solution
+ </h4>
+ <p>
+  We're going to use Pythagoras theorem here (the formula given in the question), that is, in any right angled triangle, the area of the square whose side is the hypotenuse is equal to the sum of the other two sides. Since we don't know which side may be the hypotenuse we must check all three sides as any could be the hypothenuse.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">a = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter side 1: "</span>))
+b = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter side 2: "</span>))
+c = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter side 3: "</span>))
+
+<span class="co"># Result is a boolean</span>
+a_as_hypotenuse = a == ((b ** <span class="dv">2</span>) + (c **<span class="dv">2</span>)) ** <span class="fl">0.5</span>
+b_as_hypotenuse = b == ((a ** <span class="dv">2</span>) + (c **<span class="dv">2</span>)) ** <span class="fl">0.5</span>
+c_as_hypotenuse = c == ((a ** <span class="dv">2</span>) + (b **<span class="dv">2</span>)) ** <span class="fl">0.5</span>
+
+<span class="co"># Check if a is the hypotenuse</span>
+<span class="kw">if</span> a_as_hypotenuse or b_as_hypotenuse or c_as_hypotenuse:
+    <span class="dt">print</span>(<span class="st">"These sides form a right angle triangle!"</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">"These sides do not form a right angle triangle"</span>)</code></pre>
+ <h3 id="question-2-2">
+  Question 2
+ </h3>
+ <p>
+  Fizz buzz is a game in which the following rules apply:
+ </p>
+ <ul>
+  <li>
+   any number which is divisible by 3 is replaced with
+   <code>
+    fizz
+   </code>
+  </li>
+  <li>
+   any number which is divisible by 5 is replaced with
+   <code>
+    buzz
+   </code>
+  </li>
+  <li>
+   any number which is divisible by both 3 and 5 is replaced with
+   <code>
+    fizz-buzz
+   </code>
+  </li>
+  <li>
+   any other number is just the number itself
+  </li>
+ </ul>
+ <p>
+  Examples:
+ </p>
+ <pre><code>1 = 1
+2 = 2
+3 = fizz
+4 = 4
+5 = buzz
+6 = 6
+.
+.
+15 = fizz-buzz</code></pre>
+ <h6 id="remember-what-i-said-about-how-if...elif..else-statements-are-evaluated-sequentially-first-to-last-until-the-first-condition-passes">
+  * Remember what I said about how if...elif..else statements are evaluated sequentially (first to last) until the first condition passes
+ </h6>
+ <p>
+  In your solution you should expect the user to enter a single number and either print the number, fizz, buzz or fizz-buzz
+ </p>
+ <h4 id="solution-5">
+  Solution
+ </h4>
+ <p>
+  We need to be careful here, we must check if the number is divisible by both 3 and 5 before we check if it's divisible by only 3 or only 5.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">number = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter a number: "</span>))
+<span class="kw">if</span> number % <span class="dv">3</span> == <span class="dv">0</span> and number % <span class="dv">5</span> == <span class="dv">0</span>:
+    <span class="dt">print</span>(<span class="st">"fizz-buzz"</span>)
+<span class="kw">elif</span> number % <span class="dv">3</span> == <span class="dv">0</span>:
+    <span class="dt">print</span>(<span class="st">"fizz"</span>)
+<span class="kw">elif</span> number % <span class="dv">5</span> == <span class="dv">0</span>:
+    <span class="dt">print</span>(<span class="st">"buzz"</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(number)</code></pre>
+ <h3 id="question-3-2">
+  Question 3
+ </h3>
+ <p>
+  Write a program which takes in six numbers,
+  <code>
+   x1
+  </code>
+  ,
+  <code>
+   y1
+  </code>
+  ,
+  <code>
+   r1
+  </code>
+  and
+  <code>
+   x2
+  </code>
+  ,
+  <code>
+   y2
+  </code>
+  ,
+  <code>
+   r2
+  </code>
+  (which are the x and y coordinates of the center of a circle and that circles radius) and print out whether or not the two circles overlap.
+ </p>
+ <p>
+  You're going to need the formula for the distance between two points to solve this which is:
+  <br>
+   <span class="math">
+    $$
+d(P, Q) = \sqrt{(x2 - x1)^{2} + (y2 - y1)^{2}}
+$$
+   </span>
+   <br/>
+  </br>
+ </p>
+ <p>
+  The rest requires some problem solving! Perhaps drawing out the scenario on paper might help?
+ </p>
+ <h4 id="solution-6">
+  Solution
+ </h4>
+ <p>
+  Our approach is to check if the distance between the centers of both circles is greater than the sum of their radii. If it is, then they are not overlapping, otherwise they are.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">x1 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Circle-1 x: "</span>))
+y1 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Circle-1 y: "</span>))
+r1 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Circle-1 radius: "</span>))
+
+x2 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Circle-2 x: "</span>))
+y2 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Circle-2 y: "</span>))
+r2 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Circle-2 radius: "</span>))
+
+<span class="co"># Raising a number to the power of 0.5</span>
+<span class="co"># is the same as square root</span>
+distance = ((x2 - x1)**<span class="dv">2</span> + (y2 - y1)**<span class="dv">2</span>)**<span class="fl">0.5</span>
+radius_total = r1 + r2
+
+<span class="kw">if</span> distance &gt;= radius_total:
+    <span class="dt">print</span>(<span class="st">"The circles do not overlap!"</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">"The circles overlap!"</span>)</code></pre>
+ <h2 id="chapter-5-solutions">
+  Chapter 5 Solutions
+ </h2>
+ <h3 id="question-1-3">
+  Question 1
+ </h3>
+ <p>
+  Write a program that prints the first
+  <em>
+   n
+  </em>
+  numbers of the Fibonacci sequence. The Fibonacci sequence is defined as:
+  <br/>
+  <span class="math">
+   <em>
+    F
+   </em>
+   <sub>
+    <em>
+     n
+    </em>
+   </sub>
+   =
+   <em>
+    F
+   </em>
+   <sub>
+    <em>
+     n
+    </em>
+    − 1
+   </sub>
+   +
+   <em>
+    F
+   </em>
+   <sub>
+    <em>
+     n
+    </em>
+    − 2
+   </sub>
+  </span>
+  <br/>
+ </p>
+ <p>
+  <br/>
+  <span class="math">
+   <em>
+    F
+   </em>
+   <sub>
+    0
+   </sub>
+   = 0,
+   <em>
+    F
+   </em>
+   <sub>
+    1
+   </sub>
+   = 1
+  </span>
+  <br/>
+ </p>
+ <p>
+  That is, the next number in the sequence is the sum of the previous two numbers and the first two numbers in the sequence are 0 and 1. A part of the sequence is shown below:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">34</span>, ...</code></pre>
+ <h4 id="solution-7">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">num_terms = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"How many terms?: "</span>))
+
+n2 = <span class="dv">0</span>
+n1 = <span class="dv">1</span>
+
+<span class="kw">if</span> num_terms &lt;= <span class="dv">0</span>:
+    <span class="dt">print</span>(<span class="st">"Please enter a number greater than 0"</span>)
+<span class="kw">elif</span> num_terms == <span class="dv">1</span>:
+    <span class="dt">print</span>(n2)
+<span class="kw">else</span>:
+    count = <span class="dv">0</span>
+    <span class="kw">while</span> count &lt; num_terms:
+        <span class="dt">print</span>(n2)
+        next_term = n1 + n2
+        n2 = n1
+        n1 = next_term
+        count += <span class="dv">1</span></code></pre>
+ <h3 id="question-2-3">
+  Question 2
+ </h3>
+ <p>
+  Write a program that prints a sequence such as the one shown below. The number of stars in the widest part should be equal to the number a user inputs:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># INPUT</span>
+<span class="dv">7</span>
+
+<span class="co"># OUTPUT</span>
+*
+**
+***
+****
+*****
+******
+*******
+******
+*****
+****
+***
+**
+*</code></pre>
+ <h4 id="solution-8">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">width = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"How wide?: "</span>))
+
+curr_width = <span class="dv">1</span>
+<span class="kw">while</span> curr_width &lt; width:
+    <span class="dt">print</span>(<span class="st">"*"</span> * curr_width)
+    curr_width += <span class="dv">1</span>
+
+<span class="kw">while</span> curr_width &gt; <span class="dv">0</span>:
+    <span class="dt">print</span>(<span class="st">"*"</span> * curr_width)
+    curr_width -= <span class="dv">1</span></code></pre>
+ <h3 id="question-3-3">
+  Question 3
+ </h3>
+ <p>
+  Write a Python program that reads in a single integer from the user. Then read in an unknown number of integers, each time printing whether or not the number was higher or lower than the previous. You can assume that every number is different and you can stop when the number entered is 0. Here is an example input and output:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># INPUT</span>
+<span class="dv">5</span>
+<span class="dv">2</span>
+<span class="dv">9</span>
+<span class="dv">7</span>
+<span class="dv">0</span>
+
+<span class="co"># OUTPUT</span>
+lower
+higher
+lower
+Exiting...</code></pre>
+ <h4 id="solution-9">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">number = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter a number: "</span>))
+
+n = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter another number: "</span>))
+<span class="kw">while</span> n != <span class="dv">0</span>:
+    <span class="kw">if</span> n &lt; number:
+        <span class="dt">print</span>(<span class="st">"lower"</span>)
+    <span class="kw">else</span>:
+        <span class="dt">print</span>(<span class="st">"higher"</span>)
+    n = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter another number: "</span>))
+
+<span class="dt">print</span>(<span class="st">"Exiting..."</span>)</code></pre>
+ <h2 id="chapter-6-solutions">
+  Chapter 6 Solutions
+ </h2>
+ <h3 id="question-1-4">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes as input, a single integer from the user which will specify how many decimal places the number
+  <code>
+   e
+  </code>
+  should be formatted to.
+ </p>
+ <p>
+  Take
+  <em>
+   e
+  </em>
+  to be 2.7182818284590452353602874713527
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">4</span>
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="fl">2.7183</span></code></pre>
+ <h4 id="solution-10">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">n = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"How many decimal places?: "</span>))
+
+e = <span class="fl">2.7182818284590452353602874713527</span>
+<span class="dt">print</span>(<span class="st">"{:.{}f}"</span>.<span class="dt">format</span>(e, n))</code></pre>
+ <h3 id="question-2-4">
+  Question 2
+ </h3>
+ <p>
+  Write a program that will take as input, a string and two integers. The two integers will represent indices. If the string can be sliced using the two indices then print the sliced string. If either or both of the integers are outside the strings index range then print that the string cannot be sliced at those integers.
+ </p>
+ <p>
+  Assume that the integers can also be negative.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"This is my string"</span>
+<span class="dv">2</span>
+<span class="dv">9</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">'is is m'</span>
+
+<span class="co"># EXAMPLE INPUT</span>
+<span class="co">"This is a string"</span>
+<span class="dv">10</span>
+<span class="dv">22</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">'Cannot slice string using those indices'</span></code></pre>
+ <h4 id="solution-11">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">string = <span class="dt">input</span>()
+lower = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter the lower index: "</span>))
+upper = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter the upper index: "</span>))
+
+<span class="kw">if</span> lower &gt; <span class="dt">len</span>(string) or upper &gt; <span class="dt">len</span>(string):
+    <span class="dt">print</span>(<span class="st">"Cannot slice string using those indices"</span>)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(string[lower:upper])</code></pre>
+ <h3 id="question-3-4">
+  Question 3
+ </h3>
+ <p>
+  When you sign up for accounts on website or apps, you may be told your password strength when entering it for the first time. In this exercise, you are to write a program that takes in as input, a string that will represent a password.
+ </p>
+ <p>
+  Assume a password can contain the following:
+ </p>
+ <ul>
+  <li>
+   digits
+  </li>
+  <li>
+   lowercase letters
+  </li>
+  <li>
+   uppercase letters
+  </li>
+  <li>
+   special characters e.g. $, #, @, ^
+  </li>
+ </ul>
+ <p>
+  A passwords strength should be graded on how many of the above categories are contained in the password. The password should be given a score of 1 to 4.
+ </p>
+ <p>
+  If the password is greater than or equal to strength 3 (contains characters from 3 of the above categories) then you should print the strength and that the password is valid. Otherwise print the strength and that the password is not valid.
+ </p>
+ <blockquote>
+  <p>
+   Python comes with built-in documentation. To access this, at the command prompt type
+   <code>
+    pydoc str
+   </code>
+   . This will return the documentation for the
+   <code>
+    str
+   </code>
+   type. Here you will find all methods strings have to offer.
+  </p>
+ </blockquote>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUTS</span>
+<span class="dv">978</span>
+hjj
+jKl
+nmM2
+r@num978LL
+LLLL
+
+<span class="co"># EXAMPLE OUTPUTS</span>
+<span class="dv">1</span>
+<span class="dv">1</span>
+<span class="dv">2</span>
+<span class="dv">3</span>
+<span class="dv">4</span>
+<span class="dv">1</span></code></pre>
+ <h4 id="solution-12">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">password = <span class="dt">input</span>()
+
+contains_digit = <span class="ot">False</span>
+contains_lower = <span class="ot">False</span>
+contains_upper = <span class="ot">False</span>
+contains_special = <span class="ot">False</span>
+
+special_chars = <span class="st">"$#@^"</span>
+
+password_strength = <span class="dv">0</span>
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(password):
+    curr = password[i]
+    <span class="kw">if</span> curr.isdigit() and not contains_digit:
+        password_strength += <span class="dv">1</span>
+        contains_digit = <span class="ot">True</span>
+
+    <span class="kw">elif</span> curr.isalpha() and curr.islower() and not contains_lower:
+        password_strength += <span class="dv">1</span>
+        contains_lower = <span class="ot">True</span>
+
+    <span class="kw">elif</span> curr.isalpha() and curr.isupper() and not contains_upper:
+        password_strength += <span class="dv">1</span>
+        contains_upper = <span class="ot">True</span>
+        
+    <span class="kw">elif</span> curr in special_chars and not contains_special:
+
+        password_strength += <span class="dv">1</span>
+        contains_special = <span class="ot">True</span>
+    i += <span class="dv">1</span>
+
+<span class="dt">print</span>(<span class="st">"Password strength: "</span> + <span class="dt">str</span>(password_strength))</code></pre>
+ <h3 id="question-4-2">
+  Question 4
+ </h3>
+ <p>
+  Write a program that takes 3 floating point numbers as input from the user: a starting radius, radius increment and an ending radius. Based on these three numbers, your program should output a table with a spheres corresponding surface area and volume.
+ </p>
+ <p>
+  The surface area and volume of a sphere are given by the following formulae:
+  <br/>
+  <span class="math">
+   <em>
+    A
+   </em>
+   = 4
+   <em>
+    π
+   </em>
+   <em>
+    r
+   </em>
+   <sup>
+    2
+   </sup>
+  </span>
+  <br/>
+ </p>
+ <p>
+  <br/>
+  <span class="math">
+   $$
+V = \frac{4}{3}\pi r^{3}
+$$
+  </span>
+  <br/>
+ </p>
+ <p>
+  Hint: Formatting is key here
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">1</span>
+<span class="dv">1</span>
+<span class="dv">10</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+    Radius            Area          Volume
+----------      ----------    ------------
+       <span class="fl">1.0</span>           <span class="fl">12.57</span>            <span class="fl">4.19</span>
+       <span class="fl">2.0</span>           <span class="fl">50.27</span>           <span class="fl">33.51</span>
+       <span class="fl">3.0</span>          <span class="fl">113.10</span>          <span class="fl">113.10</span>
+       <span class="fl">4.0</span>          <span class="fl">201.06</span>          <span class="fl">268.08</span>
+       <span class="fl">5.0</span>          <span class="fl">314.16</span>          <span class="fl">523.60</span>
+       <span class="fl">6.0</span>          <span class="fl">452.39</span>          <span class="fl">904.78</span>
+       <span class="fl">7.0</span>          <span class="fl">615.75</span>         <span class="fl">1436.76</span>
+       <span class="fl">8.0</span>          <span class="fl">804.25</span>         <span class="fl">2144.66</span>
+       <span class="fl">9.0</span>         <span class="fl">1017.88</span>         <span class="fl">3053.63</span>
+      <span class="fl">10.0</span>         <span class="fl">1256.64</span>         <span class="fl">4188.79</span></code></pre>
+ <h4 id="solution-13">
+  Solution
+ </h4>
+ <p>
+  We will set a max width for the table of 42
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">radius = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter radius: "</span>))
+inc = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter increment: "</span>))
+end = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter ending radius: "</span>))
+
+max_width = <span class="dv">42</span>
+<span class="dt">print</span>(<span class="st">"{:&gt;10s}{:&gt;16s}{:&gt;16s}"</span>.<span class="dt">format</span>(<span class="st">"Radius"</span>, <span class="st">"Area"</span>, <span class="st">"Volume"</span>))
+<span class="dt">print</span>(<span class="st">"{:&gt;10s}{:&gt;16s}{:&gt;16s}"</span>.<span class="dt">format</span>(<span class="st">"----------"</span>, <span class="st">"----------"</span>, <span class="st">"----------"</span>))
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; end:
+    area = <span class="dv">4</span> * <span class="fl">3.14</span> * radius ** <span class="dv">2</span>
+    volume = (<span class="dv">4</span>/<span class="dv">3</span>) * <span class="fl">3.14</span> * radius ** <span class="dv">3</span>
+    <span class="dt">print</span>(<span class="st">"{:&gt;10.1f}{:&gt;16.2f}{:&gt;16.2f}"</span>.<span class="dt">format</span>(radius, area, volume))
+    radius += inc
+    i += <span class="dv">1</span></code></pre>
+ <h2 id="chapter-7-solutions">
+  Chapter 7 Solutions
+ </h2>
+ <h3 id="question-1-5">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes a string from the user and prints the first number encountered along with it's position.
+ </p>
+ <blockquote>
+  <p>
+   You can assume the number is a single digit
+  </p>
+ </blockquote>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"This is chapter 7 of the book"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">"7 16"</span>
+
+<span class="co"># EXAMPLE INPUT</span>
+<span class="co">"There are no digits here"</span>
+
+<span class="co">#EXAMPLE OUTPUT</span>
+<span class="co">"No digits in string"</span></code></pre>
+ <h4 id="solution-14">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">string = <span class="dt">input</span>(<span class="st">"Enter a string: "</span>)
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(string) and not string[i].isdigit():
+    i += <span class="dv">1</span>
+
+<span class="kw">if</span> i &lt; <span class="dt">len</span>(string):
+    <span class="dt">print</span>(string[i], i)
+<span class="kw">else</span>:
+    <span class="dt">print</span>(<span class="st">"No digits in string"</span>)</code></pre>
+ <h3 id="question-2-5">
+  Question 2
+ </h3>
+ <p>
+  Building upon the previous exercise, write a program that takes a string as input from the user and prints the first number encountered along with the starting position of the number.
+ </p>
+ <blockquote>
+  <p>
+   Working through this question on paper would be a good idea!
+  </p>
+ </blockquote>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"This chapter has 1208 words in it!"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">"1208 17"</span>
+
+<span class="co"># EXAMPLE INPUT</span>
+<span class="co">"There is no numbers here"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">"No numbers in string"</span></code></pre>
+ <h4 id="solution-15">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">string = <span class="dt">input</span>(<span class="st">"Enter a string: "</span>)
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(string) and not string[i].isdigit():
+    i += <span class="dv">1</span>
+    
+<span class="kw">if</span> i &lt; <span class="dt">len</span>(string):
+    j = i
+    <span class="kw">while</span> j &lt; <span class="dt">len</span>(string) and not string[j].isalpha():
+        j += <span class="dv">1</span>
+    <span class="dt">print</span>(string[i:j<span class="dv">-1</span>], i)</code></pre>
+ <h3 id="question-3-5">
+  Question 3
+ </h3>
+ <p>
+  Write a program that takes a string as input from the user. The string will consist of digits and your program should print out the first
+  <strong>
+   repdigit
+  </strong>
+  . A repdigit is a number where all digits in the number are the same. Examples of repdigits are 22, 77, 2222, 99999, 444444.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"34 74 86 34576 47093 3 349852 777 9082"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">"777"</span>
+
+<span class="co"># EXAMPLE INPUT</span>
+<span class="co">"98 3462 245 87658"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">"No repdigit in string"</span></code></pre>
+ <h4 id="solution-16">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">string = <span class="dt">input</span>(<span class="st">"Enter a string: "</span>)
+
+repdigit_found = <span class="ot">False</span>
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(string) and not repdigit_found:
+    j = i + <span class="dv">1</span>
+    <span class="kw">while</span> j &lt; <span class="dt">len</span>(string) and not string[i] == string[j]:
+        i += <span class="dv">1</span>
+        j += <span class="dv">1</span>
+    
+    <span class="kw">if</span> j &lt; <span class="dt">len</span>(string):
+
+        <span class="kw">while</span> j &lt; <span class="dt">len</span>(string) and string[i] == string[j]:
+            j += <span class="dv">1</span>
+
+        <span class="kw">if</span> string[i] == string[j<span class="dv">-1</span>]:
+            repdigit_found = <span class="ot">True</span>
+            <span class="dt">print</span>(string[i:j])
+    
+    i = j + <span class="dv">1</span></code></pre>
+ <h3 id="question-4-3">
+  Question 4
+ </h3>
+ <p>
+  If you open a browser and go to any web page that has text on it and press Ctrl+f, a search box will pop up. You can type any word in this search box and all occurrences of that word on the page are highlighted. This doesn't use linear search, it uses something called regular expressions (don't worry about what they are). As well as the occurrences of the word being highlighted, you are also told how many times the word occurs.
+ </p>
+ <p>
+  You are to write a program which mimics this behaviour. Your program should take a string as input from the user and then a second string as input which is the word the user wants to search for. Your program should print out how many times the word occurs in the string.
+ </p>
+ <blockquote>
+  <p>
+   Assume that it still counts if the word you're searching for is embedded in another word, for example if the user was searching for the word "search":
+  </p>
+  <p>
+   search and searching &lt;- you can count this as 2 occurrences
+  </p>
+ </blockquote>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"In this type of search, a sequential search is made over all items one by one"</span>
+<span class="co">"search"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="dv">2</span>
+
+<span class="co"># EXAMPLE INPUT</span>
+<span class="co">"There wont be an occurrence here"</span>
+<span class="co">"python"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="dv">0</span></code></pre>
+ <h4 id="solution-17">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">string = <span class="dt">input</span>(<span class="st">"Enter some text: "</span>)
+find = <span class="dt">input</span>(<span class="st">"What word are you searching for?: "</span>)
+
+occurences = <span class="dv">0</span>
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(string):
+    j = i
+    <span class="kw">while</span> j &lt; <span class="dt">len</span>(string) and not string[j] == find[<span class="dv">0</span>]:
+        j += <span class="dv">1</span>
+
+    <span class="kw">if</span> j &lt; <span class="dt">len</span>(string) and string[j:j+<span class="dt">len</span>(find)] == find:
+        occurences += <span class="dv">1</span>
+    
+    i = j + <span class="dv">1</span>
+
+<span class="dt">print</span>(<span class="st">"The word '"</span> + find + <span class="st">"' occurs "</span> + <span class="dt">str</span>(occurences) + <span class="st">" times"</span>)</code></pre>
+ <h2 id="chapter-8-solutions">
+  Chapter 8 Solutions
+ </h2>
+ <h3 id="question-1-6">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes a string as input from the user, followed by a number and output each word which has a length greater than or equal to the number.
+ </p>
+ <p>
+  The string will be a series of words such as
+  <code>
+   "apple orange pear grape melon lemon"
+  </code>
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"elephant cat dog mouse bear wolf lion horse"</span>
+<span class="dv">5</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+elephant
+mouse
+horse</code></pre>
+ <p>
+  You may use the following code at the beginning of your program
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">my_words = <span class="dt">input</span>().split()
+num = <span class="dt">int</span>(<span class="dt">input</span>())
+
+<span class="co"># YOUR CODE HERE</span>
+<span class="co"># REMEMBER: my_words is a list</span></code></pre>
+ <h4 id="solution-18">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">my_words = <span class="dt">input</span>(<span class="st">"Enter words: "</span>).split()
+num = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Enter a length: "</span>))
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(my_words):
+    <span class="kw">if</span> <span class="dt">len</span>(my_words[i]) &gt;= num:
+        <span class="dt">print</span>(my_words[i])
+    i += <span class="dv">1</span></code></pre>
+ <h3 id="question-2-6">
+  Question 2
+ </h3>
+ <p>
+  Write a program that takes a string as input from the user, followed by another string (the suffix) and output each word that ends in the suffix.
+ </p>
+ <p>
+  The first string will be a series of words such as
+  <code>
+   "apples oranges pears grapes lemons melons"
+  </code>
+ </p>
+ <blockquote>
+  <p>
+   You are to use the
+   <code>
+    split()
+   </code>
+   function to split the string
+  </p>
+ </blockquote>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"apples oranges pears grapes lemons melons"</span>
+<span class="co">"es"</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+apples
+oranges
+grapes</code></pre>
+ <p>
+  Hint: Your solution should be generalized for any suffix. Don't assume the length of the suffix will be 2
+ </p>
+ <h4 id="solution-19">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">words = <span class="dt">input</span>().split()
+suffix = <span class="dt">input</span>()
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(words):
+    <span class="kw">if</span> words[i][-<span class="dt">len</span>(suffix):] == suffix:
+        <span class="dt">print</span>(words[i])
+    i += <span class="dv">1</span></code></pre>
+ <h3 id="question-3-6">
+  Question 3
+ </h3>
+ <p>
+  Write a program that builds a list of integers from user input. You should stop when the user enters
+  <code>
+   0
+  </code>
+  .
+ </p>
+ <p>
+  Your program should print out the list.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">3</span>
+<span class="dv">5</span>
+<span class="dv">6</span>
+<span class="dv">7</span>
+<span class="dv">0</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+[<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>]</code></pre>
+ <h4 id="solution-20">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">numbers = []
+
+digit = <span class="dt">int</span>(<span class="dt">input</span>())
+
+<span class="co"># Remember: all integers are truthy except 0</span>
+<span class="kw">while</span> digit:
+    numbers.append(digit)
+    digit = <span class="dt">int</span>(<span class="dt">input</span>())
+
+<span class="dt">print</span>(numbers)</code></pre>
+ <h3 id="question-4-4">
+  Question 4
+ </h3>
+ <p>
+  Building on your solution to question 3, taking a list built up from user input, ask the user for two more pieces of input. Integers this time.
+ </p>
+ <p>
+  The integers will represent indices. You are to swap the elements at the specified indices with eachother.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">6</span>
+<span class="dv">3</span>
+<span class="dv">9</span>
+<span class="dv">0</span>
+
+*********************************
+* LIST SHOULD NOW BE: [<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">9</span>] *
+*********************************
+
+<span class="dv">1</span>
+<span class="dv">2</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+[<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">3</span>]</code></pre>
+ <h4 id="solution-21">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">numbers = []
+
+digit = <span class="dt">int</span>(<span class="dt">input</span>())
+<span class="kw">while</span> digit:
+    numbers.append(digit)
+    digit = <span class="dt">int</span>(<span class="dt">input</span>())
+
+index1 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Index 1: "</span>))
+index2 = <span class="dt">int</span>(<span class="dt">input</span>(<span class="st">"Index 2: "</span>))
+
+tmp = numbers[index1]
+numbers[index1] = numbers[index2]
+numbers[index2] = tmp
+
+<span class="dt">print</span>(numbers)</code></pre>
+ <h3 id="question-5-1">
+  Question 5
+ </h3>
+ <p>
+  Write a program that builds a list of integers from user input. You program should then find the smallest of those integers and put it at the first index (
+  <code>
+   0
+  </code>
+  ) in the list. Input ends when the user inputs 0.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">10</span>
+<span class="dv">87</span>
+<span class="dv">11</span>
+<span class="dv">5</span>
+<span class="dv">65</span>
+<span class="dv">342</span>
+<span class="dv">12</span>
+<span class="dv">0</span>
+
+<span class="co"># LIST SHOULD NOW BE: [10, 87, 11, 5, 65, 342, 12]</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+[<span class="dv">5</span>, <span class="dv">87</span>, <span class="dv">11</span>, <span class="dv">10</span>, <span class="dv">65</span>, <span class="dv">342</span>, <span class="dv">12</span>]</code></pre>
+ <h4 id="solution-22">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">numbers = []
+
+digit = <span class="dt">int</span>(<span class="dt">input</span>())
+<span class="kw">while</span> digit:
+    numbers.append(digit)
+    digit = <span class="dt">int</span>(<span class="dt">input</span>())
+
+<span class="co"># Keep track of position of smallest number</span>
+smallest_index = <span class="dv">0</span>
+
+i = <span class="dv">1</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(numbers):
+    <span class="kw">if</span> numbers[i] &lt; numbers[smallest_index]:
+        smallest_index = i
+    i += <span class="dv">1</span>
+
+tmp = numbers[smallest_index]
+numbers[smallest_index] = numbers[<span class="dv">0</span>]
+numbers[<span class="dv">0</span>] = tmp
+
+<span class="dt">print</span>(numbers)</code></pre>
+ <h3 id="question-6">
+  Question 6
+ </h3>
+ <p>
+  <strong>
+   <em>
+    * THIS IS A HARD PROBLEM *
+   </em>
+  </strong>
+ </p>
+ <p>
+  Write a program that takes two
+  <em>
+   sorted lists
+  </em>
+  as input from the user and merge them together. The resulting list should also be sorted. Both of the input lists will be in increasing numerical order, the resulting list should be also.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">2</span>
+<span class="dv">6</span>
+<span class="dv">34</span>
+<span class="dv">90</span>
+<span class="dv">0</span>      <span class="co"># END OF FIRST INPUT</span>
+<span class="dv">5</span>
+<span class="dv">34</span>
+<span class="dv">34</span>
+<span class="dv">77</span>
+<span class="dv">98</span>
+<span class="dv">0</span>     <span class="co"># END OF SECOND INPUT</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+[<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">34</span>, <span class="dv">77</span>, <span class="dv">90</span>, <span class="dv">98</span>]</code></pre>
+ <p>
+  Don't assume both lists will be the same length!
+ </p>
+ <h4 id="solution-23">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Take input for first list</span>
+list1 = []
+
+digit = <span class="dt">int</span>(<span class="dt">input</span>())
+<span class="kw">while</span> digit:
+    list1.append(digit)
+    digit = <span class="dt">int</span>(<span class="dt">input</span>())
+
+<span class="co"># Take input for second list</span>
+list2 = []
+
+digit = <span class="dt">int</span>(<span class="dt">input</span>())
+<span class="kw">while</span> digit:
+    list2.append(digit)
+    digit = <span class="dt">int</span>(<span class="dt">input</span>())
+
+<span class="co"># Merge both lists</span>
+merged_list = []
+
+i = <span class="dv">0</span>
+j = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(list1) and j &lt; <span class="dt">len</span>(list2):
+    <span class="kw">if</span> list1[i] &lt; list2[j]:
+        merged_list.append(list1[i])
+        i += <span class="dv">1</span>
+    <span class="kw">else</span>:
+        merged_list.append(list2[j])
+        j += <span class="dv">1</span>
+
+<span class="co"># Handle the case were one list if longer than the other</span>
+<span class="co"># - Just append everything else in the longer list</span>
+<span class="kw">if</span> i &lt; <span class="dt">len</span>(list1):
+    <span class="kw">while</span> i &lt; <span class="dt">len</span>(list1):
+        merged_list.append(list1[i])
+        i += <span class="dv">1</span>
+<span class="kw">else</span>:
+    <span class="kw">while</span> j &lt; <span class="dt">len</span>(list2):
+        merged_list.append(list2[j])
+        j += <span class="dv">1</span>
+        
+<span class="dt">print</span>(merged_list)</code></pre>
+ <h2 id="chapter-9-solutions">
+  Chapter 9 Solutions
+ </h2>
+ <h3 id="question-1-7">
+  Question 1
+ </h3>
+ <p>
+  What is the time complexity of:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   Insertion sort
+  </li>
+  <li>
+   Selection sort
+  </li>
+ </ol>
+ <blockquote>
+  <p>
+   Give your answer in Big O notation
+  </p>
+ </blockquote>
+ <h4 id="solution-24">
+  Solution
+ </h4>
+ <p>
+  The time complexity of Insertion sort is O(n^2)
+ </p>
+ <p>
+  The time complexity of Selection sort is O(n^2)
+ </p>
+ <h3 id="question-2-7">
+  Question 2
+ </h3>
+ <p>
+  What is the space complexity of:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   Selection sort
+  </li>
+  <li>
+   Insertion sort
+  </li>
+ </ol>
+ <blockquote>
+  <p>
+   Give your answer in Big O notation
+  </p>
+ </blockquote>
+ <h4 id="solution-25">
+  Solution
+ </h4>
+ <p>
+  The space complexity of Selection sort is O(1)
+ </p>
+ <p>
+  The space complexity of Insertion sort is O(1)
+ </p>
+ <h3 id="question-3-7">
+  Question 3
+ </h3>
+ <p>
+  Give two examples of when we might use selection sort or insertion sort in the real world?
+ </p>
+ <h4 id="solution-26">
+  Solution
+ </h4>
+ <p>
+  Although the time complexities of Selection sort and Insertion sort are O(n^2), they are the algorithm of choice either when the data is nearly sorted or when the problem size is small.
+ </p>
+ <h3 id="question-4-5">
+  Question 4
+ </h3>
+ <p>
+  If we ended up in a situation in which the input was sorted but we didn't know and we try to sort the input, why might we prefer insertion sort over selection sort?
+ </p>
+ <blockquote>
+  <p>
+   You may have to go and search for the answer to this.
+  </p>
+ </blockquote>
+ <h4 id="solution-27">
+  Solution
+ </h4>
+ <p>
+  Usually, insertion sort will perform less comparisons than selection sort, depending on the degree of "sortedness" of the list. While selection sort must scan the remaining parts of the list when placing an element, insertion sort only scans as many elements as necessary. That means that when the array is already sorted or almost sorted, insertion sort performs in O(n) time.
+ </p>
+ <p>
+  One advantage of selection sort over insertion sort, is that the number of writes (swaps) is in O(n), while in insertion sort it is in O(n^2). This may be important if you are sorting on Flash memory, for example, because writes reduce the lifespan of Flash memory.
+ </p>
+ <h2 id="chapter-10-solutions">
+  Chapter 10 Solutions
+ </h2>
+ <h3 id="question-1-8">
+  Question 1
+ </h3>
+ <p>
+  Write a program that multiplies an arbitrary number of command-line arguments together. The arguments will be numbers (convert them first).
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">$ py calc.py <span class="dv">5</span> <span class="dv">99</span> <span class="dv">32</span> ....</code></pre>
+ <p>
+  To test that your solution is correct, you should get the following output
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">$ py calc.py <span class="dv">8</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">3</span> <span class="dv">2</span>
+<span class="dv">3456</span></code></pre>
+ <h4 id="solution-28">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+total = <span class="dv">1</span>
+
+i = <span class="dv">1</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(sys.argv):
+    total *= <span class="dt">int</span>(sys.argv[i])
+    i += <span class="dv">1</span>
+
+<span class="dt">print</span>(total)</code></pre>
+ <h3 id="question-2-8">
+  Question 2
+ </h3>
+ <p>
+  Write a program that reads in lines from standard input (no redirection) and outputs them to standard output (no redirection).
+ </p>
+ <h4 id="solution-29">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+line = sys.stdin.readline()
+<span class="kw">while</span> line:
+    <span class="dt">print</span>(line)
+    line = sys.stdin.readline()</code></pre>
+ <h3 id="question-3-8">
+  Question 3
+ </h3>
+ <p>
+  Write a program that reads a text file and outputs (using
+  <code>
+   print()
+  </code>
+  is fine) how many words are contained within that file. The name of the text file should be passed as a command-line argument to your script.
+ </p>
+ <p>
+  Your program shouldn't consider blank lines as words and you need not worry about punctuation. For example you can consider
+  <code>
+   "trust,"
+  </code>
+  to be a single word.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py num_words.py input.txt</code></pre>
+ <p>
+  To test that your solution is correct, use the
+  <a href="https://www.artofmanliness.com/second-inaugural-address-of-abraham-lincoln/">
+   Second Inaugural Address of Abraham Lincoln
+  </a>
+  as your input text and your program should output: 701
+ </p>
+ <h4 id="solution-30">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+filename = sys.argv[<span class="dv">1</span>]
+
+<span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+    text = f.read()
+
+words = text.split()
+<span class="dt">print</span>(<span class="dt">len</span>(words))</code></pre>
+ <h3 id="question-4-6">
+  Question 4
+ </h3>
+ <p>
+  Write a program that reads in the contents of a file. Each line will contain a word or phrase. Your program should output (using
+  <code>
+   print()
+  </code>
+  is fine) whether or not each line is a palindrome or not, "True" or "False". The name of the text file should be passed as a command-line argument to your script.
+ </p>
+ <p>
+  A palindrome is a word or phrase that is the same backwards as it is forwards. For example, "racecar" is a palindrome while "AddE" is not.
+ </p>
+ <p>
+  Your program should not be case sensitive: "Racecar" should still be considered a palindrome. Spaces should NOT effect your program either. Consider removing white space characters.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">$ py palindrome.py <span class="dt">input</span>.txt</code></pre>
+ <p>
+  To test that your solution is correct, use the following as your input text:
+ </p>
+ <pre><code>racecar
+AddE
+HmllpH
+Was it a car or a cat I saw
+Hannah
+T can arise in context where language is played wit
+Able was I ere I saw Elba
+Doc note I dissent A fast never prevents a fatness I diet on cod</code></pre>
+ <p>
+  Using the above input, your output should be:
+ </p>
+ <pre><code>True
+False
+False
+True
+True
+False
+True
+True</code></pre>
+ <h4 id="solution-31">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+filename = sys.argv[<span class="dv">1</span>]
+
+<span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+    word = f.readline().strip()
+    <span class="kw">while</span> word:
+        processed = word.replace(<span class="st">" "</span>, <span class="st">""</span>).lower()
+        <span class="kw">if</span> processed == processed[::-<span class="dv">1</span>]:
+            <span class="dt">print</span>(<span class="ot">True</span>)
+        <span class="kw">else</span>:
+            <span class="dt">print</span>(<span class="ot">False</span>)
+        word = f.readline().strip()</code></pre>
+ <h3 id="question-5-2">
+  Question 5
+ </h3>
+ <p>
+  __** THIS QUESTION IS HARD **__
+ </p>
+ <p>
+  Similar to question 3, write a program that reads a text file. This time your program should output how many
+  <em>
+   unique
+  </em>
+  words are contained within the file.
+ </p>
+ <p>
+  This time you do need to care about punctuation and your solution should not be case sensitive. For example
+  <code>
+   "trust"
+  </code>
+  and
+  <code>
+   "trust,"
+  </code>
+  and
+  <code>
+   "Trust"
+  </code>
+  should be considered the same word, therefore only one occurrence of that word should be recorded as unique and if you were to come across
+  <code>
+   "trust"
+  </code>
+  again, then don't record it.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">$ py unique_words.py <span class="dt">input</span>.txt</code></pre>
+ <p>
+  To test if your solution is correct, use the
+  <a href="https://www.artofmanliness.com/second-inaugural-address-of-abraham-lincoln/">
+   Second Inaugural Address of Abraham Lincoln
+  </a>
+  as your input text and your program should output: 343
+ </p>
+ <p>
+  <strong>
+   Hint 1
+  </strong>
+  : Take a look at the
+  <code>
+   string
+  </code>
+  module. In particular,
+  <code>
+   string.punctuation
+  </code>
+  . If you import this, you may be able to use it to your advantage. Import it as follows
+  <code>
+   from string import punctuation
+  </code>
+  . Figure out how
+  <code>
+   string.punctuation
+  </code>
+  works.
+ </p>
+ <p>
+  <strong>
+   Hint 2
+  </strong>
+  : The solution to this exercise may make use of some string methods that we looked at back in the strings chapter.
+ </p>
+ <p>
+  <strong>
+   Hint 3
+  </strong>
+  : Making use of a second list might be a good idea!
+ </p>
+ <h4 id="solution-32">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+<span class="co"># punctuation is a string of all punctuation characters</span>
+<span class="co"># punctuation == !"#$%&amp;'()*+, -./:;&lt;=&gt;?@[\]^_`{|}~</span>
+<span class="ch">from</span> string <span class="ch">import</span> punctuation <span class="ch">as</span> punc
+
+filename = sys.argv[<span class="dv">1</span>]
+
+<span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+    <span class="co"># Read in text and strip any newline characters.</span>
+    text = f.read().strip()
+
+i = <span class="dv">0</span>
+<span class="kw">while</span> i &lt; <span class="dt">len</span>(punc):
+    <span class="co"># Replace all punctuation (e.g 'trust' and 'Trust,' are now 'trust' and 'Trust')</span>
+    text = text.replace(punc[i], <span class="st">""</span>)
+    i += <span class="dv">1</span>
+
+<span class="co"># Convert everything to lowercase (e.g 'trust' and 'Trust' are now both 'trust')</span>
+text = text.lower()
+
+words = text.split()
+
+<span class="dt">print</span>(<span class="dt">len</span>(words))</code></pre>
+ <h2 id="chapter-11-solutions">
+  Chapter 11 Solutions
+ </h2>
+ <h3 id="question-1-9">
+  Question 1
+ </h3>
+ <p>
+  Write a program that reads a file. The file will contain a number of items stocked in a shop and the number of each item available. Your program should parse the file and build a dictionary from this it, then output the stock available in alphabetical order and in a specific format. You can use the following as your input text file:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">Oranges <span class="dv">12</span>
+Apples <span class="dv">10</span>
+Pears <span class="dv">22</span>
+Milk <span class="dv">7</span>
+Water Bottles <span class="dv">33</span>
+Chocolate Bars <span class="dv">11</span>
+Energy Drinks <span class="dv">8</span></code></pre>
+ <p>
+  Your program output should look like this:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">        Apples : <span class="dv">10</span>
+Chocolate Bars : <span class="dv">11</span>
+ Energy Drinks : <span class="dv">8</span>
+          Milk : <span class="dv">7</span>
+       Oranges : <span class="dv">12</span>
+         Pears : <span class="dv">22</span>
+ Water Bottles : <span class="dv">33</span></code></pre>
+ <p>
+  <em>
+   Hint
+  </em>
+  : Find out the length of the longest key.
+ </p>
+ <h4 id="solution-33">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+<span class="ch">from</span> string <span class="ch">import</span> punctuation <span class="ch">as</span> punc
+
+inventory = {}
+
+filename = sys.argv[<span class="dv">1</span>]
+
+<span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+    <span class="co"># Read in data line by line</span>
+    <span class="kw">for</span> line in f.readlines():
+        tokens = line.strip().split()
+
+        <span class="co"># Each line is now a list called tokens e.g ['Energy', 'Drinks', '8']</span>
+
+        <span class="co"># Last element in the list is the value, every thing else is the key</span>
+        stock = tokens[-<span class="dv">1</span>]
+        product_name = <span class="st">" "</span>.join(tokens[:-<span class="dv">1</span>])
+
+        inventory[product_name] = stock
+
+<span class="co"># Find longest key for formatting</span>
+longest_key = <span class="dv">0</span>
+<span class="kw">for</span> product in inventory.keys():
+    <span class="kw">if</span> <span class="dt">len</span>(product) &gt; longest_key:
+        longest_key = <span class="dt">len</span>(product)
+
+<span class="co"># Format the output with sorted keys</span>
+<span class="kw">for</span> (product, stock) in <span class="dt">sorted</span>(inventory.items()):
+    <span class="dt">print</span>(<span class="st">"{:&gt;{}s} : {}"</span>.<span class="dt">format</span>(product, longest_key, stock))</code></pre>
+ <h3 id="question-2-9">
+  Question 2
+ </h3>
+ <p>
+  Write a program that reads a text file. The file is a list of contact details for people. With each contact you're given the name, phone number and email address. Your dictionary should be a mapping from contact names to email and phone number for that contact. Your program should then ask for user input. The input should be a single name. If the name can be found in the contact list then output the name and contact details for that person, otherwise output
+  <code>
+   No contact with that name
+  </code>
+  .
+ </p>
+ <p>
+  The contact list file is:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">Liam <span class="dv">345-45643454</span> liam@mymail.com
+Noah <span class="dv">324-43576413</span> noah.doe@gmail.com
+Tony <span class="dv">987-56543239</span> tony@hr.mycompany.com
+Bert <span class="dv">654-99275234</span> bert.hertz@support.hertz.co.uk</code></pre>
+ <p>
+  If the user then enters the following names in this order:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">Tony
+Noah
+John
+Annie
+Bert</code></pre>
+ <p>
+  Your program should give the following output:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">Name: Tony
+Email: tony@hr.mycompany.com
+Phone: <span class="dv">987-56543239</span>
+
+Name: Noah
+Email: noah.doe@gmail.com
+Phone: <span class="dv">324-43576413</span>
+
+No contact <span class="kw">with</span> that name
+
+No contact <span class="kw">with</span> that name
+
+Name: Bert
+Email: bert.hertz@support.hertz.co.uk
+Phone: <span class="dv">654-99275234</span></code></pre>
+ <p>
+  These details should be printed one by one as the user enters the names, not in bulk as I have above.
+ </p>
+ <h4 id="solution-34">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+<span class="ch">from</span> string <span class="ch">import</span> punctuation <span class="ch">as</span> punc
+
+contacts = {}
+
+filename = sys.argv[<span class="dv">1</span>]
+
+<span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+    <span class="co"># Read in data line by line</span>
+    <span class="kw">for</span> line in f.readlines():
+        tokens = line.strip().split()
+
+        name = tokens[<span class="dv">0</span>]
+        number = tokens[<span class="dv">1</span>]
+        email = tokens[<span class="dv">2</span>]
+
+        contacts[name] = {<span class="st">"number"</span>: number, <span class="st">"email"</span>: email}
+
+lookup_name = <span class="dt">input</span>()
+<span class="kw">while</span> lookup_name:
+    <span class="kw">if</span> lookup_name in contacts:
+        <span class="dt">print</span>(<span class="st">"Name: "</span> + lookup_name)
+        <span class="dt">print</span>(<span class="st">"Email: "</span> + contacts[lookup_name][<span class="st">"email"</span>])
+        <span class="dt">print</span>(<span class="st">"Phone: "</span> + contacts[lookup_name][<span class="st">"number"</span>])
+    <span class="kw">else</span>:
+        <span class="dt">print</span>(<span class="st">"No contact with that name exists"</span>)
+    lookup_name = <span class="dt">input</span>()</code></pre>
+ <h3 id="question-3-9">
+  Question 3
+ </h3>
+ <p>
+  In the previous chapter we tried to count how many words were contained within a piece of text. In this question you are to do the same except you should output how many times each word occurred in the text.
+ </p>
+ <p>
+  Again, punctuation matters. This time we want to strip any punctuation surrounding a word. Your program should not be case sensitive either,
+  <code>
+   Hello
+  </code>
+  and
+  <code>
+   hello
+  </code>
+  should count as the same word. However, something like
+  <code>
+   John
+  </code>
+  and
+  <code>
+   John's
+  </code>
+  should not be counted as the same word. In other words, you are striping leading and trailing punctuation characters.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">$ py dict_count.py <span class="dt">input</span>.txt</code></pre>
+ <p>
+  To test that your solution is correct, use the
+  <a href="https://www.artofmanliness.com/second-inaugural-address-of-abraham-lincoln/">
+   Second Inaugural Address of Abraham Lincoln
+  </a>
+  as your input text and your program should output (this is a sample from the out):
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">.
+.
+.
+the : <span class="dv">58</span>
+oath : <span class="dv">1</span>
+of : <span class="dv">22</span>
+presidential : <span class="dv">1</span>
+office : <span class="dv">1</span>
+there : <span class="dv">2</span>
+is : <span class="dv">6</span>
+less : <span class="dv">2</span>
+occasion : <span class="dv">2</span>
+<span class="kw">for</span> : <span class="dv">9</span>
+an : <span class="dv">3</span>
+extended : <span class="dv">1</span>
+address : <span class="dv">2</span>
+than : <span class="dv">4</span>
+.
+.
+.</code></pre>
+ <p>
+  You need not format the output. The length of your dictionary should be
+  <code>
+   701
+  </code>
+  .
+ </p>
+ <h4 id="solution-35">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+<span class="ch">from</span> string <span class="ch">import</span> punctuation <span class="ch">as</span> punc
+
+filename = sys.argv[<span class="dv">1</span>]
+
+word_count = {}
+
+<span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+    text = f.read().strip()
+
+text = text.lower()
+words = text.split()
+
+<span class="kw">for</span> word in words:
+    <span class="kw">if</span> word[<span class="dv">0</span>] in punc:
+        word = word.replace(word[<span class="dv">0</span>], <span class="st">""</span>)
+    <span class="kw">elif</span> word[-<span class="dv">1</span>] in punc:
+        word = word.replace(word[-<span class="dv">1</span>], <span class="st">""</span>)
+
+    <span class="kw">if</span> word not in word_count:
+        word_count[word] = <span class="dv">1</span>
+    <span class="kw">else</span>:
+        word_count[word] += <span class="dv">1</span>
+
+<span class="kw">for</span> word, count in word_count.items():
+    <span class="dt">print</span>(word + <span class="st">" : "</span> + <span class="dt">str</span>(count))</code></pre>
+ <h3 id="question-4-7">
+  Question 4
+ </h3>
+ <p>
+  Write a program that takes two dictionaries and outputs their intersection. The intersection of two dictionaries should be a third dictionary that contains key-value pairs that are present in both of the other two dictionaries. You can hard code these two dictionaries in. They don't need to be read from anywhere.
+ </p>
+ <p>
+  Run your script as follows:
+ </p>
+ <pre><code>$ py intersection.py </code></pre>
+ <p>
+  To test if your solution is correct, you can run your program with the two following dictionaries:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">d1 = {<span class="st">"k1"</span>: <span class="ot">True</span>, <span class="st">"k2"</span>: <span class="ot">True</span>, <span class="st">"k3"</span>: <span class="ot">True</span>, <span class="st">"k4"</span>: <span class="ot">True</span>}
+d2 = {<span class="st">"k6"</span>: <span class="ot">True</span>, <span class="st">"k2"</span>: <span class="ot">True</span>, <span class="st">"k5"</span>: <span class="ot">True</span>, <span class="st">"k1"</span>: <span class="ot">True</span>, <span class="st">"k8"</span>: <span class="ot">True</span>, <span class="st">"k4"</span>: <span class="ot">True</span>}</code></pre>
+ <p>
+  Your program should output the following dictionary:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">intersection = {<span class="st">"k2"</span>: <span class="ot">True</span>, <span class="st">"k1"</span>: <span class="ot">True</span>, <span class="st">"k4"</span>: <span class="ot">True</span>}</code></pre>
+ <h4 id="solution-36">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">d1 = {<span class="st">"k1"</span>: <span class="ot">True</span>, <span class="st">"k2"</span>: <span class="ot">True</span>, <span class="st">"k3"</span>: <span class="ot">True</span>, <span class="st">"k4"</span>: <span class="ot">True</span>}
+d2 = {<span class="st">"k6"</span>: <span class="ot">True</span>, <span class="st">"k2"</span>: <span class="ot">True</span>, <span class="st">"k5"</span>: <span class="ot">True</span>, <span class="st">"k1"</span>: <span class="ot">True</span>, <span class="st">"k8"</span>: <span class="ot">True</span>, <span class="st">"k4"</span>: <span class="ot">True</span>}
+
+intersection = {}
+
+<span class="kw">for</span> key in d1.keys():
+    <span class="kw">if</span> key in d2:
+        intersection[key] = <span class="ot">True</span>
+
+<span class="dt">print</span>(intersection)</code></pre>
+ <h2 id="chapter-12-solutions">
+  Chapter 12 Solutions
+ </h2>
+ <h3 id="question-1-10">
+  Question 1
+ </h3>
+ <p>
+  Write a module named
+  <code>
+   sorting.py
+  </code>
+  that contains functions that implement both selection and insertion sort i.e your module (
+  <code>
+   sorting.py
+  </code>
+  ) should contain a
+  <code>
+   selection_sort(a)
+  </code>
+  function and an
+  <code>
+   insertion_sort(a)
+  </code>
+  function. Your function should return the values,
+  <strong>
+   not
+  </strong>
+  print them.
+ </p>
+ <p>
+  Your module should be imported and run as follows in another script called
+  <code>
+   test.py
+  </code>
+  :
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sorting
+
+a = [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>]
+<span class="dt">print</span>(sorting.selection_sort(a))
+a = [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>]
+<span class="dt">print</span>(sorting.insertion_sort(a))</code></pre>
+ <pre><code>$ py test.py
+[2, 3, 5, 6, 7, 8]
+[2, 3, 5, 6, 7, 8]</code></pre>
+ <h4 id="solution-37">
+  Solution
+ </h4>
+ <h5 id="sorting.py">
+  sorting.py
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> insertion_sort(lst):
+    i = <span class="dv">1</span>
+    <span class="kw">while</span> i &lt; <span class="dt">len</span>(lst):
+        v = lst[i]
+        p = i
+        <span class="kw">while</span> p &gt; <span class="dv">0</span> and v &lt; lst[p<span class="dv">-1</span>]:
+            lst[p] = lst[p<span class="dv">-1</span>]
+            p -= <span class="dv">1</span>
+        lst[p] = v
+        i += <span class="dv">1</span>
+    <span class="kw">return</span> lst
+
+<span class="kw">def</span> selection_sort(lst):
+    i = <span class="dv">0</span>
+    <span class="kw">while</span> i &lt; <span class="dt">len</span>(lst):
+        p = i
+        j = i + <span class="dv">1</span>
+        <span class="kw">while</span> j &lt; <span class="dt">len</span>(lst):
+            <span class="kw">if</span> lst[j] &lt; lst[p]:
+                p = j
+            j += <span class="dv">1</span>
+        
+        tmp = lst[p]
+        lst[p] = lst[i]
+        lst[i] = tmp
+        i += <span class="dv">1</span>
+    <span class="kw">return</span> lst
+
+<span class="kw">def</span> main():
+    test_list = [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">22</span>, <span class="dv">12</span>]
+    <span class="dt">print</span>(insertion_sort(test_list))
+    test_list = [<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">22</span>, <span class="dv">12</span>]
+    <span class="dt">print</span>(selection_sort(test_list))
+    
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h5 id="test.py">
+  test.py
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sorting
+
+a = [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>]
+<span class="dt">print</span>(sorting.selection_sort(a))
+a = [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>]
+<span class="dt">print</span>(sorting.insertion_sort(a))</code></pre>
+ <h3 id="question-2-10">
+  Question 2
+ </h3>
+ <p>
+  Write a module called
+  <code>
+   arithmetic.py
+  </code>
+  . This module should include the following functions:
+ </p>
+ <ul>
+  <li>
+   <code>
+    add()
+   </code>
+  </li>
+  <li>
+   <code>
+    multiply()
+   </code>
+  </li>
+  <li>
+   <code>
+    divide()
+   </code>
+  </li>
+  <li>
+   <code>
+    subtract()
+   </code>
+  </li>
+ </ul>
+ <p>
+  The
+  <code>
+   add()
+  </code>
+  ,
+  <code>
+   multiply()
+  </code>
+  and
+  <code>
+   subtract()
+  </code>
+  functions should be able to handle an arbitrary number of arguments.
+  <code>
+   divide()
+  </code>
+  should only take 2 arguments. Your function should return the calculated values,
+  <strong>
+   not
+  </strong>
+  print them.
+ </p>
+ <p>
+  Your module should be imported and run as follows in another script called
+  <code>
+   test.py
+  </code>
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> arithmetic <span class="ch">import</span> *
+
+<span class="dt">print</span>(add(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>))
+<span class="dt">print</span>(add(<span class="dv">3</span>, <span class="dv">2</span>))
+
+<span class="dt">print</span>(subtract(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>))
+<span class="dt">print</span>(subtract(<span class="dv">3</span>, <span class="dv">2</span>))
+
+<span class="dt">print</span>(divide(<span class="dv">6</span>, <span class="dv">3</span>))
+
+<span class="dt">print</span>(multiply(<span class="dv">2</span>, <span class="dv">3</span>))
+<span class="dt">print</span>(multiply(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>)</code></pre>
+ <pre><code>$ py test.py
+22
+5
+-18
+1
+2
+6
+18</code></pre>
+ <h4 id="solution-38">
+  Solution
+ </h4>
+ <h5 id="arithmetic.py">
+  arithmetic.py
+ </h5>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add(*argv):
+    total = <span class="dv">0</span>
+    <span class="kw">for</span> arg in argv:
+        total += arg
+    <span class="kw">return</span> total
+
+<span class="kw">def</span> multiply(*argv):
+    total = <span class="dv">1</span>
+    <span class="kw">for</span> arg in argv:
+        total *= arg
+    <span class="kw">return</span> total
+
+<span class="kw">def</span> divide(arg1, arg2):
+    <span class="kw">return</span> arg1 // arg2
+
+<span class="kw">def</span> subtract(*argv):
+    total = argv[<span class="dv">0</span>]
+    i = <span class="dv">1</span>
+    <span class="kw">while</span> i &lt; <span class="dt">len</span>(argv):
+        total = total - argv[i]
+        i += <span class="dv">1</span>
+    <span class="kw">return</span> total
+
+<span class="kw">def</span> main():
+    <span class="dt">print</span>(add(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>))
+    <span class="dt">print</span>(subtract(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>))
+    <span class="dt">print</span>(divide(<span class="dv">6</span>, <span class="dv">3</span>))
+    <span class="dt">print</span>(multiply(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>))
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-3-10">
+  Question 3
+ </h3>
+ <p>
+  Write a function called
+  <code>
+   length()
+  </code>
+  that mimics the
+  <code>
+   len()
+  </code>
+  function. Your function should work for strings, dictionaries and lists.
+  <code>
+   length()
+  </code>
+  should only take 1 argument and return the length of the data-structure passed to it.
+ </p>
+ <p>
+  Your function should be tested with the following:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">a = [<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="dt">print</span>(length(a))
+
+a = []
+<span class="dt">print</span>(length(a))
+
+d = {}
+<span class="dt">print</span>(length(d))
+
+d = {<span class="st">"one"</span>: <span class="ot">True</span>, <span class="st">"two"</span>: <span class="ot">True</span>}
+<span class="dt">print</span>(length(d))
+
+s = <span class="st">"This is a string"</span>
+<span class="dt">print</span>(length(s))
+
+s = <span class="st">""</span>
+<span class="dt">print</span>(length(s))</code></pre>
+ <pre><code>$ py test.py
+6
+0
+0
+2
+16
+0</code></pre>
+ <h4 id="solution-39">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> length(iterable):
+    length = <span class="dv">0</span>
+    <span class="kw">for</span> x in iterable:
+        length += <span class="dv">1</span>
+    <span class="kw">return</span> length</code></pre>
+ <h3 id="question-4-8">
+  Question 4
+ </h3>
+ <p>
+  Write a function called
+  <code>
+   fib()
+  </code>
+  that calculates and returns the n-th Fibonacci number. Your function should take 1 argument, the Fibonacci number you want to calculate.
+ </p>
+ <p>
+  Your function should be tested with the following:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span>(fib(<span class="dv">3</span>))
+<span class="dt">print</span>(fib(<span class="dv">0</span>))
+<span class="dt">print</span>(fib(<span class="dv">1</span>))
+<span class="dt">print</span>(fib(<span class="dv">10</span>))
+<span class="dt">print</span>(fib(<span class="dv">13</span>))</code></pre>
+ <pre><code>$ py test.py
+3
+1
+1
+89
+377</code></pre>
+ <p>
+  <strong>
+   Remember
+  </strong>
+  :
+  <br/>
+  <span class="math">
+   <em>
+    F
+   </em>
+   <sub>
+    <em>
+     n
+    </em>
+   </sub>
+   =
+   <em>
+    F
+   </em>
+   <sub>
+    <em>
+     n
+    </em>
+    − 1
+   </sub>
+   +
+   <em>
+    F
+   </em>
+   <sub>
+    <em>
+     n
+    </em>
+    − 2
+   </sub>
+  </span>
+  <br/>
+ </p>
+ <p>
+  <br/>
+  <span class="math">
+   <em>
+    F
+   </em>
+   <sub>
+    0
+   </sub>
+   = 1,
+   <em>
+    F
+   </em>
+   <sub>
+    1
+   </sub>
+   = 1
+  </span>
+  <br/>
+ </p>
+ <h4 id="solution-40">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fib(n):
+    n2 = <span class="dv">1</span>
+    n1 = <span class="dv">1</span>
+
+    <span class="kw">if</span> n &lt;= <span class="dv">0</span>:
+        <span class="kw">return</span> <span class="dv">1</span>
+    <span class="kw">elif</span> n == <span class="dv">1</span>:
+        <span class="kw">return</span> <span class="dv">1</span>
+    <span class="kw">else</span>:
+        count = <span class="dv">0</span>
+        <span class="kw">while</span> count &lt; n:
+            next_term = n1 + n2
+            n2 = n1
+            n1 = next_term
+            count += <span class="dv">1</span>
+        <span class="kw">return</span> n2</code></pre>
+ <h3 id="question-5-3">
+  Question 5
+ </h3>
+ <p>
+  Write a function called
+  <code>
+   read_file()
+  </code>
+  which takes a single argument, a filename (as a string), and returns the contents of the file in list form with each element in the list being a single line from the file.
+ </p>
+ <p>
+  Your function should be called as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">lines = read_file(<span class="st">"input.txt"</span>)</code></pre>
+ <h4 id="solution-41">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> read_file(filename):
+    <span class="kw">with</span> <span class="dt">open</span>(filename, <span class="st">"r"</span>) <span class="ch">as</span> f:
+        <span class="kw">return</span> f.readlines()</code></pre>
+ <h3 id="question-6-1">
+  Question 6
+ </h3>
+ <p>
+  Write a function
+  <strong>
+   procedure
+  </strong>
+  called
+  <code>
+   rep_all()
+  </code>
+  that takes 3 arguments, a list of integers and 2 numbers. Your procedure should replace all occurrences of the first number with the second.
+ </p>
+ <p>
+  Calling your function as follows and printing the list afterwards should produce the following:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">a = [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>]
+rep_all(a, <span class="dv">3</span>, <span class="dv">10</span>)
+<span class="dt">print</span>(a)</code></pre>
+ <pre><code>$ py test.py
+[4, 2, 10, 10, 7, 8]</code></pre>
+ <h4 id="solution-42">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> rep_all(lst, first, second):
+    <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dt">len</span>(lst)):
+        <span class="kw">if</span> lst[i] == first:
+            lst[i] = second
+    <span class="kw">return</span> lst</code></pre>
+ <h2 id="chapter-13-solutions">
+  Chapter 13 Solutions
+ </h2>
+ <h3 id="question-1-11">
+  Question 1
+ </h3>
+ <p>
+  Answer the following questions:
+ </p>
+ <ul>
+  <li>
+   Why must we add 1 to
+   <code>
+    low
+   </code>
+   when updating it's value?
+  </li>
+  <li>
+   What is the runtime complexity of Binary Search
+  </li>
+  <li>
+   What is the space complexity of Binary Search?
+  </li>
+ </ul>
+ <h4 id="solution-43">
+  Solution
+ </h4>
+ <ul>
+  <li>
+   We must add
+   <code>
+    1
+   </code>
+   when updating the low value because if
+   <code>
+    low == mid
+   </code>
+   , we will end up in an infinite loop and that is bad news!
+  </li>
+  <li>
+   The runtime complexity of Binary Search is
+   <em>
+    O
+   </em>
+   (
+   <em>
+    l
+    <strong>
+     o
+    </strong>
+    g
+   </em>
+   (
+   <em>
+    n
+   </em>
+   ))
+  </li>
+  <li>
+   The space complexity of Binary Search is O(1)
+  </li>
+ </ul>
+ <h3 id="question-2-11">
+  Question 2
+ </h3>
+ <p>
+  Using what you've learned in this chapter, write a function called
+  <code>
+   insert()
+  </code>
+  that uses an efficient algorithm (hint, hint...) and takes a list and an element as input and returns the index at which that element should be inserted into the list.
+ </p>
+ <p>
+  For example, calling the insert function as such should return the following:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">insert([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>], <span class="dv">2</span>)
+
+<span class="co"># RETURNS</span>
+<span class="dv">1</span>              <span class="co"># i.e. 2 should be inserted at index 1</span></code></pre>
+ <h4 id="solution-44">
+  Solution
+ </h4>
+ <p>
+  This is a bit of trick question, the solution to this problem is the binary search algorithm! Not only does binary search tell you where an element is in the list, if it isn't there, it tells you what index to insert the element into in order to keep the list sorted!
+ </p>
+ <h3 id="question-3-11">
+  Question 3
+ </h3>
+ <p>
+  Again, using what you've learned, write a function called
+  <code>
+   contains()
+  </code>
+  that takes two arguments, a list and an element and returns whether or not that element is contained within that list.
+ </p>
+ <p>
+  For example:
+ </p>
+ <pre><code>contains([1, 3, 5, 7], 3)
+
+# RETURNS
+True
+------------------------------
+contains([1, 3, 5, 7], 2)
+
+#RETURNS
+False</code></pre>
+ <h4 id="solution-45">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> binary_search(arr, elem):
+    low = <span class="dv">0</span>
+    high = <span class="dt">len</span>(arr)
+    
+    <span class="kw">while</span> low &lt; high:
+        mid = (low + high) // <span class="dv">2</span>
+        
+        <span class="kw">if</span> arr[mid] &lt; elem:
+            low = mid + <span class="dv">1</span>
+        <span class="kw">else</span>:               
+            high = mid
+    <span class="kw">return</span> low
+
+<span class="kw">def</span> contains(arr, elem):
+    index = binary_search(arr, elem)
+    <span class="kw">if</span> arr[index] == elem:
+        <span class="kw">return</span> <span class="ot">True</span>
+    <span class="kw">return</span> <span class="ot">False</span></code></pre>
+ <h2 id="chapter-14-solutions">
+  Chapter 14 Solutions
+ </h2>
+ <h3 id="question-2-12">
+  Question 2
+ </h3>
+ <p>
+  When should we use the following?
+ </p>
+ <ul>
+  <li>
+   <code>
+    raise
+   </code>
+  </li>
+  <li>
+   <code>
+    finally
+   </code>
+  </li>
+  <li>
+   <code>
+    try
+   </code>
+   and
+   <code>
+    except
+   </code>
+  </li>
+  <li>
+   What is a precondition?
+  </li>
+  <li>
+   What is a postcondition?
+  </li>
+ </ul>
+ <h4 id="solution-46">
+  Solution
+ </h4>
+ <ul>
+  <li>
+   <p>
+    Sometimes in our programs we want to raise an exception if a specific condition occurs. This condition might not be one that will crash our program, but we as programmers don't want it occurring.
+   </p>
+  </li>
+  <li>
+   You can use
+   <code>
+    finally
+   </code>
+   to make sure files or resources are closed or released regardless of whether an exception occurs,
+   <em>
+    even if you don't catch the exception.
+   </em>
+   We use it to clean up our code!
+  </li>
+  <li>
+   We use try-except to catch errors that may arise in our code which allows us to handle them appropriately rather than our program just crashing.
+  </li>
+  <li>
+   A precondition is a condition or predicate that must always be true just prior to the execution of some section of code.
+  </li>
+  <li>
+   <p>
+    A postcondition of an operation is a condition that should be satisfied after the operation has been performed.
+   </p>
+  </li>
+ </ul>
+ <h2 id="chapter-15-solutions">
+  Chapter 15 Solutions
+ </h2>
+ <h3 id="question-1-12">
+  Question 1
+ </h3>
+ <p>
+  During a study, a number of software engineers were asked what their top 3 favourite programming languages were.
+ </p>
+ <p>
+  Write a program that determines the number of unique languages given as answers during the study. Below is the input file and each line is an answer given by a software engineer:
+ </p>
+ <pre><code>java python c++
+python scala c
+java haskell javascript
+javascript python c
+c c++ c#
+c# haskell java</code></pre>
+ <p>
+  Your program should be run as follows and give the following output:
+ </p>
+ <pre><code>$ py unique.py input.txt
+8</code></pre>
+ <h4 id="solution-47">
+  Solution
+ </h4>
+ <p>
+  I'm using a set method called
+  <code>
+   update()
+  </code>
+  here. This method accepts another iterable (a list in the case below) and adds the elements of the iterable to the set. Remember, sets cannot contain the same element twice!
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+<span class="kw">with</span> <span class="dt">open</span>(sys.argv[<span class="dv">1</span>], <span class="st">"r"</span>) <span class="ch">as</span> f:
+    unique_languages = <span class="dt">set</span>()
+    <span class="kw">for</span> line in f.readlines():
+        langs = line.strip().split()
+        unique_languages.update(langs)
+
+<span class="dt">print</span>(<span class="dt">len</span>(unique_languages))</code></pre>
+ <h3 id="question-2-13">
+  Question 2
+ </h3>
+ <p>
+  Write a list comprehension that creates a list containing all the odd numbers between 0 and 10,000.
+ </p>
+ <h4 id="solution-48">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">odd_nums = [num <span class="kw">for</span> num in <span class="dt">range</span>(<span class="dv">0</span>, <span class="dv">10000</span>) <span class="kw">if</span> num % <span class="dv">2</span>]</code></pre>
+ <h3 id="question-3-12">
+  Question 3
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words that are longer than or equal to 18 characters. You should use a list comprehension to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py long_words.py &lt; dictionary.txt</code></pre>
+ <h4 id="solution-49">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+long_words = [word.strip() <span class="kw">for</span> word in sys.stdin <span class="kw">if</span> <span class="dt">len</span>(word.strip()) &gt;= <span class="dv">18</span>]
+
+<span class="dt">print</span>(long_words)</code></pre>
+ <h3 id="question-4-9">
+  Question 4
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words that contain every vowel (a, e, i, o and u). For example, the word "equation" should be in the list. You should make good use of a list comprehension to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py vowels.py &lt; dictionary.txt</code></pre>
+ <h4 id="solution-50">
+  Solution
+ </h4>
+ <p>
+  Here I use the
+  <code>
+   all()
+  </code>
+  function. This function returns true when all it's arguments elements are Truthy.
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+vowels = <span class="dt">set</span>(<span class="st">'aeiou'</span>)
+
+all_vowels = [word.strip() <span class="kw">for</span> word in sys.stdin <span class="kw">if</span> <span class="dt">all</span>([char in word <span class="kw">for</span> char in vowels])]
+
+<span class="dt">print</span>(all_vowels)</code></pre>
+ <h3 id="question-5-4">
+  Question 5
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words that contain exactly 4 a's and end in 'ian'. For example, the word "alabastrian" should be in the list. You should make good use of a list comprehension to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py two_conditions.py &lt; dictionary.txt</code></pre>
+ <h4 id="solution-51">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+words = [word.strip() <span class="kw">for</span> word in sys.stdin <span class="kw">if</span> word.count(<span class="st">"a"</span>) == <span class="dv">4</span> and word.strip()[-<span class="dv">3</span>:] == <span class="st">"ian"</span>]
+
+<span class="dt">print</span>(words)</code></pre>
+ <h3 id="question-5-5">
+  Question 5
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words in the dictionary whose reverse also occurs. For example, the words "lager" and "regal" should be in the list. You should make good use of comprehensions to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">$ py reverse.py &lt; dictionary.txt</code></pre>
+ <p>
+  <strong>
+   Tip
+  </strong>
+  : You may want to think about your solution for this. Your program may take a very long time to run if you don't implement a more efficient solution!
+ </p>
+ <h4 id="solution-52">
+  Solution
+ </h4>
+ <p>
+  I firstly read all words into a set using a set comprehension, why? Set comprehensions work the same way as list comprehensions but we swap the square brackets for curly braces. Let's think about why this is a good idea. The dictionary contains 370,103 words. This means we have a list of 370,103 words. If we did not build a set and built a list instead, then we would have to search the list, word by word for each word in the list. That is an O(n^2) operation or:
+  <br/>
+  <span class="math">
+   370103
+   <sup>
+    2
+   </sup>
+  </span>
+  <br/>
+  In other words, we would have to go through the list, 136,979,191,449 times. That's almost 137 billion times! Our program would take far too long to run.
+ </p>
+ <p>
+  When we check if a word is in a set however, we find out straight away since set membership checks are O(1) operations, therefore the runtime of building our
+  <code>
+   reverse_words
+  </code>
+  list is O(n) which is much faster!
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> sys
+
+words = {word.strip() <span class="kw">for</span> word in sys.stdin}
+
+reverse_words = [word <span class="kw">for</span> word in words <span class="kw">if</span> word[::-<span class="dv">1</span>] in words]
+
+<span class="dt">print</span>(reverse_words)</code></pre>
+ <h2 id="chapter-16-solutions">
+  Chapter 16 Solutions
+ </h2>
+ <h3 id="question-1-13">
+  Question 1
+ </h3>
+ <p>
+  What is:
+ </p>
+ <ul>
+  <li>
+   Recursion?
+  </li>
+  <li>
+   Memoization?
+  </li>
+ </ul>
+ <h4 id="solution-53">
+  Solution
+ </h4>
+ <ul>
+  <li>
+   A
+   <em>
+    recursive
+   </em>
+   solution is one where the solution to a problem is expressed as an operation on a
+   <em>
+    simplified
+   </em>
+   version of the
+   <em>
+    same
+   </em>
+   problem.
+  </li>
+  <li>
+   Memoization is an
+   <em>
+    optimization
+   </em>
+   technique used to speed up our programs by
+   <em>
+    caching
+   </em>
+   the results of expensive function calls.
+  </li>
+ </ul>
+ <h3 id="question-2-14">
+  Question 2
+ </h3>
+ <p>
+  Write a recursive function that adds up all the numbers from 1 to 100.
+ </p>
+ <h4 id="solution-54">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add(n):
+    <span class="kw">if</span> n == <span class="dv">0</span>:
+        <span class="kw">return</span> <span class="dv">0</span>
+    <span class="kw">return</span> n + add(n<span class="dv">-1</span>)
+
+<span class="kw">def</span> main():
+    <span class="dt">print</span>(add(<span class="dv">100</span>))
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-3-13">
+  Question 3
+ </h3>
+ <p>
+  Write a recursive function that takes an integer as an argument and returns whether or not that integer is a power of 2. Your function should return
+  <code>
+   True
+  </code>
+  or
+  <code>
+   False
+  </code>
+ </p>
+ <h4 id="solution-55">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> power_of_two(n):
+    <span class="kw">if</span> n == <span class="dv">1</span> or n == <span class="dv">0</span>:
+        <span class="kw">return</span> <span class="ot">True</span>
+    <span class="kw">elif</span> n &lt; <span class="dv">2</span>:
+        <span class="kw">return</span> <span class="ot">False</span>
+    <span class="kw">return</span> power_of_two(n/<span class="dv">2</span>)
+
+<span class="kw">def</span> main():
+    <span class="dt">print</span>(power_of_two(<span class="dv">512</span>))
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-4-10">
+  Question 4
+ </h3>
+ <p>
+  Write a recursive function that takes a string as an argument and returns whether or not that string is a palindrome. Your function should return
+  <code>
+   True
+  </code>
+  or
+  <code>
+   False
+  </code>
+  .
+ </p>
+ <h4 id="solution-56">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> is_palindrome(string):
+    <span class="kw">if</span> <span class="dt">len</span>(string) &lt;= <span class="dv">1</span>:
+        <span class="kw">return</span> <span class="ot">True</span>
+    <span class="kw">if</span> string[<span class="dv">0</span>] == string[-<span class="dv">1</span>]:
+        <span class="kw">return</span> is_palindrome(string[<span class="dv">1</span>:-<span class="dv">1</span>])
+    <span class="kw">return</span> <span class="ot">False</span>
+
+<span class="kw">def</span> main():
+    <span class="dt">print</span>(is_palindrome(<span class="st">"rotor"</span>))
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-5-6">
+  Question 5
+ </h3>
+ <p>
+  Write a recursive function that takes a list of integers as an argument and returns the maximum of that list.
+ </p>
+ <h4 id="solution-57">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> maximum(lst):
+    <span class="kw">if</span> <span class="dt">len</span>(lst) == <span class="dv">1</span>:
+        <span class="kw">return</span> lst[<span class="dv">0</span>]
+    <span class="kw">else</span>:
+        m = maximum(lst[<span class="dv">1</span>:])
+        <span class="kw">if</span> m &gt; lst[<span class="dv">0</span>]:
+            <span class="kw">return</span> m
+        <span class="kw">else</span>:
+            <span class="kw">return</span> lst[<span class="dv">0</span>]
+
+<span class="kw">def</span> main():
+    <span class="dt">print</span>(maximum([<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">34</span>, <span class="dv">4</span>, <span class="dv">34</span>, <span class="dv">23</span>, <span class="dv">65</span>, <span class="dv">23</span>, <span class="dv">12</span>]))
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h2 id="chapter-17-solutions">
+  Chapter 17 Solutions
+ </h2>
+ <h3 id="question-1-14">
+  Question 1
+ </h3>
+ <p>
+  Write a class that models a
+  <code>
+   Lamp
+  </code>
+  . The lamp class will have have two methods. The first will initialise the lamp and is called
+  <code>
+   plug_in()
+  </code>
+  . This will set the
+  <code>
+   is_on
+  </code>
+  attribute which is a boolean to
+  <code>
+   False
+  </code>
+  . The second method is called
+  <code>
+   toggle()
+  </code>
+  . If the lamp is off, it will turn it on (set
+  <code>
+   is_on
+  </code>
+  to
+  <code>
+   True
+  </code>
+  ) and if the lamp is on, it will turn it off (set
+  <code>
+   is_on
+  </code>
+  to
+  <code>
+   True
+  </code>
+  ).
+ </p>
+ <p>
+  Your class may be imported and used as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> my_lamp <span class="ch">import</span> Lamp
+&gt;&gt;&gt; la = Lamp()
+&gt;&gt;&gt; la.plug_in()
+&gt;&gt;&gt; <span class="dt">print</span>(la.is_on)
+<span class="ot">False</span>
+&gt;&gt;&gt; la.toggle()
+&gt;&gt;&gt; <span class="dt">print</span>(la.is_on)
+<span class="ot">True</span>
+&gt;&gt;&gt; la.toggle()
+&gt;&gt;&gt; <span class="dt">print</span>(la.is_on)
+<span class="ot">False</span></code></pre>
+ <h4 id="solution-58">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Lamp():
+    <span class="kw">def</span> plug_in(<span class="ot">self</span>):
+        <span class="ot">self</span>.is_on = <span class="ot">False</span>
+    <span class="kw">def</span> toggle(<span class="ot">self</span>):
+        <span class="ot">self</span>.is_on = not <span class="ot">self</span>.is_on
+
+<span class="kw">def</span> main():
+    la = Lamp()
+    la.plug_in()
+    <span class="dt">print</span>(la.is_on)
+    la.toggle()
+    <span class="dt">print</span>(la.is_on)
+    la.toggle()
+    <span class="dt">print</span>(la.is_on)
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-2-15">
+  Question 2
+ </h3>
+ <p>
+  Write a class that models a
+  <code>
+   Cirlce
+  </code>
+  . The circle class will have four methods. The first will initialise the circle. The
+  <code>
+   initialise()
+  </code>
+  method should take three parameters,
+  <code>
+   x_coord
+  </code>
+  ,
+  <code>
+   y_coord
+  </code>
+  , and
+  <code>
+   radius
+  </code>
+  . This will set the circles x and y coordinates and it radius. The next method is called
+  <code>
+   calc_area()
+  </code>
+  . It should calculate the area of the circle (Look up the formula). The third method is called
+  <code>
+   calc_perimeter()
+  </code>
+  and should calculate the circumference of the circle (Look up the formula). The fourth method is
+  <code>
+   overlaps()
+  </code>
+  . It should take as an argument, another circle and print out whether or not the two circles overlap.
+ </p>
+ <p>
+  Your class may be imported and used as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> my_circle <span class="ch">import</span> Circle
+&gt;&gt;&gt; c1 = Cirlce()
+&gt;&gt;&gt; c1.initialise(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>)
+&gt;&gt;&gt; c2 = Circle()
+&gt;&gt;&gt; c2.initialise(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+&gt;&gt;&gt; c1.calc_perimeter()
+<span class="fl">25.13</span>
+&gt;&gt;&gt; c2.calc_perimeter()
+<span class="fl">12.57</span>
+&gt;&gt;&gt; c1.calc_area()
+<span class="fl">50.27</span>
+&gt;&gt;&gt; c1.overlaps(c2)
+<span class="ot">True</span></code></pre>
+ <p>
+  <em>
+   Hint: Your definition of the overlaps methods should be
+  </em>
+  <code>
+   overlaps(self, other_circle)
+  </code>
+ </p>
+ <h4 id="solution-59">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Circle():
+    <span class="kw">def</span> initialise(<span class="ot">self</span>, x_coord, y_coord, radius):
+        <span class="ot">self</span>.x_coord = x_coord
+        <span class="ot">self</span>.y_coord = y_coord
+        <span class="ot">self</span>.radius = radius
+    
+    <span class="kw">def</span> calc_area(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="fl">3.14</span> * <span class="ot">self</span>.radius**<span class="dv">2</span>)
+    
+    <span class="kw">def</span> calc_perimeter(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="dv">2</span> * <span class="fl">3.14</span> * <span class="ot">self</span>.radius)
+
+    <span class="kw">def</span> overlaps(<span class="ot">self</span>, other):
+        dist = ((<span class="ot">self</span>.x_coord - other.x_coord)**<span class="dv">2</span> + (<span class="ot">self</span>.y_coord - other.y_coord)**<span class="dv">2</span>)**<span class="fl">0.5</span>
+        <span class="kw">if</span> dist &gt; <span class="ot">self</span>.radius + other.radius:
+            <span class="dt">print</span>(<span class="ot">False</span>)
+        <span class="kw">else</span>:
+            <span class="dt">print</span>(<span class="ot">True</span>)</code></pre>
+ <h3 id="question-3-14">
+  Question 3
+ </h3>
+ <p>
+  Write a class that models a students grades for particular modules. The class will have four methods. The first should initialise the student. The student should have a name and age. The grades should be modelled as a dictionary in which the key is the name of the module and the value is the grade. This should initially be empty. The second method is called
+  <code>
+   add_module()
+  </code>
+  and should add a module to the student object. The third is called
+  <code>
+   update_module_grade()
+  </code>
+  and should update the grade for a particular module. The final method is called
+  <code>
+   show_grades()
+  </code>
+  and should print out the students modules and the grade associated with each module.
+ </p>
+ <p>
+  Your class may be imported and used as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> my_student <span class="ch">import</span> Student
+&gt;&gt;&gt; s1 = Student()
+&gt;&gt;&gt; s1.initialise(<span class="st">"Noah"</span>, <span class="dv">19</span>)
+&gt;&gt;&gt; s1.add_module(<span class="st">"Python"</span>)
+&gt;&gt;&gt; s1.update_module_grade(<span class="st">"Python"</span>, <span class="dv">87</span>)
+&gt;&gt;&gt; s1.add_module(<span class="st">"Networks"</span>)
+&gt;&gt;&gt; s1.update_module_grade(<span class="st">"Networks"</span>, <span class="dv">77</span>)
+&gt;&gt;&gt; s1.show_grades()
+Noahs grades are:
+Python: <span class="dv">87</span>
+Networks: <span class="dv">77</span></code></pre>
+ <p>
+  <em>
+   Hint: Make sure you’re initialising the grades dictionary correctly!
+  </em>
+ </p>
+ <h4 id="solution-60">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Student():
+    <span class="kw">def</span> initialise(<span class="ot">self</span>, name, age):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.age = age
+        <span class="ot">self</span>.grades = {}
+
+    <span class="kw">def</span> add_module(<span class="ot">self</span>, module):
+        <span class="ot">self</span>.grades[module] = <span class="dv">0</span>
+    
+    <span class="kw">def</span> update_module_grade(<span class="ot">self</span>, module, grade):
+        <span class="ot">self</span>.grades[module] = grade
+    
+    <span class="kw">def</span> show_grades(<span class="ot">self</span>):
+        s = <span class="ot">self</span>.name + <span class="st">"s grades are:</span><span class="ch">\n</span><span class="st">"</span>
+        <span class="kw">for</span> module, grade in <span class="ot">self</span>.grades.items():
+            s = s + module + <span class="st">": "</span> + <span class="dt">str</span>(grade) + <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>
+        <span class="dt">print</span>(s)</code></pre>
+ <h2 id="chapter-18-solutions">
+  Chapter 18 Solutions
+ </h2>
+ <h3 id="question-1-15">
+  Question 1
+ </h3>
+ <p>
+  Create a
+  <code>
+   BankAccount
+  </code>
+  class. The bank account class should have the following attributes:
+  <code>
+   balance
+  </code>
+  and
+  <code>
+   account_owner
+  </code>
+  . The bank account class should also have
+  <code>
+   deposit
+  </code>
+  and
+  <code>
+   withdraw
+  </code>
+  methods. You should also be able to
+  <code>
+   print
+  </code>
+  the bank account, to display the account owners name and balance. When implemented correctly, you should be able to use the Bank account class as follows:
+ </p>
+ <pre><code>account = BankAccount("John Smith")
+print(account)
+&gt;&gt;&gt; Owner: John Smith
+&gt;&gt;&gt; Balance: $0
+account.deposit(200)
+print(account)
+&gt;&gt;&gt; Owner: John Smith
+&gt;&gt;&gt; Balance: $200
+account.withdraw(50)
+print(account)
+&gt;&gt;&gt; Owner: John Smith
+&gt;&gt;&gt; Balance: $150
+account.withdraw(200)   # Not enough in the account to withdraw 200
+print(account)
+&gt;&gt;&gt; Owner: John Smith
+&gt;&gt;&gt; Balance: $150</code></pre>
+ <h4 id="solutions-1">
+  Solutions
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> BankAccount():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, owner):
+        <span class="ot">self</span>.owner = owner
+        <span class="ot">self</span>.balance = <span class="dv">0</span>
+
+    <span class="kw">def</span> deposit(<span class="ot">self</span>, amount):
+        <span class="ot">self</span>.balance += amount
+    
+    <span class="kw">def</span> withdraw(<span class="ot">self</span>, amount):
+        <span class="kw">if</span> <span class="ot">self</span>.balance &gt;= amount:
+            <span class="ot">self</span>.balance -= amount
+    
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">"Owner: {}</span><span class="ch">\n</span><span class="st">Balance: ${:d}"</span>.<span class="dt">format</span>(<span class="ot">self</span>.owner, <span class="ot">self</span>.balance)</code></pre>
+ <h3 id="question-2-16">
+  Question 2
+ </h3>
+ <p>
+  Create a
+  <code>
+   Line
+  </code>
+  class. The line class should have four attributes: an
+  <code>
+   x1
+  </code>
+  and a
+  <code>
+   y1
+  </code>
+  coordinate for one point on the line and an
+  <code>
+   x2
+  </code>
+  and a
+  <code>
+   y2
+  </code>
+  coordinate for the second point on the line. You should be able to do a few things with an instance of a line. You should be able to call the
+  <code>
+   len
+  </code>
+  method on a line to show its length, add two lines together, subtract two lines, multiply a line by an integer,
+  <code>
+   print
+  </code>
+  the line and compare two lines to see if they are equal. In this case equality means both lines are the same length. When implemented correctly, you should be able to use the Line class as follows:
+ </p>
+ <pre><code>lineOne = Line(2, 2, 4, 4)
+lineTwo = Line(1, 1, 3, 3)
+
+len(lineOne)
+&gt;&gt;&gt; 2
+lineThree = lineOne + lineTwo
+len(lineThree)
+&gt;&gt;&gt; 4
+lineFour = lineOne - lineTwo
+len(lineFour)
+&gt;&gt;&gt; 1
+lineFive = lineTwo * 3
+len(liveFive)
+&gt;&gt;&gt; 6
+print(lineOne)
+&gt;&gt;&gt; Line Details:
+&gt;&gt;&gt; Point 1: (2, 2)
+&gt;&gt;&gt; Point 2: (4, 4)
+print(lineOne == lineTwo)
+&gt;&gt;&gt; True
+print(lineOne == lineFive)
+&gt;&gt;&gt; False</code></pre>
+ <h4 id="solution-61">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Line():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, x1, y1, x2, y2):
+        <span class="ot">self</span>.x1 = x1
+        <span class="ot">self</span>.x2 = x2
+        <span class="ot">self</span>.y1 = y1
+        <span class="ot">self</span>.y2 = y2
+
+    <span class="kw">def</span> <span class="ot">__len__</span>(<span class="ot">self</span>):
+        <span class="co"># We must use integer division to convert length to an integer</span>
+        <span class="co"># because __len__ must return an integer</span>
+        <span class="kw">return</span> <span class="dt">int</span>(((<span class="ot">self</span>.x2 - <span class="ot">self</span>.x1)**<span class="dv">2</span> + (<span class="ot">self</span>.y2 - <span class="ot">self</span>.y1)**<span class="dv">2</span>)**<span class="fl">0.5</span>)
+        
+
+    <span class="kw">def</span> <span class="ot">__add__</span>(<span class="ot">self</span>, other):
+        new_x1 = <span class="ot">self</span>.x1 + other.x1
+        new_x2 = <span class="ot">self</span>.x2 + other.x2
+        new_y1 = <span class="ot">self</span>.y1 + other.y1
+        new_y2 = <span class="ot">self</span>.y2 + other.y2
+        <span class="kw">return</span> Line(new_x1, new_y1, new_x2, new_y2)
+
+    <span class="kw">def</span> <span class="ot">__sub__</span>(<span class="ot">self</span>, other):
+        new_x1 = <span class="ot">self</span>.x1 - other.x1
+        new_x2 = <span class="ot">self</span>.x2 - other.x2
+        new_y1 = <span class="ot">self</span>.y1 - other.y1
+        new_y2 = <span class="ot">self</span>.y2 - other.y2
+        <span class="kw">return</span> Line(new_x1, new_y1, new_x2, new_y2)
+
+    <span class="kw">def</span> <span class="ot">__mul__</span>(<span class="ot">self</span>, amount):
+        new_x1 = <span class="ot">self</span>.x1 * amount
+        new_x2 = <span class="ot">self</span>.x2 * amount
+        new_y1 = <span class="ot">self</span>.y1 * amount
+        new_y2 = <span class="ot">self</span>.y2 * amount
+        <span class="kw">return</span> Line(new_x1, new_y1, new_x2, new_y2)
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">"Line Details:</span><span class="ch">\n</span><span class="st">Point 1: ({:d}, {:d})</span><span class="ch">\n</span><span class="st">Point 2: ({:d}, {:d})"</span>.<span class="dt">format</span>(<span class="ot">self</span>.x1, <span class="ot">self</span>.y1, <span class="ot">self</span>.x2, <span class="ot">self</span>.y2)
+    
+    <span class="kw">def</span> <span class="ot">__eq__</span>(<span class="ot">self</span>, other):
+        <span class="kw">return</span> <span class="dt">len</span>(<span class="ot">self</span>) == <span class="dt">len</span>(other)</code></pre>
+ <h2 id="chapter-19-solutions">
+  Chapter 19 Solutions
+ </h2>
+ <h3 id="question-1-16">
+  Question 1
+ </h3>
+ <p>
+  Write a Python program that contains a class called
+  <code>
+   Person
+  </code>
+  . An instance of a
+  <code>
+   Person
+  </code>
+  should have name and age attributes. You should be able to print an instance of the class which, for example, should output
+  <code>
+   John is 28 years old
+  </code>
+  .
+ </p>
+ <p>
+  Your class should have a method called
+  <code>
+   fromBirthYear()
+  </code>
+  which as parameters should take an age and a birth year. For example,
+  <code>
+   fromBirthYear('John', 1990)
+  </code>
+  should return an instance of
+  <code>
+   Person
+  </code>
+  whose age is 29 (at the time of writing this book, 2019).
+ </p>
+ <p>
+  Running your program should produce the following:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> my_person <span class="ch">import</span> Person
+&gt;&gt;&gt; john = Person(<span class="st">"John"</span>, <span class="dv">28</span>)
+&gt;&gt;&gt; <span class="dt">print</span>(john)
+<span class="co">"John is 28 years old"</span>
+&gt;&gt;&gt; adam = Person.fromBirthYear(<span class="st">"Adam"</span>, <span class="dv">1990</span>)
+&gt;&gt;&gt; <span class="dt">print</span>(adam)
+<span class="co">"Adam is 29 years old"</span></code></pre>
+ <p>
+  <em>
+   Think carefully about what type of method to use
+  </em>
+  .
+ </p>
+ <h4 id="solution-62">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> datetime
+
+<span class="kw">class</span> Person():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, age):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.age = age
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">"{:s} is {:d} years old"</span>.<span class="dt">format</span>(<span class="ot">self</span>.name, <span class="ot">self</span>.age)
+    
+    <span class="ot">@classmethod</span>
+    <span class="kw">def</span> fromBirthYear(cls, name, year_born):
+        date = datetime.datetime.now()
+        current_year = date.year
+        age = current_year - year_born
+        <span class="kw">return</span> cls(name, age)
+
+<span class="kw">def</span> main():
+    john = Person(<span class="st">"John"</span>, <span class="dv">28</span>)
+    <span class="dt">print</span>(john)
+
+    adam = Person.fromBirthYear(<span class="st">"Adam"</span>, <span class="dv">1990</span>)
+    <span class="dt">print</span>(adam)
+
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-2-17">
+  Question 2
+ </h3>
+ <p>
+  Write a
+  <code>
+   Student
+  </code>
+  class that has initializes a student with 3 attributes:
+  <code>
+   name
+  </code>
+  ,
+  <code>
+   grades
+  </code>
+  and
+  <code>
+   student_number
+  </code>
+  . Grades should be a dictionary of modules to grades. The student number of the first student instance should be 19343553. The student number of the second student instance should be 19343554 and so on. You should have three methods,
+  <code>
+   add_module()
+  </code>
+  which takes one parameter, a module name, and initialises the grade to 0. The second method should be,
+  <code>
+   update_module()
+  </code>
+  which takes two parameters, the module name and the grade for the module. The final method should allow the user to print a student.
+ </p>
+ <p>
+  <em>
+   Think carefully about how you will implement the increasing student number
+  </em>
+  .
+ </p>
+ <p>
+  Running your program should give the following output:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="ch">from</span> my_student <span class="ch">import</span> Student
+&gt;&gt;&gt; john = Student(<span class="st">"John"</span>)
+&gt;&gt;&gt; john.add_module(<span class="st">"Python"</span>)
+&gt;&gt;&gt; john.update_module(<span class="st">"Python"</span>, <span class="dv">88</span>)
+&gt;&gt;&gt; <span class="dt">print</span>(john)
+Name: John
+Student Number: <span class="dv">19343553</span>
+Grades:
+Python <span class="dv">88</span>
+&gt;&gt;&gt; adam = Student(<span class="st">"Adam"</span>)
+&gt;&gt;&gt; adam.add_module(<span class="st">"Java"</span>)
+&gt;&gt;&gt; adam.update_module(<span class="st">"Java"</span>, <span class="dv">60</span>)
+&gt;&gt;&gt; <span class="dt">print</span>(adam)
+Name: Adam
+Student Number: <span class="dv">19343554</span>
+Grades:
+Java: <span class="dv">60</span></code></pre>
+ <h4 id="solution-63">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Student():
+    STUDENT_NUMBER = <span class="dv">19343553</span>
+
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.grades = {}
+        <span class="ot">self</span>.student_number = Student.STUDENT_NUMBER
+        Student.set_next_student_number()
+
+    <span class="kw">def</span> add_module(<span class="ot">self</span>, module_name):
+        <span class="kw">if</span> not module_name in <span class="ot">self</span>.grades:
+            <span class="ot">self</span>.grades[module_name] = <span class="dv">0</span>
+            
+
+    <span class="kw">def</span> update_module(<span class="ot">self</span>, module_name, grade):
+        <span class="kw">if</span> module_name in <span class="ot">self</span>.grades:
+            <span class="ot">self</span>.grades[module_name] = grade
+
+    <span class="ot">@classmethod</span>
+    <span class="kw">def</span> set_next_student_number(cls):
+        cls.STUDENT_NUMBER += <span class="dv">1</span>
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        string = <span class="st">"Name: {:s}</span><span class="ch">\n</span><span class="st">Student Number: {:d}</span><span class="ch">\n</span><span class="st">Grades:</span><span class="ch">\n</span><span class="st">"</span>.<span class="dt">format</span>(<span class="ot">self</span>.name, <span class="ot">self</span>.student_number)
+        <span class="kw">for</span> module, grade in <span class="ot">self</span>.grades.items():
+            string += <span class="st">"{:s}: {:d}</span><span class="ch">\n</span><span class="st">"</span>.<span class="dt">format</span>(module, grade)
+        <span class="kw">return</span> string
+
+
+<span class="kw">def</span> main():
+    john = Student(<span class="st">"John"</span>)
+    john.add_module(<span class="st">"Python"</span>)
+    john.update_module(<span class="st">"Python"</span>, <span class="dv">88</span>)
+    <span class="dt">print</span>(john)
+    
+    adam = Student(<span class="st">"Adam"</span>)
+    adam.add_module(<span class="st">"Java"</span>)
+    adam.update_module(<span class="st">"Java"</span>, <span class="dv">60</span>)
+    <span class="dt">print</span>(adam)
+    
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-3-15">
+  Question 3
+ </h3>
+ <p>
+  Modify the
+  <code>
+   Student
+  </code>
+  class to include a method that will validate grades. A grade should be between 0 and 100.
+ </p>
+ <p>
+  <em>
+   Think carefully about the type of method this should be
+  </em>
+  .
+ </p>
+ <h4 id="solution-64">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Student():
+    
+    <span class="co"># METHODS FROM PREVIOUS EXERCISE HERE</span>
+    
+    <span class="ot">@classmethod</span>
+    <span class="kw">def</span> isValidGrade(cls, grade):
+        <span class="kw">if</span> grade &gt;= <span class="dv">0</span> and grade &lt;= <span class="dv">100</span>:
+            <span class="kw">return</span> <span class="ot">True</span>
+        <span class="kw">return</span> <span class="ot">False</span>
+    
+    <span class="co"># METHODS FROM PREVIOUS EXERCISE HERE</span></code></pre>
+ <h2 id="chapter-20-solutions">
+  Chapter 20 Solutions
+ </h2>
+ <h3 id="question-1-17">
+  Question 1
+ </h3>
+ <p>
+  Create two classes:
+  <code>
+   Person
+  </code>
+  and
+  <code>
+   Employee
+  </code>
+  . The person class should have
+  <code>
+   name
+  </code>
+  and
+  <code>
+   age
+  </code>
+  attributes. The employee class should have one additional
+  <code>
+   employeeId
+  </code>
+  attribute. The employ should also have
+  <code>
+   clock_in
+  </code>
+  and
+  <code>
+   clock_out
+  </code>
+  methods. When implemented correctly, you should be able to use the two classes as follows:
+ </p>
+ <pre><code>&gt;&gt;&gt; person = Person("John", 33)
+&gt;&gt;&gt; employee = Employee("Tom", 42)
+&gt;&gt;&gt; employee.clock_in()
+Tom has clocked in.
+&gt;&gt;&gt; employee.clock_out()
+Tom has clocked out.</code></pre>
+ <p>
+  <em>
+   Note: You are to use inheritance to implement the employee class.
+  </em>
+ </p>
+ <h4 id="solution-65">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Person():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, age):
+        <span class="ot">self</span>.name = name
+        <span class="ot">self</span>.age = age
+
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">"{:s} is {:d} years old"</span>.<span class="dt">format</span>(<span class="ot">self</span>.name, <span class="ot">self</span>.age)
+
+<span class="kw">class</span> Employee(Person):
+    EMPLOYEE_ID = <span class="dv">100</span>
+
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, name, age):
+        <span class="dt">super</span>().<span class="ot">__init__</span>(name, age)
+        <span class="ot">self</span>.employeeId = Employee.EMPLOYEE_ID
+        Employee.set_next_employee_id()
+
+    <span class="kw">def</span> clock_in(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="ot">self</span>.name + <span class="st">" has clocked in."</span>)
+
+    <span class="kw">def</span> clock_out(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="ot">self</span>.name + <span class="st">" has clocked out."</span>)
+    
+    <span class="ot">@classmethod</span>
+    <span class="kw">def</span> set_next_employee_id(cls):
+        cls.EMPLOYEE_ID += <span class="dv">1</span>
+
+<span class="kw">def</span> main():
+    person = Person(<span class="st">"John"</span>, <span class="dv">33</span>)
+    employee = Employee(<span class="st">"Tom"</span>, <span class="dv">42</span>)
+    employee.clock_in()
+
+    <span class="dt">print</span>(employee)
+    
+    employee.clock_out()
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-2-18">
+  Question 2
+ </h3>
+ <p>
+  Create a
+  <code>
+   Shape
+  </code>
+  class. The shape class should have two attributes:
+  <code>
+   num_sides
+  </code>
+  and
+  <code>
+   side_length
+  </code>
+  . It should also have one method called
+  <code>
+   show_type()
+  </code>
+ </p>
+ <p>
+  Create two other classes:
+  <code>
+   Triangle
+  </code>
+  and
+  <code>
+   Pentagon
+  </code>
+  . Each of these classes should inherit from the
+  <code>
+   Shape
+  </code>
+  class.
+ </p>
+ <p>
+  Both the
+  <code>
+   Triangle
+  </code>
+  and
+  <code>
+   Pentagon
+  </code>
+  classes should have
+  <code>
+   area()
+  </code>
+  methods.
+ </p>
+ <p>
+  When implemented correctly, you should be able to use your classes as follows:
+ </p>
+ <pre><code>&gt;&gt;&gt; shape = Shape(7, 2)
+&gt;&gt;&gt; shape.show_type()
+I am a Shape
+&gt;&gt;&gt; triangle = Triangle(3) # This refers to side length
+&gt;&gt;&gt; triangle.show_type()
+I am a triangle
+&gt;&gt;&gt; triangle.area()
+3.9
+&gt;&gt;&gt; pent = Pentagon(4) # This refers to side length
+&gt;&gt;&gt; pent.show_type()
+I am a pentagon
+&gt;&gt;&gt; pent.area()
+27.53</code></pre>
+ <p>
+  <em>
+   Note: The triangle is an equilateral triangle and the pentagon is a regular pentagon. You can find the formulae for both of their areas online.
+  </em>
+ </p>
+ <h4 id="solution-66">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Shape():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, num_sides, side_length):
+        <span class="ot">self</span>.num_sides = num_sides
+        <span class="ot">self</span>.side_length = side_length
+    
+    <span class="kw">def</span> show_type(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="st">"I am a Shape"</span>)
+    
+<span class="kw">class</span> Triangle(Shape):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, side_length):
+        <span class="dt">super</span>().<span class="ot">__init__</span>(<span class="dv">3</span>, side_length)
+
+    <span class="kw">def</span> show_type(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="st">"I am a Triangle"</span>)
+
+    <span class="kw">def</span> area(<span class="ot">self</span>):
+        <span class="co"># Area of an equilateral triangle</span>
+        <span class="kw">return</span> ((<span class="dv">3</span>**<span class="fl">0.5</span>)/(<span class="dv">4</span>)) * <span class="ot">self</span>.side_length ** <span class="dv">2</span>
+    
+<span class="kw">class</span> Pentagon(Shape):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, side_length):
+        <span class="dt">super</span>().<span class="ot">__init__</span>(<span class="dv">5</span>, side_length)
+
+    <span class="kw">def</span> show_type(<span class="ot">self</span>):
+        <span class="dt">print</span>(<span class="st">"I am a Pentagon"</span>)
+
+    <span class="kw">def</span> area(<span class="ot">self</span>):
+        <span class="co"># Area of a regular pentagon (It's a bit tricky)</span>
+        <span class="kw">return</span> <span class="fl">0.25</span> * (<span class="ot">self</span>.num_sides * (<span class="ot">self</span>.num_sides + <span class="dv">2</span> * (<span class="ot">self</span>.num_sides**<span class="fl">0.5</span>))) ** <span class="fl">0.5</span> * <span class="ot">self</span>.side_length ** <span class="dv">2</span>
+
+<span class="kw">def</span> main():
+    shape = Shape(<span class="dv">7</span>, <span class="dv">2</span>)
+    shape.show_type()
+
+    triangle = Triangle(<span class="dv">3</span>) <span class="co"># This refers to side length</span>
+    triangle.show_type()
+    <span class="dt">print</span>(triangle.area())
+
+    pent = Pentagon(<span class="dv">5</span>) <span class="co"># This refers to side length</span>
+    pent.show_type()
+    <span class="dt">print</span>(pent.area())
+
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-3-16">
+  Question 3
+ </h3>
+ <p>
+  Create a
+  <code>
+   Clock
+  </code>
+  class. It should have three attributes:
+  <code>
+   hour
+  </code>
+  ,
+  <code>
+   minute
+  </code>
+  , and
+  <code>
+   second
+  </code>
+  . It should also have a method called
+  <code>
+   show_time()
+  </code>
+  that displays the time in 24 hour time. It should also have a method called
+  <code>
+   tick()
+  </code>
+  that advances the time by 1 second.
+ </p>
+ <p>
+  Create a
+  <code>
+   Calendar
+  </code>
+  class. It should have three attributes:
+  <code>
+   day
+  </code>
+  ,
+  <code>
+   month
+  </code>
+  , and
+  <code>
+   year
+  </code>
+  . It should have two methods, one called
+  <code>
+   show_date()
+  </code>
+  and the other called
+  <code>
+   next()
+  </code>
+  that advances the date to the next day.
+ </p>
+ <p>
+  Create a third class called
+  <code>
+   CalendarClock
+  </code>
+  that inherits from both
+  <code>
+   Clock
+  </code>
+  and
+  <code>
+   Calendar
+  </code>
+  . It should have one method called
+  <code>
+   tick()
+  </code>
+  that advances the time by 1 second, and a second method,
+  <code>
+   show_date_time()
+  </code>
+  that shows the date and time.
+ </p>
+ <p>
+  When implemented correctly, you should be able to use your classes as follows:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; clock = Clock(<span class="dv">23</span>, <span class="dv">59</span>, <span class="dv">59</span>)
+&gt;&gt;&gt; clock.show_time()
+The time is <span class="dv">23</span>:<span class="dv">59</span>:<span class="dv">59</span>
+&gt;&gt;&gt; clock.tick()
+&gt;&gt;&gt; clock.show_time()
+The time is <span class="dv">00</span>:<span class="dv">00</span>:<span class="dv">00</span>
+&gt;&gt;&gt; cal = Calendar(<span class="dv">30</span>, <span class="dv">12</span>, <span class="dv">2019</span>)
+&gt;&gt;&gt; cal.show_date()
+The date is <span class="dv">30</span>/<span class="dv">12</span>/<span class="dv">2019</span>
+&gt;&gt;&gt; cal.<span class="dt">next</span>()
+&gt;&gt;&gt; cal.show_date()
+The date is <span class="dv">31</span>/<span class="dv">12</span>/<span class="dv">2019</span>
+&gt;&gt;&gt; calClock = CalendarClock(<span class="dv">31</span>, <span class="dv">12</span>, <span class="dv">2019</span>, <span class="dv">23</span>, <span class="dv">59</span>, <span class="dv">59</span>)
+&gt;&gt;&gt; calClock.show_date_time()
+The date is <span class="dv">31</span>/<span class="dv">12</span>/<span class="dv">2019</span> and the time is <span class="dv">23</span>:<span class="dv">59</span>:<span class="dv">59</span>
+&gt;&gt;&gt; calClock.tick()
+&gt;&gt;&gt; calClock.show_date_time()
+The date is <span class="dv">01</span>/<span class="dv">01</span>/<span class="dv">2020</span> and the time is <span class="dv">00</span>:<span class="dv">00</span>:<span class="dv">00</span></code></pre>
+ <p>
+  <em>
+   Note: There are a few ways of completing this question, however I want you to use multiple inheritance. If you do, then the code for CalendarClock should be quite short
+  </em>
+  .
+ </p>
+ <h4 id="solution-67">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Clock():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, hour, minute, second):
+        <span class="ot">self</span>.hour = hour
+        <span class="ot">self</span>.minute = minute
+        <span class="ot">self</span>.second = second
+        
+    <span class="kw">def</span> tick(<span class="ot">self</span>):
+        <span class="kw">if</span> <span class="ot">self</span>.second == <span class="dv">59</span>:
+            <span class="ot">self</span>.second = <span class="dv">0</span>
+            <span class="kw">if</span> <span class="ot">self</span>.minute == <span class="dv">59</span>:
+                <span class="ot">self</span>.minute = <span class="dv">0</span>
+                <span class="ot">self</span>.hour = <span class="dv">0</span> <span class="kw">if</span> <span class="ot">self</span>.hour == <span class="dv">23</span> <span class="kw">else</span> <span class="ot">self</span>.hour + <span class="dv">1</span>
+            <span class="kw">else</span>:
+                <span class="ot">self</span>.minute += <span class="dv">1</span>
+        <span class="kw">else</span>:
+            <span class="ot">self</span>.second += <span class="dv">1</span>
+    
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">"{:02d}:{:02d}:{:02d}"</span>.<span class="dt">format</span>(<span class="ot">self</span>.hour, <span class="ot">self</span>.minute, <span class="ot">self</span>.second)
+        
+<span class="kw">class</span> Calendar():
+    MONTHS = (<span class="dv">31</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>)
+    
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, day, month, year):
+        <span class="ot">self</span>.day = day
+        <span class="ot">self</span>.month = month
+        <span class="ot">self</span>.year = year
+        
+    <span class="kw">def</span> leapyear(<span class="ot">self</span>, year):
+        <span class="kw">if</span> year % <span class="dv">4</span>:
+            <span class="co"># Not a leap year</span>
+            <span class="kw">return</span> <span class="ot">False</span>
+        <span class="kw">else</span>:
+            <span class="kw">if</span> year % <span class="dv">100</span>:
+                <span class="kw">return</span> <span class="ot">True</span>
+            <span class="kw">else</span>:
+                <span class="kw">if</span> year % <span class="dv">400</span>:
+                    <span class="kw">return</span> <span class="ot">False</span>
+                <span class="kw">return</span> <span class="ot">True</span>
+
+    <span class="kw">def</span> <span class="dt">next</span>(<span class="ot">self</span>):
+        months = Calendar.MONTHS
+        max_days = months[<span class="ot">self</span>.month - <span class="dv">1</span>]
+        <span class="kw">if</span> <span class="ot">self</span>.month == <span class="dv">2</span>:
+            max_days += <span class="ot">self</span>.leapyear(<span class="ot">self</span>.year)
+        <span class="kw">if</span> <span class="ot">self</span>.day == max_days:
+            <span class="ot">self</span>.day = <span class="dv">1</span>
+            <span class="kw">if</span> <span class="ot">self</span>.month == <span class="dv">12</span>:
+                <span class="ot">self</span>.month = <span class="dv">1</span>
+                <span class="ot">self</span>.year += <span class="dv">1</span>
+            <span class="kw">else</span>:
+                <span class="ot">self</span>.month += <span class="dv">1</span>
+        <span class="kw">else</span>:
+            <span class="ot">self</span>.day += <span class="dv">1</span>
+            
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="st">"{}/{}/{}"</span>.<span class="dt">format</span>(<span class="ot">self</span>.day, <span class="ot">self</span>.month, <span class="ot">self</span>.year)
+        
+<span class="kw">class</span> CalendarClock(Clock, Calendar):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, day, month, year, hour, minute, second):
+        Calendar.<span class="ot">__init__</span>(<span class="ot">self</span>, day, month, year)
+        Clock.<span class="ot">__init__</span>(<span class="ot">self</span>, hour, minute, second)
+
+    <span class="kw">def</span> tick(<span class="ot">self</span>):
+        Clock.tick(<span class="ot">self</span>)
+        <span class="kw">if</span> CalendarClock.is_new_day(<span class="ot">self</span>.hour, <span class="ot">self</span>.minute, <span class="ot">self</span>.second):
+            Calendar.<span class="dt">next</span>(<span class="ot">self</span>)
+
+    <span class="ot">@staticmethod</span>
+    <span class="kw">def</span> is_new_day(h, m, s):
+        <span class="kw">return</span> h == <span class="dv">0</span> and m == <span class="dv">0</span> and s == <span class="dv">0</span>
+        
+    <span class="kw">def</span> <span class="ot">__str__</span>(<span class="ot">self</span>):
+        <span class="kw">return</span> Calendar.<span class="ot">__str__</span>(<span class="ot">self</span>) + <span class="st">", "</span> + Clock.<span class="ot">__str__</span>(<span class="ot">self</span>)
+
+<span class="kw">def</span> main():
+    x = CalendarClock(<span class="dv">31</span>, <span class="dv">12</span>, <span class="dv">1998</span>, <span class="dv">23</span>, <span class="dv">59</span>, <span class="dv">59</span>)
+    <span class="dt">print</span>(x)
+    x.tick()
+    <span class="dt">print</span>(x)
+    x.tick()
+    <span class="dt">print</span>(x)
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h2 id="chapter-21-solutions">
+  Chapter 21 Solutions
+ </h2>
+ <h3 id="question-1-18">
+  Question 1
+ </h3>
+ <p>
+  You are given two strings
+  <code>
+   S
+  </code>
+  and
+  <code>
+   T
+  </code>
+  . Both strings either contain alphanumeric characters or a '#' character. A '#' means backspace. Your goal is to use your knowledge of stacks to design a function that will decide whether both strings are equal after the back space operation has been applied. For example:
+ </p>
+ <pre><code>123456789101112131415Input: S = "xy#z", T = "xw#z"
+Output: True
+Explanation: When the backspace operation is applied, both strings become "xz"
+    
+Input: S = "abcd##", T = "acbd##"
+Output: False
+Explanation: S becomes 'ab' and T becomes 'ac' which are not the same
+    
+Input: S = "z##y", T="#d#y"
+Output: True
+Explanation: Both strings become 'y'
+    
+Input: S = "er##", T = "u#u#"
+Output: true
+Explanation: Both S and T become '' (empty string)</code></pre>
+ <h4 id="solution-68">
+  Solution
+ </h4>
+ <p>
+  Assuming the
+  <code>
+   Stack
+  </code>
+  class exists:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> backspace(s, t):
+    s_stack = Stack()
+    <span class="kw">for</span> char in s:
+        <span class="kw">if</span> not char == <span class="st">"#"</span>:
+            s_stack.push(char)
+        <span class="kw">else</span>:
+            <span class="kw">if</span> not s_stack.isEmpty():
+                s_stack.pop()
+
+    t_stack = Stack()
+    <span class="kw">for</span> char in t:
+        <span class="kw">if</span> not char == <span class="st">"#"</span>:
+            t_stack.push(char)
+        <span class="kw">else</span>:
+            <span class="kw">if</span> not t_stack.isEmpty():
+                t_stack.pop()
+
+    <span class="kw">return</span> s_stack == t_stack
+
+<span class="kw">def</span> main():
+    s, t = <span class="st">"xy#z"</span>, <span class="st">"xw#z"</span>
+    <span class="dt">print</span>(backspace(s, t))
+
+    s, t = <span class="st">"abcd##"</span>, <span class="st">"acbd##"</span>
+    <span class="dt">print</span>(backspace(s, t))
+
+    s, t = <span class="st">"z##y"</span>, <span class="st">"#d#y"</span>
+    <span class="dt">print</span>(backspace(s, t))
+
+    s, t = <span class="st">"er##"</span>, <span class="st">"u#u#"</span>
+    <span class="dt">print</span>(backspace(s, t))
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-2-19">
+  Question 2
+ </h3>
+ <p>
+  It is possible to create a queue through the use of two stacks. Implement a queue class like above, except rather than using a list to implement the queue you use two stacks.
+ </p>
+ <p>
+  <em>
+   This might be a little tricky, you'll have to think about this
+  </em>
+  .
+ </p>
+ <h4 id="solution-69">
+  Solution
+ </h4>
+ <p>
+  Assuming the
+  <code>
+   Stack
+  </code>
+  class from before exists:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Queue:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.s1 = Stack()
+        <span class="ot">self</span>.s2 = Stack()
+    
+    <span class="kw">def</span> enqueue(<span class="ot">self</span>, elem):
+        <span class="co"># Move all elements in s1 to s2</span>
+        <span class="kw">while</span> not <span class="ot">self</span>.s1.isEmpty():
+            <span class="ot">self</span>.s2.push(<span class="ot">self</span>.s1.pop())
+
+        <span class="co"># push item onto s1</span>
+        <span class="ot">self</span>.s1.push(elem)
+
+        <span class="co"># Push everything else back onto s1 from s2</span>
+        <span class="kw">while</span> not <span class="ot">self</span>.s2.isEmpty():
+            <span class="ot">self</span>.s1.push(<span class="ot">self</span>.s2.pop())
+    
+    <span class="kw">def</span> dequeue(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="ot">self</span>.s1.pop()
+
+<span class="kw">def</span> main():
+    q = Queue() 
+    q.enqueue(<span class="dv">1</span>)  
+    q.enqueue(<span class="dv">2</span>)  
+    q.enqueue(<span class="dv">3</span>)  
+  
+    <span class="dt">print</span>(q.dequeue()) 
+    <span class="dt">print</span>(q.dequeue()) 
+    <span class="dt">print</span>(q.dequeue()) 
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-3-17">
+  Question 3
+ </h3>
+ <p>
+  It is also possible to create a stack through the use of two queues. Implement a stack class like the one we have seen earlier, except rather than using a list to implement the stack, use two queues.
+ </p>
+ <p>
+  <em>
+   This might be a little tricky, you'll have to think about this
+  </em>
+  .
+ </p>
+ <h4 id="solution-70">
+  Solution
+ </h4>
+ <p>
+  Assuming the
+  <code>
+   Queue
+  </code>
+  class from this chapter exists:
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Stack:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.q1 = Queue()
+        <span class="ot">self</span>.q2 = Queue()
+        <span class="ot">self</span>.size = <span class="dv">0</span>
+
+    <span class="kw">def</span> push(<span class="ot">self</span>, elem):
+        <span class="ot">self</span>.q1.enqueue(elem)
+        <span class="kw">while</span> not <span class="ot">self</span>.q2.isEmpty():
+            x = <span class="ot">self</span>.q2.dequeue()
+            <span class="ot">self</span>.q1.enqueue(x)
+
+        <span class="co"># Swap the queue references</span>
+        <span class="ot">self</span>.q1, <span class="ot">self</span>.q2 = <span class="ot">self</span>.q2, <span class="ot">self</span>.q1
+    
+    <span class="kw">def</span> pop(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="ot">self</span>.q2.dequeue()
+
+    <span class="kw">def</span> isEmpty(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="ot">self</span>.q2.isEmpty()
+
+<span class="kw">def</span> main():
+    stack = Stack()
+    stack.push(<span class="dv">1</span>)
+    stack.push(<span class="dv">2</span>)
+    <span class="dt">print</span>(stack.isEmpty())
+    <span class="dt">print</span>(stack.pop())
+    <span class="dt">print</span>(stack.pop())
+    <span class="dt">print</span>(stack.isEmpty())
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h2 id="chapter-22-solutions">
+  Chapter 22 Solutions
+ </h2>
+ <h3 id="question-1-19">
+  Question 1
+ </h3>
+ <p>
+  We talked earlier about the run-time complexities of the Linked List methods we implemented. I mentioned that we could improve their complexities.
+ </p>
+ <p>
+  Currently, the
+  <code>
+   add()
+  </code>
+  method has a run-time complexity of O(n).
+ </p>
+ <p>
+  Change the implementation of the
+  <code>
+   add()
+  </code>
+  method so that it's run-time complexity is O(1).
+ </p>
+ <h4 id="solution-71">
+  Solution
+ </h4>
+ <p>
+  Our solution is to add the new element to the front of the linked list rather than the end
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, elem):
+        <span class="ot">self</span>.elem = elem
+        <span class="ot">self</span>.<span class="dt">next</span> = <span class="ot">None</span>
+
+<span class="kw">class</span> LinkedList:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.head = <span class="ot">None</span>
+        
+    <span class="kw">def</span> add(<span class="ot">self</span>, elem):
+        <span class="kw">if</span> <span class="ot">self</span>.head == <span class="ot">None</span>:
+            <span class="ot">self</span>.head = Node(elem)
+        <span class="kw">else</span>:
+            new_head = Node(elem)
+            new_head.<span class="dt">next</span> = <span class="ot">self</span>.head
+            <span class="ot">self</span>.head = new_head</code></pre>
+ <h3 id="question-2-20">
+  Question 2
+ </h3>
+ <p>
+  Change the implementation of the
+  <code>
+   add()
+  </code>
+  or
+  <code>
+   remove()
+  </code>
+  methods on the Linked List class in order to achieve a Linked List that behaves like:
+ </p>
+ <ul>
+  <li>
+   A Stack
+  </li>
+  <li>
+   A Queue
+  </li>
+ </ul>
+ <p>
+  Try to give optimized implementations of
+  <code>
+   add()
+  </code>
+  and/or
+  <code>
+   remove()
+  </code>
+  when doing this.
+ </p>
+ <h4 id="solution-72">
+  Solution
+ </h4>
+ <p>
+  To implement a stack
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, elem):
+        <span class="ot">self</span>.elem = elem
+        <span class="ot">self</span>.<span class="dt">next</span> = <span class="ot">None</span>
+
+<span class="kw">class</span> LinkedListStack:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.head = <span class="ot">None</span>
+    
+    <span class="co"># Mimics the stack push() method</span>
+    <span class="kw">def</span> add(<span class="ot">self</span>, elem):
+        <span class="kw">if</span> <span class="ot">self</span>.head == <span class="ot">None</span>:
+            <span class="ot">self</span>.head = Node(elem)
+        <span class="kw">else</span>:
+            new_head = Node(elem)
+            new_head.<span class="dt">next</span> = <span class="ot">self</span>.head
+            <span class="ot">self</span>.head = new_head
+    
+    <span class="co"># Mimics the stack pop() method</span>
+    <span class="kw">def</span> delete(<span class="ot">self</span>):
+        <span class="kw">if</span> <span class="ot">self</span>.head is <span class="ot">None</span>:
+            <span class="kw">return</span> <span class="ot">None</span>
+        elem = <span class="ot">self</span>.head.elem
+        <span class="ot">self</span>.head = <span class="ot">self</span>.head.<span class="dt">next</span>
+        <span class="kw">return</span> elem
+
+<span class="kw">def</span> main():
+    ll = LinkedListStack()
+    ll.add(<span class="dv">5</span>)
+    ll.add(<span class="dv">6</span>)
+    <span class="dt">print</span>(ll.delete())
+    <span class="dt">print</span>(ll.delete())
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <p>
+  To implement a Queue
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, elem):
+        <span class="ot">self</span>.elem = elem
+        <span class="ot">self</span>.<span class="dt">next</span> = <span class="ot">None</span>
+
+<span class="kw">class</span> LinkedListQueue:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.head = <span class="ot">self</span>.end = <span class="ot">None</span>
+    
+    <span class="co"># Mimics the queue enqueue() method</span>
+    <span class="kw">def</span> add(<span class="ot">self</span>, elem):
+        new_node = Node(elem)
+
+        <span class="kw">if</span> <span class="ot">self</span>.end == <span class="ot">None</span>:
+            <span class="ot">self</span>.head = <span class="ot">self</span>.end = new_node
+            <span class="kw">return</span>
+        <span class="ot">self</span>.end.<span class="dt">next</span> = new_node
+        <span class="ot">self</span>.end = new_node
+    
+    <span class="co"># Mimics the queue dequeue() method</span>
+    <span class="kw">def</span> delete(<span class="ot">self</span>):
+        <span class="kw">if</span> <span class="ot">self</span>.head == <span class="ot">None</span>:
+            <span class="kw">return</span>
+        tmp = <span class="ot">self</span>.head
+        <span class="ot">self</span>.head = tmp.<span class="dt">next</span>
+
+        <span class="kw">if</span> <span class="ot">self</span>.head == <span class="ot">None</span>:
+            <span class="ot">self</span>.end = <span class="ot">None</span>
+        <span class="kw">return</span> tmp.elem
+
+<span class="kw">def</span> main():
+    ll = LinkedListQueue()
+    ll.add(<span class="dv">5</span>)
+    ll.add(<span class="dv">6</span>)
+    <span class="dt">print</span>(ll.delete())
+    <span class="dt">print</span>(ll.delete())
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-3-18">
+  Question 3
+ </h3>
+ <p>
+  Another useful method our Linked List class may have is a
+  <code>
+   length()
+  </code>
+  method. That is, it returns the number of elements in the linked list.
+ </p>
+ <p>
+  Implement the
+  <code>
+   length()
+  </code>
+  method.
+ </p>
+ <h4 id="solution-73">
+  Solution
+ </h4>
+ <p>
+  There are two solutions to this question. The first is to iterate over every node in the linked list, adding 1 to a length variable each time then returning that number when you reach the end. This approach means the
+  <code>
+   length()
+  </code>
+  method has a runtime complexity of
+  <strong>
+   O(n)
+  </strong>
+  .
+ </p>
+ <p>
+  A better solution is to add a
+  <code>
+   size
+  </code>
+  attribute to the LinkedList class. This should be incremented by 1 every time we add an element and decremented by 1 every time we remove an element. This means the length method has a runtime of
+  <strong>
+   O(1)
+  </strong>
+  as when
+  <code>
+   length()
+  </code>
+  is called, we just return
+  <code>
+   self.size
+  </code>
+  .
+ </p>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, elem):
+        <span class="ot">self</span>.elem = elem
+        <span class="ot">self</span>.<span class="dt">next</span> = <span class="ot">None</span>
+
+<span class="kw">class</span> LinkedList:
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.head = <span class="ot">None</span>
+        <span class="ot">self</span>.size = <span class="dv">0</span>
+
+    <span class="kw">def</span> add(<span class="ot">self</span>, elem):
+        <span class="kw">if</span> <span class="ot">self</span>.head == <span class="ot">None</span>:
+            <span class="ot">self</span>.head = Node(elem)
+            <span class="ot">self</span>.size += <span class="dv">1</span>
+        <span class="kw">else</span>:
+            new_head = Node(elem)
+            new_head.<span class="dt">next</span> = <span class="ot">self</span>.head
+            <span class="ot">self</span>.head = new_head
+            <span class="ot">self</span>.size += <span class="dv">1</span>
+
+    <span class="kw">def</span> delete(<span class="ot">self</span>, val):
+        <span class="kw">if</span> <span class="ot">self</span>.head == <span class="ot">None</span>:
+            <span class="kw">return</span>
+        <span class="kw">if</span> <span class="ot">self</span>.head.elem == val:
+            <span class="ot">self</span>.head = <span class="ot">self</span>.head.<span class="dt">next</span>
+            <span class="ot">self</span>.size -= <span class="dv">1</span>
+            <span class="kw">return</span> val
+        
+        curr = <span class="ot">self</span>.head
+        <span class="kw">while</span> curr.<span class="dt">next</span> != <span class="ot">None</span> and curr.<span class="dt">next</span>.elem != val:
+            curr = curr.<span class="dt">next</span>
+        
+        <span class="kw">if</span> curr.<span class="dt">next</span> == <span class="ot">None</span>:
+            <span class="kw">return</span>
+        <span class="kw">else</span>:
+            curr.<span class="dt">next</span> = curr.<span class="dt">next</span>.<span class="dt">next</span>
+            <span class="ot">self</span>.size -= <span class="dv">1</span>
+            <span class="kw">return</span> val
+
+    <span class="kw">def</span> length(<span class="ot">self</span>):
+        <span class="kw">return</span> <span class="ot">self</span>.size
+
+<span class="kw">def</span> main():
+    ll = LinkedList()
+    <span class="dt">print</span>(ll.length())
+
+    ll.add(<span class="dv">5</span>)
+    <span class="dt">print</span>(ll.length())
+
+    ll.add(<span class="dv">6</span>)
+    <span class="dt">print</span>(ll.length())
+
+    ll.delete(<span class="dv">7</span>) <span class="co"># Should return None - doesn't exist</span>
+    ll.delete(<span class="dv">5</span>)
+    <span class="dt">print</span>(ll.length())
+
+    ll.delete(<span class="dv">6</span>)
+    <span class="dt">print</span>(ll.length())
+
+<span class="kw">if</span> <span class="ot">__name__</span>==<span class="st">"__main__"</span>:
+    main()</code></pre>
+ <h3 id="question-4-11">
+  Question 4
+ </h3>
+ <p>
+  If you thought carefully about your implementation of the
+  <code>
+   length()
+  </code>
+  method from the previous exercise then you might be able to skip this question. However, I'm not expecting that you did.
+ </p>
+ <p>
+  If my guess is correct, your
+  <code>
+   length()
+  </code>
+  method iterates over each element in the list, adding
+  <code>
+   1
+  </code>
+  to your length each time until you reach the end of the list. This will give your
+  <code>
+   length()
+  </code>
+  method a run-time complexity of O(n).
+ </p>
+ <p>
+  We can do better than that though. How might you change the Linked List class so that the run-time complexity of your
+  <code>
+   length()
+  </code>
+  method is O(1)?
+ </p>
+ <h4 id="solution-74">
+  Solution
+ </h4>
+ <p>
+  The answer to this question is the solution to the last question.
+ </p>
+ <h3 id="question-5-7">
+  Question 5
+ </h3>
+ <p>
+  The
+  <em>
+   height
+  </em>
+  (depth) of a Tree is the number of edges on the longest path from the root node to leaf node.
+ </p>
+ <p>
+  You should write a recursive method to find the height of any given binary search tree
+ </p>
+ <h4 id="solution-75">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python">    <span class="kw">def</span> height(<span class="ot">self</span>):
+        <span class="kw">if</span> <span class="ot">self</span>.root is <span class="ot">None</span>:
+            <span class="kw">return</span> <span class="dv">0</span>
+        <span class="co"># We subtract 1 because the root node height is 0 not 1</span>
+        <span class="kw">return</span> <span class="ot">self</span>.recursive_height(<span class="ot">self</span>.root) - <span class="dv">1</span>
+    
+    <span class="kw">def</span> recursive_height(<span class="ot">self</span>, node):
+        <span class="kw">if</span> node == <span class="ot">None</span>:
+            <span class="kw">return</span> <span class="dv">0</span>
+        <span class="kw">return</span> <span class="dv">1</span> + <span class="dt">max</span>(<span class="ot">self</span>.recursive_height(node.left), <span class="ot">self</span>.recursive_height(node.right))</code></pre>
+ <h3 id="question-6-2">
+  Question 6
+ </h3>
+ <p>
+  <strong>
+   This question is very difficult
+  </strong>
+ </p>
+ <p>
+  Consider what happens when we add elements to the tree in the following order: {2, 5, 7, 12, 13}. We end up with a Linked List. That means that our search and insert is no longer O(log n). It's now O(n). This isn't really that great for us.
+ </p>
+ <p>
+  We can however, make an optimization to our binary search tree so that our search and insert are always O(log n), regardless of what order we enter the elements.
+ </p>
+ <p>
+  The optimization is that the difference between height of the left and right subtrees is no greater than one for all nodes. When the difference between left and right subtrees height is no greater than
+  <code>
+   1
+  </code>
+  , we say the tree is
+  <strong>
+   balanced
+  </strong>
+  . This means, if we insert or remove an element and the height between left and right subtrees becomes greater than 1 then we must rearrange the nodes.
+ </p>
+ <p>
+  This optimization means that our binary search tree will become self balancing.
+ </p>
+ <p>
+  This type of self balancing binary search tree has a special name. It's called an
+  <strong>
+   AVL Tree
+  </strong>
+  .
+ </p>
+ <p>
+  Remember: This question is very difficult, I don't expect you to be able to answer this, but I encourage you to give it a go!
+ </p>
+ <h4 id="solution-76">
+  Solution
+ </h4>
+ <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, value):
+        <span class="ot">self</span>.value = value
+        <span class="ot">self</span>.left = <span class="ot">None</span>
+        <span class="ot">self</span>.right = <span class="ot">None</span>
+
+<span class="kw">class</span> AVLTree():
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>):
+        <span class="ot">self</span>.node = <span class="ot">None</span>
+        <span class="ot">self</span>.height = -<span class="dv">1</span>
+        <span class="ot">self</span>.balance = <span class="dv">0</span>
+
+    <span class="kw">def</span> insert(<span class="ot">self</span>, value):
+        node = Node(value)
+        <span class="co"># Tree is empty, initialize root</span>
+        <span class="kw">if</span> <span class="ot">self</span>.node == <span class="ot">None</span>:
+            <span class="ot">self</span>.node = node
+            <span class="ot">self</span>.node.left = AVLTree()
+            <span class="ot">self</span>.node.right = AVLTree()
+        <span class="co"># Insert into left subtree</span>
+        <span class="kw">elif</span> value &lt; <span class="ot">self</span>.node.value:
+            <span class="ot">self</span>.node.left.insert(value)
+        <span class="co"># Insert into right subtree</span>
+        <span class="kw">elif</span> value &gt; <span class="ot">self</span>.node.value:
+            <span class="ot">self</span>.node.right.insert(value)
+        <span class="co"># Rebalance if needed</span>
+        <span class="ot">self</span>.rebalance()
+
+    <span class="kw">def</span> remove(<span class="ot">self</span>, value):
+        <span class="kw">if</span> <span class="ot">self</span>.node != <span class="ot">None</span>:
+            <span class="co"># Found the node delete it</span>
+            <span class="kw">if</span> <span class="ot">self</span>.node.value == value:
+                <span class="co"># Node is a leaf node - Just remove</span>
+                <span class="kw">if</span> not <span class="ot">self</span>.node.left.node and not <span class="ot">self</span>.node.right.node:
+                    <span class="ot">self</span>.node = <span class="ot">None</span>
+                <span class="co"># Only one subtree - the right subtree - replace root with that</span>
+                <span class="kw">elif</span> not <span class="ot">self</span>.node.left.node:
+                    <span class="ot">self</span>.node = <span class="ot">self</span>.node.right.node
+                <span class="co"># Only one subtree - the left subtree - replace root with that</span>
+                <span class="kw">elif</span> not <span class="ot">self</span>.node.right.node:
+                    <span class="ot">self</span>.node = <span class="ot">self</span>.node.left.node
+                <span class="kw">else</span>:
+                    <span class="co"># Find successor as smallest node in the right subtree or</span>
+                    <span class="co"># predecessor as largest node in left subtree</span>
+                    successor = <span class="ot">self</span>.node.right.node
+                    <span class="kw">while</span> successor and successor.left.node:
+                        successor = successor.left.node
+
+                    <span class="kw">if</span> successor:
+                        <span class="ot">self</span>.node.value = successor.value
+                        <span class="co"># Delete successor from the replaced node right subtree</span>
+                        <span class="ot">self</span>.node.right.remove(successor.value)
+            <span class="co"># Remove from left subtree</span>
+            <span class="kw">elif</span> value &lt; <span class="ot">self</span>.node.value:
+                <span class="ot">self</span>.node.left.remove(value)
+            <span class="co"># Remove from right subtree</span>
+            <span class="kw">elif</span> value &gt; <span class="ot">self</span>.node.value:
+                <span class="ot">self</span>.node.right.remove(value)
+            <span class="co"># Rebalance if needed</span>
+            <span class="ot">self</span>.rebalance()
+
+    <span class="kw">def</span> is_balanced(<span class="ot">self</span>):
+        <span class="kw">if</span> <span class="ot">self</span>.node is <span class="ot">None</span>:
+            <span class="kw">return</span> <span class="ot">True</span>
+        <span class="co"># Left subtree height</span>
+        lst = <span class="ot">self</span>.node.left.height
+        <span class="co"># Right subtree height</span>
+        rst = <span class="ot">self</span>.node.right.height
+        <span class="kw">if</span> (<span class="dt">abs</span>(lst - rst) &lt;= <span class="dv">1</span>) and <span class="ot">self</span>.node.left.is_balanced() is <span class="ot">True</span> and <span class="ot">self</span>.node.right.is_balanced() is <span class="ot">True</span>:
+            <span class="kw">return</span> <span class="ot">True</span>
+        <span class="kw">return</span> <span class="ot">False</span>
+
+    <span class="kw">def</span> rebalance(<span class="ot">self</span>):
+        <span class="ot">self</span>.update_heights()
+        <span class="ot">self</span>.update_balances()
+        <span class="co"># If balance is &lt; -1 or &gt; 1 then rotations are still necessary to perform</span>
+        <span class="kw">while</span> <span class="ot">self</span>.balance &lt; -<span class="dv">1</span> or <span class="ot">self</span>.balance &gt; <span class="dv">1</span>:
+            <span class="co"># Left subtree is larger than right subtree so rotate to the left</span>
+            <span class="kw">if</span> <span class="ot">self</span>.balance &gt; <span class="dv">1</span>:
+                <span class="kw">if</span> <span class="ot">self</span>.node.left.balance &lt; <span class="dv">0</span>:
+                    <span class="ot">self</span>.node.left.rotate_left()
+                    <span class="ot">self</span>.update_heights()
+                    <span class="ot">self</span>.update_balances()
+                <span class="ot">self</span>.rotate_right()
+                <span class="ot">self</span>.update_heights()
+                <span class="ot">self</span>.update_balances()
+            
+            <span class="co"># Right subtree larger than left subtree so rotate to the right</span>
+            <span class="kw">if</span> <span class="ot">self</span>.balance &lt; -<span class="dv">1</span>:
+                <span class="kw">if</span> <span class="ot">self</span>.node.right.balance &gt; <span class="dv">0</span>:
+                    <span class="ot">self</span>.node.right.rotate_right()
+                    <span class="ot">self</span>.update_heights()
+                    <span class="ot">self</span>.update_balances()
+                <span class="ot">self</span>.rotate_left()
+                <span class="ot">self</span>.update_heights()
+                <span class="ot">self</span>.update_balances()
+
+    <span class="kw">def</span> update_heights(<span class="ot">self</span>):
+        <span class="co"># Height is max height of left or right subtrees + 1 for the root</span>
+        <span class="kw">if</span> <span class="ot">self</span>.node:
+            <span class="kw">if</span> <span class="ot">self</span>.node.left:
+                <span class="ot">self</span>.node.left.update_heights()
+            <span class="kw">if</span> <span class="ot">self</span>.node.right:
+                <span class="ot">self</span>.node.right.update_heights()
+            <span class="ot">self</span>.height = <span class="dv">1</span> + <span class="dt">max</span>(<span class="ot">self</span>.node.left.height, <span class="ot">self</span>.node.right.height)
+        <span class="kw">else</span>:
+            <span class="ot">self</span>.height = -<span class="dv">1</span>
+
+    <span class="kw">def</span> update_balances(<span class="ot">self</span>):
+        <span class="co"># Calculate the balance factor of the tree</span>
+        <span class="co"># Balance factor calculated as follows:</span>
+        <span class="co">#     BF = height(left_subtree) - height(right_subtree)</span>
+        <span class="kw">if</span> <span class="ot">self</span>.node:
+            <span class="kw">if</span> <span class="ot">self</span>.node.left:
+                <span class="ot">self</span>.node.left.update_balances()
+            <span class="kw">if</span> <span class="ot">self</span>.node.right:
+                <span class="ot">self</span>.node.right.update_balances()
+            <span class="ot">self</span>.balance = <span class="ot">self</span>.node.left.height - <span class="ot">self</span>.node.right.height
+        <span class="kw">else</span>:
+            <span class="ot">self</span>.balance = <span class="dv">0</span>
+
+    <span class="kw">def</span> rotate_right(<span class="ot">self</span>):
+        <span class="co"># Set self as the subtree of the left subtree</span>
+        new_root = <span class="ot">self</span>.node.left.node
+        new_left_sub = new_root.right.node
+        old_root = <span class="ot">self</span>.node
+
+        <span class="ot">self</span>.node = new_root
+        old_root.left.node = new_left_sub
+        new_root.right.node = old_root
+ 
+    <span class="kw">def</span> rotate_left(<span class="ot">self</span>):
+        <span class="co"># Set self as the left subtree of the right subtree</span>
+        new_root = <span class="ot">self</span>.node.right.node
+        new_left_sub =new_root.left.node
+        old_root = <span class="ot">self</span>.node
+
+        <span class="ot">self</span>.node = new_root
+        old_root.right.node = new_left_sub
+        new_root.left.node = old_root</code></pre>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <br/>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+  <h4>
+   Help support the author by donating or purchasing a PDF copy of the book from EJunkie!
+  </h4>
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="../chapter_22/chapter_22.html">
+  Previous Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

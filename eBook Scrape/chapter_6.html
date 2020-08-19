@@ -1,0 +1,1471 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-6---strings">
+  Chapter 6 - Strings
+ </h1>
+ <h2 id="introduction-to-strings">
+  6.1 - Introduction to strings
+ </h2>
+ <p>
+  In this chapter we're going to take a closer look at strings. We have met them various times throughout the book and we know they represent textual data.
+ </p>
+ <p>
+  Manipulating textual data is common in programming so becoming comfortable working with strings is essential!
+ </p>
+ <p>
+  In Python we represent strings as a sequence of characters enclosed by " " or ' '. For example:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_string <span class="op">=</span> hello, world<span class="op">!</span>    <span class="co"># This is not a string</span>
+
+my_string <span class="op">=</span> <span class="st">"hello, world!"</span>  <span class="co"># This is a string!</span>
+my_string <span class="op">=</span> <span class="st">'hello, world!'</span>  <span class="co"># This is also a string!</span></code></pre>
+ </div>
+ <p>
+  Python also offers a large set of operations, methods and functions for working with strings, some of which we'll meet later on in this chapter. Working with strings in Python is also quite easy compared to other languages.
+ </p>
+ <p>
+  There are a couple of things I'd like to point out before we jump onto string methods. Firstly, I want to take another quick look at the print function.
+ </p>
+ <p>
+  <em>
+   print()
+  </em>
+  converts each of its arguments to strings, inserts a space character in the output between each of its arguments then appends a
+  <strong>
+   newline
+  </strong>
+  character and writes the result to standard output (in our case the terminal window).
+ </p>
+ <p>
+  When I say argument I mean the following:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">"This"</span>, <span class="st">"and"</span>, <span class="st">"that"</span>)
+
+<span class="co"># OUTPUT</span>
+<span class="co">"This and that"</span></code></pre>
+ </div>
+ <p>
+  In the above code, each of the strings is an argument and you can have as many arguments as you like (we'll look at arguments in more detail later in the functions chapter).
+ </p>
+ <p>
+  When working with textual data (strings) we have some special characters. Some of these are:
+ </p>
+ <table>
+  <thead>
+   <tr class="header">
+    <th align="left">
+     Special Character
+    </th>
+    <th align="left">
+     Meaning
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     \n
+    </td>
+    <td align="left">
+     Newline
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     \r
+    </td>
+    <td align="left">
+     Carriage return
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     \t
+    </td>
+    <td align="left">
+     Tab
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  And here is what they do:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">"Hello</span><span class="ch">\n</span><span class="st">World"</span>)
+Hello
+World
+
+<span class="op">&gt;&gt;&gt;</span><span class="bu">print</span>(<span class="st">"Welcome to my</span><span class="ch">\r</span><span class="st">home"</span>)
+Homeome to my
+
+<span class="op">&gt;&gt;&gt;</span><span class="bu">print</span>(<span class="st">"Apples</span><span class="ch">\t</span><span class="st">Oranges"</span>)
+Apples  Oranges</code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   \t
+  </code>
+  adds a tab, the
+  <code>
+   \n
+  </code>
+  will move to a new line and
+  <code>
+   \r
+  </code>
+  will essentially take whatever comes after it, and overwrite whatever comes before it up to the length of whatever comes after it. Don't worry about it too much I've only encountered it a handful of times.
+ </p>
+ <p>
+  We probably wont encounter the tab or carriage return characters again throughout this book but I want to warn you about the newline character. Just because you can't see it doesn't mean it's not there so if you are ever getting unexpected output the newline character might be causing it! But we'll also look at dealing with it a little later on.
+ </p>
+ <p>
+  There is also a special string called the
+  <em>
+   empty string
+  </em>
+  . This is represented as
+  <em>
+   ""
+  </em>
+  .
+ </p>
+ <h2 id="string-functions">
+  6.2 - String functions
+ </h2>
+ <p>
+  As I've said previously, Python provides lots of functions for working with strings, so let's take a look at some of the most important ones now!
+ </p>
+ <table>
+  <thead>
+   <tr class="header">
+    <th align="left">
+     Method
+    </th>
+    <th align="left">
+     What it does
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     len()
+    </td>
+    <td align="left">
+     returns the length of the string
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     str()
+    </td>
+    <td align="left">
+     Returns the string representation of an object
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     chr()
+    </td>
+    <td align="left">
+     Converts an integer to a character
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     ord()
+    </td>
+    <td align="left">
+     Converts a character to an integer
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  Lets look at these in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(<span class="st">"Hello"</span>)
+<span class="dv">5</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(<span class="st">"Hello</span><span class="ch">\n</span><span class="st">World"</span>)     <span class="co"># Newline character counts!</span>
+<span class="dv">11</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span>(<span class="dv">5</span> <span class="op">+</span> <span class="dv">5</span>)
+<span class="co">'10'</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">chr</span>(<span class="dv">65</span>)
+<span class="co">'A'</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">ord</span>(<span class="st">"B"</span>)
+<span class="dv">66</span></code></pre>
+ </div>
+ <p>
+  <em>
+   len()
+  </em>
+  and
+  <em>
+   str()
+  </em>
+  work as expected. We cast a type to a string using the
+  <em>
+   str()
+  </em>
+  function.
+ </p>
+ <p>
+  But what are
+  <em>
+   chr()
+  </em>
+  and
+  <em>
+   ord()
+  </em>
+  doing?
+ </p>
+ <p>
+  At the most basic level, computers store information as numbers. To represent characters, a translation scheme has been devised which maps each character to its representative number.
+ </p>
+ <p>
+  The simplest of these schemes is called
+  <strong>
+   ASCII
+  </strong>
+  which you may have heard of. It stands for American Standard Code for Information Interchange and it covers the common Latin characters you're probably used to working with.
+ </p>
+ <p>
+  <em>
+   chr()
+  </em>
+  and
+  <em>
+   ord()
+  </em>
+  are used for translating between codes and characters.
+ </p>
+ <h2 id="string-methods">
+  6.3 - String methods
+ </h2>
+ <p>
+  We're now going to look at string methods. They're kind of like functions except they're specific to strings. For example,
+  <em>
+   len()
+  </em>
+  works on may different
+  <em>
+   types
+  </em>
+  .
+ </p>
+ <p>
+  The syntax for a method is as follow:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="bu">object</span>.method(<span class="op">&lt;</span>arguments<span class="op">&gt;</span>)</code></pre>
+ </div>
+ <p>
+  Let's look some at the most commonly used string methods:
+ </p>
+ <table>
+  <colgroup>
+   <col width="19%"/>
+   <col width="80%"/>
+  </colgroup>
+  <thead>
+   <tr class="header">
+    <th align="left">
+     Method
+    </th>
+    <th align="left">
+     Meaning
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     s.capitalize()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with the first character capitalized
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     s.title()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with the first letter of each word capitalized
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     s.upper()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with all alphabetic characters capitalized
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     s.lower()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with all alphabetic characters converted to lowercase
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     s.isalnum()
+    </td>
+    <td align="left">
+     returns True if
+     <em>
+      s
+     </em>
+     is nonempty and all its characters are alphanumeric (letters and numbers) and False otherwise.
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     s.isalpha()
+    </td>
+    <td align="left">
+     returns True if
+     <em>
+      s
+     </em>
+     is nonempty and all its characters are alphabetic and False otherwise
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     s.isdigit()
+    </td>
+    <td align="left">
+     returns True if
+     <em>
+      s
+     </em>
+     is nonempty and all its characters can be casted to integers and False otherwise
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     s.strip()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with the whitespace on the left-hand side and right-hand side removed
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     s.lstrip()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with the whitespace on the left-hand side removed
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     s.rstrip()
+    </td>
+    <td align="left">
+     returns a copy of
+     <em>
+      s
+     </em>
+     with the whitespace on the right-hand side removed.
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  Let's look at these in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"tHiS is A StRIng"</span>
+<span class="op">&gt;&gt;&gt;</span> s.capitalize()
+<span class="co">"This is a string"</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"tHis is A StRIng"</span>
+<span class="op">&gt;&gt;&gt;</span> s.title()
+<span class="co">"This Is A String"</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"tHis is A StRIng"</span>
+<span class="op">&gt;&gt;&gt;</span> s.upper()
+<span class="co">"THIS IS A STRING"</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"tHis is A StRInt"</span>
+<span class="op">&gt;&gt;&gt;</span> s.lower()
+<span class="co">"this is a string"</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"937 ThIs is A STRing"</span>
+<span class="op">&gt;&gt;&gt;</span> s.isalnum()
+<span class="va">True</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"93 *** ThIs is A STRing"</span>
+<span class="op">&gt;&gt;&gt;</span> s.isalnum()
+<span class="va">False</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"937 ThIs is A STRing"</span>
+<span class="op">&gt;&gt;&gt;</span> s.isalpha()
+<span class="va">False</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"ThIs is A STRing"</span>
+<span class="op">&gt;&gt;&gt;</span> s.isalpha()
+<span class="va">True</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is not a digit"</span>
+<span class="op">&gt;&gt;&gt;</span> s.isdigit()
+<span class="va">False</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"76324"</span>
+<span class="op">&gt;&gt;&gt;</span> s.isdigit()
+<span class="va">True</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"      This is a string         "</span>
+<span class="op">&gt;&gt;&gt;</span> s.strip()
+<span class="co">"This is a string"</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"    This is a string    "</span>
+<span class="op">&gt;&gt;&gt;</span> s.lstrip()
+<span class="co">"This is a string    "</span>
+
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"    This is a string    "</span>
+<span class="op">&gt;&gt;&gt;</span> s.rstrip()
+<span class="co">"    This is a string"</span></code></pre>
+ </div>
+ <p>
+  For some of these methods, when we don't pass any arguments, they have a default behaviour. However, we can change this by passing arguments to the function. Let me show you how that works:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is my stringggggg"</span>
+<span class="op">&gt;&gt;&gt;</span> s.rstrip(<span class="st">"g"</span>)
+<span class="co">"This is my strin"</span>               <span class="co"># rstrip() now removes 'g' instead of whitespace to the                                      right-hand side</span></code></pre>
+ </div>
+ <p>
+  Make sure you become familiar with these, you'll probably use them often (some more often than others).
+ </p>
+ <h2 id="string-indexing">
+  6.4 - String indexing
+ </h2>
+ <p>
+  <strong>
+   Important Note
+  </strong>
+  : This section is incredibly important so pay particular attention to it!
+ </p>
+ <p>
+  Remember we talked about memory and counting from 0 for
+  <em>
+   indices
+  </em>
+  ? Well let's combine those two ideas here.
+ </p>
+ <p>
+  I mentioned earlier in the chapter that strings are a sequence of characters. In memory they are represented as :
+ </p>
+ <pre><code>-------------------------------
+|  H  |  E  |  L  |  L  |  O  |     # Each memory location contains one of the characters
+-------------------------------
+
+
+
+-------------------------------
+|  H  |  E  |  L  |  L  |  O  |     # Each location also has an address
+-------------------------------
+   |     |     |     |     |
+   13    14    15    16    17        # These are hypothetical addresses
+   
+
+-------------------------------
+|  H  |  E  |  L  |  L  |  O  |     # We can get the address of 'E' as 13 + 1
+-------------------------------     # Similarly for 'H' as 13 + 0
+   |     |     |     |     |
+   13    14    15    16    17
+   
+                                    # The 0 above is an "index" so is the 1!</code></pre>
+ <p>
+  We can index strings in a similar way! The syntax for indexing into a string is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">0</span>]
+<span class="co">"H"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">1</span>]
+<span class="co">"e"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">2</span>]
+<span class="co">"l"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">3</span>]
+<span class="co">"l"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">4</span>]
+<span class="co">"o"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">5</span>]
+Traceback (most recent call last):
+  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="op">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>
+<span class="pp">IndexError</span>: string index out of <span class="bu">range</span></code></pre>
+ </div>
+ <p>
+  Notice in the last line we try to index to string at position 5 but we get an
+  <strong>
+   IndexError
+  </strong>
+  and we're told the index is out of range. This is because we start counting from 0 and 0-4 are the 5 indices of the string.
+ </p>
+ <p>
+  So, the final index of string
+  <em>
+   s
+  </em>
+  is:
+  <code>
+   len(s) - 1
+  </code>
+  and we can index using this:
+  <code>
+   s[len(s) - 1]
+  </code>
+ </p>
+ <p>
+  String indexes may also be negative numbers and will specify locations relative to the end of the string.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="op">-</span><span class="dv">1</span>]
+<span class="co">"o"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="op">-</span><span class="dv">2</span>]
+<span class="co">"l"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="op">-</span><span class="dv">3</span>]
+<span class="co">"l"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="op">-</span><span class="dv">4</span>]
+<span class="co">"e"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="op">-</span><span class="dv">5</span>]
+<span class="co">"H"</span></code></pre>
+ </div>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">H   E   L   L   O       <span class="co"># String</span>
+<span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">4</span>       <span class="co"># Positive indices</span>
+<span class="op">-</span><span class="dv">5</span>  <span class="op">-</span><span class="dv">4</span>  <span class="op">-</span><span class="dv">3</span>  <span class="op">-</span><span class="dv">2</span>  <span class="op">-</span><span class="dv">1</span>      <span class="co"># Negative indices</span></code></pre>
+ </div>
+ <p>
+  <strong>
+   Recap for this section
+  </strong>
+  :
+ </p>
+ <ul>
+  <li>
+   An index is a position.
+  </li>
+  <li>
+   Using indices we can reference characters at particular positions.
+  </li>
+  <li>
+   For indices, we always start counting from 0.
+  </li>
+  <li>
+   The first character is at index 0.
+  </li>
+  <li>
+   The last character is at the index
+   <code>
+    len(s) - 1
+   </code>
+  </li>
+ </ul>
+ <h2 id="immutability">
+  6.5 - Immutability
+ </h2>
+ <p>
+  In Python, every variable holds an instance of an object and there are two types of objects,
+  <strong>
+   mutable
+  </strong>
+  and
+  <strong>
+   immutable
+  </strong>
+  . So far we have only met
+  <strong>
+   immutable
+  </strong>
+  types i.e ints, floats, bools and strings. An object being immutable means it's value can't be changed once created.
+ </p>
+ <p>
+  For example, doing something such as:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">10</span> <span class="op">=</span> <span class="dv">3</span>
+<span class="va">True</span> <span class="op">=</span> <span class="va">False</span>
+<span class="co">"Hello"</span> <span class="op">=</span> <span class="st">"World"</span></code></pre>
+ </div>
+ <p>
+  This wouldn't make any sense and it's probably quite obvious why. However, now that we know about string indexing, doing something such as:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> <span class="st">"string"</span>
+s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">"b"</span></code></pre>
+ </div>
+ <p>
+  This might seem reasonable. However it's not and there is good reason for it. What if we tried something such as:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> <span class="st">"string"</span>
+s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">"bl"</span></code></pre>
+ </div>
+ <p>
+  Now that might also seem reasonable but remember how strings are stored in memory. When they are created, they have a length and trying to change that length such as above would cause issues on a lower level (not that it can't be done, it's just not worth it in 99% of cases). Making strings immutable types increases performance and security but don't worry about that for now. Just know you can't change a strings value once it's created.
+ </p>
+ <p>
+  To get a better understanding of how strings are stored in memory and how they're
+  <em>
+   referenced
+  </em>
+  , take a look at the code below, then the diagram that follows.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="st">"Hello"</span>
+b <span class="op">=</span> a
+a <span class="op">=</span> <span class="st">"World"</span></code></pre>
+ </div>
+ <div class="figure">
+  <img alt="arrows" src="./assets/arrows.png">
+   <p class="caption">
+    arrows
+   </p>
+  </img>
+ </div>
+ <p>
+  From the first part of the diagram, I said before
+  <code>
+   a
+  </code>
+  contains "Hello", however that isn't the case. That was for simplicity. What's actually happening is, Python maintains a
+  <em>
+   namespace
+  </em>
+  of mappings from variables to objects they refer to. After
+  <code>
+   a = "Hello"
+  </code>
+  is executed, a mapping from
+  <code>
+   a
+  </code>
+  to the value
+  <code>
+   "Hello"
+  </code>
+  is added to the namespace.
+  <code>
+   a
+  </code>
+  now points to the memory location that holds the value "Hello". We say that
+  <code>
+   a
+  </code>
+  contains a reference to the value
+  <code>
+   "Hello"
+  </code>
+  stored in memory.
+ </p>
+ <p>
+  When the line
+  <code>
+   b = a
+  </code>
+  is executed, what happens is,
+  <code>
+   b
+  </code>
+  now points to the same memory location that
+  <code>
+   a
+  </code>
+  points to and when
+  <code>
+   a = "World"
+  </code>
+  is executed, a new string instance is created and saved in some new memory location and the location that
+  <code>
+   a
+  </code>
+  points to is updated.
+ </p>
+ <p>
+  Hence, this behaviour is what makes strings immutable. Try to gain an understanding of this and we'll come back to it and look at it in more detail later on.
+ </p>
+ <h2 id="string-slicing">
+  6.6 - String slicing
+ </h2>
+ <p>
+  We have seen how to get characters at specific positions of a string using indexing e.g.
+  <code>
+   s[0]
+  </code>
+  gets the character at the first position of string
+  <code>
+   s
+  </code>
+  .
+ </p>
+ <p>
+  What if we wanted to get the characters from the first to third position of the string
+  <code>
+   "Hello"
+  </code>
+  i.e.
+  <code>
+   "Hel"
+  </code>
+  .
+ </p>
+ <p>
+  Well we can! We use
+  <strong>
+   slicing
+  </strong>
+  to do so. Slicing works very similarly to indexing except, rather than just specifying the start index, we also give the end index we want.
+ </p>
+ <p>
+  Here's a couple of examples:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">0</span>:<span class="dv">3</span>]
+<span class="co">'Hel'</span>
+
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">0</span>:<span class="dv">1</span>]
+<span class="co">'H'</span></code></pre>
+ </div>
+ <p>
+  The syntax is:
+  <code>
+   string[ &lt;start&gt; : &lt;end&gt; ]
+  </code>
+ </p>
+ <p>
+  Notice how slicing works though. Using the first example, slicing returns a new string with everything from
+  <code>
+   s
+  </code>
+  at the start index, up to but not including the end index.
+ </p>
+ <p>
+  If we wanted everything after the first letter in
+  <code>
+   s
+  </code>
+  , we can omit the end index. We can also omit the first index and leave the end index which will give us everything from index 0 up to the specified end index
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">1</span>:]
+<span class="co">'ello'</span>
+<span class="op">&gt;&gt;&gt;</span> s[:<span class="dv">3</span>]
+<span class="co">'Hel'</span></code></pre>
+ </div>
+ <p>
+  We can also omit both indexes, in which case we'll get the entire string returned:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s[:]
+<span class="co">'Hello'</span></code></pre>
+ </div>
+ <p>
+  Note that the
+  <em>
+   colon
+  </em>
+  must remain in either case.
+ </p>
+ <p>
+  The indices may also be variables:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> first <span class="op">=</span> <span class="dv">2</span>
+<span class="op">&gt;&gt;&gt;</span> last <span class="op">=</span> <span class="dv">4</span>
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s[first:last]
+<span class="co">'ll'</span></code></pre>
+ </div>
+ <p>
+  The indices may also be negative numbers and will specify locations relative to the end of the string:
+ </p>
+ <pre><code>&gt;&gt;&gt; s = "Hello"
+&gt;&gt;&gt; s[:-1]
+'Hell'
+&gt;&gt;&gt; s[-4:]</code></pre>
+ <p>
+  Python also offers extended slicing for strings. This adds a third parameter when slicing the string. This third parameter indicates the step size and the syntax is
+  <code>
+   s[first:last:step]
+  </code>
+  .
+ </p>
+ <p>
+  This is done as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is a string to be sliced"</span>
+<span class="op">&gt;&gt;&gt;</span> s[::<span class="dv">1</span>]
+<span class="co">'This is a string to be sliced'</span>
+<span class="op">&gt;&gt;&gt;</span> s[::<span class="dv">2</span>]
+<span class="co">'Ti sasrn ob lcd'</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">1</span>:<span class="dv">8</span>:<span class="dv">2</span>]
+<span class="co">'hsi'</span></code></pre>
+ </div>
+ <p>
+  The step size can also be negative (This is useful for reversing a string)
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is a string to be sliced"</span>
+<span class="op">&gt;&gt;&gt;</span> s[::<span class="op">-</span><span class="dv">1</span>]
+<span class="co">'decils eb ot gnirts a si sihT'</span>
+<span class="op">&gt;&gt;&gt;</span> s[::<span class="op">-</span><span class="dv">2</span>]
+<span class="co">'dcl bo nrsas iT'</span></code></pre>
+ </div>
+ <h2 id="string-operators">
+  6.7 - String operators
+ </h2>
+ <p>
+  Strings also have operators. These are the
+  <code>
+   +
+  </code>
+  operator and the
+  <code>
+   *
+  </code>
+  operator. They don't function the same as integer or float operators.
+ </p>
+ <p>
+  The
+  <code>
+   +
+  </code>
+  operator is called the concatenation operator and is used to join strings together.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s2 <span class="op">=</span> <span class="st">"World"</span>
+<span class="op">&gt;&gt;&gt;</span> s1 <span class="op">+</span> s2
+<span class="co">"HelloWorld"</span></code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   *
+  </code>
+  operator is called the replication operator and is used to replicate a string.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">*</span> <span class="dv">3</span>
+<span class="co">"HelloHelloHello"</span></code></pre>
+ </div>
+ <p>
+  These operators also have precedence associated with them:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is a string"</span>
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">+</span> <span class="st">' '</span> <span class="op">*</span> <span class="dv">3</span>
+<span class="co">'This is a string   '</span>
+<span class="op">&gt;&gt;&gt;</span> (s <span class="op">+</span> <span class="st">' '</span>) <span class="op">*</span> <span class="dv">3</span>
+<span class="co">'This is a string This is a string This is a string '</span></code></pre>
+ </div>
+ <p>
+  There is also another special operator called the
+  <code>
+   in
+  </code>
+  operator. This will return a boolean based on whether or not a substring is contained within a string.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is a string"</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">"This"</span> <span class="op">in</span> s
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">"That"</span> <span class="op">in</span> s
+<span class="va">False</span></code></pre>
+ </div>
+ <h2 id="printing-formatting">
+  6.8 - Printing &amp; formatting
+ </h2>
+ <p>
+  We looked at the
+  <code>
+   print
+  </code>
+  function a little while back. It is quite simple in how it works. Takes something as an argument, tries to convert it to a string then prints it to standard output (We'll look at standard output a little later, for now though, its just the terminal window).
+ </p>
+ <p>
+  Sometimes we want our output to look nice and have better readability. Let's look at an example with bad readability.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">12</span>:
+    <span class="bu">print</span>(i, <span class="st">'* 15 = '</span>, i <span class="op">*</span> <span class="dv">15</span>)
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="co"># OUTPUT</span>
+<span class="dv">0</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">0</span>
+<span class="dv">1</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">15</span>
+<span class="dv">2</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">30</span>
+<span class="dv">3</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">45</span>
+<span class="dv">4</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">60</span>
+<span class="dv">5</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">75</span>
+<span class="dv">6</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">90</span>
+<span class="dv">7</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">105</span>
+<span class="dv">8</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">120</span>
+<span class="dv">9</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">135</span>
+<span class="dv">10</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">150</span>
+<span class="dv">11</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">165</span></code></pre>
+ </div>
+ <p>
+  We can see that as the numbers become larger in the output, the spacing becomes off and lines start to jut out. We will look at how to make this look nice a little later in this section.
+ </p>
+ <p>
+  To achieve better formatting on output we use the
+  <code>
+   format()
+  </code>
+  operator. This operator
+  <em>
+   prepares
+  </em>
+  a string for printing.
+ </p>
+ <p>
+  The syntax is as follow:
+  <code>
+   '{}'.format(x)
+  </code>
+  .
+ </p>
+ <p>
+  The string on which
+  <code>
+   format
+  </code>
+  operates (
+  <code>
+   '{}'
+  </code>
+  ) is called the
+  <em>
+   format string
+  </em>
+  . The
+  <code>
+   {}
+  </code>
+  is called a placeholder or (replacement field). Inside the placeholders we specify how data should be displayed and the arguments to the format method are the items of data that will be inserted into each placeholder and formatted according to the placeholders
+  <em>
+   format commands
+  </em>
+  .
+ </p>
+ <p>
+  The general syntax for a
+  <em>
+   format command
+  </em>
+  is
+  <code>
+   {[: &lt;align&gt; &lt;minimum width&gt; &lt;.precision&gt; &lt;type&gt;]}
+  </code>
+  where square brackets indicate optional parameters.
+ </p>
+ <p>
+  Let's look at how this in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> pi <span class="op">=</span> <span class="fl">3.14159265359</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">'{:.3f}'</span>.<span class="bu">format</span>(pi))
+<span class="co">'3.142'</span></code></pre>
+ </div>
+ <p>
+  Lets break down the format command here (
+  <code>
+   {:.3f}
+  </code>
+  ).
+ </p>
+ <p>
+  The
+  <code>
+   .3
+  </code>
+  is the precision. In this case we want pi to be formatted to 3 decimal places. The
+  <code>
+   f
+  </code>
+  is the type which stands for floating point type.
+ </p>
+ <p>
+  We can have multiple placeholders in the format string:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> pi <span class="op">=</span> <span class="fl">3.14159265359</span>
+<span class="op">&gt;&gt;&gt;</span> e <span class="op">=</span> <span class="fl">2.71828182845</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">'The number pi is: {:.3f} and the number e is {:.5f}'</span>.<span class="bu">format</span>(pi, e))
+<span class="co">'The number pi is: 3.142 and the number e is 2.71828'</span></code></pre>
+ </div>
+ <p>
+  The first argument to be formatted is matched with the first placeholder and the second argument to the second placeholder and so on.
+ </p>
+ <p>
+  We can also have nested placeholders:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">e <span class="op">=</span> <span class="fl">2.71828</span>
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:
+    <span class="bu">print</span>(<span class="st">'{:.{}f}'</span>.<span class="bu">format</span>(e, i))
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="co"># OUTPUT</span>
+<span class="dv">3</span>
+<span class="fl">2.7</span>
+<span class="fl">2.72</span>
+<span class="fl">2.718</span>
+<span class="fl">2.7183</span>
+<span class="fl">2.71828</span></code></pre>
+ </div>
+ <p>
+  Nested placeholders are matched from left to right as well. A way of helping thinking about this is, each time we encounter an opening curly brace, we will be inserting the next argument.
+ </p>
+ <p>
+  Another option we have to the format command is the minimum width.
+ </p>
+ <p>
+  We can use this minimum width to solve the problem we had with the output from the 15 times tables.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">12</span>:
+    <span class="bu">print</span>(<span class="st">'{:2d} * {:2d} = {:3d}'</span>.<span class="bu">format</span>(i, <span class="dv">15</span>, i<span class="op">*</span><span class="dv">15</span>))
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="co"># OUTPUT</span>
+ <span class="dv">0</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>   <span class="dv">0</span>
+ <span class="dv">1</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">15</span>
+ <span class="dv">2</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">30</span>
+ <span class="dv">3</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">45</span>
+ <span class="dv">4</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">60</span>
+ <span class="dv">5</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">75</span>
+ <span class="dv">6</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span>  <span class="dv">90</span>
+ <span class="dv">7</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span> <span class="dv">105</span>
+ <span class="dv">8</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span> <span class="dv">120</span>
+ <span class="dv">9</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span> <span class="dv">135</span>
+<span class="dv">10</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span> <span class="dv">150</span>
+<span class="dv">11</span> <span class="op">*</span> <span class="dv">15</span> <span class="op">=</span> <span class="dv">165</span></code></pre>
+ </div>
+ <p>
+  The minimum width will pad out the argument with whitespace to the specified minimum width.
+ </p>
+ <p>
+  Notice that we have
+  <code>
+   d
+  </code>
+  instead of
+  <code>
+   f
+  </code>
+  . This means an integer. We also do not specify a precision which is indicated by a
+  <code>
+   .
+  </code>
+  followed by the precision number.
+ </p>
+ <p>
+  We can also specify an alignment. Alignments are specified with
+  <code>
+   ^
+  </code>
+  for centred,
+  <code>
+   &lt;
+  </code>
+  for left justified and
+  <code>
+   &gt;
+  </code>
+  for right justified.
+ </p>
+ <p>
+  Let's look at the star example, this is by no means a good solution, it's simply to show the use of the alignment format command:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>: 
+    <span class="bu">print</span>(<span class="st">'{:^10s}'</span>.<span class="bu">format</span>(<span class="st">'* '</span><span class="op">*</span>i))
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+i <span class="op">-=</span> <span class="dv">2</span>
+<span class="cf">while</span> i <span class="op">&gt;</span> <span class="dv">0</span>:
+    <span class="bu">print</span>(<span class="st">'{:^10s}'</span>.<span class="bu">format</span>(<span class="st">'* '</span><span class="op">*</span>i))
+    i <span class="op">-=</span> <span class="dv">1</span>
+    
+<span class="co"># OUTPUT</span>
+    <span class="op">*</span>     
+   <span class="op">*</span> <span class="op">*</span>    
+  <span class="op">*</span> <span class="op">*</span> <span class="op">*</span>   
+ <span class="op">*</span> <span class="op">*</span> <span class="op">*</span> <span class="op">*</span>  
+<span class="op">*</span> <span class="op">*</span> <span class="op">*</span> <span class="op">*</span> <span class="op">*</span> 
+ <span class="op">*</span> <span class="op">*</span> <span class="op">*</span> <span class="op">*</span>  
+  <span class="op">*</span> <span class="op">*</span> <span class="op">*</span>   
+   <span class="op">*</span> <span class="op">*</span>    
+    <span class="op">*</span></code></pre>
+ </div>
+ <p>
+  As you can see in the format command we specify the string to be centred with a minimum width of 10 and the type to be
+  <code>
+   s
+  </code>
+  which is a string.
+ </p>
+ <h2 id="exercises">
+  6.9 - Exercises
+ </h2>
+ <p>
+  <strong>
+   IMPORTANT NOTE
+  </strong>
+  :
+ </p>
+ <p>
+  I can't show you everything there is to python. The book would go on forever. A really important skill all good programmers have is being able to know what to look for when they run into a problem they can't solve themselves. For example, I might want to be able to something with a string but I don't know how. Knowing where to look to find out the answer is super important. You may have even come across a website called
+  <em>
+   stack overflow
+  </em>
+  by now. This is going to be a really good resource for you. Therefore some the questions in these exercises may require you to go and search for methods to help you arrive at your solution.
+ </p>
+ <p>
+  There is a lot to take in from this chapter. String are really important and used all the time. Becoming comfortable with them is equally important.
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes as input, a single integer from the user which will specify how many decimal places the number
+  <code>
+   e
+  </code>
+  should be formatted to.
+ </p>
+ <blockquote>
+  <p>
+   Take
+   <em>
+    e
+   </em>
+   to be 2.7182818284590452353602874713527
+  </p>
+ </blockquote>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">4</span>
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="fl">2.7183</span></code></pre>
+ </div>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a program that will take as input, a string and two integers. The two integers will represent indices. If the string can be sliced using the two indices then print the sliced string. If either or both of the integers are outside the strings index range then print that the string cannot be sliced at those integers.
+ </p>
+ <blockquote>
+  <p>
+   Assume that the integers can not be negative.
+  </p>
+ </blockquote>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="co">"This is my string"</span>
+<span class="dv">2</span>
+<span class="dv">9</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">'is is m'</span>
+
+<span class="co"># EXAMPLE INPUT</span>
+<span class="co">"This is a string"</span>
+<span class="dv">10</span>
+<span class="dv">22</span>
+
+<span class="co"># EXAMPLE OUTPUT</span>
+<span class="co">'Cannot slice string using those indices'</span></code></pre>
+ </div>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  When you sign up for accounts on website or apps, you may be told your password strength when entering it for the first time. In this exercise, you are to write a program that takes in as input, a string that will represent a password.
+ </p>
+ <p>
+  Assume a password can contain the following:
+ </p>
+ <ul>
+  <li>
+   digits
+  </li>
+  <li>
+   lowercase letters
+  </li>
+  <li>
+   uppercase letters
+  </li>
+  <li>
+   special characters (take these to be: $, #, @, and ^)
+  </li>
+ </ul>
+ <p>
+  A passwords strength should be graded on how many of the above categories are contained in the password. The password should be given a score of 1 to 4.
+ </p>
+ <p>
+  If the password is greater than or equal to strength 3 (contains characters from 3 of the above categories) then you should print the strength and that the password is valid. Otherwise print the strength and that the password is not valid.
+ </p>
+ <blockquote>
+  <p>
+   Python comes with built-in documentation. To access this, at the command prompt type
+   <code>
+    pydoc str
+   </code>
+   . This will return the documentation for the
+   <code>
+    str
+   </code>
+   type. Here you will find all methods strings have to offer.
+  </p>
+ </blockquote>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUTS</span>
+<span class="dv">978</span>
+hjj
+jKl
+nmM2
+r@num978LL
+LLLL
+
+<span class="co"># EXAMPLE OUTPUTS</span>
+<span class="dv">1</span>
+<span class="dv">1</span>
+<span class="dv">2</span>
+<span class="dv">3</span>
+<span class="dv">4</span>
+<span class="dv">1</span></code></pre>
+ </div>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Write a program that takes 3 floating point numbers as input from the user: a starting radius, radius increment and an ending radius. Based on these three numbers, your program should output a table with a spheres corresponding surface area and volume.
+ </p>
+ <p>
+  The surface area and volume of a sphere are given by the following formulae:
+ </p>
+ <p>
+  <br/>
+  <span class="math display">
+   $$
+V = \frac 4 3 \pi r^3
+$$
+  </span>
+  <br/>
+ </p>
+ <blockquote>
+  <p>
+   Hint: Formatting is key here
+  </p>
+ </blockquote>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE INPUT</span>
+<span class="dv">1</span>
+<span class="dv">1</span>
+<span class="dv">10</span>
+<span class="co"># EXAMPLE OUTPUT</span>
+    Radius            Area          Volume
+<span class="op">----------</span>      <span class="op">----------</span>    <span class="op">------------</span>
+       <span class="fl">1.0</span>           <span class="fl">12.57</span>            <span class="fl">4.19</span>
+       <span class="fl">2.0</span>           <span class="fl">50.27</span>           <span class="fl">33.51</span>
+       <span class="fl">3.0</span>          <span class="fl">113.10</span>          <span class="fl">113.10</span>
+       <span class="fl">4.0</span>          <span class="fl">201.06</span>          <span class="fl">268.08</span>
+       <span class="fl">5.0</span>          <span class="fl">314.16</span>          <span class="fl">523.60</span>
+       <span class="fl">6.0</span>          <span class="fl">452.39</span>          <span class="fl">904.78</span>
+       <span class="fl">7.0</span>          <span class="fl">615.75</span>         <span class="fl">1436.76</span>
+       <span class="fl">8.0</span>          <span class="fl">804.25</span>         <span class="fl">2144.66</span>
+       <span class="fl">9.0</span>         <span class="fl">1017.88</span>         <span class="fl">3053.63</span>
+      <span class="fl">10.0</span>         <span class="fl">1256.64</span>         <span class="fl">4188.79</span></code></pre>
+ </div>
+ <script>
+  (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+ </script>
+ <br/>
+ <!-- Begin Mailchimp Signup Form -->
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <!--End mc_embed_signup-->
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_5.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_7.html">
+  Next Chapter
+ </a>
+</div></html>

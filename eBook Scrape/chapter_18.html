@@ -1,0 +1,974 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style>
+ code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+</style>
+<style>
+ a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-18---oop-special-methods">
+  Chapter 18 - OOP: Special Methods and Operator Overloading
+ </h1>
+ <h2 id="the-__init__-method">
+  18.1 - The __init__() method
+ </h2>
+ <p>
+  In the previous chapter we looked at how to define new types by creating classes. We also had to initialise our instance objects using methods like
+  <code>
+   initialise()
+  </code>
+  . We don’t have to do this with Python’s built-in types such as strings.
+ </p>
+ <p>
+  For example, to initialise a list we could just type
+  <code>
+   my_list = [1, 2, 3]
+  </code>
+  .
+ </p>
+ <p>
+  We can define a special method called
+  <code>
+   __init__()
+  </code>
+  (that’s double underscore). This is called a constructor. If we provide that method for our class, then it is automatically called when we create an object. We can therefore replace any initialisation methods we had previously defined with
+  <code>
+   __init__()
+  </code>
+  . This allows us to create and initialise our object in one step.
+ </p>
+ <p>
+  Let’s look at a
+  <code>
+   Point
+  </code>
+  that models a point.
+ </p>
+ <div class="sourceCode" id="cb1">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb1-5" title="5">    </a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">def</span> display(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-7" title="7">        <span class="bu">print</span>(<span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y))</a></code></pre>
+ </div>
+ <p>
+  We can now use our point class as follows:
+ </p>
+ <div class="sourceCode" id="cb2">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point(<span class="dv">3</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">&gt;&gt;&gt;</span> p1.display()</a>
+<a class="sourceLine" id="cb2-4" title="4">X coordinate: <span class="dv">3</span></a>
+<a class="sourceLine" id="cb2-5" title="5">Y coordinate: <span class="dv">4</span></a></code></pre>
+ </div>
+ <p>
+  As you can see, our
+  <code>
+   __init__()
+  </code>
+  method was called automatically when we created an instance of the point class.
+ </p>
+ <p>
+  If the
+  <code>
+   __init__()
+  </code>
+  method takes two arguments (excluding self), then we must pass two arguments, otherwise we’ll get an error.
+ </p>
+ <div class="sourceCode" id="cb3">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point()</a>
+<a class="sourceLine" id="cb3-3" title="3">Traceback (most recent call last):</a>
+<a class="sourceLine" id="cb3-4" title="4">  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="pp">TypeError</span>: <span class="fu">__init__</span>() missing <span class="dv">2</span> required positional arguments: <span class="st">'x'</span> <span class="kw">and</span> <span class="st">'y'</span></a></code></pre>
+ </div>
+ <p>
+  We can however, set default values for these arguments. This will allow us to initialise an instance of
+  <code>
+   Point
+  </code>
+  without passing the arguments:
+ </p>
+ <div class="sourceCode" id="cb4">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb4-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb4-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb4-5" title="5">    </a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="kw">def</span> display(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb4-7" title="7">        <span class="bu">print</span>(<span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y))</a></code></pre>
+ </div>
+ <p>
+  We can now use our class as follows:
+ </p>
+ <div class="sourceCode" id="cb5">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point()</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">&gt;&gt;&gt;</span> p1.display()</a>
+<a class="sourceLine" id="cb5-4" title="4">X coordinate: <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-5" title="5">Y coordinate: <span class="dv">0</span></a></code></pre>
+ </div>
+ <p>
+  What happens when we define this special method and create an instance is:
+ </p>
+ <ul>
+  <li>
+   Python creates an empty instance of the
+   <code>
+    Point
+   </code>
+   class.
+  </li>
+  <li>
+   This empty object is passed, along with
+   <code>
+    3
+   </code>
+   and
+   <code>
+    4
+   </code>
+   to the
+   <code>
+    __init__()
+   </code>
+   method.
+  </li>
+  <li>
+   <code>
+    __init__()
+   </code>
+   initialises the object with the supplied arguments
+  </li>
+  <li>
+   A reference to the initialised object is created and assigned to
+   <code>
+    p1
+   </code>
+   .
+  </li>
+ </ul>
+ <p>
+  Remember, special methods are never called directly!
+ </p>
+ <h2 id="the-__str__-method">
+  18.2 - The __str__() method
+ </h2>
+ <p>
+  The
+  <code>
+   __str__()
+  </code>
+  method is another special function. We can
+  <em>
+   override
+  </em>
+  it which means we can change it’s implementation and hence it’s behaviour.
+ </p>
+ <p>
+  When we call
+  <code>
+   print()
+  </code>
+  on a Python built-in such as a string or a list, we get a nicely formatted, human readable representation of the object.
+ </p>
+ <p>
+  Under the hood, the
+  <code>
+   list
+  </code>
+  built in type implements this
+  <code>
+   __str__()
+  </code>
+  method and hence, allows us to print our lists in human readable format.
+ </p>
+ <p>
+  We can
+  <em>
+   override
+  </em>
+  this method to allow us to format and print our objects as we see fit. Therefore, when we call
+  <code>
+   print()
+  </code>
+  on an object of a class we’ve defined, we’ll no longer get something like
+  <code>
+   &lt;time.Time object at 0x000001A7C6902F60&gt;
+  </code>
+  printed to the terminal.
+ </p>
+ <p>
+  We do this by returning a formatted string. Let’s look at how we might do this for the
+  <code>
+   Point
+  </code>
+  class. We could now replace our
+  <code>
+   display()
+  </code>
+  function and replace it with
+  <code>
+   __str__()
+  </code>
+  , that way we can just print our point instance.
+ </p>
+ <div class="sourceCode" id="cb6">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb6-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb6-5" title="5">    </a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb6-7" title="7">        <span class="cf">return</span> <span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y)</a></code></pre>
+ </div>
+ <p>
+  We can now use our class as follows:
+ </p>
+ <div class="sourceCode" id="cb7">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point(<span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(p1)</a>
+<a class="sourceLine" id="cb7-4" title="4">X coordinate: <span class="dv">2</span></a>
+<a class="sourceLine" id="cb7-5" title="5">Y coordinate: <span class="dv">3</span></a></code></pre>
+ </div>
+ <p>
+  The return value of this special method must be a string object.
+ </p>
+ <h2 id="the-__len__-method">
+  18.3 - The __len__() method
+ </h2>
+ <p>
+  As you can probably guess, the
+  <code>
+   __len__()
+  </code>
+  method allows us
+  <em>
+   override
+  </em>
+  the default implementation of the
+  <code>
+   len()
+  </code>
+  function to define what the length of our own types are. For example with a
+  <code>
+   Point
+  </code>
+  , the length may be the distance from the origin ( the point (0, 0)). However, we must return an integer. We will get an error otherwise. So, we’ll have to round either up or down. Python does this in order to make the
+  <code>
+   len()
+  </code>
+  function predictable. In this example, we’ll just cast our return value to an integer:
+ </p>
+ <div class="sourceCode" id="cb8">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb8-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb8-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb8-5" title="5">    </a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb8-7" title="7">        <span class="cf">return</span> <span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y)</a>
+<a class="sourceLine" id="cb8-8" title="8">    </a>
+<a class="sourceLine" id="cb8-9" title="9">    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb8-10" title="10">        distance_from_center <span class="op">=</span> ((<span class="va">self</span>.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (<span class="va">self</span>.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb8-11" title="11">        <span class="cf">return</span> distance_from_center</a></code></pre>
+ </div>
+ <p>
+  We can now call the
+  <code>
+   len()
+  </code>
+  function on instances of our
+  <code>
+   Point
+  </code>
+  class.
+ </p>
+ <div class="sourceCode" id="cb9">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point(<span class="dv">24</span>, <span class="dv">33</span>)</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(p1)</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="dv">40</span></a></code></pre>
+ </div>
+ <p>
+  The actual distance of this point from the center is 40.8044…
+ </p>
+ <p>
+  It is unfortunate that we can’t return a floating point number, therefore if we want real accuracy we’ll have to implement a different method that we’ll have to call on the instance.
+ </p>
+ <h2 id="operator-overloading">
+  18.4 - Operator overloading
+ </h2>
+ <p>
+  There are a tonne of special methods in Python, I’m not going to cover them all, however, there are some special methods that are called when we use operators. For example, when we use the comparison operator
+  <code>
+   ==
+  </code>
+  on two integers, a special method called
+  <code>
+   __eq__()
+  </code>
+  is called.
+ </p>
+ <p>
+  When
+  <em>
+   method overriding
+  </em>
+  is done on methods that define the behaviour of
+  <em>
+   operators
+  </em>
+  , we call that:
+  <em>
+   operator overloading
+  </em>
+  .
+ </p>
+ <p>
+  We can overload the default behaviour of the
+  <code>
+   ==
+  </code>
+  method, so that it applies to our
+  <code>
+   Point
+  </code>
+  class. This is done as follows:
+ </p>
+ <div class="sourceCode" id="cb10">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb10-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb10-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb10-5" title="5">    </a>
+<a class="sourceLine" id="cb10-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-7" title="7">        <span class="cf">return</span> <span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y)</a>
+<a class="sourceLine" id="cb10-8" title="8"></a>
+<a class="sourceLine" id="cb10-9" title="9">    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-10" title="10">        distance_from_center <span class="op">=</span> ((<span class="va">self</span>.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (<span class="va">self</span>.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb10-11" title="11">        <span class="cf">return</span> <span class="bu">int</span>(distance_from_center)</a>
+<a class="sourceLine" id="cb10-12" title="12">    </a>
+<a class="sourceLine" id="cb10-13" title="13">    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>, other):</a>
+<a class="sourceLine" id="cb10-14" title="14">        <span class="cf">return</span> ((<span class="va">self</span>.x, <span class="va">self</span>.y) <span class="op">==</span> (other.x, other.y))</a></code></pre>
+ </div>
+ <p>
+  In this case, we overload the
+  <code>
+   __eq__()
+  </code>
+  method by comparing two tuples. If the two tuples, each containing the x and y coordinates of points, are equal, then our two points are equal. We can use this as follows:
+ </p>
+ <div class="sourceCode" id="cb11">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> mytime <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point(<span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">&gt;&gt;&gt;</span> p2 <span class="op">=</span> Point(<span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">==</span> p2</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="va">True</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="op">&gt;&gt;&gt;</span> p3 <span class="op">=</span> Point(<span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">==</span> p3</a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="va">False</span></a></code></pre>
+ </div>
+ <p>
+  We could also add two points together to get a new point. In this case we would overload the
+  <code>
+   __add()__
+  </code>
+  method. The
+  <code>
+   __add__()
+  </code>
+  method implements the functionality of the
+  <code>
+   +
+  </code>
+  operator, not the
+  <code>
+   +=
+  </code>
+  operator. Therefore, we must return a new object as the
+  <code>
+   +
+  </code>
+  operator is not for in-place addition.
+ </p>
+ <p>
+  Let’s look at that:
+ </p>
+ <div class="sourceCode" id="cb12">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb12-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb12-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb12-5" title="5">    </a>
+<a class="sourceLine" id="cb12-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb12-7" title="7">        <span class="cf">return</span> <span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y)</a>
+<a class="sourceLine" id="cb12-8" title="8"></a>
+<a class="sourceLine" id="cb12-9" title="9">    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb12-10" title="10">        distance_from_center <span class="op">=</span> ((<span class="va">self</span>.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (<span class="va">self</span>.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb12-11" title="11">        <span class="cf">return</span> <span class="bu">int</span>(distance_from_center)</a>
+<a class="sourceLine" id="cb12-12" title="12"></a>
+<a class="sourceLine" id="cb12-13" title="13">    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>, other):</a>
+<a class="sourceLine" id="cb12-14" title="14">        <span class="cf">return</span> ((<span class="va">self</span>.x, <span class="va">self</span>.y) <span class="op">==</span> (other.x, other.y))</a>
+<a class="sourceLine" id="cb12-15" title="15">    </a>
+<a class="sourceLine" id="cb12-16" title="16">    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</a>
+<a class="sourceLine" id="cb12-17" title="17">        new_x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> other.x</a>
+<a class="sourceLine" id="cb12-18" title="18">        new_y <span class="op">=</span> <span class="va">self</span>.y <span class="op">+</span> other.y</a>
+<a class="sourceLine" id="cb12-19" title="19">        <span class="cf">return</span> Point(new_x, new_y)</a></code></pre>
+ </div>
+ <p>
+  Now we can use this method as follows:
+ </p>
+ <div class="sourceCode" id="cb13">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point(<span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="op">&gt;&gt;&gt;</span> p2 <span class="op">=</span> Point(<span class="dv">5</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="op">&gt;&gt;&gt;</span> p3 <span class="op">=</span> p1 <span class="op">+</span> p2</a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(p3)</a>
+<a class="sourceLine" id="cb13-6" title="6">X coordinate: <span class="dv">7</span></a>
+<a class="sourceLine" id="cb13-7" title="7">Y coordinate: <span class="dv">5</span></a></code></pre>
+ </div>
+ <p>
+  We can overload the
+  <code>
+   +=
+  </code>
+  operator, which is for in-place addition. This way we don’t need to return a reference to a new point object and assign that to a new variable
+  <code>
+   p3
+  </code>
+  , instead we update the object’s (
+  <code>
+   p1
+  </code>
+  in this case) data attributes.
+ </p>
+ <p>
+  This is done by overloading the
+  <code>
+   __iadd()__
+  </code>
+  method.
+ </p>
+ <div class="sourceCode" id="cb14">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">class</span> Point:</a>
+<a class="sourceLine" id="cb14-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb14-3" title="3">        <span class="va">self</span>.x <span class="op">=</span> x</a>
+<a class="sourceLine" id="cb14-4" title="4">        <span class="va">self</span>.y <span class="op">=</span> y</a>
+<a class="sourceLine" id="cb14-5" title="5">    </a>
+<a class="sourceLine" id="cb14-6" title="6">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb14-7" title="7">        <span class="cf">return</span> <span class="st">"X coordinate: </span><span class="sc">{}</span><span class="ch">\n</span><span class="st">Y coordinate: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.x, <span class="va">self</span>.y)</a>
+<a class="sourceLine" id="cb14-8" title="8"></a>
+<a class="sourceLine" id="cb14-9" title="9">    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb14-10" title="10">        distance_from_center <span class="op">=</span> ((<span class="va">self</span>.x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (<span class="va">self</span>.y)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb14-11" title="11">        <span class="cf">return</span> <span class="bu">int</span>(distance_from_center)</a>
+<a class="sourceLine" id="cb14-12" title="12"></a>
+<a class="sourceLine" id="cb14-13" title="13">    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>, other):</a>
+<a class="sourceLine" id="cb14-14" title="14">        <span class="cf">return</span> ((<span class="va">self</span>.x, <span class="va">self</span>.y) <span class="op">==</span> (other.x, other.y))</a>
+<a class="sourceLine" id="cb14-15" title="15">    </a>
+<a class="sourceLine" id="cb14-16" title="16">    <span class="kw">def</span> <span class="fu">__add__</span>(<span class="va">self</span>, other):</a>
+<a class="sourceLine" id="cb14-17" title="17">        new_x <span class="op">=</span> <span class="va">self</span>.x <span class="op">+</span> other.x</a>
+<a class="sourceLine" id="cb14-18" title="18">        new_y <span class="op">=</span> <span class="va">self</span>.y <span class="op">+</span> other.y</a>
+<a class="sourceLine" id="cb14-19" title="19">        <span class="cf">return</span> Point(new_x, new_y)</a>
+<a class="sourceLine" id="cb14-20" title="20">    </a>
+<a class="sourceLine" id="cb14-21" title="21">    <span class="kw">def</span> <span class="fu">__iadd__</span>(<span class="va">self</span>, other):</a>
+<a class="sourceLine" id="cb14-22" title="22">        temp_point <span class="op">=</span> <span class="va">self</span> <span class="op">+</span> other</a>
+<a class="sourceLine" id="cb14-23" title="23">        <span class="va">self</span>.x, <span class="va">self</span>.y <span class="op">=</span> temp_point.x, temp_point.y</a>
+<a class="sourceLine" id="cb14-24" title="24">        <span class="cf">return</span> <span class="va">self</span></a></code></pre>
+ </div>
+ <p>
+  We can now use the
+  <code>
+   +=
+  </code>
+  operator on our points
+ </p>
+ <div class="sourceCode" id="cb15">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_point <span class="im">import</span> Point</a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">=</span> Point(<span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="op">&gt;&gt;&gt;</span> p2 <span class="op">=</span> Point(<span class="dv">5</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="op">&gt;&gt;&gt;</span> p1 <span class="op">+=</span> p2</a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(p1)</a>
+<a class="sourceLine" id="cb15-6" title="6">X coordinate: <span class="dv">7</span></a>
+<a class="sourceLine" id="cb15-7" title="7">Y coordinate: <span class="dv">4</span></a></code></pre>
+ </div>
+ <p>
+  Be careful when overloading in-place operators. In this case we use create a temporary point and then update the
+  <code>
+   self
+  </code>
+  instance using multiple assignment. Remember when we swapped the value in one variable for another and we had to create a temp variable? We can do that much faster by doing
+  <code>
+   x, y = y, x
+  </code>
+  . In this case
+  <code>
+   x, y
+  </code>
+  and
+  <code>
+   y, x
+  </code>
+  are tuples!
+ </p>
+ <p>
+  Anyway, after we update the attributes for
+  <code>
+   self
+  </code>
+  , we must return
+  <code>
+   self
+  </code>
+  .
+ </p>
+ <p>
+  Below are a list of other operators you can overload.
+ </p>
+ <table>
+  <thead>
+   <tr class="header">
+    <th>
+     Operator
+    </th>
+    <th>
+     Method that can be overloaded
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td>
+     ==
+    </td>
+    <td>
+     __eq__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     !=
+    </td>
+    <td>
+     __ne__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     &lt;
+    </td>
+    <td>
+     __lt__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     &lt;=
+    </td>
+    <td>
+     __le__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     &gt;
+    </td>
+    <td>
+     __gt__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     &gt;=
+    </td>
+    <td>
+     __ge__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     +
+    </td>
+    <td>
+     __add__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     -
+    </td>
+    <td>
+     __sub__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     //
+    </td>
+    <td>
+     __floordiv__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     /
+    </td>
+    <td>
+     __truediv__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     *
+    </td>
+    <td>
+     __mul__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     **
+    </td>
+    <td>
+     __pow__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     %
+    </td>
+    <td>
+     __mod__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     +=
+    </td>
+    <td>
+     __iadd__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     -=
+    </td>
+    <td>
+     __isub__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     *=
+    </td>
+    <td>
+     __imul__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     //=
+    </td>
+    <td>
+     __ifloordiv__()
+    </td>
+   </tr>
+   <tr class="even">
+    <td>
+     /=
+    </td>
+    <td>
+     __itruediv__()
+    </td>
+   </tr>
+   <tr class="odd">
+    <td>
+     **=
+    </td>
+    <td>
+     __ipow__()
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  There are more but we won’t need any more than this, in fact we won’t use half of these in this book.
+ </p>
+ <h2 id="exercises">
+  18.5 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Create a
+  <code>
+   BankAccount
+  </code>
+  class. The bank account class should have the following attributes:
+  <code>
+   balance
+  </code>
+  and
+  <code>
+   account_owner
+  </code>
+  . The bank account class should also have
+  <code>
+   deposit
+  </code>
+  and
+  <code>
+   withdraw
+  </code>
+  methods. You should also be able to
+  <code>
+   print
+  </code>
+  the bank account, to display the account owners name and balance. When implemented correctly, you should be able to use the Bank account class as follows:
+ </p>
+ <div class="sourceCode" id="cb16">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1">account <span class="op">=</span> BankAccount(<span class="st">"John Smith"</span>)</a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="bu">print</span>(account)</a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="op">&gt;&gt;&gt;</span> Owner: John Smith</a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="op">&gt;&gt;&gt;</span> Balance: $<span class="dv">0</span></a>
+<a class="sourceLine" id="cb16-5" title="5">account.deposit(<span class="dv">200</span>)</a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="bu">print</span>(account)</a>
+<a class="sourceLine" id="cb16-7" title="7"><span class="op">&gt;&gt;&gt;</span> Owner: John Smith</a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="op">&gt;&gt;&gt;</span> Balance: $<span class="dv">200</span></a>
+<a class="sourceLine" id="cb16-9" title="9">account.withdraw(<span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="bu">print</span>(account)</a>
+<a class="sourceLine" id="cb16-11" title="11"><span class="op">&gt;&gt;&gt;</span> Owner: John Smith</a>
+<a class="sourceLine" id="cb16-12" title="12"><span class="op">&gt;&gt;&gt;</span> Balance: $<span class="dv">150</span></a>
+<a class="sourceLine" id="cb16-13" title="13">account.withdraw(<span class="dv">200</span>)   <span class="co"># Not enough in the account to withdraw 200</span></a>
+<a class="sourceLine" id="cb16-14" title="14"><span class="bu">print</span>(account)</a>
+<a class="sourceLine" id="cb16-15" title="15"><span class="op">&gt;&gt;&gt;</span> Owner: John Smith</a>
+<a class="sourceLine" id="cb16-16" title="16"><span class="op">&gt;&gt;&gt;</span> Balance: $<span class="dv">150</span></a></code></pre>
+ </div>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Create a
+  <code>
+   Line
+  </code>
+  class. The line class should have four attributes: an
+  <code>
+   x1
+  </code>
+  and a
+  <code>
+   y1
+  </code>
+  coordinate for one point on the line and an
+  <code>
+   x2
+  </code>
+  and a
+  <code>
+   y2
+  </code>
+  coordinate for the second point on the line. You should be able to do a few things with an instance of a line. You should be able to call the
+  <code>
+   len
+  </code>
+  method on a line to show its length, add two lines together, subtract two lines, multiply a line by an integer,
+  <code>
+   print
+  </code>
+  the line and compare two lines to see if they are equal. In this case equality means both lines are the same length. When implemented correctly, you should be able to use the Line class as follows:
+ </p>
+ <div class="sourceCode" id="cb17">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1">lineOne <span class="op">=</span> Line(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb17-2" title="2">lineTwo <span class="op">=</span> Line(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb17-3" title="3"></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="bu">len</span>(lineOne)</a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="op">&gt;&gt;&gt;</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb17-6" title="6">lineThree <span class="op">=</span> lineOne <span class="op">+</span> lineTwo</a>
+<a class="sourceLine" id="cb17-7" title="7"><span class="bu">len</span>(lineThree)</a>
+<a class="sourceLine" id="cb17-8" title="8"><span class="op">&gt;&gt;&gt;</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb17-9" title="9">lineFour <span class="op">=</span> lineOne <span class="op">-</span> lineTwo</a>
+<a class="sourceLine" id="cb17-10" title="10"><span class="bu">len</span>(lineFour)</a>
+<a class="sourceLine" id="cb17-11" title="11"><span class="op">&gt;&gt;&gt;</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb17-12" title="12">lineFive <span class="op">=</span> lineTwo <span class="op">*</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb17-13" title="13"><span class="bu">len</span>(liveFive)</a>
+<a class="sourceLine" id="cb17-14" title="14"><span class="op">&gt;&gt;&gt;</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb17-15" title="15"><span class="bu">print</span>(lineOne)</a>
+<a class="sourceLine" id="cb17-16" title="16"><span class="op">&gt;&gt;&gt;</span> Line Details:</a>
+<a class="sourceLine" id="cb17-17" title="17"><span class="op">&gt;&gt;&gt;</span> Point <span class="dv">1</span>: (<span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb17-18" title="18"><span class="op">&gt;&gt;&gt;</span> Point <span class="dv">2</span>: (<span class="dv">4</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb17-19" title="19"><span class="bu">print</span>(lineOne <span class="op">==</span> lineTwo)</a>
+<a class="sourceLine" id="cb17-20" title="20"><span class="op">&gt;&gt;&gt;</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb17-21" title="21"><span class="bu">print</span>(lineOne <span class="op">==</span> lineFive)</a>
+<a class="sourceLine" id="cb17-22" title="22"><span class="op">&gt;&gt;&gt;</span> <span class="va">False</span></a></code></pre>
+ </div>
+ <p>
+  Note: The length of the line must return an integer.
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_17.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_19.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+ -
+</div></html>

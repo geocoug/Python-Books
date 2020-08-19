@@ -1,0 +1,568 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-9---basic-sorting-algorithms">
+  Chapter 9 - Basic Sorting Algorithms
+ </h1>
+ <h2 id="what-is-sorting">
+  9.1 - What is sorting?
+ </h2>
+ <p>
+  We've learned a lot so far and its now time to put what we've learned to good use. We're now going to look at your first important algorithms.
+ </p>
+ <p>
+  Sorting is the process of arranging items systematically. In computer science, sorting refers to arranging items (whatever they may be) in an ordered sequence.
+ </p>
+ <p>
+  Sorting is a very common operation in applications and developing
+  <em>
+   efficient
+  </em>
+  algorithms to perform sorting is becoming an ever more important task as the amount of data we gather grows at an exponential rate.
+ </p>
+ <p>
+  Sorting is usually used to support making lookup or search efficient, to enable processing of data in a defined order possible and to make the merging of sequences efficient.
+ </p>
+ <p>
+  In this chapter we're going to look at two of these sorting algorithms: Selection sort and Insertion sort.
+ </p>
+ <h2 id="selection-sort">
+  9.2 - Selection sort
+ </h2>
+ <p>
+  Selection sort is a general purpose sorting algorithm. In order for selection sort to work we must assume there exists some sequence of elements that are order-able (integers, floats, etc.).
+ </p>
+ <p>
+  Selection sort is an
+  <em>
+   in place
+  </em>
+  sorting algorithm which means we don't build a new list, rather, we rearrange the elements of that list.
+ </p>
+ <p>
+  Before we begin we need to look at some
+  <em>
+   terminology
+  </em>
+  :
+ </p>
+ <ul>
+  <li>
+   Sorted subarray - The portion of the list that has been sorted
+  </li>
+  <li>
+   Unsorted subarray - The portion of the list that has not yet been sorted
+  </li>
+  <li>
+   <code>
+    a
+   </code>
+   - The list we are sorting
+  </li>
+ </ul>
+ <p>
+  In selection sort, we break the list into two parts, the sorted subarray and the unsorted subarray and all of the elements in the sorted subarray are less than or equal to all the elements in the unsorted subarray. We also begin with the assumption that the entire list is unsorted.
+ </p>
+ <p>
+  Next, we search the entire list for the position of the smallest element. We must search the entire list to be certain that we have found the smallest element. If there are multiple occurrences of the smallest element, we take the position of the first one. We then move that element into the correct position of the sorted subarray. We repeat the above steps on the unsorted subarray
+ </p>
+ <p>
+  This is illustrated below
+ </p>
+ <pre><code>  6    3    9    7    2    8
+|||========================|           # FIND THE POSITION OF THE SMALLEST
+     UNSORTED PART                     # ELEMENT IN THE LIST AND SWAP WITH 6
+       
+----------------------------------------------------------------------------
+
+  2    3    9    7    6    8           # 2 IS NOW IN THE CORRECT POSTION
+  |===||===================|           # FIND THE POSITION OF THE SMALLEST
+           UNSORTED PART               # ELEMENT IN THE LIST AND SWAP WITH 3
+                                       # 3 IS THE SMALLEST (NO SWAP)
+----------------------------------------------------------------------------
+
+  2    3    9    7    6    8           # 3 IS NOW IN THE CORRECT POSITION
+  |========||==============|           # FIND THE POSITION OF THE SMALLEST
+    SORTED    UNSORTED PART            # ELEMENT IN THE LIST AND SWAP WITH 9
+     PART      
+  
+----------------------------------------------------------------------------
+
+  2    3    6    7    9    8           # 6 IS NOW IN THE CORRECT POSITION
+  |=============||=========|           # FIND THE POSITION OF THE SMALLEST
+    SORTED PART    UNSORTED            # ELEMENT IN THE LIST AND SWAP WITH 7
+                     PART              # 7 IS THE SMALLEST (NO SWAP)
+               
+----------------------------------------------------------------------------
+
+  2    3    6    7    9    8           # 7 IS NOW IN THE CORRECT POSITION
+  |==================||=====|          # FIND THE POSITION OF THE SMALLEST
+      SORTED PART      UNSORTED        # ELEMENT IN THE LIST AND SWAP WITH 9
+      
+----------------------------------------------------------------------------
+
+  2    3    6    7    8    9           # 8 IS NOW IN THE CORRECT POSITION
+  |========================|||         # WE HAVE REACHED THE END OF THE LIST
+         SORTED PART                   # THE LIST IS NOW SORTED</code></pre>
+ <p>
+  Does this seem somewhat familiar? If you did the exercises from the previous chapter, exercise 5 was basically this process!
+ </p>
+ <p>
+  It's time to code selection sort! Let's look at the code for it below:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(a):
+    p <span class="op">=</span> i
+    j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>
+    <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(a):
+        <span class="cf">if</span> a[j] <span class="op">&lt;</span> a[p]:
+            p <span class="op">=</span> j
+        j <span class="op">+=</span> <span class="dv">1</span>
+    
+    tmp <span class="op">=</span> a[p]
+    a[p] <span class="op">=</span> a[i]
+    a[i] <span class="op">=</span> tmp
+    
+    i <span class="op">+=</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  That's it! Let's break this down as there is a lot going on here
+ </p>
+ <ul>
+  <li>
+   The outer while loop is controlling our
+   <em>
+    sorted subarray
+   </em>
+   .
+  </li>
+  <li>
+   The inner while loop is searching for the next smallest element
+  </li>
+  <li>
+   The three lines above
+   <code>
+    i += 1
+   </code>
+   are swapping the smallest element into the correct position.
+  </li>
+  <li>
+   The process then repeats.
+  </li>
+ </ul>
+ <p>
+  A skill that all programmers have is being able to step through code and figure out how it's working. I encourage you to do the same with this algorithm (pen and paper and walking through an example)
+ </p>
+ <p>
+  Another good way to figure out what's going in the middle of some code is to stick in a
+  <code>
+   print()
+  </code>
+  statement to print out what variables hold what values at that current time. Another good way is to set break points. I'm not going to show you how to do this as it's generally a feature of the text editor you're using so look up how to set break points for your editor and how to use them! It's a skill you'd be expected to have if you worked in this field.
+ </p>
+ <h2 id="insertion-sort">
+  9.3 - Insertion sort
+ </h2>
+ <p>
+  Insertion sort is another general purpose,
+  <em>
+   in place
+  </em>
+  sorting algorithm.
+ </p>
+ <p>
+  To contrast how insertion sort works compared to selection sort:
+ </p>
+ <ul>
+  <li>
+   <strong>
+    Selection Sort
+   </strong>
+   : Select the smallest element from the unsorted subarray and append it to the sorted subarray of the list.
+  </li>
+  <li>
+   <strong>
+    Insertion Sort
+   </strong>
+   : Take the next element in the unsorted subarray and insert it into it's correct position in the sorted subarray.
+  </li>
+ </ul>
+ <p>
+  I'll illustrate this with a semi complete example:
+ </p>
+ <pre><code>
+2    4    5    3    9     6
+|=============||==========|      # THE STATE OF THE LIST AT SOME POINT
+    SORTED       UNSORTED        # DURING THE INSERTION SORT PROCESS
+    
+-----------------------------------------------------------------------
+          
+          This is the next element we want to sort
+               |
+               |
+2    4    5    3    9     6
+|=============||==========|      # WE WANT TO NOW PLACE THE 3 IN IT'S 
+    SORTED       UNSORTED        # CORRECT POSITION
+
+-----------------------------------------------------------------------
+               3      
+2    4    5    _    9     6
+|=============||==========|      # TAKE 3 OUT OF THE LIST
+    SORTED       UNSORTED   
+    
+-----------------------------------------------------------------------
+          
+               3 
+2    4    5    _    9     6
+|=============||==========|      # IS 3 &lt; 5? YES, SO MOVE 5 UP
+    SORTED       UNSORTED   
+    
+-----------------------------------------------------------------------
+
+          3 
+2    4    _    5    9     6
+|=============||==========|      # IS 3 &lt; 4? YES, SO MOVE 4 UP
+    SORTED       UNSORTED   
+
+-----------------------------------------------------------------------
+
+     3 
+2    _    4    5    9     6
+|=============||==========|      # IS 3 &lt; 2? NO, PLACE AFTER THE 2
+    SORTED       UNSORTED  
+    
+-----------------------------------------------------------------------
+
+      
+2    3    4    5    9     6
+|=============||==========|      # 3 IS NOW IN THE CORRECT POSITION
+    SORTED       UNSORTED 
+    
+-----------------------------------------------------------------------
+
+     
+2    3    4    5    9     6
+|==================||=====|      # MOVE ONTO THE NEXT ELEMENT
+    SORTED           UNSORTED  </code></pre>
+ <p>
+  It's time to code insertion sort! Let's take a look at the code for it, I'll give the explanation as comments:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">1</span>         <span class="co"># Assume the first element (a[0]) is sorted</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(a):  <span class="co"># Same as with selection sort</span>
+    v <span class="op">=</span> a[i]       <span class="co"># The value we want to insert into the correct position</span>
+    p <span class="op">=</span> i          <span class="co"># The position the element should be inserted into to</span>
+    <span class="cf">while</span> p <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">and</span> v <span class="op">&lt;</span> a[p<span class="dv">-1</span>]:   <span class="co"># While value is &lt; element to left </span>
+        a[p] <span class="op">=</span> a[p<span class="dv">-1</span>]             <span class="co"># Move the element to left up</span>
+        p <span class="op">-=</span> <span class="dv">1</span>                    <span class="co"># Decrement p (move one position left)</span>
+    a[p] <span class="op">=</span> v       <span class="co"># Found correct position so insert the value</span>
+    
+    i <span class="op">+=</span> <span class="dv">1</span>         <span class="co"># Move to next element</span></code></pre>
+ </div>
+ <h2 id="comparison-of-selection-sort-and-insertion-sort">
+  9.4 - Comparison of Selection sort and Insertion sort
+ </h2>
+ <p>
+  In this section I'm going to talk about the algorithmic complexity of the two algorithms. This is a really important section. If you ever do a technical interview, in 99.9% of cases you'll be asked to write some code or an algorithm and give it's algorithmic complexity. You need to know this stuff and it isn't just for Python, this applies to any language! I'm going to explain this in the simplest way possible while still giving you a good understanding of the topic.
+ </p>
+ <p>
+  Selection sort and Insertion sort are what we call
+  <em>
+   quadratic sorting algorithms
+  </em>
+  .
+ </p>
+ <p>
+  This means they both have a
+  <strong>
+   big O time complexity
+  </strong>
+  of:
+ </p>
+ <ul>
+  <li>
+   <strong>
+    Best case scenario
+   </strong>
+   - For example with insertion sort, let's say our list is already sorted and we try to sort it, then we are in a best case scenario as we don't need to move any elements around and the algorithm finishes quickly.
+  </li>
+  <li>
+   <strong>
+    Average case
+   </strong>
+   : This is how the algorithm performs in terms of time on average
+  </li>
+  <li>
+   <strong>
+    Worst case scenario
+   </strong>
+   : This is how the algorithm would perform in terms of time if our list was completely scrambled and out of order.
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Big O
+  </strong>
+  deals with the worst case and it is the case we are usually concerned with!
+ </p>
+ <p>
+  There's a lot of maths behind this and there's a whole topic of computer science related to it so I'm not covering it in detail here.
+ </p>
+ <p>
+  Anyway, when we say that both of these algorithms have a time complexity of
+  <em>
+   O(n^2)
+  </em>
+  , we are essentially saying that the performance of the algorithms will grow proportionally to the square of the size of the input (lists in this case). Another way to think of
+  <em>
+   O(n^2)
+  </em>
+  is that if we double the size of our input, it will quadruple the time taken for the algorithm to complete. These are just estimates. It doesn't mean that two algorithms with time complexities of
+  <em>
+   O(n^2)
+  </em>
+  will both take the exact same time to complete. You can look at this as a guide as to how your algorithm will perform in a general sense.
+ </p>
+ <p>
+  I've taken the time to run some algorithms with different time complexities on lists of varying sizes and we can look at how the algorithm takes longer to complete as the size of the list grows. You can see this in the diagram below:
+ </p>
+ <div class="figure">
+  <img alt="Time complexity" src="./assets/chap9.png">
+   <p class="caption">
+    Time complexity
+   </p>
+  </img>
+ </div>
+ <p>
+  In this diagram, the y-axis represents how long it took the algorithm to finish in seconds and the x-axis shows the number of elements in the list.
+ </p>
+ <p>
+  The blue line is for an O(n^2) algorithm and the orange is for an O(n) algorithm (Linear time algorithm).
+ </p>
+ <p>
+  I have a fast computer so it doesn't appear that the orange line is changing (it is, just very slowly).
+ </p>
+ <p>
+  However it is very clear that the O(n^2) algorithms become very slow when the size of the input becomes large.
+ </p>
+ <p>
+  In the real world, a list of size 1000 is small and selection sort or insertion sort wouldn't cut it. However that doesn't mean they don't have their uses. In fact, in practice, selection sort and insertion sort out perform the faster algorithms on small lists and some of the fast sorting algorithms will actually switch to these O(n^2) algorithms when they are nearing the end of the sorting process. It turns out the whole process finishes faster when this is done (in some cases).
+ </p>
+ <p>
+  We also have something called
+  <strong>
+   space complexity
+  </strong>
+  and this deals with how much memory is taken up by an algorithm. Both of these algorithms have O(1) space complexity. This means they use
+  <em>
+   constant memory
+  </em>
+  . They use constant memory as they are
+  <em>
+   in-place
+  </em>
+  sorting algorithms. They don't create additional lists to assist during the sorting process.
+ </p>
+ <p>
+  There is usually a trade-off between time and space complexity. As you can see here we have constant memory (This is good) but quadratic time complexity (This is bad). We could write some algorithm that is faster but takes more memory. It depends on the problem and the computing resources we have.
+ </p>
+ <h2 id="exercises">
+  9.5 - Exercises
+ </h2>
+ <p>
+  There won't be any coding exercises in this chapter, just theory questions. They are just as important to understand and get right though!
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  What is the time complexity of:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   Insertion sort
+  </li>
+  <li>
+   Selection sort
+  </li>
+ </ol>
+ <blockquote>
+  <p>
+   Give your answer in Big O notation
+  </p>
+ </blockquote>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  What is the space complexity of:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   Selection sort
+  </li>
+  <li>
+   Insertion sort
+  </li>
+ </ol>
+ <blockquote>
+  <p>
+   Give your answer in Big O notation
+  </p>
+ </blockquote>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Give two examples of when we might use selection sort or insertion sort in the real world?
+ </p>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  If we ended up in a situation in which the input was sorted but we didn't know and we try to sort the input, why might we prefer insertion sort over selection sort?
+ </p>
+ <blockquote>
+  <p>
+   You may have to go and search for the answer to this.
+  </p>
+ </blockquote>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <br/>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_8.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_10.html">
+  Next Chapter
+ </a>
+</div></html>

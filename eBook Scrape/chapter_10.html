@@ -1,0 +1,1247 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="input-file-text-processing">
+  Input, File &amp; Text Processing
+ </h1>
+ <h2 id="what-is-file-text-processing">
+  10.1 - What is file &amp; text processing?
+ </h2>
+ <p>
+  File processing is the process of creating, storing and accessing a files contents. Up until now we've only been able to temporarily store data in our programs in objects such as lists. In the real world, this wouldn't be much use. We need some way of being able to save data permanently. To do this, our programs need to store data on a hard disk. This is persistent storage and the data in this storage will be able to survive a system reboot or our program crashing. If we reboot our system, RAM is cleared and we lose our data. We've been storing data in RAM until now.
+ </p>
+ <p>
+  When doing file processing we follow these steps:
+ </p>
+ <ul>
+  <li>
+   Open the file
+  </li>
+  <li>
+   Read and/or write to the file
+  </li>
+  <li>
+   Close the file
+  </li>
+ </ul>
+ <p>
+  Up until now we've been using
+  <code>
+   input()
+  </code>
+  and
+  <code>
+   print()
+  </code>
+  for input and output (I/O). These are high-level interfaces to the underlying operating-system services and sometimes we need finer control, especially when we want to read and write files.
+ </p>
+ <p>
+  Python implements
+  <em>
+   file objects
+  </em>
+  as general interfaces to data streams. These file objects allow us to read and write to and from
+  <em>
+   standard input
+  </em>
+  and
+  <em>
+   standard output
+  </em>
+  (this is what
+  <code>
+   input()
+  </code>
+  and
+  <code>
+   print()
+  </code>
+  do and we'll get to standard input and output later). The
+  <em>
+   file objects
+  </em>
+  also allow us to read and write files.
+ </p>
+ <p>
+  Text processing on the other hand is the processes of manipulating textual data. Text processing is a very common task in computing. Python has great support for text processing and we've even met some of the methods that Python provides to allow us to do this. These are
+  <code>
+   split()
+  </code>
+  ,
+  <code>
+   strip()
+  </code>
+  and
+  <code>
+   join()
+  </code>
+  to name a few.
+ </p>
+ <h2 id="the-sys-module">
+  10.2 - The Sys module
+ </h2>
+ <p>
+  The
+  <em>
+   sys
+  </em>
+  module provides information about constants, functions and methods of the Python interpreter. A module is a file consisting of Python code. A module can define functions, classes and variables. To access a module you must import it into your code using the
+  <code>
+   import
+  </code>
+  keyword.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+<span class="co"># YOUR CODE</span></code></pre>
+ </div>
+ <p>
+  Through the
+  <em>
+   sys module
+  </em>
+  we can access arguments that are passed to our script at the command line. Lot's of Python scripts need access to the these arguments. We get access to them via
+  <code>
+   argv
+  </code>
+  (
+  <code>
+   sys.argv
+  </code>
+  ).
+ </p>
+ <p>
+  <code>
+   argv
+  </code>
+  is shorthand for
+  <strong>
+   argument vector
+  </strong>
+  . This is a list containing the command-line arguments passed to the script. The first element in this list is the script itself. The arguments for the script come after the name of the script. Let's look at how this works. Create a new Python file and save it as
+  <em>
+   myscript.py
+  </em>
+  and enter the following code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+<span class="bu">print</span>(sys.argv)</code></pre>
+ </div>
+ <p>
+  Then, at the command-line type the following, then
+  <em>
+   Enter
+  </em>
+  :
+ </p>
+ <pre class="n"><code>$ py myscript.py arg1 arg2</code></pre>
+ <blockquote>
+  <p>
+   If you are on linux or macOS, type:
+   <code>
+    python3 myscript.py arg1 arg2
+   </code>
+  </p>
+  <p>
+   The
+   <code>
+    $
+   </code>
+   at the beginning is the command prompt, don't type this.
+  </p>
+ </blockquote>
+ <p>
+  You will get the following output:
+ </p>
+ <pre><code>$ py myscript.py arg1 arg2
+['myscript.py', 'arg1', 'arg2']</code></pre>
+ <p>
+  Let's use this in a more constructive way. Create a new file called
+  <em>
+   calculator.py
+  </em>
+  and paste in the following code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+total <span class="op">=</span> <span class="dv">0</span>
+
+i <span class="op">=</span> <span class="dv">1</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(sys.argv):
+    total <span class="op">+=</span> <span class="bu">int</span>(sys.argv[i])
+    i <span class="op">+=</span> <span class="dv">1</span>
+<span class="bu">print</span>(total)</code></pre>
+ </div>
+ <p>
+  At the command line type the following, then
+  <em>
+   Enter
+  </em>
+  :
+ </p>
+ <pre><code>$ py calculator.py 5 3 6 
+14</code></pre>
+ <p>
+  We can pass the numbers we want to add together to the script. This saves us having to ask the user for input each time we want new input. Remember though,
+  <em>
+   argv
+  </em>
+  is a list of strings and thats why we had to cast the arguments to integers in the above code.
+ </p>
+ <p>
+  The
+  <code>
+   sys
+  </code>
+  module also provides us with three standard
+  <em>
+   file objects
+  </em>
+  . These are:
+  <code>
+   stdin
+  </code>
+  ,
+  <code>
+   stdout
+  </code>
+  , and
+  <code>
+   stderr
+  </code>
+  . These stand for
+  <em>
+   standard input
+  </em>
+  ,
+  <em>
+   standard output
+  </em>
+  and
+  <em>
+   standard error
+  </em>
+  .
+ </p>
+ <p>
+  In the sections that follow we will look at each of them.
+ </p>
+ <h2 id="reading-from-standard-input">
+  10.3 - Reading from standard input
+ </h2>
+ <p>
+  Standard input is stream data (usually text) going into a program. In Python, we access standard input through the
+  <em>
+   sys module
+  </em>
+  which provides standard input (
+  <code>
+   stdin
+  </code>
+  ) as a file object.
+ </p>
+ <p>
+  We have various methods available to us as to how we read from standard input.
+ </p>
+ <p>
+  <strong>
+   Important
+  </strong>
+  : The following methods, unlike
+  <code>
+   input()
+  </code>
+  and
+  <code>
+   print()
+  </code>
+  , will never add or remove newline characters. We will have to handle newline characters ourselves.
+ </p>
+ <p>
+  The first is the
+  <code>
+   read()
+  </code>
+  method. It is the most basic of the three.
+  <code>
+   read()
+  </code>
+  will read the entire contents of the file and the entire contents will be assigned to a single string.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+contents <span class="op">=</span> sys.stdin.read()
+
+<span class="bu">print</span>(contents)</code></pre>
+ </div>
+ <p>
+  <strong>
+   Important
+  </strong>
+  : We can pass a file to our program using a command-line operator called the
+  <em>
+   input redirection operator
+  </em>
+  . When we use this operator we redirect input from our keyboard to the text file.
+ </p>
+ <p>
+  The syntax for this method is
+  <code>
+   file.read()
+  </code>
+  where
+  <code>
+   sys.stdin
+  </code>
+  is a file (file object here).
+ </p>
+ <p>
+  You should create a text file and fill it up with some text. I recommend you have about 10 lines of text. Each line can be a single word if you like.
+ </p>
+ <p>
+  To run the above code type the following at the command line. Make sure the text file and the Python script are in the same directory. Type the following, then
+  <em>
+   Enter
+  </em>
+  .
+ </p>
+ <pre><code>$ py myscript.py &lt; input.txt
+This is line one.
+I'm line two
+And I'm line three</code></pre>
+ <blockquote>
+  <p>
+   This works the same on Linux, Windows and Mac.
+  </p>
+ </blockquote>
+ <p>
+  This is the output we get. Yours will look different depending on what you have in your file. As you can see we've printed out that file you just created.
+ </p>
+ <p>
+  It reads the file in as a single string and the string looks like so:
+ </p>
+ <pre><code>"This is line one.\nI'm line two\nAnd I'm line three"</code></pre>
+ <p>
+  The second method we have available to us is the
+  <code>
+   readlines()
+  </code>
+  method. This is a little more complicated as it stores each line as an element in a list.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+contents <span class="op">=</span> sys.stdin.readlines()
+
+<span class="bu">print</span>(contents)</code></pre>
+ </div>
+ <p>
+  The syntax for this method is
+  <code>
+   file.readlines()
+  </code>
+  where
+  <code>
+   sys.stdin
+  </code>
+  is a file (file object here).
+ </p>
+ <p>
+  Now we run our script the same way as before:
+ </p>
+ <pre><code>$ py myscript.py &lt; input.txt
+['This is line one.\n', "I'm line two.\n", "And I'm line three"]</code></pre>
+ <p>
+  As you can see our text file is now stored in a list, with each line being an element in the list. Notice how the newline characters haven't been removed.
+ </p>
+ <p>
+  This method is good as we can now do some manipulation on each line of text more easily.
+ </p>
+ <p>
+  Rather than using the
+  <em>
+   input redirection operator
+  </em>
+  we can just read lines from terminal.
+ </p>
+ <p>
+  You can run the above script again, this time omitting the redirection operator.
+ </p>
+ <p>
+  <strong>
+   Important
+  </strong>
+  : With files we eventually reach the end of them. This is indicated in the file by
+  <strong>
+   EOF
+  </strong>
+  (end of file). We don't need to worry about how this works as it's handled at a lower level. When we do not redirect standard input to read from a file, we do however, need indicate EOF at the command line. On Windows this is done by pressing
+  <em>
+   ctrl+z
+  </em>
+  . On Linux this is indicated by pressing ctrl+d. When you run the above script again and omit the redirect, you will be prompted to continuously input lines of text. When you are finished press ctrl+z or ctrl+d.
+ </p>
+ <pre><code>$ py myscript.py
+line one
+line two
+final line         # PRESS ENTER, THEN CTRL+Z OR CTRL+D TO INDICATE EOF.
+['line one\n', 'line two\n', 'final line\n']</code></pre>
+ <p>
+  The third method available to us is the
+  <code>
+   readline()
+  </code>
+  method. This is arguably better than
+  <code>
+   read()
+  </code>
+  and
+  <code>
+   readlines()
+  </code>
+  as it only reads a single line from standard input. With the two previous methods, we could imagine a situation where a text file is really, really big and storing the entire contents of the file in memory might be a waste of valuable memory.
+ </p>
+ <p>
+  We can still read in many lines of input using this method, we'll just need a loop. Let's look at how that is done.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+line <span class="op">=</span> sys.stdin.readline()
+<span class="cf">while</span> line:
+    <span class="bu">print</span>(line.strip())     <span class="co"># Strip the newline character as print() will add one.</span>
+    line <span class="op">=</span> sys.stdin.readline()</code></pre>
+ </div>
+ <p>
+  The syntax for this method is
+  <code>
+   file.readline()
+  </code>
+  where
+  <code>
+   sys.stdin
+  </code>
+  is a file (file object here).
+ </p>
+ <p>
+  Running this while redirecting standard input to a file yields:
+ </p>
+ <pre><code>$ py myscript.py &lt; input.txt
+This is line one.
+I'm line two.
+And I'm line three</code></pre>
+ <p>
+  I want to take another look at the
+  <code>
+   read()
+  </code>
+  method. We can actually control how much of the input is read. If we redirect input to a file we can limit how much of the file we read at any given time. Similarly, if we don't redirect, we can limit how much of user input through the console we read. We do this by passing an integer as an argument to the method. This integer represents how many characters we want to read.
+ </p>
+ <p>
+  This is done as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+contents <span class="op">=</span> sys.stdin.read(<span class="dv">6</span>)
+
+<span class="bu">print</span>(contents)</code></pre>
+ </div>
+ <p>
+  Running the code and redirecting standard input to a text file would yield:
+ </p>
+ <pre><code>$ py myscript.py &lt; input.txt
+This i</code></pre>
+ <p>
+  As you can see we passed the integer 6 to the read function, telling it to only read 6 characters.
+ </p>
+ <p>
+  <strong>
+   Remember
+  </strong>
+  : Whitespace counts as a character and so does the newline character!
+ </p>
+ <p>
+  Get used to these methods! This is how we'll be the primary way of taking input into our functions from now on!
+ </p>
+ <h2 id="writing-to-standard-output">
+  10.4 - Writing to standard output
+ </h2>
+ <p>
+  Standard output refers to the streams of data that are produced by programs. These standardized streams make it very easy to send output from these programs to a devices display monitor, printer, etc.
+ </p>
+ <p>
+  We write to standard output by using the
+  <code>
+   write()
+  </code>
+  method on the
+  <code>
+   sys.stdout
+  </code>
+  file object. The behaviour of
+  <code>
+   write()
+  </code>
+  has changed since Python 2.x. In Python 3, when we write to standard output we are returned the number of characters that were written.
+ </p>
+ <p>
+  Let's look at that in action in the Python REPL:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> sys
+<span class="op">&gt;&gt;&gt;</span> sys.stdout.write(<span class="st">"Hello"</span>)
+Hello5
+<span class="op">&gt;&gt;&gt;</span></code></pre>
+ </div>
+ <p>
+  We can see that we wrote "Hello" to standard output and we were returned the number of characters that were written (
+  <code>
+   5
+  </code>
+  ). The reason the
+  <code>
+   5
+  </code>
+  is on the same line is because, unlike
+  <code>
+   print()
+  </code>
+  , we must append the newline character ourselves:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> sys
+<span class="op">&gt;&gt;&gt;</span> sys.stdout.write(<span class="st">"Hello</span><span class="ch">\n</span><span class="st">"</span>)
+Hello
+<span class="dv">5</span>
+<span class="op">&gt;&gt;&gt;</span></code></pre>
+ </div>
+ <p>
+  We can also redirect the standard output stream to a file using the
+  <em>
+   output redirection operator
+  </em>
+  (
+  <code>
+   &gt;
+  </code>
+  ). Let's look at how this is done.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+sys.stdout.write(<span class="st">"Hello World!</span><span class="ch">\n</span><span class="st">"</span>)</code></pre>
+ </div>
+ <p>
+  Then at the command-line run:
+ </p>
+ <pre><code>$ py myscript.py &gt; output.txt</code></pre>
+ <p>
+  If you check the directory where your script is stored, you should now see a file called output.txt.
+ </p>
+ <p>
+  Open it and view it's contents, it should contain what we just wrote to the output stream.
+ </p>
+ <p>
+  When we redirect standard output to a file, a file will be created if it doesn't exist already.
+ </p>
+ <p>
+  We also have the
+  <code>
+   writelines()
+  </code>
+  method available to us which is not all that dissimilar to
+  <code>
+   readlines()
+  </code>
+  except it writes instead of reads.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+my_lines <span class="op">=</span> [<span class="st">"Line one</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"Line two"</span>]
+sys.stdou.writelines(my_lines)</code></pre>
+ </div>
+ <p>
+  Then, at the command-line, run:
+ </p>
+ <pre><code>$ py myscript.py &gt; output.txt</code></pre>
+ <p>
+  If you open output.txt you'll find that it contains the strings in the list above on two separate lines.
+ </p>
+ <h2 id="standard-error">
+  10.5 - Standard error
+ </h2>
+ <p>
+  There is still one standard stream we have not covered yet and thats standard error (
+  <code>
+   stderr
+  </code>
+  ). It again is a file object in python so we can write to it. It is typical for programs to write error messages and diagnostics to standard error. Typically, standard error is outputted to the terminal which started the program.
+ </p>
+ <p>
+  Having the standard output stream solves the semipredicate problem by allowing output and errors to be distinguished. We can redirect
+  <em>
+   standard error
+  </em>
+  to a different output stream to
+  <em>
+   standard output
+  </em>
+  . (an error log file for example).
+ </p>
+ <p>
+  That's all I want to say on standard error. We won't have to worry about it again in this book. It's just good to know about all the standard data streams we have access to.
+ </p>
+ <h2 id="opening-reading-files">
+  10.6 - Opening &amp; reading files
+ </h2>
+ <p>
+  In this section we're going to look at open and reading from files that are stored in permanent storage. Although the standard data streams from the previous section are files, they were stored in RAM and were already open.
+ </p>
+ <p>
+  When reading a file, we initialize a
+  <em>
+   file object
+  </em>
+  that acts as a link from the program to the file stored on the disk.
+ </p>
+ <p>
+  To open a file we use the
+  <code>
+   open()
+  </code>
+  function. The
+  <code>
+   open()
+  </code>
+  function takes two arguments: The
+  <em>
+   filename
+  </em>
+  and the
+  <em>
+   mode
+  </em>
+  in which the file is to be opened. The syntax is:
+  <code>
+   open(&lt;filename&gt;, &lt;mode&gt;)
+  </code>
+ </p>
+ <p>
+  There are various
+  <em>
+   modes
+  </em>
+  in which we can open a file, we're only concerned with four of them here.
+ </p>
+ <p>
+  The four modes we'll be dealing with are:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   <code>
+    'r'
+   </code>
+   - This mode opens a file for reading only.
+  </li>
+  <li>
+   <code>
+    'w'
+   </code>
+   - This mode opens a file for writing. If the file doesn't exist, it creates a new file with the specified file name. If the file does exist and we write to it, anything that was previously in the file is overwritten.
+  </li>
+  <li>
+   <code>
+    'a'
+   </code>
+   - This opens a file in append mode. If the file doesn't exist, it creates a new file with the specified file name. If it does exist, we add to the file rather than overwriting it.
+  </li>
+  <li>
+   <code>
+    'x'
+   </code>
+   - This opens a file for exclusive creation, failing if it already exists and throwing a
+   <code>
+    FileExistsError
+   </code>
+   .
+  </li>
+ </ol>
+ <p>
+  Once the file is open, we can read it's contents using the methods from section 3.4:
+  <code>
+   read()
+  </code>
+  ,
+  <code>
+   readlines()
+  </code>
+  and
+  <code>
+   readline()
+  </code>
+  .
+ </p>
+ <p>
+  Let's look at an example of opening a file from the disk and reading in it's contents:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">'input.txt'</span>, <span class="st">'r'</span>)
+content <span class="op">=</span> my_file.readlines()
+<span class="bu">print</span>(content)</code></pre>
+ </div>
+ <p>
+  Make sure you have a file called "input.txt" saved in the same directory as your script and for demo purposes make sure it has a few lines of text in it.
+ </p>
+ <p>
+  At the command-line, run:
+ </p>
+ <pre><code>$ py myscript.py
+['This is line one.\n', "I'm line two.\n", "And I'm line three"]</code></pre>
+ <p>
+  You can now see that the contents of your file has been read in successfully. It is in list form as we used the
+  <code>
+   readlines()
+  </code>
+  method.
+ </p>
+ <h2 id="writing-to-files-closing-files">
+  10.7 - Writing to files &amp; closing files
+ </h2>
+ <p>
+  In the previous section we looked at opening files. Now let's look at how to write to them and close them.
+ </p>
+ <p>
+  As you may have guessed, we write to files using the
+  <code>
+   write()
+  </code>
+  method we met in previous sections. To write to a file though, it must be opened in
+  <em>
+   write mode
+  </em>
+  .
+ </p>
+ <p>
+  Let's look at how to write to file:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">'output.txt'</span>, <span class="st">'w'</span>)
+my_file.write(<span class="st">"I am being written to a file</span><span class="ch">\n</span><span class="st">"</span>)</code></pre>
+ </div>
+ <p>
+  Run this script:
+ </p>
+ <pre><code>$ py myscript.py</code></pre>
+ <p>
+  Now open the file called output.txt. Don't worry if it didn't exist, one will be created. You should now see the line "I am being written to a file" contained in that file.
+ </p>
+ <p>
+  Now we need to close the file.
+ </p>
+ <p>
+  When a file is opened, the operating system allocates memory to track that file's state and the operating system cannot reallocate that memory until the file is closed. If we don't close open files, then we are using up memory unnecessarily.
+ </p>
+ <p>
+  When your program exists, the file is closed automatically but maybe we don't want to exit straight after we are finished reading and writing to a file.
+ </p>
+ <p>
+  We close files by using the
+  <code>
+   close()
+  </code>
+  function. This is demonstrated below:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_file <span class="op">=</span> <span class="bu">open</span>(<span class="st">"output.txt"</span>, <span class="st">"w"</span>)
+my_file.write(<span class="st">"Hello</span><span class="ch">\n</span><span class="st">"</span>)
+my_file.close()</code></pre>
+ </div>
+ <p>
+  The file has now been closed and memory can be reallocated for other uses.
+ </p>
+ <p>
+  Having to open files and remember to close them can become a bit of a pain. We can use something called the
+  <code>
+   with
+  </code>
+  statement to handle this for us.
+ </p>
+ <p>
+  The
+  <code>
+   with
+  </code>
+  statement clarifies code that previously would use
+  <code>
+   try...finally
+  </code>
+  blocks to ensure that clean-up code is executed. Don't worry about
+  <code>
+   try
+  </code>
+  and
+  <code>
+   finally
+  </code>
+  we'll get to them a little later but for now, we can use
+  <code>
+   with
+  </code>
+  to handle the closing of files for us.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data.txt"</span>, <span class="st">"w"</span>) <span class="im">as</span> my_file:
+    my_file.write(<span class="st">"Some text here"</span>)
+
+<span class="co"># THE REST OF YOUR PROGRAM HERE</span></code></pre>
+ </div>
+ <p>
+  So what is going on here? We can see the
+  <code>
+   with
+  </code>
+  statement but we also have an
+  <code>
+   as
+  </code>
+  statement. The
+  <code>
+   as
+  </code>
+  statement is used to assign the returned object to a new identifier. In this case, we open a file and are returned a
+  <em>
+   file object
+  </em>
+  . The file object is then assigned to the variable
+  <code>
+   my_file
+  </code>
+  using the
+  <code>
+   as
+  </code>
+  statement.
+ </p>
+ <p>
+  We then do whatever we need to do. In this case we write to the file. When we exit the
+  <code>
+   with
+  </code>
+  block the file is closed. Opening and closing files this way, is usually how most people do it.
+ </p>
+ <p>
+  Another use of the
+  <code>
+   as
+  </code>
+  statement which may clarify things is, for example, we were importing the sys module and we didn't like how long the name "sys" was (I know this is a silly example but some modules have long names), we could import it as such:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys <span class="im">as</span> s
+content <span class="op">=</span> s.stdin.read()</code></pre>
+ </div>
+ <p>
+  Now, every time we want to refer to the sys module we call it by its alias,
+  <code>
+   s
+  </code>
+  .
+ </p>
+ <h1 id="putting-is-all-together">
+  10.8 - Putting is all together
+ </h1>
+ <p>
+  We've learned a lot in this chapter so let's look at an example that puts everything together.
+ </p>
+ <p>
+  Let's assume we have a text file that contains many lines. Each line has a students name followed by the mark they received for a specific class. Here is a sample from that text file:
+ </p>
+ <pre><code>Liam 84
+Noah 33
+William 43
+James 37
+Logan 59</code></pre>
+ <p>
+  What we want to do is process this file and output to a new file whether or not each student passed or failed the class.
+ </p>
+ <p>
+  The output should look like this:
+ </p>
+ <pre><code>Liam PASS
+Noad FAIL
+William PASS
+James FAIL
+Logan PASS</code></pre>
+ <p>
+  We want to pass the input filename and output filename as arguments to the script and we take a fail to be a mark less than 40.
+ </p>
+ <p>
+  Here's how we might do that:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+
+src <span class="op">=</span> sys.argv[<span class="dv">1</span>]     <span class="co"># The input source file</span>
+dst <span class="op">=</span> sys.argv[<span class="dv">2</span>]     <span class="co"># The file to output to</span>
+
+<span class="cf">with</span> <span class="bu">open</span>(src, <span class="st">'r'</span>) <span class="im">as</span> fin, <span class="bu">open</span>(dst, <span class="st">'a'</span>) <span class="im">as</span> fout:      <span class="co"># Open in append mode</span>
+
+    student <span class="op">=</span> fin.readline().strip()     <span class="co"># Strip the newline character</span>
+    <span class="cf">while</span> student:
+        
+        student_data <span class="op">=</span> student.split()   <span class="co"># ['Liam', '84'] for example</span>
+        
+        name <span class="op">=</span> student_data[<span class="dv">0</span>]
+        mark <span class="op">=</span> <span class="bu">int</span>(student_data[<span class="dv">1</span>])
+
+        <span class="cf">if</span> mark <span class="op">&lt;</span> <span class="dv">40</span>:
+            grade <span class="op">=</span> <span class="st">"FAIL"</span>
+        <span class="cf">else</span>:
+            grade <span class="op">=</span> <span class="st">"PASS"</span>
+
+        fout.write(<span class="st">'{:s} {:s}</span><span class="ch">\n</span><span class="st">'</span>.<span class="bu">format</span>(name, grade))      <span class="co"># Write to the output file</span>
+
+        student <span class="op">=</span> fin.readline().strip()      <span class="co"># Get the next student</span></code></pre>
+ </div>
+ <p>
+  Notice how we can open multiple files at the same time!
+ </p>
+ <p>
+  We run this as follows:
+ </p>
+ <pre><code>$ py grades.py input.txt output.txt</code></pre>
+ <p>
+  Your output should now be:
+ </p>
+ <pre><code>Liam PASS
+Noah FAIL
+William PASS
+James FAIL
+Logan PASS</code></pre>
+ <p>
+  File processing is a common task, as I've said, so become used to it, you'll probably be doing it a lot!
+ </p>
+ <h2 id="exercises">
+  10.9 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important Note
+  </strong>
+  : These questions tougher than previous ones and get considerably more difficult as they go on, especially question 4. Don't be discouraged however. Stick at them. If you manage to complete these 4 questions, you're on your way to becoming a great developer and problem solver!
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that multiplies an arbitrary number of command-line arguments together. The arguments will be numbers (convert them first).
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py calc.py 5 99 32 ....</code></pre>
+ <p>
+  To test that your solution is correct, you should get the following output
+ </p>
+ <pre><code>$ py calc.py 8 8 9 3 2
+3456</code></pre>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a program that reads in lines from standard input (no redirection) and outputs them to standard output (no redirection).
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a program that reads a text file and outputs (using
+  <code>
+   print()
+  </code>
+  is fine) how many words are contained within that file. The name of the text file should be passed as a command-line argument to your script.
+ </p>
+ <p>
+  Your program shouldn't consider blank lines as words and you need not worry about punctuation. For example you can consider
+  <code>
+   "trust,"
+  </code>
+  to be a single word.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py num_words.py input.txt</code></pre>
+ <p>
+  To test that your solution is correct, use the
+  <a href="https://www.artofmanliness.com/second-inaugural-address-of-abraham-lincoln/">
+   Second Inaugural Address of Abraham Lincoln
+  </a>
+  as your input text and your program should output: 701
+ </p>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Write a program that reads in the contents of a file. Each line will contain a word or phrase. Your program should output (using
+  <code>
+   print()
+  </code>
+  is fine) whether or not each line is a palindrome or not, "True" or "False". The name of the text file should be passed as a command-line argument to your script.
+ </p>
+ <p>
+  A palindrome is a word or phrase that is the same backwards as it is forwards. For example, "racecar" is a palindrome while "AddE" is not.
+ </p>
+ <p>
+  Your program should not be case sensitive: "Racecar" should still be considered a palindrome. Spaces should NOT effect your program either. Consider removing white space characters.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py palindrome.py input.txt</code></pre>
+ <p>
+  To test that your solution is correct, use the following as your input text:
+ </p>
+ <pre><code>racecar
+AddE
+HmllpH
+Was it a car or a cat I saw
+Hannah
+T can arise in context where language is played wit
+Able was I ere I saw Elba
+Doc note I dissent A fast never prevents a fatness I diet on cod</code></pre>
+ <p>
+  Using the above input, your output should be:
+ </p>
+ <pre><code>True
+False
+False
+True
+True
+False
+True
+True</code></pre>
+ <h3 id="question-5">
+  Question 5
+ </h3>
+ <p>
+  __** THIS QUESTION IS HARD **__
+ </p>
+ <p>
+  Similar to question 3, write a program that reads a text file. This time your program should output how many
+  <em>
+   unique
+  </em>
+  words are contained within the file.
+ </p>
+ <p>
+  This time you do need to care about punctuation and your solution should not be case sensitive. For example
+  <code>
+   "trust"
+  </code>
+  and
+  <code>
+   "trust,"
+  </code>
+  and
+  <code>
+   "Trust"
+  </code>
+  should be considered the same word, therefore only one occurrence of that word should be recorded as unique and if you were to come across
+  <code>
+   "trust"
+  </code>
+  again, then don't record it.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py unique_words.py input.txt</code></pre>
+ <p>
+  To test if your solution is correct, use the
+  <a href="https://www.artofmanliness.com/second-inaugural-address-of-abraham-lincoln/">
+   Second Inaugural Address of Abraham Lincoln
+  </a>
+  as your input text and your program should output: 343
+ </p>
+ <p>
+  <strong>
+   Hint 1
+  </strong>
+  : Take a look at the
+  <code>
+   string
+  </code>
+  module. In particular,
+  <code>
+   string.punctuation
+  </code>
+  . If you import this, you may be able to use it to your advantage. Import it as follows
+  <code>
+   from string import punctuation
+  </code>
+  . Figure out how
+  <code>
+   string.punctuation
+  </code>
+  works.
+ </p>
+ <p>
+  <strong>
+   Hint 2
+  </strong>
+  : The solution to this exercise may make use of some string methods that we looked at back in the strings chapter.
+ </p>
+ <p>
+  <strong>
+   Hint 3
+  </strong>
+  : Making use of a second list might be a good idea!
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_9.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_11.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+ -
+</div></html>

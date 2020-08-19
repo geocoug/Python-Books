@@ -1,0 +1,698 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-14---error-handling">
+  Chapter 14 - Error Handling
+ </h1>
+ <h2 id="raising-exceptions">
+  14.1 - Raising Exceptions
+ </h2>
+ <p>
+  In Python you'll run into many kinds of errors and I'm sure you've ran into plenty so far!
+ </p>
+ <p>
+  We've seen syntax errors which arise from improper syntax e.g. too many closing brackets. You'll also run into something called exception errors. Exception errors arise whenever syntactically correct Python code results in an error. There are many types of exception errors, to name a few, you'll get an
+  <code>
+   ImportError
+  </code>
+  when you try to import a module that cannot be found, you'll get a
+  <code>
+   ZeroDivisionError
+  </code>
+  when the second operand of the division or modulo operator is zero. If you run into an error that doesn't fall into a specific category of exception, Python will
+  <em>
+   throw
+  </em>
+  a
+  <code>
+   RuntimeError
+  </code>
+  .
+ </p>
+ <p>
+  Sometimes in our programs we want to raise an exception if a specific condition occurs. This condition might not be one that will crash our program, but we as programmers don't want it occurring.
+ </p>
+ <p>
+  To
+  <em>
+   raise
+  </em>
+  an exception we use the
+  <code>
+   raise
+  </code>
+  statement. The condition we are raising the exception for may be one that is illogical. For example, we may have a program that changes the speed of a car. It would be illogical for our car to go at a negative speed as there is no such thing.
+ </p>
+ <p>
+  We would raise the exception as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> decrease_velocity(curr_vel, decrease):
+    <span class="cf">return</span> curr_vel <span class="op">-</span> decrease
+
+<span class="kw">def</span> main():
+    car_velocity <span class="op">=</span> <span class="dv">20</span>
+    inp <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+    <span class="cf">while</span> inp:
+        car_velocity <span class="op">=</span> decrease_velocity(car_velocity, inp)
+        <span class="cf">if</span> car_velocity <span class="op">&lt;</span> <span class="dv">0</span>:
+            <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">"Car cannot have a negative speed"</span>)            
+        inp <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+        
+<span class="cf">if</span> <span class="va">__name__</span><span class="op">==</span><span class="st">"__main__"</span>:
+    main()</code></pre>
+ </div>
+ <p>
+  Running this with the following inputs would give the following output:
+ </p>
+ <pre><code>$ py change_vel.py
+5
+6
+7
+5
+Traceback (most recent call last):
+  File "test3.py", line 14, in &lt;module&gt;
+    main()
+  File "test3.py", line 10, in main
+    raise Exception("Car cannot have a negative speed")            
+Exception: Car cannot have a negative speed
+</code></pre>
+ <p>
+  As you can see we raised an exception with our own, custom error message.
+ </p>
+ <p>
+  We can even raise specific types of exceptions. A
+  <code>
+   ValueError
+  </code>
+  may be suited to this example and we simply replace
+  <code>
+   Exception
+  </code>
+  with
+  <code>
+   ValueError
+  </code>
+  .
+ </p>
+ <p>
+  We may also raise exceptions where we expect errors to occur as they normally would. We would raise an exception in this case as to provide a more detailed error message.
+ </p>
+ <p>
+  But, as a general rule of thumb, an exception is raised when a fundamental assumption of the current code is found to be false.
+ </p>
+ <h2 id="assertions">
+  14.2 - Assertions
+ </h2>
+ <p>
+  If you remember back to the beginning of this book I talked about pre and post conditions. A pre condition is a condition that always holds true prior to the execution of some code. Pre conditions may be used in functions to enforce a contract between a function and its invoker. Let's assume we have some function that requires a list as an argument. We want to
+  <em>
+   assert
+  </em>
+  that the argument passed to the function is a list and not something else like a string.
+ </p>
+ <p>
+  We implement assertions in python using:
+  <code>
+   assert
+  </code>
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> sorter(arr):
+    <span class="cf">assert</span>(<span class="bu">type</span>(arr) <span class="op">==</span> <span class="bu">list</span>)
+    <span class="co"># Do the sorting</span>
+
+<span class="kw">def</span> main():
+
+    arr <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">8</span>]
+    sorter(arr)
+
+    <span class="bu">print</span>(<span class="st">"We've made it this far"</span>)
+
+    arr <span class="op">=</span> <span class="st">"Hello"</span>
+    sorter(arr)
+        
+<span class="cf">if</span> <span class="va">__name__</span><span class="op">==</span><span class="st">"__main__"</span>:
+    main()</code></pre>
+ </div>
+ <p>
+  running the above code produces the following output:
+ </p>
+ <pre><code>$ py assert.py
+We've made it this far
+Traceback (most recent call last):
+  File "test3.py", line 16, in &lt;module&gt;
+    main()
+  File "test3.py", line 13, in main
+    sorter(arr)
+  File "test3.py", line 2, in sorter
+    assert(type(arr) == list)
+AssertionError</code></pre>
+ <p>
+  As you can see our assertion was
+  <code>
+   True
+  </code>
+  when we passed the list so the program continued as normal. When we passed a string to the sorter function, the assertion returned
+  <code>
+   False
+  </code>
+  and our program exited and raised an
+  <code>
+   AssertionError
+  </code>
+  .
+ </p>
+ <h2 id="try-except">
+  14.3 -
+  <em>
+   try
+  </em>
+  &amp;
+  <em>
+   except
+  </em>
+ </h2>
+ <p>
+  In this section I'm going to talk about handling exceptions that we may encounter in our code. In Python, to handle exceptions we use a
+  <code>
+   try
+  </code>
+  and
+  <code>
+   except
+  </code>
+  block. We
+  <em>
+   catch
+  </em>
+  the errors using these constructs.
+ </p>
+ <p>
+  The way
+  <code>
+   try
+  </code>
+  and
+  <code>
+   except
+  </code>
+  blocks work are not all that different from a
+  <code>
+   if
+  </code>
+  and
+  <code>
+   else
+  </code>
+  statement. Inside the
+  <code>
+   try
+  </code>
+  block we put code that should run as "normal". If an exception is raised in the
+  <code>
+   try
+  </code>
+  block then we catch this exception in the
+  <code>
+   except
+  </code>
+  block. By catching the exception we can handle the error without our program crashing.
+ </p>
+ <p>
+  Let me give two examples. One where we don't try to catch the exception and one where we do.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">filename <span class="op">=</span> <span class="bu">input</span>()
+<span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:
+    lines <span class="op">=</span> f.readlines()
+    
+<span class="bu">print</span>(lines)</code></pre>
+ </div>
+ <p>
+  This would produce the following error:
+ </p>
+ <pre><code>$ py read_file.py
+Traceback (most recent call last):
+  File "test3.py", line 1, in &lt;module&gt;
+    with open("IDontExist.txt") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'IDontExist.txt'</code></pre>
+ <p>
+  Our program has crash. What if we wanted to handle this appropriately and allow the user to enter the filename again? We use a
+  <code>
+   try
+  </code>
+  and
+  <code>
+   except
+  </code>
+  block to do this.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)
+<span class="cf">while</span> filename:
+    <span class="cf">try</span>:
+        <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:
+            <span class="bu">print</span>(f.readlines())
+            filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)
+    <span class="cf">except</span> <span class="pp">FileNotFoundError</span>:
+        <span class="bu">print</span>(<span class="st">"That file doesn't exist in the current directory"</span>)
+        filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)</code></pre>
+ </div>
+ <p>
+  Now if we run our code:
+ </p>
+ <pre><code>$ py read_files.py
+Enter a file name: test.txt
+That file doesn't exist in the current directory
+Enter a file name: input.txt
+['This is line one.\n', "I'm line two.\n", "And I'm line three"]
+Enter a file name: wrongfile.txt
+That file doesn't exist in the current directory</code></pre>
+ <p>
+  We can see, rather than our program crashing, we handle the
+  <code>
+   FileNotFoundError
+  </code>
+  in a correct manor and allow the user to re-enter a filename.
+ </p>
+ <p>
+  Python has an exception hierarchy. This is shown below:
+ </p>
+ <pre><code>BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StopAsyncIteration
+      +-- ArithmeticError
+      |    +-- FloatingPointError
+      |    +-- OverflowError
+      |    +-- ZeroDivisionError
+      +-- AssertionError
+      +-- AttributeError
+      +-- BufferError
+      +-- EOFError
+      +-- ImportError
+      |    +-- ModuleNotFoundError
+      +-- LookupError
+      |    +-- IndexError
+      |    +-- KeyError
+      +-- MemoryError
+      +-- NameError
+      |    +-- UnboundLocalError
+      +-- OSError
+      |    +-- BlockingIOError
+      |    +-- ChildProcessError
+      |    +-- ConnectionError
+      |    |    +-- BrokenPipeError
+      |    |    +-- ConnectionAbortedError
+      |    |    +-- ConnectionRefusedError
+      |    |    +-- ConnectionResetError
+      |    +-- FileExistsError
+      |    +-- FileNotFoundError
+      |    +-- InterruptedError
+      |    +-- IsADirectoryError
+      |    +-- NotADirectoryError
+      |    +-- PermissionError
+      |    +-- ProcessLookupError
+      |    +-- TimeoutError
+      +-- ReferenceError
+      +-- RuntimeError
+      |    +-- NotImplementedError
+      |    +-- RecursionError
+      +-- SyntaxError
+      |    +-- IndentationError
+      |         +-- TabError
+      +-- SystemError
+      +-- TypeError
+      +-- ValueError
+      |    +-- UnicodeError
+      |         +-- UnicodeDecodeError
+      |         +-- UnicodeEncodeError
+      |         +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+           +-- ImportWarning
+           +-- UnicodeWarning
+           +-- BytesWarning
+           +-- ResourceWarning</code></pre>
+ <p>
+  We were being quite specific with our exception in the previous example. Assume another error might occur somewhere in our program and we are unsure of what it might be but we still want to allow the user to enter a filename after it occurs. We can have multiple except clauses after the
+  <code>
+   try
+  </code>
+  block.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)
+<span class="cf">while</span> filename:
+    <span class="cf">try</span>:
+        <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:
+            <span class="bu">print</span>(f.readlines())
+            filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)
+    <span class="cf">except</span> <span class="pp">FileNotFoundError</span>:
+        <span class="bu">print</span>(<span class="st">"That file doesn't exist in the current directory"</span>)
+        filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)
+    <span class="cf">except</span>:
+        <span class="bu">print</span>(<span class="st">"Unexpected error occured"</span>)
+        filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)</code></pre>
+ </div>
+ <p>
+  Now, if we run into any other error we have handled it with a more general exception.
+ </p>
+ <p>
+  We also handle exceptions we explicitly raise in the same way:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">inp <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+<span class="cf">try</span>:
+    <span class="cf">if</span> inp <span class="op">&lt;</span> <span class="dv">5</span>:
+        <span class="cf">raise</span> <span class="pp">ValueError</span>
+    <span class="cf">else</span>:
+        <span class="bu">print</span>(inp)
+<span class="cf">except</span> <span class="pp">ValueError</span>:
+    <span class="bu">print</span>(<span class="st">"Input shouldn't be less than 5"</span>)</code></pre>
+ </div>
+ <h2 id="finally">
+  14.4 -
+  <em>
+   finally
+  </em>
+ </h2>
+ <p>
+  Usually, if we have a
+  <code>
+   try
+  </code>
+  and
+  <code>
+   except
+  </code>
+  block, we'll try to do something specific that may be prone to errors. In the example from the previous section, that specific something was opening a file. We shouldn't have to ask the user for input again in the
+  <code>
+   try
+  </code>
+  block. We also shouldn't have to ask the user to enter the filename again after we handled the exception in the
+  <code>
+   except
+  </code>
+  block.
+ </p>
+ <p>
+  Instead, we want some way of cleaning up afterwards. In Python, we do this with the
+  <code>
+   finally
+  </code>
+  statement.
+ </p>
+ <p>
+  This is demonstrated below:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)
+<span class="cf">while</span> filename:
+    <span class="cf">try</span>:
+        <span class="cf">with</span> <span class="bu">open</span>(filename) <span class="im">as</span> f:
+            <span class="bu">print</span>(f.readlines())
+    <span class="cf">except</span> <span class="pp">FileNotFoundError</span>:
+        <span class="bu">print</span>(<span class="st">"That file doesn't exist in the current directory"</span>)
+    <span class="cf">except</span>:
+        <span class="bu">print</span>(<span class="st">"Unexpected error occured"</span>)
+    <span class="cf">finally</span>:
+        filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a file name: "</span>)</code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   finally
+  </code>
+  block is always executed even if no exceptions were raised in the
+  <code>
+   try
+  </code>
+  block. Although our code is prone to errors from the users input, we can handle that correctly thus making our code more robust.
+ </p>
+ <h2 id="exercises">
+  14.5 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes a number from a command-line argument and print out the multiples of that number up to 10. The user should also be able to specify a formatting flag and/or shortening flag at the command line. As an example take a look at a couple of different ways a user could run the program:
+ </p>
+ <pre><code>$ py times_tables.py 15
+0 * 15 =  0
+1 * 15 =  15
+2 * 15 =  30
+3 * 15 =  45
+4 * 15 =  60
+5 * 15 =  75
+6 * 15 =  90
+7 * 15 =  105
+8 * 15 =  120
+9 * 15 =  135
+10 * 15 =  150</code></pre>
+ <pre><code>$ py times_tables.py -f 15
+ 0 * 15 =   0
+ 1 * 15 =  15
+ 2 * 15 =  30
+ 3 * 15 =  45
+ 4 * 15 =  60
+ 5 * 15 =  75
+ 6 * 15 =  90
+ 7 * 15 = 105
+ 8 * 15 = 120
+ 9 * 15 = 135
+10 * 15 = 150</code></pre>
+ <pre><code>$ py times_tables.py -f -s 15
+  0
+ 15
+ 30
+ 45
+ 60
+ 75
+ 90
+105
+120
+135
+150</code></pre>
+ <p>
+  In the second example, notice the
+  <code>
+   -f
+  </code>
+  flag and, the
+  <code>
+   -s
+  </code>
+  flag in the third example.
+ </p>
+ <p>
+  Your program should be able to handle the following situations that may raise exceptions:
+ </p>
+ <ul>
+  <li>
+   User enters a flag that doesn't exist e.g
+   <code>
+    -d
+   </code>
+  </li>
+  <li>
+   User enters a flag but no number
+  </li>
+  <li>
+   User doesn't enter any command-line arguments
+  </li>
+  <li>
+   User doesn't enter a number, instead they enter a string ("hello" for example)
+  </li>
+  <li>
+   User enters the same flag two or more times.
+  </li>
+  <li>
+   User enters two or more numbers
+  </li>
+ </ul>
+ <p>
+  This program may take some time to implement.
+ </p>
+ <h3 id="question-3">
+  Question 2
+ </h3>
+ <p>
+  When should we use the following?
+ </p>
+ <ul>
+  <li>
+   <code>
+    raise
+   </code>
+  </li>
+  <li>
+   <code>
+    finally
+   </code>
+  </li>
+  <li>
+   <code>
+    try
+   </code>
+   and
+   <code>
+    except
+   </code>
+  </li>
+  <li>
+   What is a precondition?
+  </li>
+  <li>
+   What is a postcondition?
+  </li>
+ </ul>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_13.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_15.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

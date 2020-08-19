@@ -1,0 +1,1053 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-4---control-flow">
+  Chapter 4 - Control Flow
+ </h1>
+ <h2 id="booleans">
+  4.1 - Booleans
+ </h2>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+ </p>
+ <p>
+  In that chapter I introduce mathematical logic, in particular,
+  <em>
+   truth tables
+  </em>
+  . You will need to have a solid understanding of truth tables in order to make the most of this chapter. Having a clear understanding of this section of logic will also help you get rid of some weird bugs in your programs further down the line.
+ </p>
+ <p>
+  If you can remember back to the example of making a cup of tea, we had a step that went something like:
+ </p>
+ <pre><code>- if want milk:
+    - take milk from fidge
+    - pour milk</code></pre>
+ <p>
+  The above snippet allowed us to make a decision. In programming this construct is called
+  <em>
+   control flow
+  </em>
+  . We either wanted milk or we didn't. In order to implement this kind of thing in our programs we need to introduce a new
+  <em>
+   type
+  </em>
+  called the
+  <em>
+   bool
+  </em>
+  which is short for
+  <em>
+   boolean
+  </em>
+  .
+ </p>
+ <p>
+  A
+  <em>
+   boolean
+  </em>
+  is a type which has two values:
+  <em>
+   true
+  </em>
+  or
+  <em>
+   false
+  </em>
+  .
+ </p>
+ <p>
+  ```python &gt;&gt;&gt; type(True) &lt;class 'bool'&gt;
+ </p>
+ <blockquote>
+  <blockquote>
+   <blockquote>
+    <p>
+     type(False) &lt;class 'bool'&gt; ```
+    </p>
+   </blockquote>
+  </blockquote>
+ </blockquote>
+ <p>
+  This brings me to an important point. In Python, different values of different types can be
+  <em>
+   truthy
+  </em>
+  or
+  <em>
+   falsey
+  </em>
+  .
+ </p>
+ <p>
+  For example, with integers,
+  <code>
+   0
+  </code>
+  is falsey while any other integer is truthy. With floats,
+  <code>
+   0.0
+  </code>
+  is falsey while any other float is truthy and finally with strings, the empty string (
+  <code>
+   ''
+  </code>
+  ) is falsey while any other string is truthy.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">==</span> <span class="dv">0</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">==</span> <span class="dv">1</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">==</span> <span class="dv">0</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">==</span> <span class="fl">0.1</span>
+<span class="va">False</span></code></pre>
+ </div>
+ <p>
+  We can also cast any other value to a
+  <em>
+   bool
+  </em>
+  using the
+  <code>
+   bool()
+  </code>
+  function if the value can be interpreted as a truth value.
+ </p>
+ <p>
+  Booleans also have operators. These are different to the operators we've seen with integers and floats. These are
+  <em>
+   boolean operators
+  </em>
+  .
+ </p>
+ <p>
+  <strong>
+   OR Truth Table
+  </strong>
+ </p>
+ <table class="table">
+  <thead>
+   <tr class="header">
+    <th align="left">
+     P
+    </th>
+    <th align="left">
+     Q
+    </th>
+    <th align="left">
+     P OR Q
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     True
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     True
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     True
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     False
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <br/>
+ <p>
+  <strong>
+   AND Truth Table
+  </strong>
+ </p>
+ <table class="table">
+  <thead>
+   <tr class="header">
+    <th align="left">
+     P
+    </th>
+    <th align="left">
+     Q
+    </th>
+    <th align="left">
+     P AND Q
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     True
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     False
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     False
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     False
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <br/>
+ <br/>
+ <p>
+  <strong>
+   NOT Truth Table
+  </strong>
+ </p>
+ <table class="table">
+  <thead>
+   <tr class="header">
+    <th align="left">
+     P
+    </th>
+    <th align="left">
+     NOT P
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     True
+    </td>
+    <td align="left">
+     False
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     False
+    </td>
+    <td align="left">
+     True
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  Here are a few examples in Python
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="op">or</span> <span class="va">True</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="op">or</span> <span class="va">False</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">or</span> <span class="va">False</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="op">and</span> <span class="va">True</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="op">and</span> <span class="va">False</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="op">not</span> <span class="va">True</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="op">not</span> <span class="va">False</span>
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  Again, knowing these truth tables off like the back of your hand is crucial. You'll be dealing with these a lot!
+ </p>
+ <h2 id="the-if-statement">
+  4.2 - The
+  <em>
+   if
+  </em>
+  Statement
+ </h2>
+ <p>
+  In this section we're going to look at adding control flow to our programs. We'll start by looking at the
+  <em>
+   if
+  </em>
+  statement. Before we do though, I want to look at something called
+  <em>
+   comparison operators
+  </em>
+  . These operators allow us to compare things.
+ </p>
+ <table class="table">
+  <thead>
+   <tr class="header">
+    <th align="left">
+     Comparison Operator
+    </th>
+    <th align="left">
+     Meaning
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="odd">
+    <td align="left">
+     ==
+    </td>
+    <td align="left">
+     Equal to
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     !=
+    </td>
+    <td align="left">
+     Not equal to
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     &lt;
+    </td>
+    <td align="left">
+     Less than
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     &gt;
+    </td>
+    <td align="left">
+     Greater than
+    </td>
+   </tr>
+   <tr class="odd">
+    <td align="left">
+     &lt;=
+    </td>
+    <td align="left">
+     Less than or equal to
+    </td>
+   </tr>
+   <tr class="even">
+    <td align="left">
+     &gt;=
+    </td>
+    <td align="left">
+     Greater than or equal to
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  They're pretty simple to understand so let's take a look at them in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">2</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">10</span> <span class="op">!=</span> <span class="dv">4</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">4</span> <span class="op">!=</span> <span class="dv">4</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">11</span> <span class="op">&gt;</span> <span class="dv">9</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">13</span> <span class="op">&lt;</span> <span class="dv">23</span>
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">16</span> <span class="op">&lt;</span> <span class="dv">2</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">13</span> <span class="op">&lt;</span> <span class="dv">13</span>
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">13</span> <span class="op">&lt;=</span> <span class="dv">13</span>
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  I think you get the gist. So let's get onto the
+  <em>
+   if
+  </em>
+  statement.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">wants_drink <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Do you want a drink with your meal? (yes or no): "</span>)
+<span class="cf">if</span> wants_drink <span class="op">==</span> <span class="st">"yes"</span>:
+    <span class="bu">print</span>(<span class="st">"That will cost an extra £1.50"</span>)
+<span class="bu">print</span>(<span class="st">"Thank you! Enjoy your meal"</span>)</code></pre>
+ </div>
+ <p>
+  If we run the above code with two different types of input we can get two different results:
+ </p>
+ <pre><code># USER ANSWERS YES
+Do you want a drink with your meal? (yes or no): yes
+That will cost an extra £1.50
+Thank you! Enjoy your meal
+
+# USER ANSWERS NO
+Do you want a drink with your meal? (yes or no): no
+Thank you! Enjoy your meal</code></pre>
+ <p>
+  The above code reads quite clearly as well, almost like English. If the user says yes to wanting a drink then print that it will cost more.
+ </p>
+ <p>
+  The syntax for
+  <em>
+   if
+  </em>
+  statements is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="op">&lt;</span>CONDITION<span class="op">&gt;</span>:
+    <span class="co"># Do something if condition evaluates to True</span></code></pre>
+ </div>
+ <p>
+  A couple of important things to note on the syntax. It is always
+  <em>
+   if
+  </em>
+  followed by the condition, then a colon (
+  <code>
+   :
+  </code>
+  ). For the block of code that follows, it must be indented!! I like to use tabs however you can use spaces. Right now I'm going to tell you to pick a number of spaces. It's typical to use 4 spaces. For tabs, 1 tab will suffice.
+ </p>
+ <p>
+  Let's look at another example:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))
+<span class="cf">if</span> my_number <span class="op">&lt;=</span> <span class="dv">10</span>:
+    <span class="bu">print</span>(<span class="st">"First line"</span>)
+    <span class="bu">print</span>(<span class="st">"Second line"</span>)
+my_float <span class="op">=</span> <span class="fl">4.3</span>
+<span class="bu">print</span>(<span class="st">"Goodbye"</span>)</code></pre>
+ </div>
+ <p>
+  The above program does nothing useful, in fact it's complete garbage but it shows the syntax for
+  <em>
+   if statements
+  </em>
+  quite well.
+ </p>
+ <p>
+  Anything that is indented after the
+  <em>
+   if statement
+  </em>
+  is called a code block. Everything after the
+  <em>
+   if statement
+  </em>
+  such as the
+  <code>
+   my_float = 4.3
+  </code>
+  , will be executed regardless of
+  <code>
+   my_number
+  </code>
+  being less than or equal to 10.
+ </p>
+ <p>
+  You'll probably make a lot of syntax mistakes in the beginning, we all did so don't let that discourage you at all, it's completely normal. Even the most experienced developers make syntax mistakes every now and again.
+ </p>
+ <p>
+  Although the
+  <em>
+   if statement
+  </em>
+  is useful, what if we're in a situation where wanted to do one thing if one condition passed, otherwise, do something else? Next we're going to look at the
+  <em>
+   if-else statement
+  </em>
+  .
+ </p>
+ <h2 id="the-if-else-statement">
+  4.3 - The
+  <em>
+   if-else
+  </em>
+  statement
+ </h2>
+ <p>
+  In the previous section we learned how to add some very basic flow control to our program however we imagined a scenario in which we wanted to do something else if the condition for the
+  <em>
+   if statement
+  </em>
+  didn't pass.
+ </p>
+ <p>
+  Let's look at how to do that:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_age <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter your age: "</span>))
+
+<span class="cf">if</span> my_age <span class="op">&gt;=</span> <span class="dv">18</span>:
+    <span class="bu">print</span>(<span class="st">"You can enter"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"You are too young to enter"</span>)
+    
+<span class="bu">print</span>(<span class="st">"Goodbye"</span>)</code></pre>
+ </div>
+ <p>
+  It again, is quite easy to read the above program. When we execute the above program we could have two different outputs:
+ </p>
+ <pre><code># SCENARIO 1
+Enter your age: 33
+You can enter
+Goodbye
+
+# SCENARIO 2
+Enter your age: 14
+You are too young to enter
+Goodbye</code></pre>
+ <p>
+  The syntax again is quite obvious:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="op">&lt;</span>CONDITION<span class="op">&gt;</span>:
+    <span class="co"># Do something if the condition was True</span>
+<span class="cf">else</span>:
+    <span class="co"># Do something else!</span></code></pre>
+ </div>
+ <p>
+  <strong>
+   REMEMBER
+  </strong>
+  :
+ </p>
+ <p>
+  Don't forget the colon at the end of each statement and don't forget to indent the code block. Each statement in the code block must also be indented the same number of spaces!
+ </p>
+ <p>
+  Let's look at another example. In this example we want to write a program that will tell us if an integer is even or odd:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))
+<span class="cf">if</span> (number <span class="op">%</span> <span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span>:
+    <span class="bu">print</span>(<span class="st">"Your number was even"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Your number was odd"</span>)</code></pre>
+ </div>
+ <p>
+  Remember back to the chapter on integers, we had the modulus (
+  <code>
+   %
+  </code>
+  ) operator? To refresh your memory, this operator returned the remainder after division.
+ </p>
+ <p>
+  The
+  <code>
+   ==
+  </code>
+  comparison operator takes two
+  <em>
+   operands
+  </em>
+  , in the above case the left operand was an expression. This will evaluate to a value which is then checked to see if it is equal to zero. If it is, then it is an even number.
+ </p>
+ <p>
+  We can also combine comparison operators and boolean operators, let's look at an example of how this is done:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter an even number between 50 and 100: "</span>))
+<span class="cf">if</span> (number <span class="op">%</span> <span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span> <span class="op">and</span> number <span class="op">&lt;</span> <span class="dv">100</span> <span class="op">and</span> number <span class="op">&gt;</span> <span class="dv">50</span>:
+    <span class="bu">print</span>(<span class="st">"You've entered an even number between 50 and 100"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"I don't care about your number"</span>)</code></pre>
+ </div>
+ <p>
+  The condition might look nasty but it actually reads quite easily:
+ </p>
+ <p>
+  "if the number is even AND the number is less than 100 AND the number is greater than 50"
+ </p>
+ <p>
+  We can even simplify it a bit. Remember I told you that values could be truthy or falsey? Well lets look at our even number program again.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">...
+
+<span class="cf">if</span> (number <span class="op">%</span> <span class="dv">2</span>) <span class="op">!=</span> <span class="dv">0</span>:
+    <span class="bu">print</span>(<span class="st">"Your number was odd"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Your number was even"</span>)
+    
+...</code></pre>
+ </div>
+ <p>
+  Note that we are saying if the remainder doesn't equal zero in the condition.
+ </p>
+ <p>
+  We could simplify this to:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span>:
+    <span class="bu">print</span>(<span class="st">"Your number was odd"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Your number was even"</span>)</code></pre>
+ </div>
+ <p>
+  If
+  <code>
+   number % 2
+  </code>
+  is 0, then we don't enter the code block for
+  <em>
+   if
+  </em>
+  because 0 is falsey.
+ </p>
+ <p>
+  <strong>
+   REMEMBER
+  </strong>
+  : We execute the statements inside the
+  <em>
+   if
+  </em>
+  block only if the condition evaluates to True. Also just to note,
+  <em>
+   else
+  </em>
+  doesn't take a condition. It automatically executes if the condition on the
+  <em>
+   if statement
+  </em>
+  fails.
+ </p>
+ <h2 id="the-elif-statement">
+  4.4 - The
+  <em>
+   elif
+  </em>
+  statement
+ </h2>
+ <p>
+  Our programs are now getting a little more complex and we have some decent control flow but they're acting as if there's only two options. What if there were 3 or more choices? The
+  <em>
+   elif statement
+  </em>
+  can solve this for us!
+ </p>
+ <p>
+  The
+  <em>
+   elif statement
+  </em>
+  allows us to check multiple expressions. if...elif...else statements are check in sequential order, evaluating each condition and executes the code block for the first condition that evaluates to
+  <em>
+   true
+  </em>
+  .
+ </p>
+ <p>
+  The syntax is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="op">&lt;</span>condition <span class="dv">1</span><span class="op">&gt;</span>:
+    <span class="co"># Do something</span>
+<span class="cf">elif</span> <span class="op">&lt;</span>condition <span class="dv">2</span><span class="op">&gt;</span>:
+    <span class="co"># Do something else</span>
+<span class="cf">elif</span> <span class="op">&lt;</span>condition <span class="dv">3</span><span class="op">&gt;</span>:
+    <span class="co"># Do something else</span>
+.
+.
+.
+<span class="cf">elif</span> <span class="op">&lt;</span>condition N<span class="op">&gt;</span>:
+    <span class="co"># Do something else</span>
+<span class="cf">else</span>:
+    <span class="co"># Do something else</span></code></pre>
+ </div>
+ <p>
+  We can have as many
+  <em>
+   elif statements
+  </em>
+  as we please.
+ </p>
+ <p>
+  Let's write a program that calculates the grade of a student based on their mark:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">mark <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a mark: "</span>))
+
+<span class="cf">if</span> mark <span class="op">&gt;=</span> <span class="dv">70</span>:
+    <span class="bu">print</span>(<span class="st">"You got a first"</span>)
+<span class="cf">elif</span> mark <span class="op">&gt;=</span> <span class="dv">50</span> <span class="op">and</span> mark <span class="op">&lt;</span> <span class="dv">70</span>:
+    <span class="bu">print</span>(<span class="st">"You got a second"</span>)
+<span class="cf">elif</span> mark <span class="op">&gt;=</span> <span class="dv">40</span> <span class="op">and</span> mark <span class="op">&lt;</span> <span class="dv">50</span>:
+    <span class="bu">print</span>(<span class="st">"You got a third"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"You failed!"</span>)</code></pre>
+ </div>
+ <p>
+  These
+  <em>
+   elif statements
+  </em>
+  are pretty straight forward.
+ </p>
+ <p>
+  If you are coming from another language, Python does not provide switch/case statements as do other languages but we can use if...elif...else to mimic them.
+ </p>
+ <h2 id="nested-if-statements">
+  4.5 - Nested
+  <em>
+   if
+  </em>
+  statements
+ </h2>
+ <p>
+  What if we have a condition and based on that condition we need to check other conditions? Well we can do that by
+  <em>
+   nesting
+  </em>
+  if...elif...else statements inside other if...elif...else statements.
+ </p>
+ <p>
+  Let's look at an example program to convert the numbers between 0 and 3 to their word equivalents:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a positive number: "</span>))
+
+<span class="cf">if</span> number <span class="op">&gt;=</span> <span class="dv">0</span>:
+    <span class="cf">if</span> number <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">"Zero"</span>)
+    <span class="cf">elif</span> number <span class="op">==</span> <span class="dv">1</span>:
+        <span class="bu">print</span>(<span class="st">"One"</span>)
+    <span class="cf">elif</span> number <span class="op">==</span> <span class="dv">2</span>:
+        <span class="bu">print</span>(<span class="st">"Two"</span>)
+    <span class="cf">elif</span> number <span class="op">==</span> <span class="dv">3</span>:
+        <span class="bu">print</span>(<span class="st">"Three"</span>)
+    <span class="cf">else</span>:
+        <span class="bu">print</span>(<span class="st">"You entered a number greather than three"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"You entered a negative number"</span>)
+    </code></pre>
+ </div>
+ <p>
+  This is a toy example but nested if...elif...else statements are used everywhere and you'll come across them frequently so spend time becoming familiar with writing them!
+ </p>
+ <p>
+  They're also quite straight forward so I'm going to get straight into some exercises so you can practice these things.
+ </p>
+ <h2 id="exercises">
+  4.6 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+ </p>
+ <p>
+  The solutions to some of these exercises require thinking outside-the-box. Don't expect to arrive at a solution immediately!
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes three inputs,
+  <code>
+   a
+  </code>
+  ,
+  <code>
+   b
+  </code>
+  and
+  <code>
+   c
+  </code>
+  and prints out whether or not those numbers form a right angled triangle. The formula you'll need is
+  <span class="math display">
+   \[
+c = \sqrt ( a^2 + b^2)
+\]
+  </span>
+ </p>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Fizz buzz is a game in which the following rules apply:
+ </p>
+ <ul>
+  <li>
+   any number which is divisible by 3 is replaced with
+   <code>
+    fizz
+   </code>
+  </li>
+  <li>
+   any number which is divisible by 5 is replaced with
+   <code>
+    buzz
+   </code>
+  </li>
+  <li>
+   any number which is divisible by both 3 and 5 is replaced with
+   <code>
+    fizz-buzz
+   </code>
+  </li>
+  <li>
+   any other number is just the number itself
+  </li>
+ </ul>
+ <p>
+  Examples:
+ </p>
+ <pre><code>1 = 1
+2 = 2
+3 = fizz
+4 = 4
+5 = buzz
+6 = 6
+.
+.
+15 = fizz-buzz</code></pre>
+ <h6 id="remember-what-i-said-about-how-if...elif..else-statements-are-evaluated-sequentially-first-to-last-until-the-first-condition-passes">
+  * Remember what I said about how if...elif..else statements are evaluated sequentially (first to last) until the first condition passes
+ </h6>
+ <p>
+  In your solution you should expect the user to enter a single number and either print the number, fizz, buzz or fizz-buzz
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a program which takes in six numbers,
+  <code>
+   x1
+  </code>
+  ,
+  <code>
+   y1
+  </code>
+  ,
+  <code>
+   r1
+  </code>
+  and
+  <code>
+   x2
+  </code>
+  ,
+  <code>
+   y2
+  </code>
+  ,
+  <code>
+   r2
+  </code>
+  (which are the x and y coordinates of the center of a circle and that circles radius) and print out whether or not the two circles overlap.
+ </p>
+ <p>
+  You're going to need the formula for the distance between two points to solve this which is:
+  <span class="math display">
+   \[
+d(P, Q) = \sqrt ((x2 - x1)^2 + (y2 - y1)^2))
+\]
+  </span>
+  The rest requires some problem solving! Perhaps drawing out the scenario on paper might help?
+ </p>
+ <script>
+  (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+ </script>
+ <br/>
+ <!-- Begin Mailchimp Signup Form -->
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <!--End mc_embed_signup-->
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_3.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_5.html">
+  Next Chapter
+ </a>
+</div>
+</html>

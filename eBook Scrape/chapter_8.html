@@ -1,0 +1,1197 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-8---lists">
+  Chapter 8 - Lists
+ </h1>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+ </p>
+ <p>
+  Just a heads up, there's a lot to cover in this chapter and it can get quite technical in places (especially section 8.4) so pay particular attention to that section, its really important!
+ </p>
+ <h2 id="list-literals">
+  8.1 - List literals
+ </h2>
+ <p>
+  Lists are, on the surface, the most simple data structure Python has to offer. They are also one of the most important and are used to store elements.
+ </p>
+ <p>
+  A list is a sequence of elements in which the elements can be of any type (integers, floats, strings, even other lists).
+ </p>
+ <p>
+  Lists are of type
+  <code>
+   list
+  </code>
+ </p>
+ <p>
+  The most basic kind of list is the
+  <em>
+   empty list
+  </em>
+  and is represented as
+  <code>
+   []
+  </code>
+  . The empty list is
+  <em>
+   falsey
+  </em>
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> empty_list <span class="op">=</span> []
+<span class="op">&gt;&gt;&gt;</span> empty_list <span class="op">==</span> <span class="va">False</span>
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  In a list, elements are separated by commas.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">654</span>, <span class="dv">7</span>]</code></pre>
+ </div>
+ <p>
+  This list contains 5 elements.
+ </p>
+ <p>
+  We can mix the types within the list, for example:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_list <span class="op">=</span> [<span class="va">True</span>, <span class="dv">88</span>, <span class="fl">3.14</span>, <span class="st">"Hello"</span>, [<span class="st">'Another list'</span>, <span class="dv">45938</span>]]</code></pre>
+ </div>
+ <p>
+  Notice how the last
+  <em>
+   element
+  </em>
+  is another list
+ </p>
+ <p>
+  In Python, a list is a
+  <em>
+   collection type
+  </em>
+  meaning it can contain a number of objects (strings, ints, etc..) yet still be treated as a single object.
+ </p>
+ <p>
+  Lists are also a sequence type meaning each object in the collection occupies a specific numbered location within it (which means elements are ordered).
+ </p>
+ <p>
+  Lists are also
+  <em>
+   iterable
+  </em>
+  so we can loop through their elements using indices.
+ </p>
+ <p>
+  They sound a lot like strings don't they?
+ </p>
+ <p>
+  However they differ in two significant ways:
+ </p>
+ <ul>
+  <li>
+   A list can contain objects of different types while a string can only contain characters
+  </li>
+  <li>
+   A list is a
+   <em>
+    mutable
+   </em>
+   type (We'll get to this later).
+  </li>
+ </ul>
+ <h2 id="list-methods-and-functions">
+  8.2 - List methods and functions
+ </h2>
+ <p>
+  We can get the length of a list in the same way we do with strings, using the
+  <code>
+   len()
+  </code>
+  function.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">23</span>, <span class="dv">543</span>, <span class="st">"hi"</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(my_list)
+<span class="dv">3</span></code></pre>
+ </div>
+ <p>
+  We also have three other quite important functions, these are
+  <code>
+   sum()
+  </code>
+  ,
+  <code>
+   min()
+  </code>
+  and
+  <code>
+   max()
+  </code>
+  and they work as you'd expect.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">sum</span>(my_list)
+<span class="dv">21</span></code></pre>
+ </div>
+ <p>
+  <code>
+   min()
+  </code>
+  and
+  <code>
+   max()
+  </code>
+  also work on strings, as strings have a lexicographical ordering, 'a' being the min and 'z' being the max:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">324</span>, <span class="dv">456</span>, <span class="dv">2</span>, <span class="dv">6574</span>, <span class="op">-</span><span class="dv">452</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">max</span>(my_list)
+<span class="dv">6574</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">min</span>(my_list)
+<span class="op">-</span><span class="dv">452</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">min</span>(<span class="st">"string"</span>)
+<span class="co">'g'</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">max</span>(<span class="st">"string"</span>)
+<span class="co">'t'</span></code></pre>
+ </div>
+ <p>
+  We can also sort a list using the
+  <code>
+   sorted()
+  </code>
+  function. The
+  <code>
+   sorted()
+  </code>
+  function works by converting a
+  <em>
+   collection
+  </em>
+  to a list and returning the sorted list.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> student_grades <span class="op">=</span> [<span class="dv">88</span>, <span class="dv">23</span>, <span class="dv">56</span>, <span class="dv">75</span>, <span class="dv">34</span>, <span class="dv">23</span>, <span class="dv">84</span>, <span class="dv">63</span>, <span class="dv">52</span>, <span class="dv">77</span>, <span class="dv">96</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">sorted</span>(student_grades)
+[<span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">34</span>, <span class="dv">52</span>, <span class="dv">56</span>, <span class="dv">63</span>, <span class="dv">75</span>, <span class="dv">77</span>, <span class="dv">84</span>, <span class="dv">88</span>, <span class="dv">96</span>]</code></pre>
+ </div>
+ <p>
+  In computer science,
+  <em>
+   searching
+  </em>
+  and
+  <em>
+   sorting
+  </em>
+  are two big problems and are really important topics.
+ </p>
+ <p>
+  We can
+  <em>
+   append
+  </em>
+  and
+  <em>
+   pop
+  </em>
+  elements to and from the end of a list. Append is add and pop is remove. We can do this because lists are
+  <em>
+   mutable
+  </em>
+  .
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span>]
+<span class="op">&gt;&gt;&gt;</span> my_list.append(<span class="dv">99</span>)
+<span class="op">&gt;&gt;&gt;</span> my_list
+[<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">99</span>]
+<span class="op">&gt;&gt;&gt;</span> my_list.pop()
+<span class="dv">99</span>
+<span class="op">&gt;&gt;&gt;</span> my_list
+[<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">8</span>]
+<span class="op">&gt;&gt;&gt;</span> my_list.pop(<span class="dv">2</span>)
+<span class="dv">5</span>
+<span class="op">&gt;&gt;&gt;</span> my_list
+[<span class="dv">1</span>, <span class="dv">8</span>]</code></pre>
+ </div>
+ <p>
+  Notice that when we pop we are
+  <em>
+   returned
+  </em>
+  the number we popped. By default, if no arguments are passed to
+  <code>
+   pop()
+  </code>
+  then the last element is popped. We can also pass an index to
+  <code>
+   pop()
+  </code>
+  and it will pop the element at that index and
+  <em>
+   return
+  </em>
+  it to us.
+ </p>
+ <p>
+  We can store the value that is returned after calling
+  <code>
+   pop()
+  </code>
+  in another variable
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> my_list.pop()
+<span class="op">&gt;&gt;&gt;</span> x
+<span class="dv">9</span></code></pre>
+ </div>
+ <p>
+  If we have a list of strings or characters, we can join them together using the
+  <code>
+   join()
+  </code>
+  function:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="st">"O"</span>, <span class="st">"r"</span>, <span class="st">"a"</span>, <span class="st">"n"</span>, <span class="st">"g"</span>, <span class="st">"e"</span>, <span class="st">"s"</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="st">""</span>.join(my_list)
+<span class="co">'Oranges'</span></code></pre>
+ </div>
+ <p>
+  The string before the join function is called the
+  <em>
+   joining string
+  </em>
+  and is what will be between each element of the list when joining them together. In this case we want nothing (the empty string).
+ </p>
+ <p>
+  However if we had words, we might want to join them together with spaces:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="st">"Hello"</span>, <span class="st">"World."</span>, <span class="st">"This"</span>, <span class="st">"is"</span>, <span class="st">"a"</span>, <span class="st">"string."</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="st">" "</span>.join(my_list)
+<span class="co">"Hello World. This is a string."</span></code></pre>
+ </div>
+ <p>
+  <strong>
+   Side Note:
+  </strong>
+ </p>
+ <p>
+  We can break a string into a list using the
+  <code>
+   split()
+  </code>
+  function:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"This is my string"</span>
+<span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> s.split()
+<span class="op">&gt;&gt;&gt;</span> my_list
+[<span class="st">'This'</span>, <span class="st">'is'</span>, <span class="st">'my'</span>, <span class="st">'string'</span>]</code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   split()
+  </code>
+  function takes an argument which is the character we want to split the string on. If no argument is passed, then it defaults to splitting on whitespace.
+ </p>
+ <h2 id="list-indexing">
+  8.3 - List indexing
+ </h2>
+ <p>
+  As we could with strings, we can also index into lists the same way.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">3</span>, <span class="fl">5.64</span>, <span class="st">"Hello"</span>, <span class="va">True</span>]
+<span class="op">&gt;&gt;&gt;</span> my_list[<span class="dv">2</span>]
+<span class="co">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> my_list[<span class="dv">0</span>]
+<span class="dv">3</span></code></pre>
+ </div>
+ <p>
+  I've talked about how we can have other lists as elements inside lists. In Python and many other languages, lists inside lists are useful for representing many types of data (matrices, images, spreadsheets and even higher dimensional spaces). These are typically referred to as
+  <em>
+   multidimensional arrays
+  </em>
+  or
+  <em>
+   multidimensional lists
+  </em>
+  .
+ </p>
+ <p>
+  We can index into these inner lists too!
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]
+<span class="op">&gt;&gt;&gt;</span> my_list[<span class="dv">0</span>][<span class="dv">1</span>]
+<span class="dv">2</span></code></pre>
+ </div>
+ <p>
+  This works as follows, we first select the embedded list we want then we select the element from that list. In the above example, we want the list at index 0 (
+  <code>
+   [1, 2, 3]
+  </code>
+  ) then we select the element at index 1 (
+  <code>
+   2
+  </code>
+  ).
+ </p>
+ <p>
+  We can 'burrow' down into embedded lists this way.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]
+<span class="op">&gt;&gt;&gt;</span> my_list[<span class="dv">0</span>][<span class="dv">1</span>][<span class="dv">1</span>]
+<span class="dv">5</span></code></pre>
+ </div>
+ <p>
+  We can extend this to strings inside lists
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="st">"My string"</span>, <span class="st">"Another string"</span>]
+<span class="op">&gt;&gt;&gt;</span> my_list[<span class="dv">0</span>][<span class="dv">1</span>]
+<span class="co">'y'</span></code></pre>
+ </div>
+ <h2 id="references-mutability">
+  8.4 - References &amp; Mutability
+ </h2>
+ <p>
+  We looked at immutable types earlier on. Now we're going to look at mutable types.
+ </p>
+ <p>
+  A mutable type (or mutable sequence) is one that can be changed after it is created. A list is a mutable sequence and can therefore be changed in place.
+ </p>
+ <p>
+  Let's refresh our memory on how strings couldn't be changed after they were created
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"my string"</span>
+<span class="op">&gt;&gt;&gt;</span> s[<span class="dv">0</span>] <span class="op">=</span> <span class="st">"b"</span>
+Traceback (most recent call last):
+  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="op">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>
+<span class="pp">TypeError</span>: <span class="st">'str'</span> <span class="bu">object</span> does <span class="op">not</span> support item assignment</code></pre>
+ </div>
+ <p>
+  We get an error. Take a look back at the chapter on strings (Chapter 6) and revise the diagram that exists in that chapter.
+ </p>
+ <p>
+  I'm going to introduce the
+  <code>
+   is
+  </code>
+  keyword now. The
+  <code>
+   is
+  </code>
+  keyword compares object IDs (identities). This is similar to
+  <code>
+   ==
+  </code>
+  which checks if the objects referred to by the variables have the same content (equality).
+ </p>
+ <p>
+  To give an analogy, let's say a clothing company is mass producing a certain type of shirt. Let's take two shirts as they are coming off the line.
+ </p>
+ <p>
+  We would say
+  <code>
+   shirt_1 == shirt_2
+  </code>
+  evaluates to
+  <code>
+   True
+  </code>
+  (They are both the same color, size and have the same graphic printed on them)
+ </p>
+ <p>
+  We would say
+  <code>
+   shirt_1 is shirt_2
+  </code>
+  evaluates to
+  <code>
+   False
+  </code>
+  (Even though they look similar, they are not the same shirt).
+ </p>
+ <p>
+  Mutability and Immutability is quite like that.
+ </p>
+ <p>
+  Let's look at some more Python examples:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> s
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">is</span> s
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">==</span> s
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  These variables,
+  <code>
+   s
+  </code>
+  and
+  <code>
+   t
+  </code>
+  are referencing the same
+  <strong>
+   object
+  </strong>
+  (The string "Hello").What if we try to update s?
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"Hello"</span>
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> s
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">is</span> s
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"World"</span>
+<span class="op">&gt;&gt;&gt;</span> t
+<span class="co">"Hello"</span></code></pre>
+ </div>
+ <p>
+  The variable
+  <code>
+   s
+  </code>
+  is now referencing a different object and
+  <code>
+   t
+  </code>
+  still references "Hello". As strings are immutable we must create a new
+  <em>
+   instance
+  </em>
+  . We cannot change it
+  <em>
+   in place
+  </em>
+  .
+ </p>
+ <p>
+  With lists however, things operate a little differently.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">is</span> a
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> a.append(<span class="dv">9</span>)
+<span class="op">&gt;&gt;&gt;</span> a
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> b
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> a <span class="op">is</span> b
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  The behavior has changed here and that is because the object pointed to by
+  <code>
+   a
+  </code>
+  and
+  <code>
+   b
+  </code>
+  is
+  <em>
+   mutable
+  </em>
+  . Modifying it does
+  <strong>
+   not
+  </strong>
+  create a new object and the original reference is
+  <strong>
+   not
+  </strong>
+  overwritten to point to a new object. We do not overwrite the reference in the variable
+  <code>
+   a
+  </code>
+  , instead we write
+  <strong>
+   through
+  </strong>
+  it to modify the mutable object it points to.
+ </p>
+ <p>
+  There are however some little tricks thrown in with this behavior. Consider the following code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a
+<span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> a <span class="op">+</span> [<span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> a
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> b
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>]</code></pre>
+ </div>
+ <p>
+  What's going on here? That goes against what we just talked about doesn't it? Well, obviously not, the Python developers wouldn't leave a bug that big in language. What's happening here is we executed the following code:
+  <code>
+   a = a + [9]
+  </code>
+  . This doesn't write
+  <em>
+   through
+  </em>
+  a to modify the list it references. Instead a new list is created from the
+  <em>
+   concatenation
+  </em>
+  of the list
+  <code>
+   a
+  </code>
+  and the list
+  <code>
+   [9]
+  </code>
+  .
+ </p>
+ <p>
+  A reference to this
+  <strong>
+   new
+  </strong>
+  list overwrites the original reference in
+  <code>
+   a
+  </code>
+  . The list referenced by
+  <code>
+   b
+  </code>
+  is hence unchanged.
+ </p>
+ <p>
+  That's not all the little tricks thrown in. There's one more subtlety. Consider the following code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a
+<span class="op">&gt;&gt;&gt;</span> a <span class="op">+=</span> [<span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> a
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> b
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>]</code></pre>
+ </div>
+ <p>
+  It turns out
+  <code>
+   x += y
+  </code>
+  isn't always shorthand for
+  <code>
+   x = x + y
+  </code>
+  . Although with immutable types they do the same thing, with lists they behave very differently. It turns out the
+  <code>
+   +=
+  </code>
+  operator when applied to lists, modifies the list
+  <strong>
+   in-place
+  </strong>
+  . This means we write
+  <em>
+   through
+  </em>
+  the reference in
+  <code>
+   a
+  </code>
+  and append
+  <code>
+   [9]
+  </code>
+  to the list.
+ </p>
+ <p>
+  <strong>
+   Writing through references
+  </strong>
+  is illustrated below.
+ </p>
+ <p>
+  Firstly consider the code, then the diagram:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a
+<span class="op">&gt;&gt;&gt;</span> a[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">9</span></code></pre>
+ </div>
+ <pre><code>** BEFORE UPDATING A **
+
+         NAME LIST                   LIST OBJECT
+        ===========                ===============
+                                       |-----|          _____
+               _____                   |     |          | 1 |
+             a | # |------------------&gt;|  #  |---------&gt;|---|
+               |---|                   |     |          _____
+               _____                   |  #  |---------&gt;| 3 |
+             b | # |------------------&gt;|_____|          |---|
+               |---|
+             
+** AFTER UPDATING A **
+
+
+         NAME LIST                   LIST OBJECT
+        ===========                ===============
+                                       |-----|           _____
+               _____                   |     |           | 1 |
+             a | # | -----------------&gt;|  #  |---------&gt; |---|
+               |---|                   |     |           _____
+               _____                   |  #  |-----|     | 3 |
+             b | # | -----------------&gt;|_____|     |     |---|
+               |---|                               |
+                                                   |     |---|
+                                                   |---&gt; | 9 |
+                                                         |---|</code></pre>
+ <p>
+  So whats happening in the second part of this diagram? The
+  <code>
+   #
+  </code>
+  's represent references.
+ </p>
+ <p>
+  <code>
+   a
+  </code>
+  is a reference to a list object which contains references to integers.
+ </p>
+ <p>
+  <code>
+   b
+  </code>
+  references the same list object. But when we "change"
+  <code>
+   a
+  </code>
+  , we're clearly not changing it. We're updating a reference within it. While
+  <code>
+   b
+  </code>
+  just points to the list,
+  <code>
+   a
+  </code>
+  has changed whats inside it hence
+  <code>
+   b
+  </code>
+  's reference is not effected.
+ </p>
+ <p>
+  We can still see the
+  <code>
+   3
+  </code>
+  floating around in the second part of the diagram. This will be picked up by something called the
+  <em>
+   garbage collector
+  </em>
+  (A garbage collector keeps memory clean and stops it from becoming flooded with stuff like the unreferenced 3).
+ </p>
+ <p>
+  It's important to keep a mental image of this.
+ </p>
+ <h2 id="list-operations">
+  8.5 - List operations
+ </h2>
+ <p>
+  We've seen two operations (Now knowing they're different) in the previous section. The
+  <code>
+   +
+  </code>
+  and
+  <code>
+   +=
+  </code>
+  operators. I'll briefly run over them again.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+<span class="op">&gt;&gt;&gt;</span> a <span class="op">+</span> b
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+<span class="op">&gt;&gt;&gt;</span> a <span class="op">+=</span> b
+<span class="op">&gt;&gt;&gt;</span> a
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</code></pre>
+ </div>
+ <p>
+  We also have the
+  <code>
+   *
+  </code>
+  operator, which does as expected:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="op">&gt;&gt;&gt;</span> a <span class="op">*</span> <span class="dv">3</span>
+[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
+ </div>
+ <p>
+  We also have a new operator. This is the
+  <code>
+   in
+  </code>
+  operator. The
+  <code>
+   in
+  </code>
+  operator is a
+  <em>
+   membership test
+  </em>
+  operator and returns
+  <code>
+   True
+  </code>
+  if a sequence with a specified value is in an object
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">22</span>]
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">4</span> <span class="op">in</span> a
+<span class="va">False</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">3</span> <span class="op">in</span> a
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   in
+  </code>
+  operator can be applied to any
+  <em>
+   iterable
+  </em>
+  type (lists, strings, etc).
+ </p>
+ <h2 id="list-slicing">
+  8.6 - List slicing
+ </h2>
+ <p>
+  List slicing works exactly how it does with strings. This makes sense as both strings and lists are
+  <em>
+   sequence
+  </em>
+  types).
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Hello"</span>, <span class="va">True</span>]
+<span class="op">&gt;&gt;&gt;</span> a[<span class="dv">3</span>:]
+[<span class="st">"Hello"</span>, <span class="va">True</span>]
+<span class="op">&gt;&gt;&gt;</span> a[<span class="op">-</span><span class="dv">4</span>: <span class="op">-</span><span class="dv">2</span>]
+[<span class="dv">2</span>, <span class="dv">3</span>]</code></pre>
+ </div>
+ <p>
+  Extended slicing also works exactly the same as it does with strings.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"Hello"</span>, <span class="va">True</span>]
+<span class="op">&gt;&gt;&gt;</span> a[::<span class="op">-</span><span class="dv">1</span>]
+[<span class="va">True</span>, <span class="st">'Hello'</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]
+<span class="op">&gt;&gt;&gt;</span> a[::<span class="dv">2</span>]
+[<span class="dv">1</span>, <span class="dv">3</span>, <span class="va">True</span>]</code></pre>
+ </div>
+ <p>
+  <strong>
+   Important
+  </strong>
+  :
+ </p>
+ <p>
+  Remember in section 8.4 we wrote something like:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a</code></pre>
+ </div>
+ <p>
+  If we updated
+  <code>
+   a
+  </code>
+  , then
+  <code>
+   b
+  </code>
+  would also be effected. What if we wanted to make a copy of
+  <code>
+   a
+  </code>
+  and store it in
+  <code>
+   b
+  </code>
+  ? We can use slicing to do that as slicing returns a new object
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> a[:]
+<span class="op">&gt;&gt;&gt;</span> b <span class="op">is</span> a
+<span class="va">False</span></code></pre>
+ </div>
+ <p>
+  We can see now they do not reference the same object so updating one will not effect the other.
+ </p>
+ <h2 id="exercises">
+  8.7 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+  We've learned a lot up to this point. Your solutions should be combining (where necessary) everything we've learned so far. If you are unsure of something, don't be afraid to go back to previous chapters. It's completely normal not to remember everything this early on. The more practice you have the more of this stuff will stick!
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes a string as input from the user, followed by a number and output each word which has a length greater than or equal to the number.
+ </p>
+ <p>
+  The string will be a series of words such as
+  <code>
+   "apple orange pear grape melon lemon"
+  </code>
+ </p>
+ <blockquote>
+  <p>
+   You are to use the
+   <code>
+    split()
+   </code>
+   function to split the string
+  </p>
+ </blockquote>
+ <pre><code># EXAMPLE INPUT
+"elephant cat dog mouse bear wolf lion horse"
+5
+
+# EXAMPLE OUTPUT
+elephant
+mouse
+horse</code></pre>
+ <p>
+  You may use the following code at the beginning of your program
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_words <span class="op">=</span> <span class="bu">input</span>().split()
+num <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+
+<span class="co"># YOUR CODE HERE</span>
+<span class="co"># REMEMBER: my_words is a list</span></code></pre>
+ </div>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a program that takes a string as input from the user, followed by another string (the suffix) and output each word that ends in the suffix.
+ </p>
+ <p>
+  The first string will be a series of words such as
+  <code>
+   "apples oranges pears grapes lemons melons"
+  </code>
+ </p>
+ <blockquote>
+  <p>
+   You are to use the
+   <code>
+    split()
+   </code>
+   function to split the string
+  </p>
+ </blockquote>
+ <pre><code># EXAMPLE INPUT
+"apples oranges pears grapes lemons melons"
+"es"
+
+# EXAMPLE OUTPUT
+apples
+oranges
+grapes</code></pre>
+ <blockquote>
+  <p>
+   Hint: Your solution should be generalized for any suffix. Don't assume the length of the suffix will be 2
+  </p>
+ </blockquote>
+ <p>
+  You may use the following code at the beginning of your program
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">words <span class="op">=</span> <span class="bu">input</span>().split()
+suffix <span class="op">=</span> <span class="bu">input</span>()
+
+<span class="co"># YOUR CODE HERE</span>
+<span class="co"># REMEMBER: words is a list</span></code></pre>
+ </div>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a program that builds a list of integers from user input. You should stop when the user enters
+  <code>
+   0
+  </code>
+  .
+ </p>
+ <p>
+  Your program should print out the list.
+ </p>
+ <pre><code># EXAMPLE INPUT
+3
+5
+6
+7
+0
+
+# EXAMPLE OUTPUT
+[3, 5, 6, 7]</code></pre>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Building on your solution to question 3, taking a list built up from user input, ask the user for two more pieces of input. Integers this time.
+ </p>
+ <p>
+  The integers will represent indices. You are to swap the elements at the specified indices with eachother.
+ </p>
+ <pre><code># EXAMPLE INPUT
+6
+3
+9
+0
+
+*********************************
+* LIST SHOULD NOW BE: [6, 3, 9] *
+*********************************
+
+1
+2
+
+# EXAMPLE OUTPUT
+[6, 9, 3]</code></pre>
+ <blockquote>
+  <p>
+   You may assume that the indices will be within the index range of the list.
+  </p>
+ </blockquote>
+ <h3 id="question-4-1">
+  Question 5
+ </h3>
+ <p>
+  Write a program that builds a list of integers from user input. You program should then find the smallest of those integers and put it at the first index (
+  <code>
+   0
+  </code>
+  ) in the list. Input ends when the user inputs 0.
+ </p>
+ <pre><code># EXAMPLE INPUT
+10
+87
+11
+5
+65
+342
+12
+0
+
+# LIST SHOULD NOW BE: [10, 87, 11, 5, 65, 342, 12]
+
+# EXAMPLE OUTPUT
+[5, 87, 11, 10, 65, 342, 12]</code></pre>
+ <blockquote>
+  <p>
+   This problem is a little harder, think about your solution!
+  </p>
+ </blockquote>
+ <h3 id="question-5">
+  Question 6
+ </h3>
+ <p>
+  <strong>
+   ** THIS IS A HARD PROBLEM **
+  </strong>
+ </p>
+ <p>
+  Write a program that takes two
+  <em>
+   sorted lists
+  </em>
+  as input from the user and merge them together. The resulting list should also be sorted. Both of the input lists will be in increasing numerical order, the resulting list should be also.
+ </p>
+ <pre><code># EXAMPLE INPUT
+2
+6
+34
+90
+0      # END OF FIRST INPUT
+5
+34
+34
+77
+98
+0     # END OF SECOND INPUT
+
+# EXAMPLE OUTPUT
+[2, 5, 6, 34, 34, 34, 77, 90, 98]</code></pre>
+ <blockquote>
+  <p>
+   Don't assume both lists will be the same length!
+  </p>
+ </blockquote>
+ <script>
+  (function() {
+  var pre = document.getElementsByTagName('pre'),
+      pl = pre.length;
+  for (var i = 0; i < pl; i++) {
+      pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+      var num = pre[i].innerHTML.split(/\n/).length;
+      for (var j = 0; j < num; j++) {
+          var line_num = pre[i].getElementsByTagName('span')[0];
+          line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+      }
+  }
+})();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_7.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_9.html">
+  Next Chapter
+ </a>
+</div>
+</html>

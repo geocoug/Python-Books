@@ -1,0 +1,705 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style>
+ code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+</style>
+<style>
+ a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-17---object-oriented-programming-oop">
+  Chapter 17 - Object Oriented Programming (OOP)
+ </h1>
+ <h2 id="classes-objects">
+  17.1 - Classes &amp; Objects
+ </h2>
+ <p>
+  So far we’ve met many of Pythons built-in types such as
+  <em>
+   booleans
+  </em>
+  ,
+  <em>
+   integers
+  </em>
+  ,
+  <em>
+   dictionaries
+  </em>
+  etc. These are all
+  <em>
+   class types
+  </em>
+  . This means that any particular instance of a string, list, float etc, is an
+  <em>
+   object
+  </em>
+  of the
+  <em>
+   class
+  </em>
+  string, list or float. In other words, every string object, e.g.
+  <code>
+   "Hello"
+  </code>
+  , is an
+  <em>
+   instance
+  </em>
+  of the
+  <em>
+   string class
+  </em>
+  . An object is an implementation of a type
+ </p>
+ <p>
+  In this chapter we’re going to look at a programming paradigm called
+  <em>
+   object oriented programming
+  </em>
+  (OOP). This paradigm is based on the concept of
+  <em>
+   objects
+  </em>
+  , which contain data, in the form of attributes and functions (called methods).
+ </p>
+ <p>
+  In OOP, programs are designed by making them out of objects that interact with one another. An important feature of objects is that they use their methods to access and modify their attributes. For example, if we wanted to model a
+  <code>
+   Person
+  </code>
+  , they might have an
+  <code>
+   age
+  </code>
+  attributes and a
+  <code>
+   name
+  </code>
+  attribute. Each year they get one year older so they may have a
+  <code>
+   change_age()
+  </code>
+  method to update their age.
+ </p>
+ <p>
+  The general syntax for invoking an object’s method is
+  <code>
+   object_name.method_name(arguments)
+  </code>
+  . We have done this multiple times. For example, calling the
+  <code>
+   count()
+  </code>
+  method on a string:
+ </p>
+ <div class="sourceCode" id="cb1">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="st">"I am a string object, an instance of the string class"</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="op">&gt;&gt;&gt;</span> s.count(<span class="st">'a'</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dv">5</span></a></code></pre>
+ </div>
+ <p>
+  Most of the time, Python’s built-in types are not enough to model data we want, so we built our own types (or classes) which model the data exactly how we need.
+ </p>
+ <p>
+  A good way to think of this is that a
+  <em>
+   class
+  </em>
+  is a cookie cutter and an
+  <em>
+   instance
+  </em>
+  of that class is the cookie we cut out.
+ </p>
+ <h2 id="defining-a-new-type">
+  17.2 - Defining a new type
+ </h2>
+ <p>
+  Let’s say we wanted to model
+  <code>
+   Time
+  </code>
+  . Python’s built in data types are not going to be enough, to easily and logically model this. Instead, we would create our own
+  <code>
+   Time
+  </code>
+  class. We define a new class using the
+  <code>
+   class
+  </code>
+  statement.
+ </p>
+ <div class="sourceCode" id="cb2">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> Time:</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="cf">pass</span></a></code></pre>
+ </div>
+ <p>
+  We have now defined a new class called time. As a side note,
+  <code>
+   pass
+  </code>
+  basically means “do nothing”. I have it there so our program will not crash.
+ </p>
+ <p>
+  Save the above code to a file called
+  <em>
+   my_time.py
+  </em>
+  and import it as follows:
+ </p>
+ <div class="sourceCode" id="cb3">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_time <span class="im">import</span> Time</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> Time()</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(t)</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">&lt;</span><span class="kw">class</span> <span class="st">'time.Time'</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="op">&gt;&gt;&gt;</span> <span class="bu">isinstance</span>(t, Time)</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="va">True</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(t)</a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">&lt;</span>time.Time <span class="bu">object</span> at <span class="bn">0x000001A7C6902F60</span><span class="op">&gt;</span></a></code></pre>
+ </div>
+ <p>
+  We can see that
+  <code>
+   t
+  </code>
+  is of type
+  <code>
+   Time
+  </code>
+  and
+  <code>
+   t
+  </code>
+  is an
+  <em>
+   instance
+  </em>
+  of
+  <code>
+   Time
+  </code>
+  and we can see it is an object stored at the memory location
+  <code>
+   0x000001A7C6902F60
+  </code>
+  .
+ </p>
+ <p>
+  We want to represent time in
+  <code>
+   hours
+  </code>
+  ,
+  <code>
+   minutes
+  </code>
+  , and
+  <code>
+   seconds
+  </code>
+  . We can therefore define a method that initialises the time of
+  <code>
+   Time
+  </code>
+  objects. We also want to define a
+  <code>
+   display()
+  </code>
+  method that will print out the time:
+ </p>
+ <div class="sourceCode" id="cb4">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Time:</a>
+<a class="sourceLine" id="cb4-2" title="2">    </a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="kw">def</span> set_time(time_obj, hours, minutes, seconds):</a>
+<a class="sourceLine" id="cb4-4" title="4">        time_obj.hours <span class="op">=</span> hours</a>
+<a class="sourceLine" id="cb4-5" title="5">        time_obj.minutes <span class="op">=</span> minutes</a>
+<a class="sourceLine" id="cb4-6" title="6">        time_obj.seconds <span class="op">=</span> seconds</a>
+<a class="sourceLine" id="cb4-7" title="7">        </a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="kw">def</span> display(time_obj):</a>
+<a class="sourceLine" id="cb4-9" title="9">        <span class="bu">print</span>(<span class="st">"The time is </span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(time_obj.hours,</a>
+<a class="sourceLine" id="cb4-10" title="10">                                           time_obj.minutes,</a>
+<a class="sourceLine" id="cb4-11" title="11">                                           time_obj.seconds))</a></code></pre>
+ </div>
+ <p>
+  In the above
+  <em>
+   class definition
+  </em>
+  , the
+  <code>
+   set_time()
+  </code>
+  method requires four arguments. The first is the time object we want to initialise and the other three are the hours, minutes, and seconds we want to set for our time object.
+ </p>
+ <p>
+  As shown above, we access the hours, minutes and seconds attributes using the
+  <em>
+   period
+  </em>
+  operator e.g
+  <code>
+   time_obj.hours = hours
+  </code>
+  . This is saying, for the time object that was passed, set it’s hours attribute to the hours passed as an argument.
+ </p>
+ <p>
+  In the
+  <code>
+   display()
+  </code>
+  method, we access the hours, minutes, and seconds using the period operator.
+ </p>
+ <p>
+  Now let’s see how we can use this class:
+ </p>
+ <div class="sourceCode" id="cb5">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_time <span class="im">import</span> Time</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> Time()</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">&gt;&gt;&gt;</span> Time.set_time(t, <span class="dv">11</span>, <span class="dv">32</span>, <span class="dv">45</span>)</a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">&gt;&gt;&gt;</span> Time.display(t)</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="co">'The time is 11:32:45'</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="op">&gt;&gt;&gt;</span> t2 <span class="op">=</span> Time()</a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="op">&gt;&gt;&gt;</span> Time.set_time(t2, <span class="dv">22</span>, <span class="dv">43</span>, <span class="dv">17</span>)</a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="op">&gt;&gt;&gt;</span> Time.display(t2)</a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="co">'The time is 22:43:17'</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="op">&gt;&gt;&gt;</span> Time.display(t)</a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="co">'The time is 11:32:45'</span></a></code></pre>
+ </div>
+ <p>
+  We can see we have two different time objects. We create an object of the
+  <code>
+   Time
+  </code>
+  class by calling the class as if it were a function. Calling the class as a function will instantiate an instance of the class and return a reference to it.
+ </p>
+ <h2 id="the-self-variable">
+  17.3 - The
+  <em>
+   self
+  </em>
+  variable
+ </h2>
+ <p>
+  As seen in the previous section, we had to call methods by referring to the class in which it belongs to e.g
+  <code>
+   Time.display(t)
+  </code>
+  . However, we didn’t have to do that when invoking methods on Python’s built in types e.g
+  <code>
+   s.count('a')
+  </code>
+  . It turns out that this is just shorthand for
+  <code>
+   str.count(s, 'a')
+  </code>
+  .
+ </p>
+ <p>
+  We can adopt the same approach for our
+  <code>
+   Time
+  </code>
+  class:
+ </p>
+ <div class="sourceCode" id="cb6">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_time <span class="im">import</span> Time</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> Time()</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">&gt;&gt;&gt;</span> t.set_time(<span class="dv">11</span>, <span class="dv">32</span>, <span class="dv">45</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">&gt;&gt;&gt;</span> t.display()</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">'The time is 11:32:45'</span></a></code></pre>
+ </div>
+ <p>
+  Note how we only have to pass three arguments to the
+  <code>
+   set_time()
+  </code>
+  method rather than the four we declared. This is because when we invoke an instance method on an object, that object is automatically passed as the first argument to the method. Therefore, we supply one less argument than the number we declared in the method definition. Python will automatically supply the missing object as the first argument on our behalf.
+ </p>
+ <p>
+  By convention, this first parameter, which we’ve been calling
+  <code>
+   time_obj
+  </code>
+  , is named
+  <code>
+   self
+  </code>
+  . This refers to the instance on which the method is acting. This makes the methods
+  <code>
+   set_time()
+  </code>
+  and
+  <code>
+   display()
+  </code>
+  <em>
+   instance methods
+  </em>
+  .
+ </p>
+ <p>
+  Instance methods are methods that act upon a particular instance of an object. It’s first parameter is always the object upon which it will operate. By default, all a classes methods are instance methods unless we declare them as
+  <em>
+   class methods
+  </em>
+  which we will get to in a later chapter.
+ </p>
+ <p>
+  We can therefore re-write our class as follows:
+ </p>
+ <div class="sourceCode" id="cb7">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> Time:</a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">def</span> set_time(<span class="va">self</span>, hours, minutes, seconds):</a>
+<a class="sourceLine" id="cb7-3" title="3">        <span class="va">self</span>.hours <span class="op">=</span> hours</a>
+<a class="sourceLine" id="cb7-4" title="4">        <span class="va">self</span>.minutes <span class="op">=</span> minutes</a>
+<a class="sourceLine" id="cb7-5" title="5">        <span class="va">self</span>.seconds <span class="op">=</span> seconds</a>
+<a class="sourceLine" id="cb7-6" title="6">    </a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="kw">def</span> display(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb7-8" title="8">        <span class="bu">print</span>(<span class="st">"The time is </span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">:</span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="va">self</span>.hours,</a>
+<a class="sourceLine" id="cb7-9" title="9">                                           <span class="va">self</span>.minutes,</a>
+<a class="sourceLine" id="cb7-10" title="10">                                           <span class="va">self</span>.seconds))</a></code></pre>
+ </div>
+ <p>
+  And we can use it as follows:
+ </p>
+ <div class="sourceCode" id="cb8">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_time <span class="im">import</span> Time</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> Time()</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">&gt;&gt;&gt;</span> t.set_time(<span class="dv">11</span>, <span class="dv">32</span>, <span class="dv">45</span>)</a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="op">&gt;&gt;&gt;</span> t2 <span class="op">=</span> Time()</a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">&gt;&gt;&gt;</span> t2.set_time(<span class="dv">22</span>, <span class="dv">34</span>, <span class="dv">18</span>)</a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="op">&gt;&gt;&gt;</span> t.display()</a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co">'The time is 11:32:45'</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="op">&gt;&gt;&gt;</span> t2.display()</a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">'The time is 22:34:18'</span></a></code></pre>
+ </div>
+ <p>
+  I’m going to leave it at that for this chapter. There is a lot to take on here and it’s really important stuff! The rest of the book will be focused solely on object oriented programming. So, make sure you understand the material in this book and complete the following exercises.
+ </p>
+ <h2 id="exercises">
+  17.4 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a class that models a
+  <code>
+   Lamp
+  </code>
+  . The lamp class will have have two methods. The first will initialise the lamp and is called
+  <code>
+   plug_in()
+  </code>
+  . This will set the
+  <code>
+   is_on
+  </code>
+  attribute which is a boolean to
+  <code>
+   False
+  </code>
+  . The second method is called
+  <code>
+   toggle()
+  </code>
+  . If the lamp is off, it will turn it on (set
+  <code>
+   is_on
+  </code>
+  to
+  <code>
+   True
+  </code>
+  ) and if the lamp is on, it will turn it off (set
+  <code>
+   is_on
+  </code>
+  to
+  <code>
+   True
+  </code>
+  ).
+ </p>
+ <p>
+  Your class may be imported and used as follows:
+ </p>
+ <div class="sourceCode" id="cb9">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="im">from</span> my_lamp <span class="im">import</span> Lamp</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="op">&gt;&gt;&gt;</span> la <span class="op">=</span> Lamp()</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">&gt;&gt;&gt;</span> la.plug_in()</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(la.is_on)</a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="va">False</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="op">&gt;&gt;&gt;</span> la.toggle()</a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(la.is_on)</a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="va">True</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="op">&gt;&gt;&gt;</span> la.toggle()</a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(la.is_on)</a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="va">False</span></a></code></pre>
+ </div>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a class that models a
+  <code>
+   Cirlce
+  </code>
+  . The circle class will have four methods. The first will initialise the circle. The
+  <code>
+   initialise()
+  </code>
+  method should take three parameters,
+  <code>
+   x_coord
+  </code>
+  ,
+  <code>
+   y_coord
+  </code>
+  , and
+  <code>
+   radius
+  </code>
+  . This will set the circles x and y coordinates and it radius. The next method is called
+  <code>
+   calc_area()
+  </code>
+  . It should calculate the area of the circle (Look up the formula). The third method is called
+  <code>
+   calc_perimeter()
+  </code>
+  and should calculate the circumference of the circle (Look up the formula). The fourth method is
+  <code>
+   overlaps()
+  </code>
+  . It should take as an argument, another circle and print out whether or not the two circles overlap.
+ </p>
+ <p>
+  Your class may be imported and used as follows:
+ </p>
+ <div class="sourceCode" id="cb10">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_circle <span class="im">import</span> Circle</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="op">&gt;&gt;&gt;</span> c1 <span class="op">=</span> Cirlce()</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">&gt;&gt;&gt;</span> c1.initialise(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="op">&gt;&gt;&gt;</span> c2 <span class="op">=</span> Circle()</a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="op">&gt;&gt;&gt;</span> c2.initialise(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="op">&gt;&gt;&gt;</span> c1.calc_perimeter()</a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="fl">25.13</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="op">&gt;&gt;&gt;</span> c2.calc_perimeter()</a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="fl">12.57</span></a>
+<a class="sourceLine" id="cb10-10" title="10"><span class="op">&gt;&gt;&gt;</span> c1.calc_area()</a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="fl">50.27</span></a>
+<a class="sourceLine" id="cb10-12" title="12"><span class="op">&gt;&gt;&gt;</span> c1.overlaps(c2)</a>
+<a class="sourceLine" id="cb10-13" title="13"><span class="va">True</span></a></code></pre>
+ </div>
+ <p>
+  <em>
+   Hint: Your definition of the overlaps methods should be
+  </em>
+  <code>
+   overlaps(self, other_circle)
+  </code>
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a class that models a students grades for particular modules. The class will have four methods. The first should initialise the student. The student should have a name and age. The grades should be modelled as a dictionary in which the key is the name of the module and the value is the grade. This should initially be empty. The second method is called
+  <code>
+   add_module()
+  </code>
+  and should add a module to the student object. The third is called
+  <code>
+   update_module_grade()
+  </code>
+  and should update the grade for a particular module. The final method is called
+  <code>
+   show_grades()
+  </code>
+  and should print out the students modules and the grade associated with each module.
+ </p>
+ <p>
+  Your class may be imported and used as follows:
+ </p>
+ <div class="sourceCode" id="cb11">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> my_student <span class="im">import</span> Student</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="op">&gt;&gt;&gt;</span> s1 <span class="op">=</span> Student()</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">&gt;&gt;&gt;</span> s1.initialise(<span class="st">"Noah"</span>, <span class="dv">19</span>)</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="op">&gt;&gt;&gt;</span> s1.add_module(<span class="st">"Python"</span>)</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="op">&gt;&gt;&gt;</span> s1.update_module_grade(<span class="st">"Python"</span>, <span class="dv">87</span>)</a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="op">&gt;&gt;&gt;</span> s1.add_module(<span class="st">"Networks"</span>)</a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="op">&gt;&gt;&gt;</span> s1.update_module_grade(<span class="st">"Networks"</span>, <span class="dv">77</span>)</a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="op">&gt;&gt;&gt;</span> s1.show_grades()</a>
+<a class="sourceLine" id="cb11-9" title="9">Noahs grades are:</a>
+<a class="sourceLine" id="cb11-10" title="10">Python: <span class="dv">87</span></a>
+<a class="sourceLine" id="cb11-11" title="11">Networks: <span class="dv">77</span></a></code></pre>
+ </div>
+ <p>
+  <em>
+   Hint: Make sure you’re initialising the grades dictionary correctly!
+  </em>
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_16.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_18.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+ -
+</div></html>

@@ -1,0 +1,435 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-7---linear-search">
+  Chapter 7 - Linear Search
+ </h1>
+ <h2 id="what-is-linear-search">
+  7.1 - What is linear search?
+ </h2>
+ <p>
+  In this chapter you're going to code your first algorithm. We'll take a look at the linear search algorithm.
+ </p>
+ <p>
+  Linear search (or sequential search) is a method to find an element in something. That something may be a string, a file or a list. The element we are searching for could be anything (a letter, a number, a word, etc).
+ </p>
+ <p>
+  (Usually) we are searching for the position of the element we want. Therefore, in some cases, the element we are searching for may not exist and we need our algorithm to be able to handle that.
+ </p>
+ <p>
+  Linear search is commonly used in computer science and is an easy algorithm to understand and write and it's perfect for us at this stage.
+ </p>
+ <h2 id="linear-search-using-while">
+  7.2 Linear search using
+  <em>
+   while
+  </em>
+ </h2>
+ <p>
+  In technical terms, we are searching for the position of some element
+  <strong>
+   Q
+  </strong>
+  that satisfies some property
+  <strong>
+   P
+  </strong>
+  .
+ </p>
+ <p>
+  In the general case, we can achieve this as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> N <span class="op">and</span> <span class="op">not</span> P:
+    i <span class="op">+=</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  What we want is the position of the element
+  <strong>
+   Q
+  </strong>
+  that satisfies some property
+  <strong>
+   P
+  </strong>
+  so we continue to search as long as that property
+  <strong>
+   P
+  </strong>
+  is not satisfied and we stop when it is.
+ </p>
+ <p>
+  Let's look at an example to help clarify. In this example we want to find the position of the first occurrence of the letter "W":
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> <span class="st">"Hello World"</span>
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s) <span class="op">and</span> s[i] <span class="op">!=</span> <span class="st">"W"</span>:
+    i <span class="op">+=</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  What we do here is, begin at index 0 ("H") and continue through the string, checking each index until "W" is found and that is linear search.
+ </p>
+ <p>
+  Now we have another problem. There are two conditions in the while loop. Either "W" is found and we exit the loop or we search the entire string and "W" is not found. How do we know which condition caused the loop to terminate?
+ </p>
+ <p>
+  If condition 1 (
+  <code>
+   i &lt; len(s)
+  </code>
+  ) is
+  <code>
+   True
+  </code>
+  then "W" was found as we clearly didn't reach the end of the string OR condition 1 is
+  <code>
+   False
+  </code>
+  in which case we did reach the end of the string and "W" was not found.
+ </p>
+ <p>
+  We can check this simply:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> <span class="st">"Hello World"</span>
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s) <span class="op">and</span> s[i] <span class="op">!=</span> <span class="st">"W"</span>:
+    i <span class="op">+=</span> <span class="dv">1</span>
+    
+<span class="cf">if</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s):
+    <span class="bu">print</span>(<span class="st">"The letter 'W' was found at position "</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">" in the string"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"The letter 'W' was not found in the string"</span>)</code></pre>
+ </div>
+ <p>
+  This is usually how linear search works, however, we can have more complicated versions which we will get to in the next section.
+ </p>
+ <h2 id="examples">
+  7.3 - Examples
+ </h2>
+ <p>
+  <strong>
+   Important Note
+  </strong>
+  :
+ </p>
+ <p>
+  If you have some previous experience of programming you may be wondering why I'm using while loops to do this? I'm doing it this way to promote computational thinking and in the future we will move away from this approach.
+ </p>
+ <p>
+  In this section I'm going to go through some more examples of linear search using
+  <em>
+   while
+  </em>
+  loops, some of which may get a little complicated so spend some time going through them.
+ </p>
+ <p>
+  For our first example, let's recreate the
+  <em>
+   lstrip()
+  </em>
+  string method.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> <span class="bu">input</span>()
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s) <span class="op">and</span> s[i] <span class="op">==</span> <span class="st">" "</span>:
+    i <span class="op">+=</span> <span class="dv">1</span>
+    
+<span class="cf">if</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s):
+    <span class="bu">print</span>(s[i:])
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"No alpha-numeric characters exist in this string"</span>)</code></pre>
+ </div>
+ <p>
+  The above program will strip all leading white space characters.
+ </p>
+ <p>
+  Let's take a look at a more difficult example. For this problem we want the user to input a string and print out that string, removing all leading and trailing whitespace and only one white space character between each word.
+ </p>
+ <pre><code># INPUT
+"    This    is a   string       with  lots  of whitespace  "
+
+# OUTPUT
+"This is a string with lots of whitespace"
+</code></pre>
+ <p>
+  This is difficult to solve and can remember being given this problem when I was learning to program. To solve this problem we'll need to nest while loops inside each other.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> <span class="bu">input</span>()
+output <span class="op">=</span> <span class="st">""</span>
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s):
+    <span class="co"># Find a non whitespace character (start of a word)</span>
+    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s) <span class="op">and</span> s[i] <span class="op">==</span> <span class="st">" "</span>:
+        i <span class="op">+=</span> <span class="dv">1</span>
+    
+    j <span class="op">=</span> i
+    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="bu">len</span>(s):
+        <span class="co"># Find the end of that word</span>
+        <span class="cf">while</span> j <span class="op">&lt;</span> <span class="bu">len</span>(s) <span class="op">and</span> s[j] <span class="op">!=</span> <span class="st">" "</span>:
+            j <span class="op">+=</span> <span class="dv">1</span>
+        
+        <span class="co"># Build up a string from the original without the excess whitespace</span>
+        output <span class="op">+=</span> <span class="st">" "</span> <span class="op">+</span> s[i:j]
+    
+    i <span class="op">=</span> j <span class="op">+</span> <span class="dv">1</span>
+
+
+<span class="co"># Print out the final string</span>
+<span class="bu">print</span>(output[<span class="dv">1</span>:])</code></pre>
+ </div>
+ <p>
+  I'm not going to explain this, I want you to work through it. Take a simple input string to help you walk through the program.
+ </p>
+ <h2 id="exercises">
+  7.4 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+ </p>
+ <p>
+  The solutions to some of these exercises require thinking outside-the-box. Don't expect to arrive at a solution immediately!
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that takes a string from the user and prints the first number encountered along with it's position.
+ </p>
+ <blockquote>
+  <p>
+   You can assume the number is a single digit
+  </p>
+ </blockquote>
+ <pre><code># EXAMPLE INPUT
+"This is chapter 7 of the book"
+
+# EXAMPLE OUTPUT
+"7 16"
+
+# EXAMPLE INPUT
+"There are no digits here"
+
+#EXAMPLE OUTPUT
+"No digits in string"</code></pre>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Building upon the previous exercise, write a program that takes a string as input from the user and prints the first number encountered along with the starting position of the number.
+ </p>
+ <blockquote>
+  <p>
+   Working through this question on paper would be a good idea!
+  </p>
+ </blockquote>
+ <pre><code># EXAMPLE INPUT
+"This chapter has 1208 words in it!"
+
+# EXAMPLE OUTPUT
+"1208 17"
+
+# EXAMPLE INPUT
+"There is no numbers here"
+
+# EXAMPLE OUTPUT
+"No numbers in string"</code></pre>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a program that takes a string as input from the user. The string will consist of digits and your program should print out the first
+  <strong>
+   repdigit
+  </strong>
+  . A repdigit is a number where all digits in the number are the same. Examples of repdigits are 22, 77, 2222, 99999, 444444. You can also assume that each number will have differing digits unless it is a repdigit.
+ </p>
+ <pre><code># EXAMPLE INPUT
+"34 74 86 34576 47093 3 349852 777 9082"
+
+# EXAMPLE OUTPUT
+"777"
+
+# EXAMPLE INPUT
+"98 3462 245 87658"
+
+# EXAMPLE OUTPUT
+"No repdigit in string"</code></pre>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  If you open a browser and go to any web page that has text on it and press Ctrl+f, a search box will pop up. You can type any word in this search box and all occurrences of that word on the page are highlighted. This doesn't use linear search, it uses something called regular expressions (don't worry about what they are). As well as the occurrences of the word being highlighted, you are also told how many times the word occurs.
+ </p>
+ <p>
+  You are to write a program which mimics this behaviour. Your program should take a string as input from the user and then a second string as input which is the word the user wants to search for. Your program should print out how many times the word occurs in the string.
+ </p>
+ <blockquote>
+  <p>
+   Assume that it still counts if the word you're searching for is embedded in another word, for example if the user was searching for the word "search":
+  </p>
+  <p>
+   search and searching &lt;- you can count this as 2 occurrences
+  </p>
+ </blockquote>
+ <pre><code># EXAMPLE INPUT
+"In this type of search, a sequential search is made over all items one by one"
+"search"
+
+# EXAMPLE OUTPUT
+2
+
+# EXAMPLE INPUT
+"There wont be an occurrence here"
+"python"
+
+# EXAMPLE OUTPUT
+0</code></pre>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+    })();
+ </script>
+ <!-- Begin Mailchimp Signup Form -->
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <!--End mc_embed_signup-->
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_6.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_8.html">
+  Next Chapter
+ </a>
+</div></html>

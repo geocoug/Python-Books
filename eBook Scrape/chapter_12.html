@@ -1,0 +1,1150 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-12---functions-modules">
+  Chapter 12 - Functions &amp; Modules
+ </h1>
+ <h2 id="what-are-functions">
+  12.1 - What are functions?
+ </h2>
+ <p>
+  In Python, a function is some code that takes input, performs some computation and produces an output. In programming, a function is a reusable block of code which performs a specific task.
+ </p>
+ <p>
+  We can
+  <em>
+   call
+  </em>
+  a function multiple times during a programs execution. We have done this many times throughout this book already.
+ </p>
+ <p>
+  Some of the common functions we have met are
+  <code>
+   len()
+  </code>
+  and
+  <code>
+   print()
+  </code>
+  . When we want to know the length of something we
+  <em>
+   pass
+  </em>
+  that something to the
+  <code>
+   len()
+  </code>
+  function for example.
+ </p>
+ <p>
+  When we want to print something to the terminal window we
+  <em>
+   call
+  </em>
+  the
+  <code>
+   print()
+  </code>
+  function.
+ </p>
+ <p>
+  We have also met
+  <em>
+   methods
+  </em>
+  . Methods are functions that are associated with an object. For example the
+  <code>
+   format()
+  </code>
+  method operates on strings. Methods are implemented the same way as functions and are essentially functions that operate on associated objects but we'll get back to those later.
+ </p>
+ <h2 id="defining-our-own-functions">
+  12.2 - Defining our own functions
+ </h2>
+ <p>
+  Most of the time, the Python
+  <em>
+   built-in
+  </em>
+  functions are not enough. Let's take our linear search algorithm for example. We may want to search a string multiple times throughout our program. Until now we would have had to write out the linear search algorithm over and over again. Programmers don't like to repeat themselves so if they find themselves repeating the same piece of code, they'll put that code into a function. This means, whenever we want to use that piece of code we can just call it like we do with
+  <code>
+   print()
+  </code>
+  for example.
+ </p>
+ <p>
+  We define our functions using the
+  <code>
+   def
+  </code>
+  keyword. Let's take a look at a function that prints "Hello, World!" to the screen.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello():
+    <span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</code></pre>
+ </div>
+ <p>
+  Above we have defined, using
+  <code>
+   def
+  </code>
+  , a new function called
+  <code>
+   hello()
+  </code>
+  . When we
+  <em>
+   call
+  </em>
+  our function, the functions code block will execute, in this case we just print
+  <code>
+   "Hello, World!"
+  </code>
+  to the screen. This function can be used as follows within our code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello():
+    <span class="bu">print</span>(<span class="st">"Hello, World!"</span>)
+
+hello()</code></pre>
+ </div>
+ <p>
+  The last line above
+  <em>
+   calls
+  </em>
+  our function. This should be familiar as you've called other functions many times now!
+ </p>
+ <p>
+  The syntax for defining functions is:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> func_name(arg1, arg2, ...., argn):
+    <span class="co"># function code</span>
+    <span class="cf">return</span> result</code></pre>
+ </div>
+ <p>
+  I'll explain what
+  <code>
+   arg1, arg2, ..., argn
+  </code>
+  is in the next section but let's take a look at the
+  <code>
+   return
+  </code>
+  statement.
+ </p>
+ <p>
+  In our first function we didn't get a result back, it simply printed something to the screen. Let's write a function that will
+  <code>
+   return
+  </code>
+  the text "Hello, world!" to us.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello():
+    <span class="cf">return</span> <span class="st">"Hello, World!"</span></code></pre>
+ </div>
+ <p>
+  We can use this function as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello():
+    <span class="cf">return</span> <span class="st">"Hello, World!"</span>
+
+x <span class="op">=</span> hello()
+<span class="bu">print</span>(x)
+<span class="co"># ALTERNATIVELY</span>
+<span class="bu">print</span>(hello())</code></pre>
+ </div>
+ <p>
+  In this function, the string
+  <code>
+   Hello, World!
+  </code>
+  is handed back to the function caller. Since the function returns a value, it's caller is expected to collect that value. Above we see the caller collects the returned value and stores it in
+  <code>
+   x
+  </code>
+  . You can see that the
+  <code>
+   print()
+  </code>
+  function also collects the value returned by the
+  <code>
+   hello()
+  </code>
+  function.
+ </p>
+ <h2 id="arguments-parameters">
+  12.3 - Arguments &amp; parameters
+ </h2>
+ <p>
+  We've seen functions such as
+  <code>
+   len()
+  </code>
+  that take arguments such as a string or dictionary and return its length.
+ </p>
+ <p>
+  In the previous section we looked at the syntax for a function. In that, we had something like:
+ </p>
+ <pre><code>def myFunc(arg1, arg2, arg3):
+#
+#</code></pre>
+ <p>
+  The
+  <code>
+   arg1, arg2, arg3
+  </code>
+  are called the functions
+  <em>
+   parameters
+  </em>
+  . A function parameter is like a variable that is
+  <em>
+   local
+  </em>
+  to the function thus cannot be referenced outside of that function. Another name of a parameter is a
+  <em>
+   formal parameter
+  </em>
+  . If our function has one formal parameter then we must pass a value to the function when we call it. This value is called an
+  <em>
+   argument
+  </em>
+  . Another name for an
+  <em>
+   argument
+  </em>
+  is an
+  <em>
+   actual parameter
+  </em>
+  .
+ </p>
+ <p>
+  Let's look at an example of a function that adds two numbers:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add(x, y):
+    result <span class="op">=</span> x <span class="op">+</span> y
+    <span class="cf">return</span> result
+
+<span class="bu">print</span>(add(<span class="dv">5</span>, <span class="dv">7</span>))</code></pre>
+ </div>
+ <p>
+  In the above function,
+  <code>
+   x
+  </code>
+  and
+  <code>
+   y
+  </code>
+  in the function definition are called the parameters.
+ </p>
+ <p>
+  When we call the function, we pass
+  <code>
+   5
+  </code>
+  and
+  <code>
+   7
+  </code>
+  to the function. These are the arguments that we
+  <em>
+   supplied
+  </em>
+  to the function.
+ </p>
+ <p>
+  The variable
+  <code>
+   result
+  </code>
+  is also local to the function and cannot be referenced from outside the function.
+ </p>
+ <p>
+  Arguments and parameters are, by default, matched based on position. In this example, the first argument (
+  <code>
+   5
+  </code>
+  ) is copied into the first parameter (
+  <code>
+   x
+  </code>
+  ).... and so on.
+ </p>
+ <p>
+  Earlier on we looked at a function that printed hello world. Functions that do not return any values are called
+  <em>
+   procedures
+  </em>
+  .
+ </p>
+ <p>
+  A procedure changes the state of our program. For example, they may update values of variables, print something to the screen or update a file.
+ </p>
+ <p>
+  Functions that return a value inspect the state of our program. They return a value based on their inspection.
+ </p>
+ <p>
+  Remember the
+  <code>
+   split()
+  </code>
+  method? I said if we don't pass any arguments to this method then it will split a string based on whitespace. This is called a
+  <em>
+   default
+  </em>
+  argument.
+ </p>
+ <p>
+  A default argument is a parameter that assumes a default value if one is not provided when the
+  <em>
+   caller
+  </em>
+  invokes the function.
+ </p>
+ <p>
+  Below is an example of a function with default arguments:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> print_circle_info(r, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):
+    <span class="bu">print</span>(<span class="st">"(x, y) coordinates: {}, {}</span><span class="ch">\n</span><span class="st">Radius: {}"</span>.<span class="bu">format</span>(x, y, r))</code></pre>
+ </div>
+ <p>
+  In the above function, we must pass a radius as an argument when calling it. We don't however have to pass an x or y coordinate. If we don't pass an x or y coordinate, our function defaults these values to 0.
+ </p>
+ <p>
+  If we do pass x and y coordinates then the values we pass will be assigned to the parameters x and y.
+ </p>
+ <p>
+  We can also define functions that have a variable number of arguments.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> my_function(<span class="op">*</span>argv):
+    <span class="cf">for</span> arg <span class="op">in</span> argv:
+        <span class="bu">print</span>(arg)
+
+my_function(<span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"even a third"</span>)</code></pre>
+ </div>
+ <p>
+  The output from this calling this function would be:
+ </p>
+ <pre><code>first
+second
+even a third</code></pre>
+ <p>
+  In the above example,
+  <code>
+   argv
+  </code>
+  is some arbitrary name we chose as the parameter name. The
+  <code>
+   *
+  </code>
+  before hand indicates that it is a variable length parameter.
+ </p>
+ <p>
+  We also have keyword variable length parameters.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> my_function(<span class="op">**</span>kwargs):
+    <span class="cf">for</span> k, v <span class="op">in</span> kwargs:
+        <span class="bu">print</span>(<span class="st">"{} : {}"</span>.<span class="bu">format</span>(k, v))
+        
+my_function(first<span class="op">=</span><span class="st">"Hello"</span>, second<span class="op">=</span><span class="st">"World"</span>)</code></pre>
+ </div>
+ <p>
+  The output would be as follows:
+ </p>
+ <pre><code>second : World
+first : Hello</code></pre>
+ <p>
+  As you can probably tell,
+  <code>
+   kwargs
+  </code>
+  is a dictionary. We indicate that it is a keyword variable length parameter by the
+  <code>
+   **
+  </code>
+  before the variable name.
+ </p>
+ <p>
+  Both normal and keyword variable length parameters must be put at the end of the parameter list when defining your functions parameters. There is good reason for this. If we had
+  <code>
+   def func(x, y, *argv, z)
+  </code>
+  we wouldn't know where
+  <code>
+   *argv
+  </code>
+  ended.
+ </p>
+ <p>
+  I'm going to say, be cautious when using variable length parameters. They should only be used when you have a good reason to use them (and that isn't very often).
+ </p>
+ <h2 id="variable-scope">
+  12.4 - Variable Scope
+ </h2>
+ <p>
+  Not all variables are accessible from all parts of your program. The part of a program where a variable is accessible is called it's scope. A variable which is defined in the main body of a file is called a global variable. It will be visible throughout the file and any file which imports that file.
+ </p>
+ <p>
+  Global variables can have unintended
+  <em>
+   consequences
+  </em>
+  because of their "range" (they can be accessed from anywhere). There are only very special circumstances in which we should use global variables in software we make in real life.
+ </p>
+ <p>
+  Variables which are defined inside code blocks are local to that block. A
+  <em>
+   block
+  </em>
+  is a construct that delimits the scope of any declaration within it. In Python, a variable defined inside a function is
+  <em>
+   local
+  </em>
+  to that function. It is accessible from when it is defined until the end of that function.
+ </p>
+ <p>
+  The formal parameters of a function act like local variables. However, assignments to a parameter can never affect the associated argument unless they are a mutable type, which you've seen in the previous section.
+ </p>
+ <h2 id="default-mutable-argument-trap">
+  12. 5 - Default mutable argument trap
+ </h2>
+ <p>
+  Consider this code and it's output:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_to_list(word, word_list<span class="op">=</span>[]):
+    word_list.append(word)
+    <span class="cf">return</span> word_list
+
+<span class="kw">def</span> main():
+    word <span class="op">=</span> <span class="st">"apple"</span>
+    tlist <span class="op">=</span> add_to_list(word)
+    <span class="bu">print</span>(tlist)
+    word <span class="op">=</span> <span class="st">"orange"</span>
+    tlist <span class="op">=</span> add_to_list(word, [<span class="st">'pear'</span>])
+    <span class="bu">print</span>(tlist)
+    word <span class="op">=</span> <span class="st">"banana"</span>
+    tlist <span class="op">=</span> add_to_list(word)
+    <span class="bu">print</span>(tlist)
+    
+main()</code></pre>
+ </div>
+ <pre><code>$ py trap.py
+['apple']
+['pear', 'orange']
+['apple', 'banana']</code></pre>
+ <p>
+  Let's look at why this is strange behaviour. We see that the second parameter to
+  <code>
+   add_to_list()
+  </code>
+  is optional (indicated by the default value
+  <code>
+   []
+  </code>
+  ). If no argument for this parameter is supplied when calling the function then that parameter takes on the value of
+  <code>
+   []
+  </code>
+  , the empty list.
+ </p>
+ <p>
+  The first time we call the function and pass it
+  <code>
+   apple
+  </code>
+  , we get back
+  <code>
+   ['apple']
+  </code>
+  . This is fine and it's what we expected. The second time we call the function and pass it
+  <code>
+   orange
+  </code>
+  and a list of
+  <code>
+   ['pear']
+  </code>
+  , we get back the list
+  <code>
+   ['pear', 'orange']
+  </code>
+  . This is also fine and what we expected. The third time however, we get some unexpected behaviour.
+ </p>
+ <p>
+  Why is
+  <code>
+   apple
+  </code>
+  in the list if we called the function and passed
+  <code>
+   banana
+  </code>
+  and no list. Surely we should just get back
+  <code>
+   ['banana']
+  </code>
+  ? This is called the default mutable argument trap and no, it's not a bug.
+ </p>
+ <p>
+  The empty list is
+  <em>
+   initialised
+  </em>
+  only once by Python. It is initialised when the
+  <code>
+   def
+  </code>
+  for that function is first encountered. This means the list has memory and anything added to it will stay there.
+ </p>
+ <p>
+  The takeaway from this is to
+  <strong>
+   not
+  </strong>
+  use
+  <em>
+   mutable
+  </em>
+  types as default arguments. Instead, work around it as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> add_to_list(word, word_list<span class="op">=</span><span class="va">None</span>):
+    <span class="cf">if</span> word_list <span class="op">is</span> <span class="va">None</span>:
+        word_list <span class="op">=</span> []
+    word_list.append(word)
+    <span class="cf">return</span> word_list
+
+<span class="kw">def</span> main():
+    word <span class="op">=</span> <span class="st">"apple"</span>
+    tlist <span class="op">=</span> add_to_list(word)
+    <span class="bu">print</span>(tlist)
+    word <span class="op">=</span> <span class="st">"orange"</span>
+    tlist <span class="op">=</span> add_to_list(word, [<span class="st">'pear'</span>])
+    <span class="bu">print</span>(tlist)
+    word <span class="op">=</span> <span class="st">"banana"</span>
+    tlist <span class="op">=</span> add_to_list(word)
+    <span class="bu">print</span>(tlist)
+    
+main()</code></pre>
+ </div>
+ <p>
+  This will give:
+ </p>
+ <pre><code>['apple']
+['pear', 'orange']
+['banana']</code></pre>
+ <p>
+  And this is what we expected the first time.
+ </p>
+ <p>
+  <code>
+   None
+  </code>
+  is a special type. It is an object that indicates
+  <em>
+   no value
+  </em>
+  and it is an
+  <em>
+   immutable
+  </em>
+  type. In fact,
+  <code>
+   None
+  </code>
+  is returned from a function if there is no return statement in that function i.e a procedure.
+ </p>
+ <h2 id="what-are-modules">
+  12.6 - What are modules?
+ </h2>
+ <p>
+  I've briefly mentioned modules before and I said, a module is simply a file consisting of Python code. A module can define functions, classes and variables. A module can also contain runnable code.
+ </p>
+ <p>
+  Modules allow you to logically organize your Python code. Grouping code into modules makes it easier to understand and use your code. It is not uncommon for a software project to span hundreds of files.
+ </p>
+ <p>
+  You can import modules using the
+  <code>
+   import
+  </code>
+  statement which we have seen when importing
+  <code>
+   sys
+  </code>
+  and
+  <code>
+   string
+  </code>
+  .
+ </p>
+ <p>
+  We can import specific attributes from modules using the
+  <code>
+   from
+  </code>
+  keyword e.g.
+  <code>
+   from string import punctuation
+  </code>
+  . We can also import all attributes from a module using
+  <code>
+   *
+  </code>
+  e.g.
+  <code>
+   from string import *
+  </code>
+  .
+ </p>
+ <p>
+  When we import a module, the Python interpreter searches for the module in the following manner:
+ </p>
+ <ul>
+  <li>
+   The Python interpreter searches the current directory.
+  </li>
+  <li>
+   If it's not there then the interpreter searches each directory in the shell variable PYTHONPATH
+  </li>
+  <li>
+   Finally, if not there then the interpreter searches the default path. On Linux, this is normally
+   <code>
+    /usr/local/lib/python
+   </code>
+   .
+  </li>
+ </ul>
+ <h2 id="creating-our-own-modules">
+  12.7 - Creating our own modules
+ </h2>
+ <p>
+  We can create our own modules to logically organize our code. Let's say we want to create a module that contains some maths functions. We do this as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># maths.py</span>
+
+<span class="kw">def</span> add(x, y):
+    <span class="cf">return</span> x <span class="op">+</span> y
+
+<span class="kw">def</span> multiply(x, y)
+    <span class="cf">return</span> x <span class="op">*</span> y
+
+<span class="kw">def</span> main():
+    <span class="bu">print</span>(add(x, y))
+    <span class="bu">print</span>(multiply(x, y))
+
+<span class="cf">if</span> <span class="va">__name__</span><span class="op">==</span><span class="st">"__main__"</span>:
+    main()</code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   add()
+  </code>
+  and
+  <code>
+   multiply()
+  </code>
+  functions are fine and we have come across similar functions before. The
+  <code>
+   main()
+  </code>
+  function we have also come across in a previous section but the
+  <code>
+   if __name__=="__main__":
+  </code>
+  , we have not come across before.
+ </p>
+ <p>
+  When you execute a program directly from the command line (as you've been doing), the Python interpreter sets a special variable for that script. That variable is
+  <code>
+   __name__
+  </code>
+  . When a script is executed directly, that variable is set to
+  <code>
+   "__main__"
+  </code>
+  , otherwise, if it is being imported for example, then it is set to the name of the module,
+  <code>
+   "math"
+  </code>
+  in this case.
+ </p>
+ <p>
+  We include the
+  <code>
+   if
+  </code>
+  statement to check this variable as sometimes we want to test our code or have some way of demoing our module. If we run it directly then the
+  <code>
+   main()
+  </code>
+  function is executed. Otherwise, if we import this module, then the
+  <code>
+   main()
+  </code>
+  function is not executed.
+ </p>
+ <p>
+  It is good practice to include this check in your scripts. This check is also usually located at the end of the script.
+ </p>
+ <p>
+  The way Python handles the
+  <code>
+   __name__
+  </code>
+  variable has changed in Python 3.7. It is now under
+  <a href="https://www.python.org/dev/peps/pep-0567/">
+   PEP 567
+  </a>
+  . On the surface nothing has drastically changed.
+ </p>
+ <h2 id="exercises">
+  12.8 - Exercises
+ </h2>
+ <p>
+  When completing these exercises, use the following pattern when writing your scripts:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># functions and constants</span>
+
+<span class="kw">def</span> main():
+    <span class="co"># Test code</span>
+    <span class="co"># Anything else that shouldn't happen when your code is imported</span>
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:
+    main()</code></pre>
+ </div>
+ <p>
+  If you are asked to write module, then you should save the module in the same directory as your testing script.
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a module named
+  <code>
+   sorting.py
+  </code>
+  that contains functions that implement both selection and insertion sort i.e your module (
+  <code>
+   sorting.py
+  </code>
+  ) should contain a
+  <code>
+   selection_sort(a)
+  </code>
+  function and an
+  <code>
+   insertion_sort(a)
+  </code>
+  function. Your function should return the values,
+  <strong>
+   not
+  </strong>
+  print them.
+ </p>
+ <p>
+  Your module should be imported and run as follows in another script called
+  <code>
+   test.py
+  </code>
+  :
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sorting
+
+a <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>]
+<span class="bu">print</span>(sorting.selection_sort(a))
+a <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">2</span>]
+<span class="bu">print</span>(sorting.insertion_sort(a))</code></pre>
+ </div>
+ <pre><code>$ py test.py
+[2, 3, 5, 6, 7, 8]
+[2, 3, 5, 6, 7, 8]</code></pre>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a module called
+  <code>
+   arithmetic.py
+  </code>
+  . This module should include the following functions:
+ </p>
+ <ul>
+  <li>
+   <code>
+    add()
+   </code>
+  </li>
+  <li>
+   <code>
+    multiply()
+   </code>
+  </li>
+  <li>
+   <code>
+    divide()
+   </code>
+  </li>
+  <li>
+   <code>
+    subtract()
+   </code>
+  </li>
+ </ul>
+ <p>
+  The
+  <code>
+   add()
+  </code>
+  ,
+  <code>
+   multiply()
+  </code>
+  and
+  <code>
+   subtract()
+  </code>
+  functions should be able to handle an arbitrary number of arguments.
+  <code>
+   divide()
+  </code>
+  should only take 2 arguments. Your function should return the calculated values,
+  <strong>
+   not
+  </strong>
+  print them.
+ </p>
+ <p>
+  Your module should be imported and run as follows in another script called
+  <code>
+   test.py
+  </code>
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> arithmetic <span class="im">import</span> <span class="op">*</span>
+
+<span class="bu">print</span>(add(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>))
+<span class="bu">print</span>(add(<span class="dv">3</span>, <span class="dv">2</span>))
+
+<span class="bu">print</span>(subtract(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>))
+<span class="bu">print</span>(subtract(<span class="dv">3</span>, <span class="dv">2</span>))
+
+<span class="bu">print</span>(divide(<span class="dv">6</span>, <span class="dv">3</span>))
+
+<span class="bu">print</span>(multiply(<span class="dv">2</span>, <span class="dv">3</span>))
+<span class="bu">print</span>(multiply(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>))</code></pre>
+ </div>
+ <pre><code>$ py test.py
+22
+5
+-18
+1
+2
+6
+18</code></pre>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a function called
+  <code>
+   length()
+  </code>
+  that mimics the
+  <code>
+   len()
+  </code>
+  function. Your function should work for strings, dictionaries and lists.
+  <code>
+   length()
+  </code>
+  should only take 1 argument and return the length of the data-structure passed to it.
+ </p>
+ <p>
+  Your function should be tested with the following:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="bu">print</span>(length(a))
+
+a <span class="op">=</span> []
+<span class="bu">print</span>(length(a))
+
+d <span class="op">=</span> {}
+<span class="bu">print</span>(length(d))
+
+d <span class="op">=</span> {<span class="st">"one"</span>: <span class="va">True</span>, <span class="st">"two"</span>: <span class="va">True</span>}
+<span class="bu">print</span>(length(d))
+
+s <span class="op">=</span> <span class="st">"This is a string"</span>
+<span class="bu">print</span>(length(s))
+
+s <span class="op">=</span> <span class="st">""</span>
+<span class="bu">print</span>(length(s))</code></pre>
+ </div>
+ <pre><code>$ py test.py
+6
+0
+0
+2
+16
+0</code></pre>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Write a function called
+  <code>
+   fib()
+  </code>
+  that calculates and returns the n-th Fibonacci number. Your function should take 1 argument, the Fibonacci number you want to calculate.
+ </p>
+ <p>
+  Your function should be tested with the following:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(fib(<span class="dv">3</span>))
+<span class="bu">print</span>(fib(<span class="dv">0</span>))
+<span class="bu">print</span>(fib(<span class="dv">1</span>))
+<span class="bu">print</span>(fib(<span class="dv">10</span>))
+<span class="bu">print</span>(fib(<span class="dv">13</span>))</code></pre>
+ </div>
+ <pre><code>$ py test.py
+3
+1
+1
+89
+377</code></pre>
+ <p>
+  <strong>
+   Remember
+  </strong>
+  :
+ </p>
+ <p>
+  <br/>
+  <span class="math display">
+   <em>
+    f
+   </em>
+   <em>
+    i
+   </em>
+   <em>
+    b
+   </em>
+   (0)=1
+  </span>
+  <br/>
+ </p>
+ <p>
+  <br/>
+  <span class="math display">
+   <em>
+    f
+   </em>
+   <em>
+    i
+   </em>
+   <em>
+    b
+   </em>
+   (1)=1
+  </span>
+  <br/>
+ </p>
+ <h3 id="question-5">
+  Question 5
+ </h3>
+ <p>
+  Write a function called
+  <code>
+   read_file()
+  </code>
+  which takes a single argument, a filename (as a string), and returns the contents of the file in list form with each element in the list being a single line from the file.
+ </p>
+ <p>
+  Your function should be called as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">lines <span class="op">=</span> read_file(<span class="st">"input.txt"</span>)</code></pre>
+ </div>
+ <h3 id="question-6">
+  Question 6
+ </h3>
+ <p>
+  Write a function
+  <strong>
+   procedure
+  </strong>
+  called
+  <code>
+   rep_all()
+  </code>
+  that takes 3 arguments, a list of integers and 2 numbers. Your procedure should replace all occurrences of the first number with the second.
+ </p>
+ <p>
+  Calling your function as follows and printing the list afterwards should produce the following:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">8</span>]
+rep_all(a, <span class="dv">3</span>, <span class="dv">10</span>)
+<span class="bu">print</span>(a)</code></pre>
+ </div>
+ <pre><code>$ py test.py
+[4, 2, 10, 10, 7, 8]</code></pre>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <br/>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_11.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_13.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

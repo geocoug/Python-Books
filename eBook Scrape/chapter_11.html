@@ -1,0 +1,1029 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-11---for-loops-dictionaries">
+  Chapter 11 -
+  <em>
+   for
+  </em>
+  loops &amp; Dictionaries
+ </h1>
+ <h2 id="for-loops">
+  11.1 -
+  <em>
+   for
+  </em>
+  loops
+ </h2>
+ <p>
+  So far we have been using
+  <code>
+   while
+  </code>
+  loops to iterate over lists and strings. I purposely chose to not mention
+  <code>
+   for
+  </code>
+  loops yet as using while loops helps with computational thinking in the beginning. However, we have had enough practice and if you completed the final question from the last chapter you're more than ready to move on.
+ </p>
+ <p>
+  In this chapter we'll be looking at
+  <code>
+   for
+  </code>
+  loops.
+ </p>
+ <p>
+  <em>
+   for
+  </em>
+  loops are used when you have a block of code which we need to execute a known number of times (kind of similar to our do-something-n-times loop pattern). When using
+  <em>
+   for loops
+  </em>
+  we assume we don't need to check for some condition and we need to iterate over every value in the collection or sequence.
+ </p>
+ <p>
+  The
+  <code>
+   for
+  </code>
+  loop makes use of the
+  <code>
+   in
+  </code>
+  operator. The
+  <code>
+   in
+  </code>
+  operator checks for the presence of something in some collection.
+ </p>
+ <p>
+  The syntax for the
+  <code>
+   for
+  </code>
+  loop is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> <span class="op">&lt;</span>loop_var<span class="op">&gt;</span> <span class="op">in</span> <span class="op">&lt;</span>collection<span class="op">&gt;</span>:
+    <span class="co"># Do something</span></code></pre>
+ </div>
+ <p>
+  I'll show you this working in an example and then walk through how it works:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">names <span class="op">=</span> [<span class="st">"Tony"</span>, <span class="st">"John"</span>, <span class="st">"Jim"</span>]
+<span class="cf">for</span> name <span class="op">in</span> names:
+    <span class="bu">print</span>(name)</code></pre>
+ </div>
+ <p>
+  Running this in the terminal will give:
+ </p>
+ <pre><code>$ py myscript.py
+Tony
+John
+Jim</code></pre>
+ <p>
+  In the above example,
+  <code>
+   name
+  </code>
+  is the loop variable. We can pick any variable name for this and I have chosen
+  <code>
+   name
+  </code>
+  as it is appropriate as we are looping through
+  <code>
+   names
+  </code>
+  .
+ </p>
+ <p>
+  The loop variable is a
+  <em>
+   temporary
+  </em>
+  variable and its role is to store a given element for the duration of the given iteration. Let's step through our example and see how this works.
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   We pick the first element from the list and check if it exists
+  </li>
+  <li>
+   It does, so we assign it to a variable called
+   <code>
+    name
+   </code>
+   .
+  </li>
+  <li>
+   We enter the body of the loop and do any work we need to (printing the name in this case).
+  </li>
+  <li>
+   We go back to start of the loop and repeat steps 1 to 4.
+  </li>
+  <li>
+   We will get to a point when there is no "next element", in which case we exit the loop.
+  </li>
+ </ol>
+ <p>
+  What if we were in a case were we didn't have something to iterate over but we wanted to execute a block of code a fixed number of times?
+ </p>
+ <p>
+  Python provides two built-in functions for doing this. They are the
+  <code>
+   range()
+  </code>
+  function and the
+  <code>
+   xrange()
+  </code>
+  function.
+ </p>
+ <p>
+  The
+  <code>
+   range()
+  </code>
+  function takes three parameters, a start and stop and a step. The start and step are optional. The
+  <code>
+   range()
+  </code>
+  function builds a sequence based on these parameters.
+ </p>
+ <p>
+  Let's look at it in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>):
+    <span class="bu">print</span>(i)</code></pre>
+ </div>
+ <p>
+  Running this would give us:
+ </p>
+ <pre><code>$ py myscript.py
+5
+6
+7
+8
+9</code></pre>
+ <p>
+  As you can see we start at 5 and go up to but not including the
+  <code>
+   10
+  </code>
+  . If we omit the start parameter, then it defaults to 0 and I'm sure you can guess at this point what the step parameter does from your knowledge of it in
+  <em>
+   extended slicing
+  </em>
+  .
+ </p>
+ <p>
+  The range function has build up a sequence from
+  <code>
+   5
+  </code>
+  to
+  <code>
+   9
+  </code>
+  and we iterate over that using the for loop.
+ </p>
+ <p>
+  We could imagine a scenario however, where we want to do something 1 million times and we use the range function to build that sequence. Building a sequence that large takes up memory. The
+  <code>
+   xrange()
+  </code>
+  function tackles.
+ </p>
+ <p>
+  <code>
+   xrange()
+  </code>
+  does exactly the same thing as
+  <code>
+   range()
+  </code>
+  except it uses a technique called
+  <em>
+   lazy evaluation
+  </em>
+  to save on resources. We usually use
+  <code>
+   xrange
+  </code>
+  when building sequences like this simply for the fact we use less memory when doing so.
+ </p>
+ <p>
+  I'm not going to show
+  <code>
+   xrange()
+  </code>
+  in action because it does the same thing as
+  <code>
+   range()
+  </code>
+  , just its underlying implementation is different.
+ </p>
+ <h2 id="dictionaries">
+  11.2 - Dictionaries
+ </h2>
+ <p>
+  So far we've met lots of different
+  <em>
+   types
+  </em>
+  . We have also met Lists and Strings. These two types are examples of
+  <em>
+   data structures
+  </em>
+  . In this section we're going to look at another Python built-in data structure called the
+  <em>
+   dictionary
+  </em>
+  . It is of type
+  <code>
+   dict
+  </code>
+  .
+ </p>
+ <p>
+  Dictionaries are
+  <em>
+   collection
+  </em>
+  types but
+  <strong>
+   not
+  </strong>
+  <em>
+   sequences
+  </em>
+  . That is, it's elements aren't ordered like they are in a list or string.
+ </p>
+ <p>
+  Dictionaries are sometimes referred to as
+  <em>
+   maps
+  </em>
+  or
+  <em>
+   hashmaps
+  </em>
+  .
+ </p>
+ <p>
+  A dictionary is a collection of
+  <em>
+   key-value
+  </em>
+  pairs. A dictionary implements a
+  <em>
+   mapping
+  </em>
+  from a
+  <em>
+   key
+  </em>
+  to a
+  <em>
+   value
+  </em>
+  .
+ </p>
+ <p>
+  This is illustrated below:
+ </p>
+ <pre><code>    KEYS                  VALUES
+____________       ____________________
+|          |       |                  |
+|  "Tony" -|-------|-&gt; "457-2344356"  |
+|          |       |                  |
+|  "Adam" -|-------|-&gt; "359-5550983"  |
+|          |       |                  |
+|----------|       |------------------|</code></pre>
+ <p>
+  In this example, we implement a phone book using a dictionary. If we look up the key
+  <code>
+   "Tony"
+  </code>
+  , we are led to the value
+  <code>
+   "457-2344356"
+  </code>
+  .
+ </p>
+ <p>
+  The underlying implementation of a dictionary is designed in such a way that given a
+  <em>
+   key
+  </em>
+  , we can retrieve the associated
+  <em>
+   value
+  </em>
+  with great efficiency.
+ </p>
+ <p>
+  The
+  <strong>
+   Big O complexity
+  </strong>
+  for the
+  <em>
+   lookup
+  </em>
+  operation is
+  <strong>
+   O(1)
+  </strong>
+  . It is constant. It doesn't matter how large the dictionary is, the time for searching for a value is always the same. Magic right? Take it as magic, I won't be going into how it does so in this book as it's a little too advanced for beginners, but you're more than welcome to look up how it's done.
+ </p>
+ <p>
+  We also do not know the order in which key-value pairs are stored in a Python dictionary so don't write programs that rely on it's order. If you have a dictionary that is the same each time you run your program, the order will be different each time.
+ </p>
+ <p>
+  The syntax for building a dictionary is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_dictionary <span class="op">=</span> {<span class="op">&lt;</span>key1<span class="op">&gt;</span> : <span class="op">&lt;</span>value1<span class="op">&gt;</span>, <span class="op">&lt;</span>key2<span class="op">&gt;</span> : <span class="op">&lt;</span>value2<span class="op">&gt;</span>, ...., <span class="op">&lt;</span>keyN<span class="op">&gt;</span> : <span class="op">&lt;</span>valueN<span class="op">&gt;</span>}</code></pre>
+ </div>
+ <p>
+  For the above phone book example, that would be done as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">phonebook <span class="op">=</span> {<span class="st">"Tony"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}</code></pre>
+ </div>
+ <p>
+  Note the syntax for dictionaries uses
+  <em>
+   curly braces
+  </em>
+  rather than square brackets.
+ </p>
+ <p>
+  With dictionaries, a
+  <em>
+   key
+  </em>
+  can be any
+  <em>
+   immutable
+  </em>
+  type. The values can be of any type, including other dictionaries.
+ </p>
+ <p>
+  The
+  <em>
+   empty dictionary
+  </em>
+  is:
+  <code>
+   d = {}
+  </code>
+  .
+ </p>
+ <h2 id="dictionary-accessing">
+  11.3 - Dictionary accessing
+ </h2>
+ <p>
+  We can index access a dictionary by
+  <em>
+   keys
+  </em>
+  in order to retrieve
+  <em>
+   values
+  </em>
+  .
+ </p>
+ <p>
+  This is done as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> phonebook <span class="op">=</span> {<span class="st">"Tony"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+<span class="op">&gt;&gt;&gt;</span> phonebook[<span class="st">"Tony"</span>]
+<span class="co">'457-2344356'</span></code></pre>
+ </div>
+ <p>
+  If we try to access a dictionary based on a
+  <em>
+   key
+  </em>
+  that doesn't exist within the dictionary, we get an error. This error is known as a
+  <code>
+   KeyError
+  </code>
+  in Python.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> phonebook <span class="op">=</span> {<span class="st">"Tony"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+<span class="op">&gt;&gt;&gt;</span> phonebook[<span class="st">"Bob"</span>]
+Traceback (most recent call last):
+  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="op">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>
+<span class="pp">KeyError</span>: <span class="st">'Bob'</span></code></pre>
+ </div>
+ <p>
+  Remember, dictionaries are not sequenced types so we cannot access by position. We can however use integers as keys but even then they are just that; integers.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_dict <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"one"</span>, <span class="dv">3</span>: <span class="st">"three"</span>, <span class="dv">2</span>: <span class="st">"two"</span>}
+<span class="op">&gt;&gt;&gt;</span> my_dict[<span class="dv">3</span>]
+<span class="co">'three'</span>
+<span class="op">&gt;&gt;&gt;</span> my_dict[<span class="dv">0</span>]
+Traceback (most recent call last):
+  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="op">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>
+<span class="pp">KeyError</span>: <span class="dv">0</span></code></pre>
+ </div>
+ <p>
+  If we have a key-value pair in which the value is a list, we can index the list as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_dict <span class="op">=</span> {<span class="st">"first"</span>: [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>]}
+<span class="op">&gt;&gt;&gt;</span> my_dict[<span class="st">"first"</span>][<span class="dv">0</span>]
+<span class="dv">2</span></code></pre>
+ </div>
+ <h2 id="adding-and-removing-entries">
+  11.4 - Adding and removing entries
+ </h2>
+ <p>
+  We can also add new entries into an existing dictionary. When we add a new entry, we are adding a new mapping of a key-value pair into the dictionary.
+ </p>
+ <p>
+  The syntax for doing this is:
+ </p>
+ <pre><code>dictionary[&lt;key&gt;] = &lt;value&gt;</code></pre>
+ <p>
+  Let's look at that in action
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_dict <span class="op">=</span> {}
+<span class="op">&gt;&gt;&gt;</span> my_dict[<span class="st">"one"</span>] <span class="op">=</span> <span class="dv">1</span>
+<span class="op">&gt;&gt;&gt;</span> my_dict
+{<span class="st">"one"</span>:<span class="dv">1</span>}</code></pre>
+ </div>
+ <p>
+  As we can add entries to the dictionary without a new dictionary being created every time, dictionaries are
+  <strong>
+   mutable
+  </strong>
+  types.
+ </p>
+ <p>
+  Remember that the keys must be a mutable type and values can be of any type. This will catch a lot of people out.
+ </p>
+ <p>
+  We can remove entries from the dictionary by using the
+  <code>
+   del
+  </code>
+  statement. This is done as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> phonebook <span class="op">=</span> {<span class="st">"Tony"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+<span class="op">&gt;&gt;&gt;</span> <span class="kw">del</span> phonebook[<span class="st">"Tony"</span>]</code></pre>
+ </div>
+ <p>
+  In the above example we are saying, delete the entry from the dictionary who's
+  <em>
+   key
+  </em>
+  is
+  <code>
+   "Tony"
+  </code>
+  .
+ </p>
+ <h2 id="dictionary-operators-methods">
+  11.5 - Dictionary operators &amp; methods
+ </h2>
+ <p>
+  We can get the length of a dictionary the same way we do with strings and lists:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> phonebook <span class="op">=</span> {<span class="st">"Tony"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(phonebook)
+<span class="dv">2</span></code></pre>
+ </div>
+ <p>
+  This returns the number of key-value pairs stored in the dictionary.
+ </p>
+ <p>
+  We can use the
+  <code>
+   in
+  </code>
+  operator to test whether or not a
+  <em>
+   key
+  </em>
+  exists within the dictionary
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">phonebook <span class="op">=</span> {<span class="st">"Tony"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+<span class="cf">if</span> <span class="st">"Tony"</span> <span class="op">in</span> phonebook:
+    <span class="bu">print</span>(phonebook[<span class="st">"Tony"</span>])
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Key doesn't exist"</span>)</code></pre>
+ </div>
+ <p>
+  The reason I introduced dictionaries in this chapter is because we use
+  <code>
+   for
+  </code>
+  loops to cycle through each of a dictionaries keys.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">phonebook <span class="op">=</span> {<span class="st">"Bill"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+
+<span class="cf">for</span> name <span class="op">in</span> phonebook:
+    <span class="bu">print</span>(<span class="st">"{}'s number is {}."</span>.<span class="bu">format</span>(name, phonebook[name]))</code></pre>
+ </div>
+ <p>
+  The above code would produce the following output:
+ </p>
+ <pre><code>Bill's number is 457-2344356.
+Adam's number is 359-5550983.</code></pre>
+ <p>
+  We can retrieve a list of a dictionary's keys or values by using either the
+  <code>
+   keys()
+  </code>
+  method or
+  <code>
+   values()
+  </code>
+  method respectively.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> phonebook <span class="op">=</span> {<span class="st">"Bill"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+<span class="op">&gt;&gt;&gt;</span> phonebook.keys()
+dict_keys([<span class="st">'Bill'</span>, <span class="st">'Adam'</span>])
+<span class="op">&gt;&gt;&gt;</span> phonebook.values()
+dict_values([<span class="st">'457-2344356'</span>, <span class="st">'359-5550983'</span>])</code></pre>
+ </div>
+ <p>
+  These aren't really lists as we can't index them but we can iterate over them using a
+  <code>
+   for
+  </code>
+  loop.
+ </p>
+ <p>
+  I want to briefly introduce another data structure. It's called the
+  <em>
+   tuple
+  </em>
+  . I won't go into detail on it just yet but it's basically an immutable list. We can index into it but can't change it (much like a string).
+ </p>
+ <p>
+  The reason I need to let you know about it here is because we can retrieve a list of tuples using the dictionary method
+  <code>
+   items()
+  </code>
+  .
+ </p>
+ <p>
+  This works as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_dict <span class="op">=</span> {<span class="st">"one"</span>: <span class="dv">1</span>, <span class="st">"two"</span>: <span class="dv">2</span>}
+<span class="op">&gt;&gt;&gt;</span> my_dict.items()
+dict_items([(<span class="st">'two'</span>, <span class="dv">2</span>), (<span class="st">'one'</span>, <span class="dv">1</span>)])</code></pre>
+ </div>
+ <p>
+  We can see the tuples have the form
+  <code>
+   (e1, e2, ....., en)
+  </code>
+  where e1....en are elements.
+ </p>
+ <p>
+  Much like a list with parenthesis instead of square brackets.
+ </p>
+ <p>
+  We can iterate over these too. This works as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">my_dict <span class="op">=</span> {<span class="st">"one"</span>: <span class="dv">1</span>, <span class="st">"two"</span>: <span class="dv">2</span>}
+
+<span class="cf">for</span> (k, v) <span class="op">in</span> my_dict.items():
+    <span class="bu">print</span>(<span class="st">"Key: {} and Value: {}"</span>.<span class="bu">format</span>(k, v))</code></pre>
+ </div>
+ <p>
+  Remember, dict.items() returns a 'list' of tuples with each tuple containing two elements, the
+  <em>
+   key
+  </em>
+  and the
+  <em>
+   value
+  </em>
+  . When we say
+  <code>
+   for (k, v) in my_dict.items()
+  </code>
+  we are essentially saying for each tuple in the list of tuples, assign
+  <code>
+   k
+  </code>
+  to the element in the first position in the tuple and
+  <code>
+   v
+  </code>
+  to the element in the second position.
+ </p>
+ <p>
+  I'll illustrate this below:
+ </p>
+ <pre><code>  (k,    v)
+   |     |
+   V     V
+ ("one", 1)</code></pre>
+ <p>
+  <code>
+   k
+  </code>
+  is assigned to
+  <code>
+   "one"
+  </code>
+  and
+  <code>
+   v
+  </code>
+  is assigned to
+  <code>
+   1
+  </code>
+  .
+ </p>
+ <p>
+  Running the above code gives the following output:
+ </p>
+ <pre><code>Key: two and Value: 2
+Key: one and Value: 1</code></pre>
+ <p>
+  Notice how they're not in the same order as they appear when we created the dictionary.
+ </p>
+ <h2 id="sorting-dictionaries">
+  11.6 - Sorting dictionaries
+ </h2>
+ <p>
+  We can sort a dictionary based on the values of it's
+  <em>
+   keys
+  </em>
+  using the
+  <code>
+   sorted method
+  </code>
+  . Let's look at how this can be done:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">phonebook <span class="op">=</span> {<span class="st">"Bill"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+
+<span class="cf">for</span> (k, v) <span class="op">in</span> <span class="bu">sorted</span>(phonebook.items()):
+    <span class="bu">print</span>(<span class="st">"Key: {} and Value: {}"</span>.<span class="bu">format</span>(k, v))</code></pre>
+ </div>
+ <p>
+  Running this would give the following output:
+ </p>
+ <pre><code>Key: Adam and Value: 359-5550983
+Key: Bill and Value: 457-2344356</code></pre>
+ <p>
+  As you can see, the dictionary has been sorted based on the keys. Since the keys are strings, they are sorted lexicographically.
+ </p>
+ <p>
+  We can also sort on values, however, we don't have the knowledge to do that yet. We'll come back to that in the functions chapter.
+ </p>
+ <p>
+  We can however reverse the order they are sorted in. The
+  <code>
+   sorted()
+  </code>
+  function has an optional parameter called
+  <code>
+   reverse
+  </code>
+  . We can set this to
+  <code>
+   True
+  </code>
+  and the dictionary will be sorted in reverse order based on the keys.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">phonebook <span class="op">=</span> {<span class="st">"Bill"</span>: <span class="st">"457-2344356"</span>, <span class="st">"Adam"</span> : <span class="st">"359-5550983"</span>}
+
+<span class="cf">for</span> (k, v) <span class="op">in</span> <span class="bu">sorted</span>(phonebook.items(), reverse<span class="op">=</span><span class="va">True</span>):
+    <span class="bu">print</span>(<span class="st">"Key: {} and Value: {}"</span>.<span class="bu">format</span>(k, v))</code></pre>
+ </div>
+ <p>
+  This will give us the following output:
+ </p>
+ <pre><code>Key: Bill and Value: 457-2344356
+Key: Adam and Value: 359-5550983</code></pre>
+ <h2 id="exercises">
+  11.7 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that reads a file. The file will contain a number of items stocked in a shop and the number of each item available. Your program should parse the file and build a dictionary from this it, then output the stock available in alphabetical order and in a specific format. You can use the following as your input text file:
+ </p>
+ <pre><code>Oranges 12
+Apples 10
+Pears 22
+Milk 7
+Water Bottles 33
+Chocolate Bars 11
+Energy Drinks 8</code></pre>
+ <p>
+  Your program output should look like this:
+ </p>
+ <pre><code>        Apples : 10
+Chocolate Bars : 11
+ Energy Drinks : 8
+          Milk : 7
+       Oranges : 12
+         Pears : 22
+ Water Bottles : 33</code></pre>
+ <p>
+  <em>
+   Hint
+  </em>
+  : Find out the length of the longest key.
+ </p>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a program that reads a text file. The file is a list of contact details for people. With each contact you're given the name, phone number and email address. Your dictionary should be a mapping from contact names to email and phone number for that contact. Your program should then ask for user input. The input should be a single name. If the name can be found in the contact list then output the name and contact details for that person, otherwise output
+  <code>
+   No contact with that name
+  </code>
+  .
+ </p>
+ <p>
+  The contact list file is:
+ </p>
+ <pre><code>Liam 345-45643454 liam@mymail.com
+Noah 324-43576413 noah.doe@gmail.com
+Tony 987-56543239 tony@hr.mycompany.com
+Bert 654-99275234 bert.hertz@support.hertz.co.uk</code></pre>
+ <p>
+  If the user then enters the following names in this order:
+ </p>
+ <pre><code>Tony
+Noah
+John
+Annie
+Bert</code></pre>
+ <p>
+  Your program should give the following output:
+ </p>
+ <pre><code>Name: Tony
+Email: tony@hr.mycompany.com
+Phone: 987-56543239
+
+Name: Noah
+Email: noah.doe@gmail.com
+Phone: 324-43576413
+
+No contact with that name
+
+No contact with that name
+
+Name: Bert
+Email: bert.hertz@support.hertz.co.uk
+Phone: 654-99275234</code></pre>
+ <p>
+  These details should be printed one by one as the user enters the names, not in bulk as I have above.
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  In the previous chapter we tried to count how many words were contained within a piece of text. In this question you are to do the same except you should output how many times each word occurred in the text.
+ </p>
+ <p>
+  Again, punctuation matters. This time we want to strip any punctuation surrounding a word. Your program should not be case sensitive either,
+  <code>
+   Hello
+  </code>
+  and
+  <code>
+   hello
+  </code>
+  should count as the same word. However, something like
+  <code>
+   John
+  </code>
+  and
+  <code>
+   John's
+  </code>
+  should not be counted as the same word. In other words, you are striping leading and trailing punctuation characters.
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py dict_count.py input.txt</code></pre>
+ <p>
+  To test that your solution is correct, use the
+  <a href="https://www.artofmanliness.com/second-inaugural-address-of-abraham-lincoln/">
+   Second Inaugural Address of Abraham Lincoln
+  </a>
+  as your input text and your program should output (this is a sample from the out):
+ </p>
+ <pre><code>.
+.
+.
+the : 58
+oath : 1
+of : 22
+presidential : 1
+office : 1
+there : 2
+is : 6
+less : 2
+occasion : 2
+for : 9
+an : 3
+extended : 1
+address : 2
+than : 4
+.
+.
+.</code></pre>
+ <p>
+  You need not format the output. The length of your dictionary should be
+  <code>
+   701
+  </code>
+  .
+ </p>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Write a program that takes two dictionaries and outputs their intersection. The intersection of two dictionaries should be a third dictionary that contains key-value pairs that are present in both of the other two dictionaries. You can hard code these two dictionaries in. They don't need to be read from anywhere.
+ </p>
+ <p>
+  Run your script as follows:
+ </p>
+ <pre><code>$ py intersection.py </code></pre>
+ <p>
+  To test if your solution is correct, you can run your program with the two following dictionaries:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">d1 <span class="op">=</span> {"k1": <span class="va">True</span>, "k2": <span class="va">True</span>, "k3": <span class="va">True</span>, "k4": <span class="va">True</span>}
+d2 <span class="op">=</span> {"k6": <span class="va">True</span>, "k2": <span class="va">True</span>, "k5": <span class="va">True</span>, "k1": <span class="va">True</span>, "k8": <span class="va">True</span>, "k4": <span class="va">True</span>}</code></pre>
+ </div>
+ <p>
+  Your program should output the following dictionary:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">intersection <span class="op">=</span> {"k2": <span class="va">True</span>, "k1": <span class="va">True</span>, "k4": <span class="va">True</span>}</code></pre>
+ </div>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_10.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_12.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

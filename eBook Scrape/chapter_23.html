@@ -1,0 +1,1130 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-23---more-advanced-data-structures">
+  Chapter 23 - More Advanced Data Structures
+ </h1>
+ <p>
+  In the previous chapter, we learned about some simple yet fundamental data structures with rather simple implementations. In this chapter we're going to take a look at a couple of new data structures. They'll also be a little bit more advanced in their implementation.
+ </p>
+ <h2 id="linked-lists">
+  23.1 - Linked Lists
+ </h2>
+ <p>
+  The first data structure we're going to look at in this chapter is a
+  <strong>
+   Linked List
+  </strong>
+  .
+ </p>
+ <p>
+  A linked list is a linear data structure where each element is a separate element. Linked List objects are not stored at contiguous locations. Instead the linked list objects are linked together using pointers.
+ </p>
+ <p>
+  Throughout this book I may have referred to Python lists as arrays and visa versa. Python lists have a complicated implementation under the hood. This allows for lists to be of arbitrary size, grow and shrink and store many items of various different types.
+ </p>
+ <p>
+  In many other programming languages an array is much like a fixed size list that stores elements of a specific type. They store elements contiguously in memory. That isn't necessarily the case in Python.
+ </p>
+ <p>
+  Python is implemented in a language called 'C'. This language is low-level compared to Python. In the C language, Python lists are implemented with a data structure some what similar to a linked list. It's a lot more complicated than a linked list but a lot of the concepts and techniques we'll learn here will apply to the C Python implementation of lists.
+ </p>
+ <p>
+  There are many variations of linked lists but in this chapter we're going to look at one variation called a
+  <strong>
+   Singly Linked List
+  </strong>
+  .
+ </p>
+ <p>
+  Below is a diagram of a Singly Linked List:
+ </p>
+ <div class="figure">
+  <img src="./assets/linkedlist.png">
+  </img>
+ </div>
+ <p>
+  There are various elements to this so let me explain:
+ </p>
+ <ul>
+  <li>
+   Head: The head is the first element in the list
+  </li>
+  <li>
+   Tail: The tail isn't marked here but its the last element (5 in this case)
+  </li>
+  <li>
+   Node: A node consists of two things; The data and a pointer to the next element (Next)
+  </li>
+ </ul>
+ <p>
+  Linked Lists have various advantages over arrays (not Python lists). These include dynamic size (they can grow and shrink as needed much like python lists, whereas arrays can't do this) and ease of insertion and deletion.
+ </p>
+ <p>
+  When we delete something from a Python list, the list must be resized and various other things must be done (this is done under the hood so we don't worry about this).
+ </p>
+ <p>
+  There are also some disadvantages to Linked Lists compared to arrays. We can't index them, therefore if we wish to access an element we must iterate through each element, starting from the head, in order until we find the element we are searching for.
+ </p>
+ <p>
+  From the above diagram we can break the problem of implementing a linked list down into two things:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   A node class: This will contain the data the node will store and a pointer to the next node.
+  </li>
+  <li>
+   Linked List class: This will contain the head node and methods we can perform on the linked list.
+  </li>
+ </ol>
+ <p>
+  Let's look at the node class:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, elem):
+        <span class="va">self</span>.elem <span class="op">=</span> elem
+        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></code></pre>
+ </div>
+ <p>
+  This is our linked list node class. It's very simple and only contains two attributes. The first is the data the node will store and a
+  <em>
+   next
+  </em>
+  attribute. The next attribute is set to
+  <code>
+   None
+  </code>
+  by default as it won't point to anything initially. This concept of a node is very powerful when it comes to data structures. It gives us a lot of flexibility when developing other data structures as we'll see later on.
+ </p>
+ <p>
+  Let's now look at the first attempt at out linked list:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> LinkedList:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.head <span class="op">=</span> <span class="va">None</span></code></pre>
+ </div>
+ <p>
+  When we initialize our
+  <code>
+   LinkedList
+  </code>
+  it will be empty, that is, the head will point to nothing (None). That's all we need to start implementing methods.
+ </p>
+ <p>
+  To get started, we'll take a look at the
+  <code>
+   add()
+  </code>
+  method. Firstly we need to think about how we're going to go about doing this. In our linked list, we'll be adding new elements to the end of the list. Firstly we need to check if the head is empty. If it is, then we just point the
+  <code>
+   LinkedList
+  </code>
+  head to a new node. Otherwise, we need to "follow" this trail of pointers to nodes until one of the node's
+  <code>
+   next
+  </code>
+  attribute points to
+  <code>
+   None
+  </code>
+  . When we find this node then we update it's
+  <code>
+   next
+  </code>
+  attribute to point to the element we're trying to add.
+ </p>
+ <p>
+  Let's look at how that's done:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> LinkedList:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.head <span class="op">=</span> <span class="va">None</span>
+        
+    <span class="kw">def</span> add(<span class="va">self</span>, elem):
+        <span class="cf">if</span> <span class="va">self</span>.head <span class="op">==</span> <span class="va">None</span>:
+            <span class="va">self</span>.head <span class="op">=</span> Node(elem)
+        <span class="cf">else</span>:
+            curr <span class="op">=</span> <span class="va">self</span>.head
+            <span class="cf">while</span> curr.<span class="bu">next</span> <span class="op">!=</span> <span class="va">None</span>:
+                curr <span class="op">=</span> curr.<span class="bu">next</span>
+            curr.<span class="bu">next</span> <span class="op">=</span> Node(elem)</code></pre>
+ </div>
+ <p>
+  Here we check that the head of the linked list isn't empty. If it has then we assign a new
+  <code>
+   Node
+  </code>
+  to the linked list
+  <code>
+   head
+  </code>
+  . Otherwise we create a new variable called
+  <code>
+   curr
+  </code>
+  . This keeps track of what node we're on. If we didn't do this we would end up updating the linked list's
+  <code>
+   head
+  </code>
+  node by mistake. After we create this new variable, we loop through the elements of the list, going from node to node
+  <em>
+   through
+  </em>
+  the
+  <code>
+   next
+  </code>
+  pointer until we find a node whose
+  <code>
+   next
+  </code>
+  pointer is empty. When we find that node, we update it's
+  <code>
+   next
+  </code>
+  pointer to point to a new
+  <code>
+   Node
+  </code>
+  .
+ </p>
+ <p>
+  This may take a little time to wrap your head around or understand but the more you work with data structures like this or ones similar, the more sense it will make.
+ </p>
+ <p>
+  Let's look at our deletion method. We have many options when deleting elements from a linked list just like we do with adding them. We could remove the first element, the last element or the first occurrence of an element. Since our linked list can hold many occurrences of the same data, we will remove the first occurrence of an element.
+ </p>
+ <p>
+  Let's look at how that may be done with the help of a diagram:
+ </p>
+ <div class="figure">
+  <img src="./assets/linkedlistdelete.png">
+  </img>
+ </div>
+ <p>
+  As you can see, from this diagram we want to delete the node that contains
+  <code>
+   2
+  </code>
+  . To do this we find the first node who's
+  <code>
+   next
+  </code>
+  pointer points to a
+  <code>
+   Node
+  </code>
+  that contains the value
+  <code>
+   2
+  </code>
+  . When we find this
+  <code>
+   Node
+  </code>
+  we just update it's
+  <code>
+   next
+  </code>
+  pointer to point to the same node the
+  <code>
+   Node
+  </code>
+  we want to delete points to. Essentially, we re-route the
+  <code>
+   next
+  </code>
+  pointer to bypass the element we want to delete. This is quite easy to do.
+ </p>
+ <p>
+  Let's look at how it's done.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> LinkedList:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.head <span class="op">=</span> <span class="va">None</span>
+        
+    <span class="kw">def</span> delete(<span class="va">self</span>, val):
+        <span class="cf">if</span> <span class="va">self</span>.head <span class="op">==</span> <span class="va">None</span>:
+            <span class="cf">return</span>
+        <span class="cf">if</span> <span class="va">self</span>.head.elem <span class="op">==</span> val:
+            <span class="va">self</span>.head <span class="op">=</span> <span class="va">self</span>.head.<span class="bu">next</span>
+            <span class="cf">return</span> elem
+        
+        curr <span class="op">=</span> <span class="va">self</span>.head
+        <span class="cf">while</span> curr.<span class="bu">next</span> <span class="op">!=</span> <span class="va">None</span> <span class="op">and</span> curr.<span class="bu">next</span>.elem <span class="op">!=</span> val:
+            curr <span class="op">=</span> curr.<span class="bu">next</span>
+        
+        <span class="cf">if</span> curr.<span class="bu">next</span> <span class="op">==</span> <span class="va">None</span>:
+            <span class="cf">return</span>
+        <span class="cf">else</span>:
+            curr.<span class="bu">next</span> <span class="op">=</span> cur.<span class="bu">next</span>.<span class="bu">next</span>
+            <span class="cf">return</span> val</code></pre>
+ </div>
+ <p>
+  We have to cover a couple of cases here. The first is that the list is empty in which case return nothing. The second is that the head of the linked list is the element we want to delete. If it is then we make the head of the list the second
+  <code>
+   Node
+  </code>
+  in the list (Which may be
+  <code>
+   None
+  </code>
+  but thats ok, it just means the list only had one item). Finally, if it is neither of those cases we traverse the list using linear search until we find the first occurrence of the element then we 're-route' the
+  <code>
+   next
+  </code>
+  pointer of the
+  <code>
+   Node
+  </code>
+  that points to the
+  <code>
+   Node
+  </code>
+  we want to delete, to the
+  <code>
+   Node
+  </code>
+  the
+  <code>
+   next
+  </code>
+  pointer of the
+  <code>
+   Node
+  </code>
+  we want to delete points to.
+ </p>
+ <p>
+  That last part might seem confusing but we're doing what you see in the diagram. It's probably best at this point if you're confused by that to draw this scenario out on paper to help clarify things.
+ </p>
+ <p>
+  There are a couple of other useful methods we can add here but we'll leave them for later.
+ </p>
+ <p>
+  Just before I finish up on linked lists, I want to talk a little bit more about the complexities of their methods and why you might use them (or not).
+ </p>
+ <p>
+  The run time complexity of the add method is O(n) in this case as we must iterate over each entry in the list to find the last element. The runtime complexity of the deletion method is also O(n). Although we don't always iterate over each element in the list, Big-O deals with the worst case, which is going through the entire list. There are optimizations we could make though and we'll get to them later on too.
+ </p>
+ <p>
+  Linked Lists in Python usually don't have a use case. This is because Python lists are already very well optimized and dynamic. However, in languages such as C or C++, Linked Lists are essential (Where dynamic arrays, like python lists, may not exist). They also pop up in technical interviews so you're best to know them. In fact, if I was hiring an engineer, I'd be very skeptical about hiring one who didn't know how to code a linked list.
+ </p>
+ <h2 id="binary-search-trees-bsts">
+  23.2 - Binary Search Trees (BSTs)
+ </h2>
+ <p>
+  Before I start this section, I want to give you a warning. We will be using recursion quite a lot here. If recursion is not your strong point (which it probably won't be at this point), perhaps brush up on the recursion section. However, this section might be a good place to help you understand recursion. BSTs are what helped me wrap my head around recursion (well, at least that's when recursion clicked for me).
+ </p>
+ <p>
+  A binary search tree (BST), is somewhat different to the data structures we have met so far. It is not a linear data structure. It is a type of ordered data structure that stores items. BSTs allow for fast searches, addition and removal of items. BSTs keep their items in sorted order so that the operations that can be performed on them are fast, unlike a linked list who's add and remove operations are O(n). The add and remove operations on a BST are O(log n). Searching a BST is also O(log n). This is the average case for those three operations.
+ </p>
+ <p>
+  This is a similar situation to linear search vs. binary search which we looked at earlier.
+ </p>
+ <p>
+  In computer science, a 'tree' is a widely used
+  <em>
+   abstract data type
+  </em>
+  (a data type defined by its behaviour not implementation) that simulates a hierarchical tree structure (much like a family tree), with a root node and subtrees of children with a parent node represented as a set of linked nodes.
+ </p>
+ <p>
+  A binary tree is a type of tree in which each Node in the tree has
+  <em>
+   at most
+  </em>
+  , two child nodes. A binary search tree is a special type of binary tree in which the elements are ordered. A diagram might help you visualize this, so here's one:
+ </p>
+ <div class="figure">
+  <img src="./assets/bst.png">
+  </img>
+ </div>
+ <p>
+  There is a lot to take in here so let me explain. The root of this tree is the node that contains the element
+  <code>
+   10
+  </code>
+  . The big thing labeled
+  <code>
+   Sub Tree
+  </code>
+  is the
+  <em>
+   right sub tree
+  </em>
+  of the root node.
+ </p>
+ <p>
+  <code>
+   10
+  </code>
+  is the
+  <em>
+   parent node
+  </em>
+  to
+  <code>
+   22
+  </code>
+  and
+  <code>
+   5
+  </code>
+  and similarly,
+  <code>
+   5
+  </code>
+  is a child node of
+  <code>
+   10
+  </code>
+  .
+ </p>
+ <p>
+  A leaf node is a node that has no children.
+ </p>
+ <p>
+  As you can see from this diagram, it is a binary tree as each node has at most two child nodes. It also satisfies the an important property that makes it a binary search tree. That is, that if we take any node,
+  <code>
+   10
+  </code>
+  for example, everything to the right is greater than it and everything to the left is less than it. Similarly if we look at the node
+  <code>
+   13
+  </code>
+  , everything to the right is greater than
+  <code>
+   13
+  </code>
+  and everything to the left is less than
+  <code>
+   13
+  </code>
+  .
+ </p>
+ <p>
+  What makes searching fast is this, if we wanted to check if
+  <code>
+   2
+  </code>
+  was in the tree, we start at the root node and check if
+  <code>
+   2
+  </code>
+  is less than the value at the root. In this case
+  <code>
+   2
+  </code>
+  is less than
+  <code>
+   10
+  </code>
+  so we know we don't need to bother searching the root node's right sub tree. Essentially what we've done here is cut out everything in that blue circle as the element
+  <code>
+   2
+  </code>
+  will not be in there.
+ </p>
+ <p>
+  Let's look at implementing a binary search tree. Again, the concept of a
+  <code>
+   Node
+  </code>
+  is important here. Our
+  <code>
+   Node
+  </code>
+  class for a binary search tree will be slightly different than what it was for a linked list. Let's take a look:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Node:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, elem):
+        <span class="va">self</span>.elem <span class="op">=</span> elem
+        <span class="va">self</span>.left <span class="op">=</span> <span class="va">None</span>
+        <span class="va">self</span>.right <span class="op">=</span> <span class="va">None</span></code></pre>
+ </div>
+ <p>
+  As you can see here, each node will have an element, a left child and a right child (either or both of which may be
+  <code>
+   None
+  </code>
+  ).
+ </p>
+ <p>
+  Let's make our first attempt at a
+  <code>
+   BinarySearchTree
+  </code>
+  class:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> BinarySearchTree:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.root <span class="op">=</span> <span class="va">None</span></code></pre>
+ </div>
+ <p>
+  Pretty simple so far. Basically, what we can do if we want to add, remove or search for an element is follow pointers from left sub trees or right sub trees until we find what we are looking for.
+ </p>
+ <p>
+  This time we can look at the search operation first. It will be a good look at how to use recursion in a practical situation. We either want to return
+  <code>
+   None
+  </code>
+  if the element is not found or return the
+  <code>
+   Node
+  </code>
+  that contains what we're looking for if the element is found.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> BinarySearchTree:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.root <span class="op">=</span> <span class="va">None</span>
+        
+    <span class="kw">def</span> search(<span class="va">self</span>, value):
+        <span class="cf">return</span> <span class="va">self</span>.recursive_search(<span class="va">self</span>.root, value)
+    
+    <span class="kw">def</span> recursive_search(<span class="va">self</span>, node, value):
+        <span class="cf">if</span> node <span class="op">is</span> <span class="va">None</span> <span class="op">or</span> node.elem <span class="op">==</span> value:
+            <span class="cf">return</span> node
+        <span class="cf">if</span> value <span class="op">&lt;</span> node.elem:
+            <span class="cf">return</span> <span class="va">self</span>.recursive_search(node.left, value)
+        <span class="cf">else</span>:
+            <span class="cf">return</span> <span class="va">self</span>.recursive_search(node.right, value)</code></pre>
+ </div>
+ <p>
+  This may seem a little odd as we have two search functions but there is good reason for it. The
+  <code>
+   search
+  </code>
+  method allows us to call the
+  <code>
+   recursive_search
+  </code>
+  method and pass in the root node, that way, we now have a 'copy' of the root node and not the root node itself so we don't end up in an infinite loop when recursively searching. Again, the recursive nature of this is very difficult to explain so I'd try working through an example on paper to help clarify after the following explanation.
+ </p>
+ <p>
+  Inside the
+  <code>
+   recursive_search
+  </code>
+  method we have a
+  <em>
+   base case
+  </em>
+  which checks if we've reached
+  <code>
+   None
+  </code>
+  (we didn't find what we're looking for) or we've reached the
+  <code>
+   Node
+  </code>
+  that contains what we're searching for.
+ </p>
+ <p>
+  If we don't pass our base case then we check if the value we're searching for is less than the value at the node we're currently at; if it is then we search the left subtree of that node by calling the
+  <code>
+   recursive_search
+  </code>
+  method and passing the current nodes
+  <code>
+   left
+  </code>
+  tree. Otherwise, the value we're searching for is greater than the value at the current node, in which case we call
+  <code>
+   recursive_search
+  </code>
+  and pass in the current nodes
+  <code>
+   right
+  </code>
+  tree.
+ </p>
+ <p>
+  Remember a node's left or right tree is simply a pointer to a node (we can look at this node as the root node of a sub tree).
+ </p>
+ <p>
+  For example, if we're searching for the value
+  <code>
+   15
+  </code>
+  in the tree from the diagram above, then the path we take looks like this:
+ </p>
+ <div class="figure">
+  <img src="./assets/bstsearch.png"/>
+ </div>
+ <p>
+  Just to clarify, a leaf nodes
+  <code>
+   left
+  </code>
+  and
+  <code>
+   right
+  </code>
+  'trees' are
+  <code>
+   None
+  </code>
+  .
+ </p>
+ <p>
+  Next we will look at inserting an element into the tree. What we're doing here is following pretty much the same thing we did with search except when we reach a leaf node on our path we will set it's left or right pointer to point to a new node (depending on whether or not the value is less than or greater than the value at the child node).
+ </p>
+ <p>
+  Here's how we will approach this:
+ </p>
+ <ul>
+  <li>
+   Base case: If the node we are at is
+   <code>
+    None
+   </code>
+   then insert the new node here.
+  </li>
+  <li>
+   Recursive case:
+  </li>
+  <li>
+   If the value we're inserting is less than the value of the current node then we check if left tree of the current node is
+   <code>
+    None
+   </code>
+   ; If it is, then insert there, otherwise, call insert again and pass the left subtree.
+  </li>
+  <li>
+   If the value we're inserting is greater than the value of the current node then we check if the right tree of the current node is
+   <code>
+    None
+   </code>
+   ; If it is, then insert there, otherwise, call insert again and pass the right subtree.
+  </li>
+ </ul>
+ <p>
+  Here's how that's done:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> BinarySearchTree:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.root <span class="op">=</span> <span class="va">None</span>
+        
+    <span class="kw">def</span> insert(<span class="va">self</span>, val):
+        <span class="cf">return</span> <span class="va">self</span>.recursive_insert(<span class="va">self</span>.root, val)
+    
+    <span class="kw">def</span> recursive_insert(<span class="va">self</span>, node, val):
+        <span class="cf">if</span> node <span class="op">==</span> <span class="va">None</span>:
+            node <span class="op">=</span> Node(val)
+        <span class="cf">elif</span> val <span class="op">==</span> node.elem:
+            <span class="cf">continue</span>
+        <span class="cf">else</span>:
+            <span class="cf">if</span> val <span class="op">&lt;</span> node.elem:
+                <span class="cf">if</span> node.left <span class="op">==</span> <span class="va">None</span>:
+                    node.left <span class="op">=</span> Node(val)
+                <span class="cf">else</span>:
+                    <span class="va">self</span>.recursive_insert(node.left, val)
+            <span class="cf">else</span>:
+                <span class="cf">if</span> node.right <span class="op">==</span> <span class="va">None</span>:
+                    node.right <span class="op">=</span> Node(val)
+                <span class="cf">else</span>:
+                    <span class="va">self</span>.recursive_insert(node.right, val)</code></pre>
+ </div>
+ <p>
+  That's it. I hope you can see why recursion is useful here. It makes our code read better and when we're planning this out in our heads, it naturally fits into our algorithm.
+ </p>
+ <p>
+  Next we're going to look deleting an element. This is quite a bit more difficult. With insertion, we always insert into one of the leaf nodes but if we're deleting something, then three possibilities arise. The first is the simplest case:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   The node we're removing has no child nodes (i.e. a leaf node). In this case we can just remove the node.
+  </li>
+ </ol>
+ <div class="figure">
+  <img src="./assets/bstrmnochild.png"/>
+ </div>
+ <ol start="2" style="list-style-type: decimal">
+  <li>
+   The next case is when we're removing a node that only has one child. Again this is simple enough to deal with. In this case we just cut the node we're removing from the tree and link its child to its parent.
+  </li>
+ </ol>
+ <div class="figure">
+  <img src="./assets/bstrmonechild.png"/>
+ </div>
+ <ol start="3" style="list-style-type: decimal">
+  <li>
+   The final case is when we're removing a node that has two child nodes. This is the most complex case and requires some smart thinking. There is however, one useful property of BSTs that we can use to solve this problem. That is, the same set of values can be represented as different binary-search trees. Let's consider the following set of values:
+   <em>
+    {9, 23, 11, 30}
+   </em>
+   . We can represent this in two different ways:
+  </li>
+ </ol>
+ <div class="figure">
+  <img src="./assets/bsttwo.png"/>
+ </div>
+ <p>
+  Both of these trees are different yet they are both valid. What did we do here though to transform the first tree into the second?
+ </p>
+ <ul>
+  <li>
+   We started at the root node (9 in this case).
+  </li>
+  <li>
+   Searched it's right subtree for the minimum element (11 in this case)
+  </li>
+  <li>
+   Replaced 9 with 11
+  </li>
+  <li>
+   Hang 9 from the left subtree
+  </li>
+ </ul>
+ <p>
+  We can take this idea and apply it to removing elements with two child nodes. Here's how we'll do that:
+ </p>
+ <ul>
+  <li>
+   Find the node we want to delete
+  </li>
+  <li>
+   Find the minimum element in the right subtree
+  </li>
+  <li>
+   Replace the element of the node to be removed with the minimum we just found.
+  </li>
+  <li>
+   Be careful! The right subtree now contains a duplicate.
+  </li>
+  <li>
+   Recursively apply the removal to the right subtree
+  </li>
+ </ul>
+ <p>
+  When applying the removal to the right subtree to remove the duplicate, we can be certain that the duplicate node will fall under case 1 or 2. It won't fall under case 3 (It wouldn't have been the minimum if we did).
+ </p>
+ <p>
+  There are two functions we'll need here. One is the remove method and the other will find the minimum node. We get a free function here (we will have a
+  <code>
+   min
+  </code>
+  operation on our BST!).
+ </p>
+ <p>
+  Here's how to code it, I'll also comment the code as it's a bit complex:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> BinarySearchTree:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.root <span class="op">=</span> <span class="va">None</span>
+        
+    <span class="kw">def</span> <span class="bu">min</span>(<span class="va">self</span>):
+        node <span class="op">=</span> <span class="va">self</span>.root
+        <span class="cf">while</span> node.left <span class="op">!=</span> <span class="va">None</span>:
+            node <span class="op">=</span> node.left
+        <span class="cf">return</span> node
+    
+    <span class="kw">def</span> remove(<span class="va">self</span>, value):
+        <span class="cf">return</span> <span class="va">self</span>.recursive_remove(<span class="va">self</span>.root, value)
+    
+    <span class="kw">def</span> recursive_remove(<span class="va">self</span>, node, value):
+        
+        <span class="co"># Base case (element doesn't exist in the tree)</span>
+        <span class="cf">if</span> node <span class="op">==</span> <span class="va">None</span>:
+            <span class="cf">return</span> node
+        
+        <span class="co"># If element to remove is less than current node</span>
+        <span class="co"># then it is in the left subtree. We must set the current</span>
+        <span class="co"># node's left subtree equal to the result of the removal</span>
+        <span class="cf">if</span> value <span class="op">&lt;</span> node.elem:
+            node.left <span class="op">=</span> <span class="va">self</span>.recursive_remove(node.left, value)
+        
+        <span class="co"># If element to remove is greater than current node</span>
+        <span class="co"># then it is in the right subtree. We must set the current</span>
+        <span class="co"># node's right subtree equal to the result of the removal</span>
+        <span class="cf">elif</span> value <span class="op">&gt;</span> node.elem:
+            node.right <span class="op">=</span> <span class="va">self</span>.recursive_remove(node.right, value)
+        
+        <span class="co"># If the element to remove is equal to the value of</span>
+        <span class="co"># current node, then this is the node to remove</span>
+        <span class="cf">else</span>:
+            <span class="co"># Node has only one child or no child</span>
+            <span class="cf">if</span> node.left <span class="op">==</span> <span class="va">None</span>:
+                <span class="co"># If right subtree is None then good, we return that</span>
+                <span class="co"># If right subtree is another node, fine, we can</span>
+                <span class="co"># still return that (bypassing like second case diagram)</span>
+                tmp <span class="op">=</span> node.right 
+                node <span class="op">=</span> <span class="va">None</span>
+                <span class="cf">return</span> tmp
+            <span class="cf">elif</span> node.right <span class="op">==</span> <span class="va">None</span>:
+                <span class="co"># If left subtree is None then good, we return that</span>
+                <span class="co"># If left subtree is another node, fine, we can</span>
+                <span class="co"># still return that (bypassing like second case diagram)</span>
+                tmp <span class="op">=</span> node.left
+                node <span class="op">=</span> <span class="va">None</span>
+                <span class="cf">return</span> tmp
+            
+            <span class="co"># Node with two child nodes</span>
+            <span class="cf">else</span>:
+                <span class="co"># Find minimum element in right subtree</span>
+                tmp <span class="op">=</span> <span class="va">self</span>.<span class="bu">min</span>(node.right)
+                
+                <span class="co"># Copy the min node into the current node position</span>
+                node.elem <span class="op">=</span> tmp.elem
+                
+                <span class="co"># Delete the duplicate node</span>
+                node.right <span class="op">=</span> <span class="va">self</span>.recursive_delete(node.right, tmp.elem)
+                
+        <span class="cf">return</span> node</code></pre>
+ </div>
+ <p>
+  This is tough. Make sure you understand the delete operation, even if that means going through it over and over again. Use a pen and paper if you need! It is a good question for an employer to ask as it shows how someone approaches a tough problem (pointing out different scenarios, breaking the problem down, etc. ).
+ </p>
+ <p>
+  That is all I want to cover on Binary Search Tree's for now. There are a few more methods we can add and I'll leave that up to you in the exercises!
+ </p>
+ <h2 id="exercises">
+  23.3 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important
+  </strong>
+  : Some of these exercises are quite difficult! Make use of problem solving techniques to help you arrive at a solution. Sketching out what's happening on paper is a good way to help you out!
+ </p>
+ <p>
+  It's time to turn up the heat a bit on the difficulty of the questions. There are some really tough questions in here. Good luck!
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  We talked earlier about the run-time complexities of the Linked List methods we implemented. I mentioned that we could improve their complexities.
+ </p>
+ <p>
+  Currently, the
+  <code>
+   add()
+  </code>
+  method has a run-time complexity of O(n).
+ </p>
+ <p>
+  Change the implementation of the
+  <code>
+   add()
+  </code>
+  method so that it's run-time complexity is O(1).
+ </p>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Change the implementation of the
+  <code>
+   add()
+  </code>
+  or
+  <code>
+   remove()
+  </code>
+  methods on the Linked List class in order to achieve a Linked List that behaves like:
+ </p>
+ <ul>
+  <li>
+   A Stack
+  </li>
+  <li>
+   A Queue
+  </li>
+ </ul>
+ <p>
+  Try to give optimized implementations of
+  <code>
+   add()
+  </code>
+  and/or
+  <code>
+   remove()
+  </code>
+  when doing this.
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Another useful method our Linked List class may have is a
+  <code>
+   length()
+  </code>
+  method. That is, it returns the number of elements in the linked list.
+ </p>
+ <p>
+  Implement the
+  <code>
+   length()
+  </code>
+  method.
+ </p>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  If you thought carefully about your implementation of the
+  <code>
+   length()
+  </code>
+  method from the previous exercise then you might be able to skip this question. However, I'm not expecting that you did.
+ </p>
+ <p>
+  If my guess is correct, your
+  <code>
+   length()
+  </code>
+  method iterates over each element in the list, adding
+  <code>
+   1
+  </code>
+  to your length each time until you reach the end of the list. This will give your
+  <code>
+   length()
+  </code>
+  method a run-time complexity of O(n).
+ </p>
+ <p>
+  We can do better than that though. How might you change the Linked List class so that the run-time complexity of your
+  <code>
+   length()
+  </code>
+  method is O(1)?
+ </p>
+ <h3 id="question-5">
+  Question 5
+ </h3>
+ <p>
+  You might have noticed when testing out the binary search tree that the deletion method doesn't always work.
+ </p>
+ <p>
+  If the case is that the element you want to remove is the tree's root node and the root node has no children or one child, then the element wont be removed.
+ </p>
+ <p>
+  Fix the remove method so that it works in all cases
+ </p>
+ <h3 id="question-6">
+  Question 6
+ </h3>
+ <p>
+  The
+  <em>
+   height
+  </em>
+  (depth) of a Tree is the number of edges on the longest path from the root node to leaf node. (An edge is basically the arrows in our diagrams that we've looked at before)
+ </p>
+ <p>
+  For example, the height of the following tree is 3
+ </p>
+ <div class="figure">
+  <img src="./assets/height3.png"/>
+ </div>
+ <p>
+  The height is determined by the number of edges in the longest path, like the following:
+ </p>
+ <div class="figure">
+  <img src="./assets/height1.png"/>
+ </div>
+ <p>
+  You can also view the height of a tree as such:
+ </p>
+ <div class="figure">
+  <img src="./assets/height2.png"/>
+ </div>
+ <p>
+  You should write a recursive method to find the height of any given binary search tree
+ </p>
+ <h3 id="question-7">
+  Question 7
+ </h3>
+ <p>
+  <strong>
+   This question is very difficult
+  </strong>
+ </p>
+ <p>
+  Consider what happens when we add elements to the tree in the following order: {2, 5, 7, 12, 13}. We end up with a Linked List. That means that our search and insert is no longer O(log n). It's now O(n). This isn't really that great for us.
+ </p>
+ <p>
+  We can however, make an optimization to our binary search tree so that our search and insert are always O(log n), regardless of what order we enter the elements.
+ </p>
+ <p>
+  The optimization is that the difference between height of the left and right subtrees is no greater than one for all nodes. When the difference between left and right subtrees height is no greater than
+  <code>
+   1
+  </code>
+  , we say the tree is
+  <strong>
+   balanced
+  </strong>
+  . This means, if we insert or remove an element and the height between left and right subtrees becomes greater than 1 then we must rearrange the nodes.
+ </p>
+ <p>
+  This optimization means that our binary search tree will become self balancing. Here is an animation of that self balancing process.
+ </p>
+ <div class="figure">
+  <img src="./assets/avl.gif"/>
+ </div>
+ <p>
+  This type of self balancing binary search tree has a special name. It's called an
+  <strong>
+   AVL Tree
+  </strong>
+  .
+ </p>
+ <p>
+  Remember: This question is very difficult, I don't expect you to be able to answer this, but I encourage you to give it a go!
+ </p>
+ <p>
+  (Credit to Bruno Schalch for the AVL gif. All rights are owned by him).
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_22.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_24.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

@@ -1,0 +1,837 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+    padding: 10px;
+      padding-top: 100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-3---variables-floats-input-and-printing">
+  Chapter 3 - Variables, Floats, Input and Printing
+ </h1>
+ <h2 id="variable-assignment">
+  3.1 - Variable Assignment
+ </h2>
+ <p>
+  In the previous chapter we looked at integer expressions. When the interpreter evaluated an expression it simply moved onto the next expression. What if we wanted to store the resulting value? How would we do this? The answer is using
+  <em>
+   variables
+  </em>
+  .
+ </p>
+ <p>
+  Variables utilize the computers
+  <em>
+   memory
+  </em>
+  to store the data. You can think of
+  <em>
+   main memory
+  </em>
+  or
+  <em>
+   memory
+  </em>
+  (RAM) as cubbyholes with each cubbyhole labeled with some identifier (x for example). When we want to store a value we are essentially telling the computer to put a value Y, into the cubbyhole labeled x. In Python this is called variable assignment. Let's take a look at this in action.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="dv">7</span>
+y <span class="op">=</span> <span class="dv">5</span>
+
+z <span class="op">=</span> x <span class="op">-</span> y   <span class="co"># The value 2 is now essentially stored in the variable z</span></code></pre>
+ </div>
+ <p>
+  These are called
+  <em>
+   assignment statements
+  </em>
+  .
+ </p>
+ <p>
+  <code>
+   x
+  </code>
+  ,
+  <code>
+   y
+  </code>
+  , and
+  <code>
+   z
+  </code>
+  are
+  <em>
+   variables
+  </em>
+  .
+ </p>
+ <p>
+  The
+  <em>
+   syntax
+  </em>
+  for assignment statements is:
+ </p>
+ <pre><code>&lt;variable name&gt; = &lt;value you want to store&gt;</code></pre>
+ <p>
+  For this section you'd be best off by opening up your text editor and a command prompt (terminal window). Create a new file and call it whatever you want but make sure you save it with the
+  <em>
+   .py
+  </em>
+  extension.
+ </p>
+ <p>
+  Copy the three above
+  <em>
+   assignment statements
+  </em>
+  into the file and save it. Then in your command prompt, run the program (
+  <code>
+   python FILENAME.py
+  </code>
+  ). Nothing appears to have happened BUT I'll illustrate below what went on in the background.
+ </p>
+ <p>
+  The Python interpreter considers each statement in turn from top to bottom, evaluates the expression on the right-hand side, allocates an area of memory for the new variable
+  <code>
+   x
+  </code>
+  and stores the value
+  <code>
+   7
+  </code>
+  in the newly allocated memory slot. Well start with the first statement
+  <code>
+   x = 7
+  </code>
+  and consider what happens in memory:
+ </p>
+ <pre><code>1) Memory:
+    ---------------------------------
+    |   |   |   |   |   |   |   |   |   # Expression on right-hand side is evaluated
+    ---------------------------------
+    
+2) Memory:        x
+    ---------------------------------
+    |   |   |   |   |   |   |   |   |   # Allocate an area of memory for x
+    ---------------------------------
+    
+3) Memory:        x
+    ---------------------------------
+    |   |   |   | 7 |   |   |   |   |   # Store the value 7 in this area of memory
+    ---------------------------------
+    
+                                        # Move to next statement
+                                        # Evaluate right-hand side of expression
+4) Memory:        x           y
+    ---------------------------------
+    |   |   |   | 7 |   |   |   |   |   # Allocate an area of memory for y
+    ---------------------------------
+ 
+    
+5) Memory:        x           y
+    ---------------------------------
+    |   |   |   | 7 |   |   | 5 |   |   # Store the value 5 in this area of memory
+    ---------------------------------
+    
+    # Evaluate the right-hand side of next expression (z = x - y)
+    # In this case it involves variables so...
+    # Look up x in memory and replace x in the expression with the value from memory
+    # (z = 7 - y)
+    # Look up y in memory and replace y in the expression with the value from memory
+    # (z = 7 - 5)
+    # Evaluate the expression (z = 2)
+    
+6) Memory:        x           y   z
+    ---------------------------------
+    |   |   |   | 7 |   |   | 5 |   |   # Allocate an area of memory for z
+    ---------------------------------
+ 
+7) Memory:        x           y   z 
+    ---------------------------------
+    |   |   |   | 7 |   |   | 5 | 2 |   # Store the value 2 in this area of memory
+    ---------------------------------</code></pre>
+ <p>
+  And so on, executing each assignment statement in turn. However, we could imagine that another statement exists that reads
+  <code>
+   x = 9
+  </code>
+ </p>
+ <p>
+  In this case we 're-use' (or update) the memory slot as shown below
+ </p>
+ <pre><code>1) Memory:        x           y   z
+    ---------------------------------
+    |   |   |   |*7*|   |   | 5 | 2 |   # Memory already allocated for x, re-use it.
+    ---------------------------------
+
+2) Memory:        x           y   z
+    ---------------------------------
+    |   |   |   | 9 |   |   | 5 | 2 |   # The value at memory location x is now 9
+    --------------------------------- </code></pre>
+ <p>
+  Now we can use this to do some useful things, for example, lets calculate the surface area of earth (approx.).
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">radius_of_earth <span class="op">=</span> <span class="dv">6371</span>
+pi <span class="op">=</span> <span class="fl">3.14</span>
+surface_area <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> pi <span class="op">*</span> (radius_of_earth <span class="op">**</span> <span class="dv">2</span>)</code></pre>
+ </div>
+ <p>
+  <strong>
+   IMPORTANT NOTE:
+  </strong>
+ </p>
+ <ul>
+  <li>
+   This brings me to an imporant point. Naming your variables with informative names such as
+   <code>
+    radius_of_earth
+   </code>
+   is really good practice, will save you many headaches and if another developer was to come along and take a look at your code, they wouldn't be left scratching their heads.
+  </li>
+  <li>
+   You may have also seen me using
+   <code>
+    #
+   </code>
+   beside some code. These are called comments. They are ignored by the Python interpreter and are there simply for your benefit. It is also good practice to comment your code. Although the above program is simple and doesn't really require any comments, you could imagine a program that is hundreds or thousands of lines long (thats quite common) and comments would help future developers who were to come along figure out exactly what your code is trying to do. Also, if you were to write some code, leave it for a year and come back to it, having comments helps you understand what you were doing the previous year.
+  </li>
+ </ul>
+ <h2 id="floating-point-types">
+  3.2 - Floating-point types
+ </h2>
+ <p>
+  In the previous piece of code about computing the surface area of the earth you may have noticed that I had the statement
+  <code>
+   pi = 3.14
+  </code>
+ </p>
+ <p>
+  We haven't seen these yet. This is a new type (like integer). They are called
+  <em>
+   floating-point
+  </em>
+  numbers (decimals numbers to the average person). In Python this is the
+  <code>
+   float
+  </code>
+  type.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(<span class="fl">3.14</span>)
+<span class="op">&lt;</span><span class="bu">type</span> <span class="st">'float'</span><span class="op">&gt;</span></code></pre>
+ </div>
+ <p>
+  Floats work pretty much the same as integers (which I'm sure you'd expect). We can perform the same calculations with them. Float expressions also evaluate to float types.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="fl">2.0</span> <span class="op">//</span> <span class="fl">1.0</span>
+<span class="fl">2.0</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="fl">2.0</span> <span class="op">*</span> <span class="fl">4.0</span>
+<span class="fl">8.0</span>
+
+<span class="co"># etc....</span></code></pre>
+ </div>
+ <p>
+  I don't know about you, but that division symbol seems strange. Why not just use a single / ?
+ </p>
+ <p>
+  Well you can!
+  <code>
+   //
+  </code>
+  is for floor division (digits after decimal point are removed). Lets look at how
+  <code>
+   /
+  </code>
+  and
+  <code>
+   //
+  </code>
+  work:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="dv">100</span> <span class="op">//</span> <span class="dv">3</span>
+<span class="dv">33</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">100</span> <span class="op">/</span> <span class="dv">3</span>
+<span class="fl">33.333333333333336</span></code></pre>
+ </div>
+ <p>
+  We can see here that when using integers,
+  <code>
+   //
+  </code>
+  rounds down to a whole number (
+  <code>
+   int
+  </code>
+  ) but when we use
+  <code>
+   /
+  </code>
+  the result is converted to a
+  <code>
+   float
+  </code>
+  . This is called
+  <em>
+   type casting
+  </em>
+  .
+ </p>
+ <p>
+  Similarly:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="fl">100.0</span> <span class="op">//</span> <span class="fl">3.0</span>
+<span class="fl">33.0</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fl">3.0</span>
+<span class="fl">33.333333333333336</span></code></pre>
+ </div>
+ <p>
+  This is something you need to watch out for when you're doing division. If you use
+  <code>
+   /
+  </code>
+  with integer operands and the resulting value contains digits after the decimal place, you may run into an error if the next part of your code is expecting an integer.
+ </p>
+ <p>
+  We also have all the other standard operators we've met (float operators in this case).
+ </p>
+ <p>
+  We can also write negative floats in the expected way:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">-</span><span class="fl">3.14</span></code></pre>
+ </div>
+ <h2 id="getting-user-input">
+  3.3 - Getting user input
+ </h2>
+ <p>
+  Our programs so far haven't really been that interesting and they aren't very beneficial. We can't interact with them when they're running. Most applications these days allow the user to give input (whether that be entering data or clicking options around a screen). In this section we're going to take a look at how you can get input from the user as your program executes.
+ </p>
+ <p>
+  To do this we use a function, namely
+  <code>
+   input()
+  </code>
+  . We'll get to functions later in this book so don't worry about them, just know that when we type
+  <code>
+   input()
+  </code>
+  , our program will wait for the user to input something at the command prompt.
+ </p>
+ <p>
+  We can also store the input from the user. This is done as follow:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> <span class="bu">input</span>()
+Hello   <span class="co"># User types this</span>
+<span class="op">&gt;&gt;&gt;</span> x
+<span class="co">'Hello'</span></code></pre>
+ </div>
+ <p>
+  By default,
+  <code>
+   input()
+  </code>
+  returns a string (
+  <code>
+   str
+  </code>
+  ), thats what the ' ' are around the Hello shows. This is another type which we will get to later but its just textual data (nothing too scary).
+ </p>
+ <p>
+  Essentially,
+  <code>
+   input()
+  </code>
+  takes in a line from input (we'll get to this later), converts the line into a string and returns it.
+ </p>
+ <p>
+  We can see that from the above code it might look like our program has frozen (it hasn't). We can add a user friendly prompt that shows when asking the user for input. Lets take a look at a more user friendly program.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter your name: "</span>)
+Enter your name: John
+<span class="op">&gt;&gt;&gt;</span> name
+<span class="co">'John'</span></code></pre>
+ </div>
+ <p>
+  Perfect! We can now have the user input data into our program.
+ </p>
+ <p>
+  What if we don't want the user to input a string? What if we want an integer or a float?
+ </p>
+ <p>
+  There are a couple of ways to handle this situation, let's take a look at them:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Method 1</span>
+x <span class="op">=</span> <span class="bu">eval</span>(<span class="bu">input</span>())
+
+<span class="co"># Method 2</span>
+x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+y <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>())</code></pre>
+ </div>
+ <p>
+  Method 1 encapsulates the
+  <code>
+   input()
+  </code>
+  function in another function called
+  <code>
+   eval()
+  </code>
+  .
+ </p>
+ <p>
+  <code>
+   eval()
+  </code>
+  is able to infer the
+  <em>
+   type
+  </em>
+  the user has inputted (if the user inputs 3, then
+  <code>
+   eval()
+  </code>
+  will
+  <em>
+   cast
+  </em>
+  the string '3' to an
+  <code>
+   int
+  </code>
+  . The same happens if the user inputs a float. I don't like this
+  <code>
+   eval()
+  </code>
+  function as it isn't very safe but it works fine here.
+ </p>
+ <p>
+  I prefer the second method but we will get an error and our program will crash if the user inputs something that can't be
+  <em>
+   cast
+  </em>
+  to an
+  <code>
+   int
+  </code>
+  such as 'hello'.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+Hello
+Traceback (most recent call last):
+  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="op">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>
+<span class="pp">ValueError</span>: invalid literal <span class="cf">for</span> <span class="bu">int</span>() <span class="cf">with</span> base <span class="dv">10</span>: <span class="st">'Hello'</span>
+<span class="op">&gt;&gt;&gt;</span></code></pre>
+ </div>
+ <p>
+  We get a
+  <code>
+   ValueError
+  </code>
+  . We'll look at different types of errors a little later on. We'll also look at being able to handle these situations (hence why I prefer the second method).
+ </p>
+ <h2 id="the-print-function">
+  3.4 - The
+  <em>
+   print
+  </em>
+  function
+ </h2>
+ <p>
+  In this section we're going to take another look at that function we came across in the introduction section where we wrote the 'Hello world!' program.
+ </p>
+ <p>
+  To clarify things for now, you can think of a function as a machine that takes some input, does something with that input, then spits out a value.
+ </p>
+ <p>
+  In this case,
+  <code>
+   print()
+  </code>
+  takes in something (an argument) and prints it to output (we'll also get to this later).
+ </p>
+ <p>
+  This, in my opinion, is one of the most useful functions Python has to offer. As we progress through this book and things start to get a little more difficult, I can bet you'll be using this quite a lot.
+ </p>
+ <p>
+  Let's take a look at how the
+  <code>
+   print()
+  </code>
+  function works:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">"Hello"</span>)
+Hello
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="fl">3.14</span>)
+<span class="fl">3.14</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">"Hello again"</span>)
+Hello again</code></pre>
+ </div>
+ <p>
+  Nothing too complicated! For now though, let's recap on what we've covered so far.
+ </p>
+ <p>
+  <strong>
+   Recap
+  </strong>
+  :
+ </p>
+ <ul>
+  <li>
+   We've figured out how to store data within our program (
+   <em>
+    variable assignment
+   </em>
+   )
+  </li>
+  <li>
+   We've looked at a new type, the
+   <code>
+    float
+   </code>
+   .
+  </li>
+  <li>
+   We've discovered that division can be done two ways:
+  </li>
+  <li>
+   <code>
+    //
+   </code>
+   or
+   <em>
+    floor division
+   </em>
+  </li>
+  <li>
+   <code>
+    /
+   </code>
+   or your regular old division
+  </li>
+  <li>
+   We've learned how to take input from the user with the
+   <code>
+    input()
+   </code>
+   function
+  </li>
+  <li>
+   We've learned how to print information to the terminal window with the
+   <code>
+    print()
+   </code>
+   function.
+  </li>
+ </ul>
+ <p>
+  Let's look at a program that puts all of this together! (Text editor time)
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"What is your name? "</span>)
+<span class="bu">print</span>(<span class="st">"Hi "</span> <span class="op">+</span> name)
+number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"What number do you want to be squared? "</span>))
+<span class="bu">print</span>(number <span class="op">**</span> <span class="dv">2</span>)</code></pre>
+ </div>
+ <p>
+  In the line
+  <code>
+   print("Hi " + name)
+  </code>
+  , the
+  <code>
+   +
+  </code>
+  joins the string "Hi" and name together to make a single string, this is called
+  <em>
+   string concatenation
+  </em>
+  and we'll come to this later in the strings chapter.
+ </p>
+ <h2 id="exercises">
+  3.5 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important Note
+  </strong>
+  :
+ </p>
+ <p>
+  The solutions to some of these exercises require thinking outside-the-box. Don't expect to arrive at a solution immediately!
+ </p>
+ <p>
+  Assume a population of rabbits
+  <em>
+   doubles
+  </em>
+  every 3 months. Further assume the current population is 11 rabbits i.e.
+  <code>
+   number_of_rabbits = 11
+  </code>
+ </p>
+ <p>
+  Write a Python program to calculate the rabbit population after 2 years and
+  <em>
+   print
+  </em>
+  the result to the terminal.
+ </p>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Extend the above program to allow the user to
+  <em>
+   input
+  </em>
+  the number of rabbits and the time period after which you want to know the rabbit population e.g. 4 years
+ </p>
+ <h4 id="question-3">
+  Question 3
+ </h4>
+ <p>
+  Assume the user is going to input 2 numbers,
+  <code>
+   x
+  </code>
+  and
+  <code>
+   y
+  </code>
+  for example. Write a Python program that will swap the numbers stored in these variables e.g.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Assume the user has input these</span>
+x <span class="op">=</span> <span class="dv">3</span>
+y <span class="op">=</span> <span class="dv">11</span>
+<span class="co"># Your code to swap here</span>
+<span class="co"># After, the variables should be:</span>
+<span class="co"># x = 11</span>
+<span class="co"># y = 3</span></code></pre>
+ </div>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  The goal of this task is to derive a
+  <strong>
+   single
+   <em>
+    assignment statement
+   </em>
+  </strong>
+  for the following sequences such that, if the variable
+  <code>
+   x
+  </code>
+  has the first value in a sequence, then
+  <code>
+   x
+  </code>
+  will have the next value in the sequence after the
+  <em>
+   assignment statement
+  </em>
+  is executed. And if the
+  <em>
+   assignment statement
+  </em>
+  were executed repeatedly, then
+  <code>
+   x
+  </code>
+  would cycle through all of the values in the sequence.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># EXAMPLE</span>
+
+<span class="co"># Sequence:</span>
+<span class="co"># 0 1 2 3 4 5 6 7 ...</span>
+
+<span class="co">#SOLUTION</span>
+x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  <strong>
+   Sequence 1
+  </strong>
+  :
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">0</span> <span class="dv">2</span> <span class="dv">4</span> <span class="dv">6</span> <span class="dv">8</span> <span class="dv">10</span> <span class="dv">12</span> ...</code></pre>
+ </div>
+ <p>
+  <strong>
+   Sequence 2
+  </strong>
+  :
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">0</span> <span class="op">-</span><span class="dv">1</span> <span class="op">-</span><span class="dv">2</span> <span class="op">-</span><span class="dv">3</span> <span class="op">-</span><span class="dv">4</span> <span class="op">-</span><span class="dv">5</span> <span class="op">-</span><span class="dv">6</span> ...</code></pre>
+ </div>
+ <p>
+  <strong>
+   Sequence 3
+  </strong>
+  :
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">6</span> <span class="op">-</span><span class="dv">6</span> <span class="dv">6</span> <span class="op">-</span><span class="dv">6</span> <span class="dv">6</span> <span class="op">-</span><span class="dv">6</span>.....</code></pre>
+ </div>
+ <p>
+  <strong>
+   Sequence 4 (Difficult)
+  </strong>
+  :
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">-6</span> <span class="dv">-3</span> <span class="dv">0</span> <span class="dv">-6</span> <span class="dv">-3</span> <span class="dv">0</span> <span class="dv">-6</span> <span class="dv">-3</span> <span class="dv">0</span> <span class="dv">-6</span> <span class="dv">-3</span> <span class="dv">0</span>...</code></pre>
+ </div>
+ <script>
+  (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+})();
+ </script>
+ <!-- Begin Mailchimp Signup Form -->
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <!--End mc_embed_signup-->
+ <br/>
+ <div class="align-items-center">
+  <h4>
+   Help support the author by donating or purchasing a PDF copy of the book from EJunkie!
+  </h4>
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_2.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_4.html">
+  Next Chapter
+ </a>
+</div>
+</html>

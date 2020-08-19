@@ -1,0 +1,731 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-16---recursion-quicksort">
+  Chapter 16 - Recursion &amp; Quicksort
+ </h1>
+ <h2 id="recursion">
+  16.1 - Recursion
+ </h2>
+ <p>
+  Before I go any further I want to say this, writing a recursive solution is DIFFICULT when starting out. Don’t expect it to work first time. Writing a recursive solution involves a whole new way of thinking and can in fact be quite off putting to new comers but stick with it and you’ll wonder how you ever found it so difficult.
+ </p>
+ <p>
+  So what exactly is recursion? A
+  <em>
+   recursive
+  </em>
+  solution is one where the solution to a problem is expressed as an operation on a
+  <em>
+   simplified
+  </em>
+  version of the
+  <em>
+   same
+  </em>
+  problem.
+ </p>
+ <p>
+  Now that probably didn’t make a whole lot of sense and it’s very tricky to explain exactly how it works so lets look at a simple example:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> <span class="bu">reduce</span>(x):
+    <span class="cf">return</span> <span class="bu">reduce</span>(x<span class="dv">-1</span>)</code></pre>
+ </div>
+ <p>
+  So whats happening here? We have a function called reduce which takes a parameter
+  <code>
+   x
+  </code>
+  (an integer) and we want it to reduce it to ‘
+  <strong>
+   0
+  </strong>
+  ’. Sounds simple so lets run it when we pass 5 as the parameter and see what happens:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">reduce</span>(<span class="dv">5</span>)
+<span class="pp">RuntimeError</span>: maximum recursion depth exceeded</code></pre>
+ </div>
+ <p>
+  An error? Well lets take a closer look at whats going on here:
+ </p>
+ <p>
+  <em>
+   reduce(5)
+  </em>
+  calls
+  <em>
+   reduce(4)
+  </em>
+  which calls
+  <em>
+   reduce(3)
+  </em>
+  …….Thus our initial call
+  <em>
+   reduce(5)
+  </em>
+  is the first call in an infinite number of calls to
+  <em>
+   reduce()
+  </em>
+  . Each time
+  <em>
+   reduce()
+  </em>
+  is called, Python instantiates a data structure to represent that particular call to the function. This data structure is called a
+  <em>
+   stack frame.
+  </em>
+  A stack frame occupies memory. Our program attempts to create an infinite number of stack frames which would require an infinite amount of memory which we don’t have so our program crashes.
+ </p>
+ <p>
+  To fix this problem we need to add in something referred to as the
+  <em>
+   base case
+  </em>
+  . This is simply a check we add so that our function knows when to stop calling itself. The base case is normally the simplest version of the original problem and one we always know the answer to.
+ </p>
+ <p>
+  Lets fix our error by adding a base case. For this function we want it to stop when we reach 0.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> <span class="bu">reduce</span>(x):
+    <span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span>:
+        <span class="cf">return</span> <span class="dv">0</span>
+    <span class="cf">return</span> <span class="bu">reduce</span>(x<span class="dv">-1</span>)</code></pre>
+ </div>
+ <p>
+  So now when we run our program we get:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="bu">reduce</span>(<span class="dv">5</span>)
+<span class="dv">0</span></code></pre>
+ </div>
+ <p>
+  Great it works! Lets take another look at what is happening this time. We call reduce(5) which calls reduce(4)….which calls reduce(0). Ok stop here, we have hit our base case. Now what the function will do is return 0 to the previous call of reduce(1) which returns 0 to reduce(2)….which returns 0 to reduce(5) which returns our answer. There you go, your first recursive solution!
+ </p>
+ <p>
+  Let’s look at a more practical example. Lets write a recursive solution to find N! (or N factorial):
+ </p>
+ <p>
+  N factorial is defined as: N! = N * (N-1) * (N-2)…… * 2 * 1.
+ </p>
+ <p>
+  For example, 4! = 4 * 3 * 2 * 1
+ </p>
+ <p>
+  Our base case for this example is N = 0 as 0! is defined as 1. So lets write our function:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> factorial(n):
+    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:
+        <span class="cf">return</span> <span class="dv">1</span>
+    <span class="cf">return</span> n <span class="op">*</span> factorial(n<span class="dv">-1</span>)</code></pre>
+ </div>
+ <p>
+  OK lets see that in action. We’ll call our function and pass 4 in for n:
+ </p>
+ <p>
+  factorial(4) calls factorial (3) ….. which calls factorial(0) which is our base case so we return 1 back to the previous call of factorial(1) which takes our 1 and multiplies it by 1 which evaluate to 1 which passes that back to factorial(2) which takes our 1 and multiplies it by 2 which evaluates to 2 which passes that back to factorial(3) which multiplies 3
+  <em>
+   2 to get 6 which passes that back to factorial(4) which multiples 4
+  </em>
+  6 which evaluates to 24 which is returned as our answer.
+ </p>
+ <p>
+  These are very simple cases and not super useful but being able to spot when a recursive solution may be implemented and then implementing that solution is a skill that will make you a better programmer. For certain problems recursion may offer an intuitive, simple, and elegant solution.
+ </p>
+ <p>
+  For example, you may implement a recursive solution to find the number of nodes in a tree structure, count how many leaf nodes are in a tree or even return whether a binary search tree is AVL balanced or not. These solutions tend to be quite short and elegant and take away from the long iterative approach you may have been taking.
+ </p>
+ <p>
+  As I’ve said, recursion isn’t easy but stick with it, it will click and seem so simple you’ll wonder how you ever found it so difficult.
+ </p>
+ <h2 id="memoization">
+  16.2 - Memoization
+ </h2>
+ <p>
+  We've written the solution to the Fibonacci problem a couple of times throughout this book. When writing those solutions we've used an iterative approach. We can however, take a recursive approach. It may be difficult to recognize when a recursive solution is an option but this is a great example of when a recursive solution is an option!
+ </p>
+ <p>
+  Let's look at a solution to the following problem:
+ </p>
+ <p>
+  Write a program that takes an integer
+  <code>
+   n
+  </code>
+  and computes the n-th Fibonacci number:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fib(n):
+    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">1</span>:
+        <span class="cf">return</span> <span class="dv">1</span>
+    <span class="cf">else</span>:
+        <span class="cf">return</span> fib(n<span class="dv">-1</span>) <span class="op">+</span> fib(n<span class="dv">-2</span>)</code></pre>
+ </div>
+ <p>
+  Thats much simpler! In this example we'll take fib(0) to be 1 and fib(1) to be 1 also. Therefore our base case is if n is 0 or 1 we return 1. The recursive case comes straight from the definition of the Fibonacci sequence, that is:
+ </p>
+ <div class="figure">
+  <img src="./assets/fibtree.png">
+  </img>
+ </div>
+ <p>
+  We can see that when we call
+  <code>
+   fib(5)
+  </code>
+  we, at various points in our functions execution, call
+  <code>
+   fib(1)
+  </code>
+  5 times! and
+  <code>
+   fib(2)
+  </code>
+  3 times! This is unnecessary. Why should we have to recompute the value for
+  <code>
+   fib(1)
+  </code>
+  over and over again?
+ </p>
+ <p>
+  We can reduce the number of times we need to calculate various values by using a technique called
+  <em>
+   memoization
+  </em>
+  . Memoization is an
+  <em>
+   optimization
+  </em>
+  technique used to speed up our programs by
+  <em>
+   caching
+  </em>
+  the results of expensive function calls. A
+  <em>
+   cache
+  </em>
+  is essentially a temporary storage area and we can implement a cache in our
+  <code>
+   fib()
+  </code>
+  function to store previously calculated values and just pull them out of the cache when needed rather than making unnecessary function calls.
+ </p>
+ <p>
+  We can use a dictionary to implement a cache. This will give us O(1) for accessing and will drastically improve the performance of our function.
+ </p>
+ <p>
+  Let's look at how that's done:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fib(n, cache<span class="op">=</span><span class="va">None</span>):
+    <span class="co"># Avoid default mutable argument trap!</span>
+    <span class="cf">if</span> cache <span class="op">==</span> <span class="va">None</span>:
+        cache <span class="op">=</span> {}
+    <span class="co"># Base case</span>
+    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">1</span>:
+        <span class="cf">return</span> <span class="dv">1</span>
+    <span class="co"># If value not in cache then calculate it and store in cache</span>
+    <span class="cf">elif</span> <span class="op">not</span> n <span class="op">in</span> cache:
+        cache[n] <span class="op">=</span> fib(n<span class="dv">-1</span>, cache) <span class="op">+</span> fib(n<span class="dv">-2</span>, cache)
+    <span class="co"># Return the value</span>
+    <span class="cf">return</span> cache[n]</code></pre>
+ </div>
+ <p>
+  We can now call
+  <code>
+   fib(900)
+  </code>
+  and get the answer straight away! By default, Python limits the recursion depth to 1000. We can override this but it's usually not a good idea!
+ </p>
+ <p>
+  Let's look at our tree now, this time for
+  <code>
+   fib(6)
+  </code>
+  .
+ </p>
+ <div class="figure">
+  <img src="./assets/fibmemtree.png">
+  </img>
+ </div>
+ <p>
+  We can see from the tree that there are less calls to the function even though we are a value higher. This is a significant performance increase. Even calling from
+  <code>
+   fib(5)
+  </code>
+  we have saved ourselves 6 function calls!
+ </p>
+ <h2 id="quicksort-part-1">
+  16.3 - Quicksort part 1
+ </h2>
+ <p>
+  In the following sections I'm going to look at a very important sorting algorithm:
+  <em>
+   quicksort
+  </em>
+  . Quicksort is a
+  <em>
+   recursive
+  </em>
+  sorting algorithm that employs a
+  <em>
+   divide-and-conquer
+  </em>
+  strategy. The Python built-in
+  <code>
+   sorted()
+  </code>
+  function uses a modified Quicksort algorithm. Divide-and-conquer is a problem solving strategy in which we continuously break down a problem into easier, more manageable sub problems and solve them.
+ </p>
+ <p>
+  In this section we'll look at sorting lists of numbers.
+ </p>
+ <p>
+  Since this is a divide-and-conquer algorithm we want to take a list of unsorted integers and split the problem down into two easier problems and then break each of those down…. and so on.
+ </p>
+ <p>
+  To achieve this I’ll first cover quicksorts core operation: partitioning. It works as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">17</span>, <span class="dv">11</span>, <span class="dv">4</span>, <span class="dv">44</span>, <span class="dv">76</span>, <span class="dv">23</span>, <span class="dv">12</span>, <span class="dv">30</span>]
+<span class="op">&gt;&gt;&gt;</span> partition(A, <span class="dv">0</span>, <span class="bu">len</span>(A)<span class="op">-</span><span class="dv">1</span>)
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(A)
+[<span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">17</span>, <span class="dv">11</span>, <span class="dv">4</span>, <span class="dv">23</span>, <span class="dv">12</span>, <span class="dv">30</span>, <span class="dv">76</span>, <span class="dv">44</span>]</code></pre>
+ </div>
+ <p>
+  So what happened here and how does it work? We need to pick some number as our
+  <em>
+   pivot
+  </em>
+  . Our partition function takes 3 arguments, the
+  <em>
+   list
+  </em>
+  , the
+  <em>
+   first element
+  </em>
+  in the list, and the
+  <em>
+   pivot
+  </em>
+  . What we are trying to achieve here is that when we partition the list, everything to the left of the pivot is less than the
+  <em>
+   pivot
+  </em>
+  and everything to the right is greater than the
+  <em>
+   pivot
+  </em>
+  . For the first partition seen above,
+  <em>
+   30 is our pivot
+  </em>
+  . We'll always take our partition to be the last element in the list. After the partition we see some elements have changed position but everything to the left of 30 is less than it and everything to the right is greater than it.
+ </p>
+ <p>
+  So what does that mean for us? Well it means that 30 is now in its
+  <em>
+   correct
+  </em>
+  position in the list
+  <strong>
+   AND
+  </strong>
+  we now have two easier lists to sort. All of this is done
+  <em>
+   in-place
+  </em>
+  so we are not creating new lists.
+ </p>
+ <p>
+  Lets look at the code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> partition(A, p, r):
+   q <span class="op">=</span> j <span class="op">=</span> p
+   <span class="cf">while</span> j <span class="op">&lt;</span> r:
+     <span class="cf">if</span> A[j] <span class="op">&lt;=</span> A[r]:
+       A[q], A[j] <span class="op">=</span> A[j], A[q]
+         q <span class="op">+=</span> <span class="dv">1</span>
+     j <span class="op">+=</span> <span class="dv">1</span>
+   A[q], A[r] <span class="op">=</span> A[r], A[q]
+   <span class="cf">return</span> q</code></pre>
+ </div>
+ <p>
+  The
+  <code>
+   return q
+  </code>
+  at the end isn’t necessary for our partition but it is essential for sorting the entire list. The above code works its way across the list
+  <code>
+   A
+  </code>
+  and maintains indices
+  <code>
+   p
+  </code>
+  ,
+  <code>
+   q
+  </code>
+  ,
+  <code>
+   j
+  </code>
+  ,
+  <code>
+   r
+  </code>
+  .
+ </p>
+ <p>
+  <code>
+   p
+  </code>
+  is fixed and is the first element in the list.
+  <code>
+   r
+  </code>
+  is the
+  <em>
+   pivot
+  </em>
+  and is the last element in the list. Elements in the range
+  <code>
+   A[p:q-1]
+  </code>
+  are known to be less than or equal to the pivot and everything from
+  <code>
+   A[q-1:r-1]
+  </code>
+  are greater than the pivot. The only indices that change are
+  <code>
+   q
+  </code>
+  and
+  <code>
+   j
+  </code>
+  . At each step we compare
+  <code>
+   A[j]
+  </code>
+  with
+  <code>
+   A[r]
+  </code>
+  . If it is greater than the pivot it is in the correct position so we increment
+  <code>
+   j
+  </code>
+  and move to the next element. If
+  <code>
+   A[j]
+  </code>
+  is less than
+  <code>
+   A[r]
+  </code>
+  we swap
+  <code>
+   A[q]
+  </code>
+  with
+  <code>
+   A[j]
+  </code>
+  . After this swap, we increment
+  <code>
+   q
+  </code>
+  , thus extending the range of elements known to be less than or equal to the pivot. We also increment
+  <code>
+   j
+  </code>
+  to move to the next element to be processed.
+ </p>
+ <p>
+  I encourage you to work through an example with a small list on paper to make this clearer.
+ </p>
+ <h2 id="quicksort-part-2">
+  16.4 - Quicksort part 2
+ </h2>
+ <p>
+  Now onto the
+  <em>
+   quicksort
+  </em>
+  part. Remember it is a
+  <em>
+   recursive algorithm
+  </em>
+  so it will continuously call on
+  <code>
+   partition()
+  </code>
+  until there is nothing left to partition and all elements are in their correct positions. After the first partition we call
+  <code>
+   partition()
+  </code>
+  again, this time we call it on the list of elements to the left of the pivot and the list of elements to the right of the pivot.
+ </p>
+ <p>
+  Lets look at the code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> quicksort(A, p, r):
+   <span class="cf">if</span> r <span class="op">&lt;=</span> p:               <span class="co"># If r &lt;= p then our list is sorted</span>
+     <span class="cf">return</span>
+   q <span class="op">=</span> partition(A, p, r)   <span class="co"># partition incoming list</span>
+   quicksort(A, p, q<span class="dv">-1</span>)     <span class="co"># call quicksort again on everything to left of pivot</span>
+   quicksort(A, q<span class="dv">+1</span>, r)     <span class="co"># call quicksort again on everything to right of pivot</span>
+   <span class="cf">return</span> A</code></pre>
+ </div>
+ <p>
+  Its that simple. All we do here is check if the index of the pivot, is less than or equal to the index of the start of our list we want to partition. If it is we return as whatever list was passed does not need to be partitioned any further.
+ </p>
+ <p>
+  Otherwise, we partition the list
+  <em>
+   A
+  </em>
+  , and call
+  <em>
+   quicksort
+  </em>
+  again on the two new
+  <em>
+   sub lists
+  </em>
+  .
+ </p>
+ <p>
+  On line 3, we return without specifying anything to return. This is because the quicksort function is a
+  <em>
+   procedure
+  </em>
+  .
+ </p>
+ <p>
+  Quicksort works best on large lists that are completely scrambled. It has really bad performance on lists that are almost sorted. Or in Big-O notation, the best case (scrambled) is O(n log(n)) and in the worst case, (almost or completely ordered list) is O(n^2).
+ </p>
+ <p>
+  Again, I encourage you to try this on paper with a simple list. It will help clarify what is going on.
+ </p>
+ <h2 id="exercises">
+  16.5 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important
+  </strong>
+  : These exercises are quite difficult! Make use of problem solving techniques to help you arrive at a solution. Sketching out what's happening on paper, it's a good way to help you out!
+ </p>
+ <p>
+  Some of these questions are the kind of questions you can expect if you get a recursion question when interviewing at companies such as Google, Facebook or Amazon.
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  What is:
+ </p>
+ <ul>
+  <li>
+   Recursion?
+  </li>
+  <li>
+   Memoization?
+  </li>
+ </ul>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a recursive function that adds up all the numbers from 1 to 100.
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a recursive function that takes an integer as an argument and returns whether or not that integer is a power of 2. Your function should return
+  <code>
+   True
+  </code>
+  or
+  <code>
+   False
+  </code>
+ </p>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Write a recursive function that takes a string as an argument and returns whether or not that string is a palindrome. Your function should return
+  <code>
+   True
+  </code>
+  or
+  <code>
+   False
+  </code>
+  .
+ </p>
+ <h3 id="question-5">
+  Question 5
+ </h3>
+ <p>
+  Write a recursive function that takes a list of integers as an argument and returns the maximum of that list.
+ </p>
+ <p>
+  <strong>
+   Hint:
+  </strong>
+  Thinking recursively, the maximum is either the first element of the list or the maximum of the remaining list!
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <br/>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_15.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_17.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

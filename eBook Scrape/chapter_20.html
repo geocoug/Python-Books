@@ -1,0 +1,903 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style>
+ code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+</style>
+<style>
+ a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-20---oop-inheritance">
+  Chapter 20 - OOP Inheritance
+ </h1>
+ <h2 id="what-is-inheritance">
+  20.1 - What is inheritance?
+ </h2>
+ <p>
+  In programming we often come across objects that are quite similar or we may see that one class is a type of another class. For example, a car is a type of vehicle. Similarly, a motorbike is a type of vehicle. We can see a relationship emerging here. The type of relationship is an “
+  <strong>
+   is a
+  </strong>
+  ” relationship.
+ </p>
+ <p>
+  In object oriented programming we call this
+  <strong>
+   inheritance
+  </strong>
+  and inheritance helps us model an
+  <strong>
+   is a
+  </strong>
+  relationship. Inheritance is one of the pillars of object oriented programming and we’ll be exploring it in this chapter.
+ </p>
+ <p>
+  There is some important terminology around inheritance that we must clarify before we look any deeper into it. Let’s go back to our example of cars and motorbikes being types of vehicles. If we look at each of these as a class, we would call the vehicle class a
+  <strong>
+   base class
+  </strong>
+  or
+  <strong>
+   parent class
+  </strong>
+  and the car and motorbike classes,
+  <strong>
+   derived classes
+  </strong>
+  ,
+  <strong>
+   child classes
+  </strong>
+  or
+  <strong>
+   sub classes
+  </strong>
+  (they may be referred to differently depending on what you’re reading, just know they are exactly the same thing).
+ </p>
+ <p>
+  We can look at inheritance in programming the same way we do in real-life where a child inherits characteristics from its parents, in addition to its own unique characteristics. In programming, a child class can inherit attributes and methods from its parent class.
+ </p>
+ <h2 id="parent-child-classes">
+  20.2 - Parent &amp; child classes
+ </h2>
+ <p>
+  We can create a parent which will act as a base from which subclasses can be derived. This allows us to create child classes through inheritance without having to rewrite the same code over and over again.
+ </p>
+ <p>
+  Let’s say we have
+  <code>
+   Rectangle
+  </code>
+  and
+  <code>
+   Square
+  </code>
+  classes. Many of the methods and attributes between a
+  <code>
+   Rectangle
+  </code>
+  and
+  <code>
+   Square
+  </code>
+  will be similar. For example both a rectangle and a square have an
+  <code>
+   area()
+  </code>
+  and a
+  <code>
+   perimeter()
+  </code>
+  . Up until now we may have implemented these classes as follows:
+ </p>
+ <div class="sourceCode" id="cb1">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Rectangle:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length, width):</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.length <span class="op">=</span> length</a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="va">self</span>.width <span class="op">=</span> width</a>
+<a class="sourceLine" id="cb1-5" title="5">        </a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">def</span> area(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-7" title="7">        <span class="cf">return</span> <span class="va">self</span>.length <span class="op">*</span> <span class="va">self</span>.width</a>
+<a class="sourceLine" id="cb1-8" title="8">    </a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="kw">def</span> perimeter(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.length <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.width</a>
+<a class="sourceLine" id="cb1-11" title="11">    </a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="kw">class</span> Square:</a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length):</a>
+<a class="sourceLine" id="cb1-14" title="14">        <span class="va">self</span>.length <span class="op">=</span> length</a>
+<a class="sourceLine" id="cb1-15" title="15">        </a>
+<a class="sourceLine" id="cb1-16" title="16">    <span class="kw">def</span> area(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-17" title="17">        <span class="cf">return</span> <span class="va">self</span>.length <span class="op">*</span> <span class="va">self</span>.length</a>
+<a class="sourceLine" id="cb1-18" title="18">    </a>
+<a class="sourceLine" id="cb1-19" title="19">    <span class="kw">def</span> perimeter(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-20" title="20">        <span class="cf">return</span> <span class="dv">4</span> <span class="op">*</span> <span class="va">self</span>.length</a></code></pre>
+ </div>
+ <p>
+  And we would have used them as follows:
+ </p>
+ <div class="sourceCode" id="cb2">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="op">&gt;&gt;&gt;</span> rectangle <span class="op">=</span> Rectangle(<span class="dv">2</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="op">&gt;&gt;&gt;</span> square <span class="op">=</span> Square(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">&gt;&gt;&gt;</span> square.area()</a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="dv">4</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">&gt;&gt;&gt;</span> rectangle.area()</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="dv">8</span></a></code></pre>
+ </div>
+ <p>
+  This seems a little bit redundant however as both a square and rectangle have 4 sides each and they both have an area and a perimeter. If we look more closely at this situation we notice that a square is a special case of a rectangle in which all sides are the same length.
+ </p>
+ <p>
+  We can use inheritance to reflect this relationship and reduce the amount of code we have to write. In this case a
+  <code>
+   Square
+  </code>
+  <strong>
+   is a
+  </strong>
+  type of
+  <code>
+   Rectangle
+  </code>
+  so it makes sense for a square to inherit from the rectangle class.
+ </p>
+ <p>
+  Let’s look at this code again but this time I have made changes to the square class to reflect this relationship. There are a few new things going on here but I’ll explain after.
+ </p>
+ <div class="sourceCode" id="cb3">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> Rectangle:</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length, width):</a>
+<a class="sourceLine" id="cb3-3" title="3">        <span class="va">self</span>.length <span class="op">=</span> length</a>
+<a class="sourceLine" id="cb3-4" title="4">        <span class="va">self</span>.width <span class="op">=</span> width</a>
+<a class="sourceLine" id="cb3-5" title="5">        </a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="kw">def</span> area(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb3-7" title="7">        <span class="cf">return</span> <span class="va">self</span>.length <span class="op">*</span> <span class="va">self</span>.width</a>
+<a class="sourceLine" id="cb3-8" title="8">    </a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="kw">def</span> perimeter(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb3-10" title="10">        <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.length <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.width</a>
+<a class="sourceLine" id="cb3-11" title="11">    </a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="kw">class</span> Square(Rectangle):</a>
+<a class="sourceLine" id="cb3-13" title="13">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length):</a>
+<a class="sourceLine" id="cb3-14" title="14">        <span class="bu">super</span>().<span class="fu">__init__</span>(length, length)</a>
+<a class="sourceLine" id="cb3-15" title="15">        </a></code></pre>
+ </div>
+ <p>
+  The first change here is when we define the name of the
+  <code>
+   Square
+  </code>
+  class. I have
+  <code>
+   class Square(Rectangle)
+  </code>
+  . This means that the
+  <code>
+   Square
+  </code>
+  <strong>
+   inherits
+  </strong>
+  from the
+  <code>
+   Rectangle
+  </code>
+  class.
+ </p>
+ <p>
+  The next change is to the square’s
+  <code>
+   __init__()
+  </code>
+  method. We can see we are calling a new
+  <code>
+   super()
+  </code>
+  method. The
+  <code>
+   super()
+  </code>
+  method in Python returns a proxy object that delegates method calls to a parent or sibling of
+  <em>
+   type
+  </em>
+  . That definition may seem a little confusing but what that means in this case is that we have used
+  <code>
+   super()
+  </code>
+  to call the
+  <code>
+   __init__()
+  </code>
+  method of the
+  <code>
+   Rectangle
+  </code>
+  class, which allows us to use it without having to re-implement it in the
+  <code>
+   Square
+  </code>
+  class. Now, a squares length is
+  <code>
+   length
+  </code>
+  and its width is also
+  <code>
+   length
+  </code>
+  as we passed length in twice to the call to the
+  <code>
+   super()
+  </code>
+  ’s
+  <code>
+   __init__()
+  </code>
+  method.
+ </p>
+ <p>
+  Since we’ve inherited
+  <code>
+   Rectangle
+  </code>
+  in the
+  <code>
+   Square
+  </code>
+  class, we also have access to the
+  <code>
+   area()
+  </code>
+  and
+  <code>
+   perimeter
+  </code>
+  methods without having to redefine them. We can now use these classes as follows:
+ </p>
+ <div class="sourceCode" id="cb4">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="op">&gt;&gt;&gt;</span> rect <span class="op">=</span> Rectangle(<span class="dv">2</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="op">&gt;&gt;&gt;</span> square <span class="op">=</span> Square(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(rect.area())</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="dv">6</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(square.area())</a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="dv">4</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(rect.perimeter())</a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="dv">10</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(square.perimeter())</a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="dv">8</span></a></code></pre>
+ </div>
+ <p>
+  As you can see, the
+  <code>
+   super()
+  </code>
+  method allows you to call methods of the superclass in your subclass. The main use case of this is to extend functionality of the inherited method.
+ </p>
+ <p>
+  With inheritance we can also override methods in our child classes. Let’s add a new class called a
+  <code>
+   Cube
+  </code>
+  . The cube will inherit from Square (which inherits from Rectangle). The
+  <code>
+   Cube
+  </code>
+  class will extend the functionality of the area method to calculate the surface area of a cube. It will also have a new method called
+  <code>
+   volume
+  </code>
+  to calculate the cubes volume. We can make good use of
+  <code>
+   super()
+  </code>
+  here to help us reduce the amount of code we’ll need.
+ </p>
+ <p>
+  Let’s look at how we do this:
+ </p>
+ <div class="sourceCode" id="cb5">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> Square(Rectangle):</a>
+<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length):</a>
+<a class="sourceLine" id="cb5-3" title="3">        <span class="bu">super</span>().<span class="fu">__init__</span>(length, length)</a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">class</span> Cube(Square):</a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="kw">def</span> area(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb5-7" title="7">        side_area <span class="op">=</span> <span class="bu">super</span>().area()</a>
+<a class="sourceLine" id="cb5-8" title="8">        <span class="cf">return</span> <span class="dv">6</span> <span class="op">*</span> side_area</a>
+<a class="sourceLine" id="cb5-9" title="9"></a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="kw">def</span> volume(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb5-11" title="11">        side_area <span class="op">=</span> <span class="bu">super</span>().area()</a>
+<a class="sourceLine" id="cb5-12" title="12">        <span class="cf">return</span> side_area <span class="op">*</span> <span class="va">self</span>.length</a></code></pre>
+ </div>
+ <p>
+  We can now use this class as shown:
+ </p>
+ <div class="sourceCode" id="cb6">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="op">&gt;&gt;&gt;</span> cube <span class="op">=</span> Cube(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(cube.area())</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="dv">24</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(cube.volume())</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="dv">8</span></a></code></pre>
+ </div>
+ <p>
+  As you can see, we haven’t had to override the
+  <code>
+   __init__()
+  </code>
+  method as it’s inherited from
+  <code>
+   Square
+  </code>
+  . We have however overrided the
+  <code>
+   area()
+  </code>
+  method from the parent class (Square) on the
+  <code>
+   Cube
+  </code>
+  to reflect how the area of a cube is calculated. We have also used the
+  <code>
+   super()
+  </code>
+  method to help us with this.
+ </p>
+ <p>
+  We have also extended the functionality of cube to include a
+  <code>
+   volume()
+  </code>
+  method. Again, we have used the
+  <code>
+   super()
+  </code>
+  method to help with this.
+ </p>
+ <p>
+  As you can see, by using inheritance we have greatly reduced the amount of code compared to how we would have implemented these three classes previously.
+ </p>
+ <p>
+  I just want to go back to overriding the
+  <code>
+   __init__()
+  </code>
+  method for a second. Let’s assume a
+  <code>
+   Person
+  </code>
+  class and an
+  <code>
+   Employee
+  </code>
+  class that is derived from
+  <code>
+   Person
+  </code>
+  . Everything about an employee is the same as a
+  <code>
+   Person
+  </code>
+  but the employee will also have an employee ID.
+ </p>
+ <p>
+  Let’s look at how we would implement these:
+ </p>
+ <div class="sourceCode" id="cb7">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> Person:</a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age):</a>
+<a class="sourceLine" id="cb7-3" title="3">        <span class="va">self</span>.name <span class="op">=</span> name</a>
+<a class="sourceLine" id="cb7-4" title="4">        <span class="va">self</span>.age <span class="op">=</span> age</a>
+<a class="sourceLine" id="cb7-5" title="5">    </a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="kw">def</span> show_name(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb7-7" title="7">        <span class="bu">print</span>(<span class="st">"Name: "</span> <span class="op">+</span> <span class="va">self</span>.name)</a>
+<a class="sourceLine" id="cb7-8" title="8">    </a>
+<a class="sourceLine" id="cb7-9" title="9">    <span class="kw">def</span> show_age(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb7-10" title="10">        <span class="bu">print</span>(<span class="st">"Age: "</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.age))</a>
+<a class="sourceLine" id="cb7-11" title="11">        </a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="kw">class</span> Employee(Person):</a>
+<a class="sourceLine" id="cb7-13" title="13">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age, employeeId):</a>
+<a class="sourceLine" id="cb7-14" title="14">        <span class="bu">super</span>().<span class="fu">__init__</span>(name, age)</a>
+<a class="sourceLine" id="cb7-15" title="15">        <span class="va">self</span>.employeeId <span class="op">=</span> employeeId</a>
+<a class="sourceLine" id="cb7-16" title="16">        </a>
+<a class="sourceLine" id="cb7-17" title="17">    <span class="kw">def</span> show_id(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb7-18" title="18">        <span class="bu">print</span>(<span class="st">"Employee ID: "</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.employeeId))</a>
+<a class="sourceLine" id="cb7-19" title="19">    </a></code></pre>
+ </div>
+ <p>
+  We can now use these as follows:
+ </p>
+ <div class="sourceCode" id="cb8">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="op">&gt;&gt;&gt;</span> person <span class="op">=</span> Person(<span class="st">"John"</span>, <span class="dv">32</span>)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="op">&gt;&gt;&gt;</span> emp <span class="op">=</span> Employee(<span class="st">"Simon"</span>, <span class="dv">25</span>, <span class="dv">4532245</span>)</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">&gt;&gt;&gt;</span> person.show_name()</a>
+<a class="sourceLine" id="cb8-4" title="4">Name: John</a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">&gt;&gt;&gt;</span> person.show_age()</a>
+<a class="sourceLine" id="cb8-6" title="6">Age: <span class="dv">32</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="op">&gt;&gt;&gt;</span> emp.show_name()</a>
+<a class="sourceLine" id="cb8-8" title="8">Name: Simon</a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">&gt;&gt;&gt;</span> emp.show_age()</a>
+<a class="sourceLine" id="cb8-10" title="10">Age: <span class="dv">25</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="op">&gt;&gt;&gt;</span> emp.show_id()</a>
+<a class="sourceLine" id="cb8-12" title="12">Employee ID: <span class="dv">4532245</span></a></code></pre>
+ </div>
+ <p>
+  The reason I’m showing you this is because, although I’ve already shown how to override methods, people get confused when overriding the
+  <code>
+   __init__()
+  </code>
+  method to also include new attributes on the derived class.
+ </p>
+ <h2 id="multiple-inheritance">
+  20.3 - Multiple inheritance
+ </h2>
+ <p>
+  So far we’ve looked a
+  <em>
+   single inheritance
+  </em>
+  . That is, child classes that inherit from a single parent class. Multiple inheritance is when a class can inherit from more than one parent class.
+ </p>
+ <p>
+  Th;is allows programs to reduce redundancy, but it can also introduce a certain amount of complexity as well as ambiguity. If you plan on doing multiple inheritance in your programs, it should be done with care. Give thought to your overall program and how this might affect it. It may also affect the readability of your programs. For example:
+ </p>
+ <div class="sourceCode" id="cb9">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span> A:</a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="kw">def</span> method():</a>
+<a class="sourceLine" id="cb9-3" title="3">        <span class="co"># your code here</span></a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="kw">class</span> B:</a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="kw">def</span> method():</a>
+<a class="sourceLine" id="cb9-7" title="7">        <span class="co"># your code here</span></a>
+<a class="sourceLine" id="cb9-8" title="8">        </a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="kw">class</span> C(A, B):</a>
+<a class="sourceLine" id="cb9-10" title="10">    <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb9-11" title="11"></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="op">&gt;&gt;&gt;</span> C.method()</a></code></pre>
+ </div>
+ <p>
+  Which
+  <code>
+   method
+  </code>
+  is the
+  <code>
+   C
+  </code>
+  class referring to? The method from A or the method from B? This may make your code harder to read. In Python, when calling
+  <code>
+   method()
+  </code>
+  on C, Python first checks if C has an implementation of
+  <code>
+   method
+  </code>
+  then it checks if A has implemented
+  <code>
+   method
+  </code>
+  . It has in this case so use that. If it hadn’t then Python would check each parent class in turn (A, B, ……) and so on until it finds the first parent class to have implemented method.
+ </p>
+ <p>
+  I’m not going to go too deep into multiple inheritance as it’s quite self explanatory on how to use it, so I’m only going to give one example of how it can be used:
+ </p>
+ <div class="sourceCode" id="cb10">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> CPU:</a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, num_registers):</a>
+<a class="sourceLine" id="cb10-3" title="3">        <span class="va">self</span>.num_registers <span class="op">=</span> registers</a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="co"># Other methods</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    </a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="kw">class</span> RAM:</a>
+<a class="sourceLine" id="cb10-7" title="7">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, amount):</a>
+<a class="sourceLine" id="cb10-8" title="8">        <span class="va">self</span>.amount <span class="op">=</span> amount</a>
+<a class="sourceLine" id="cb10-9" title="9">    <span class="co"># Other methods</span></a>
+<a class="sourceLine" id="cb10-10" title="10">    </a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="kw">class</span> Computer:</a>
+<a class="sourceLine" id="cb10-12" title="12">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, num_registers, amount):</a>
+<a class="sourceLine" id="cb10-13" title="13">        CPU.<span class="fu">__init__</span>(num_registers)</a>
+<a class="sourceLine" id="cb10-14" title="14">        RAM.<span class="fu">__init__</span>(amount)</a>
+<a class="sourceLine" id="cb10-15" title="15">    </a>
+<a class="sourceLine" id="cb10-16" title="16">    <span class="co"># Other methods</span></a></code></pre>
+ </div>
+ <p>
+  This can be used as follows:
+ </p>
+ <div class="sourceCode" id="cb11">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="op">&gt;&gt;&gt;</span> comp <span class="op">=</span> Computer(<span class="dv">16</span>, <span class="dv">32</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(comp.num_registers)</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="dv">16</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(comp.amount)</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="dv">32</span></a></code></pre>
+ </div>
+ <h2 id="exercises">
+  20.4 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Create two classes:
+  <code>
+   Person
+  </code>
+  and
+  <code>
+   Employee
+  </code>
+  . The person class should have
+  <code>
+   name
+  </code>
+  and
+  <code>
+   age
+  </code>
+  attributes. The employee class should have one additional
+  <code>
+   employeeId
+  </code>
+  attribute. The employ should also have
+  <code>
+   clock_in
+  </code>
+  and
+  <code>
+   clock_out
+  </code>
+  methods. When implemented correctly, you should be able to use the two classes as follows:
+ </p>
+ <div class="sourceCode" id="cb12">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="op">&gt;&gt;&gt;</span> person <span class="op">=</span> Person(<span class="st">"John"</span>, <span class="dv">33</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="op">&gt;&gt;&gt;</span> employee <span class="op">=</span> Employee(<span class="st">"Tom"</span>, <span class="dv">42</span>)</a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="op">&gt;&gt;&gt;</span> employee.clock_in()</a>
+<a class="sourceLine" id="cb12-4" title="4">Tom has clocked <span class="kw">in</span>.</a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="op">&gt;&gt;&gt;</span> employee.clock_out()</a>
+<a class="sourceLine" id="cb12-6" title="6">Tom has clocked out.</a></code></pre>
+ </div>
+ <p>
+  <em>
+   Note: You are to use inheritance to implement the employee class.
+  </em>
+ </p>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Create a
+  <code>
+   Shape
+  </code>
+  class. The shape class should have two attributes:
+  <code>
+   num_sides
+  </code>
+  and
+  <code>
+   side_length
+  </code>
+  . It should also have one method called
+  <code>
+   show_type()
+  </code>
+ </p>
+ <p>
+  Create two other classes:
+  <code>
+   Triangle
+  </code>
+  and
+  <code>
+   Pentagon
+  </code>
+  . Each of these classes should inherit from the
+  <code>
+   Shape
+  </code>
+  class.
+ </p>
+ <p>
+  Both the
+  <code>
+   Triangle
+  </code>
+  and
+  <code>
+   Pentagon
+  </code>
+  classes should have
+  <code>
+   area()
+  </code>
+  methods.
+ </p>
+ <p>
+  When implemented correctly, you should be able to use your classes as follows:
+ </p>
+ <div class="sourceCode" id="cb13">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="op">&gt;&gt;&gt;</span> shape <span class="op">=</span> Shape(<span class="dv">7</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="op">&gt;&gt;&gt;</span> shape.show_type()</a>
+<a class="sourceLine" id="cb13-3" title="3">I am a Shape</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="op">&gt;&gt;&gt;</span> triangle <span class="op">=</span> Triangle(<span class="dv">3</span>) <span class="co"># This refers to side length</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="op">&gt;&gt;&gt;</span> triangle.show_type()</a>
+<a class="sourceLine" id="cb13-6" title="6">I am a triangle</a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="op">&gt;&gt;&gt;</span> triangle.area()</a>
+<a class="sourceLine" id="cb13-8" title="8"><span class="fl">3.9</span></a>
+<a class="sourceLine" id="cb13-9" title="9"><span class="op">&gt;&gt;&gt;</span> pent <span class="op">=</span> Pentagon(<span class="dv">4</span>) <span class="co"># This refers to side length</span></a>
+<a class="sourceLine" id="cb13-10" title="10"><span class="op">&gt;&gt;&gt;</span> pent.show_type()</a>
+<a class="sourceLine" id="cb13-11" title="11">I am a pentagon</a>
+<a class="sourceLine" id="cb13-12" title="12"><span class="op">&gt;&gt;&gt;</span> pent.area()</a>
+<a class="sourceLine" id="cb13-13" title="13"><span class="fl">27.53</span></a></code></pre>
+ </div>
+ <p>
+  <em>
+   Note: The triangle is an equilateral triangle and the pentagon is a regular pentagon. You can find the formulae for both of their areas online.
+  </em>
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Create a
+  <code>
+   Clock
+  </code>
+  class. It should have three attributes:
+  <code>
+   hour
+  </code>
+  ,
+  <code>
+   minute
+  </code>
+  , and
+  <code>
+   second
+  </code>
+  . It should also have a method called
+  <code>
+   show_time()
+  </code>
+  that displays the time in 24 hour time. It should also have a method called
+  <code>
+   tick()
+  </code>
+  that advances the time by 1 second.
+ </p>
+ <p>
+  Create a
+  <code>
+   Calendar
+  </code>
+  class. It should have three attributes:
+  <code>
+   day
+  </code>
+  ,
+  <code>
+   month
+  </code>
+  , and
+  <code>
+   year
+  </code>
+  . It should have two methods, one called
+  <code>
+   show_date()
+  </code>
+  and the other called
+  <code>
+   next()
+  </code>
+  that advances the date to the next day.
+ </p>
+ <p>
+  Create a third class called
+  <code>
+   CalendarClock
+  </code>
+  that inherits from both
+  <code>
+   Clock
+  </code>
+  and
+  <code>
+   Calendar
+  </code>
+  . It should have one method called
+  <code>
+   tick()
+  </code>
+  that advances the time by 1 second, and a second method,
+  <code>
+   show_date_time()
+  </code>
+  that shows the date and time.
+ </p>
+ <p>
+  When implemented correctly, you should be able to use your classes as follows:
+ </p>
+ <div class="sourceCode" id="cb14">
+  <pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1"><span class="op">&gt;&gt;&gt;</span> clock <span class="op">=</span> Clock(<span class="dv">23</span>, <span class="dv">59</span>, <span class="dv">59</span>)</a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="op">&gt;&gt;&gt;</span> clock.show_time()</a>
+<a class="sourceLine" id="cb14-3" title="3">The time <span class="kw">is</span> <span class="dv">23</span>:<span class="dv">59</span>:<span class="dv">59</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="op">&gt;&gt;&gt;</span> clock.tick()</a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="op">&gt;&gt;&gt;</span> clock.show_time()</a>
+<a class="sourceLine" id="cb14-6" title="6">The time <span class="kw">is</span> <span class="dv">00</span>:<span class="dv">00</span>:<span class="dv">00</span></a>
+<a class="sourceLine" id="cb14-7" title="7"><span class="op">&gt;&gt;&gt;</span> cal <span class="op">=</span> Calendar(<span class="dv">30</span>, <span class="dv">12</span>, <span class="dv">2019</span>)</a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="op">&gt;&gt;&gt;</span> cal.show_date()</a>
+<a class="sourceLine" id="cb14-9" title="9">The date <span class="kw">is</span> <span class="dv">30</span><span class="op">/</span><span class="dv">12</span><span class="op">/</span><span class="dv">2019</span></a>
+<a class="sourceLine" id="cb14-10" title="10"><span class="op">&gt;&gt;&gt;</span> cal.<span class="bu">next</span>()</a>
+<a class="sourceLine" id="cb14-11" title="11"><span class="op">&gt;&gt;&gt;</span> cal.show_date()</a>
+<a class="sourceLine" id="cb14-12" title="12">The date <span class="kw">is</span> <span class="dv">31</span><span class="op">/</span><span class="dv">12</span><span class="op">/</span><span class="dv">2019</span></a>
+<a class="sourceLine" id="cb14-13" title="13"><span class="op">&gt;&gt;&gt;</span> calClock <span class="op">=</span> CalendarClock(<span class="dv">31</span>, <span class="dv">12</span>, <span class="dv">2019</span>, <span class="dv">23</span>, <span class="dv">59</span>, <span class="dv">59</span>)</a>
+<a class="sourceLine" id="cb14-14" title="14"><span class="op">&gt;&gt;&gt;</span> calClock.show_date_time()</a>
+<a class="sourceLine" id="cb14-15" title="15">The date <span class="kw">is</span> <span class="dv">31</span><span class="op">/</span><span class="dv">12</span><span class="op">/</span><span class="dv">2019</span> <span class="kw">and</span> the time <span class="kw">is</span> <span class="dv">23</span>:<span class="dv">59</span>:<span class="dv">59</span></a>
+<a class="sourceLine" id="cb14-16" title="16"><span class="op">&gt;&gt;&gt;</span> calClock.tick()</a>
+<a class="sourceLine" id="cb14-17" title="17"><span class="op">&gt;&gt;&gt;</span> calClock.show_date_time()</a>
+<a class="sourceLine" id="cb14-18" title="18">The date <span class="kw">is</span> <span class="dv">01</span><span class="op">/</span><span class="dv">01</span><span class="op">/</span><span class="dv">2020</span> <span class="kw">and</span> the time <span class="kw">is</span> <span class="dv">00</span>:<span class="dv">00</span>:<span class="dv">00</span></a></code></pre>
+ </div>
+ <p>
+  <em>
+   Note: There are a few ways of completing this question, however I want you to use multiple inheritance. If you do, then the code for CalendarClock should be quite short
+  </em>
+  .
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_19.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_21.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+ -
+</div></html>

@@ -1,0 +1,937 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-5---looping-iterations">
+  Chapter 5 - Looping &amp; Iterations
+ </h1>
+ <p>
+  <strong>
+   Important Note
+  </strong>
+  :
+ </p>
+ <p>
+  This chapter may be a fair bit more challenging than the previous chapters and there is a lot to take in here.
+ </p>
+ <h2 id="while-loops">
+  5.1 -
+  <em>
+   while
+  </em>
+  loops
+ </h2>
+ <p>
+  Let's say we wanted to do something over and over again. At the moment we'd have to write out the same piece of code over and over. This isn't practical. What if we wanted to do something 100 times or 10,000 times?
+ </p>
+ <p>
+  In this chapter we look at looping and iteration, in particular, the
+  <em>
+   while
+  </em>
+  loop. While loops are syntactically very similar to
+  <em>
+   if statements
+  </em>
+  .
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># IF STATEMENTS</span>
+<span class="cf">if</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:
+    <span class="co"># Do something</span>
+    <span class="co"># And another thing</span>
+    
+    
+<span class="co"># WHILE LOOPS</span>
+<span class="cf">while</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:
+    <span class="co"># Do something</span>
+    <span class="co"># And another thing</span></code></pre>
+ </div>
+ <p>
+  As with
+  <em>
+   if statements
+  </em>
+  , the
+  <code>
+   &lt;condition&gt;
+  </code>
+  is a
+  <em>
+   boolean expression
+  </em>
+  . The body also contains a sequence of statements. Similarly, the extent of body of the loop is determined by the indentation of the statements.
+ </p>
+ <p>
+  The way they work however is slightly different and they operate as follows:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   Evaluate the condition.
+  </li>
+  <li>
+   If the condition evaluates to
+   <code>
+    False
+   </code>
+   , then skip the body of the
+   <em>
+    while loop
+   </em>
+   and execute the subsequent statements.
+  </li>
+  <li>
+   Otherwise, if the condition evaluates to
+   <code>
+    True
+   </code>
+   :
+  </li>
+  <li>
+   Execute the body of the loop
+  </li>
+  <li>
+   Return to step 1.
+  </li>
+ </ol>
+ <p>
+  Let me illustrate this with an example
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="va">True</span>                    <span class="co">#  &lt;- Assign True to x (x contains True)</span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#</span>
+
+<span class="op">-------------------------------------------------------------------------------</span>
+
+x <span class="op">=</span> <span class="va">True</span>                    <span class="co">#</span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#  &lt;- Evaluate the expression (evaluates to True)</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#</span>
+
+<span class="op">-------------------------------------------------------------------------------</span>
+
+x <span class="op">=</span> <span class="va">True</span>                    <span class="co"># </span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#  &lt;- Print "Hello" to the terminal window</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#</span>
+
+<span class="op">-------------------------------------------------------------------------------</span>
+
+x <span class="op">=</span> <span class="va">True</span>                    <span class="co">#</span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#  &lt;- Assign False to x (x contains False)</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#</span>
+
+<span class="op">------------------------------------------------------------------------------</span>
+
+x <span class="op">=</span> <span class="va">True</span>                    <span class="co">#</span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#  &lt;- We've reached the end so re-evaluate condition</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#</span>
+
+<span class="op">------------------------------------------------------------------------------</span>
+
+x <span class="op">=</span> <span class="va">True</span>                    <span class="co">#</span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#  &lt;- Evaluate the expression (it fails, so exit loop)</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#     (If it didn't we'd go around the loop again.)</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#</span>
+
+<span class="op">------------------------------------------------------------------------------</span>
+
+x <span class="op">=</span> <span class="va">True</span>                    <span class="co">#  </span>
+<span class="cf">while</span> x <span class="op">==</span> <span class="va">True</span>:            <span class="co">#</span>
+    <span class="bu">print</span>(<span class="st">"Hello"</span>)          <span class="co">#</span>
+    x <span class="op">=</span> <span class="va">False</span>               <span class="co">#</span>
+<span class="bu">print</span>(<span class="st">"x is now false"</span>)     <span class="co">#  &lt;- Print "x is now false" to terminal window</span></code></pre>
+ </div>
+ <p>
+  Lets look at another example.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:
+    <span class="bu">print</span>(i)
+    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span>
+    
+<span class="co"># THE OUTPUT</span>
+<span class="dv">0</span>
+<span class="dv">1</span>
+<span class="dv">2</span>
+<span class="dv">3</span>
+<span class="dv">4</span></code></pre>
+ </div>
+ <p>
+  This might look a little confusing but let me explain what's going on. The variable
+  <code>
+   i
+  </code>
+  is called a counter (or loop variable) and it controls the number of times the loop iterates.
+ </p>
+ <ul>
+  <li>
+   The variable
+   <code>
+    i
+   </code>
+   is initially 0 and the condition evaluates to
+   <code>
+    True
+   </code>
+   , so the body of the loop is executed.
+  </li>
+  <li>
+   Print the value of the variable
+   <code>
+    i
+   </code>
+   to the terminal and increment
+   <code>
+    i
+   </code>
+   by 1. (
+   <code>
+    i
+   </code>
+   is now 1 instead of 0).
+  </li>
+  <li>
+   Evaluate the condition again. It is still
+   <code>
+    True
+   </code>
+   as
+   <code>
+    i
+   </code>
+   is still less than 5.
+  </li>
+  <li>
+   Print the value of the variable
+   <code>
+    i
+   </code>
+   to the terminal and increment
+   <code>
+    i
+   </code>
+   by 1. (
+   <code>
+    i
+   </code>
+   is now 2).
+  </li>
+  <li>
+   Repeat the above steps until
+   <code>
+    i
+   </code>
+   is 5 in which case the loops condition is
+   <code>
+    False
+   </code>
+   so the loop terminates and we execute any statements which follow.
+  </li>
+ </ul>
+ <p>
+  What if we were to have the condition as
+  <code>
+   i &lt; 10000
+  </code>
+  ? Our 4 lines of code would still hold and the program would count from 0 to 9999.
+ </p>
+ <p>
+  You may be wondering why we counted from 0 as it seems unnatural but there are good reasons for this. The explanation for it may be a little bit too technical for you at this stage but let me give an example that hopefully explains it.
+ </p>
+ <p>
+  Remember I said you can think of memory as cubbyholes? Well, lets take that example:
+ </p>
+ <pre><code>-------------------------------------
+|        |        |        |        |   # Each "cubbyhole" is a *memory location*
+-------------------------------------
+
+
+-------------------------------------
+|        |        |        |        |   # Each has an *address*
+-------------------------------------
+
+
+-------------------------------------
+|   32   |   44   |   89   |   12   |   # Suppose these are filled with values
+-------------------------------------
+
+
+-------------------------------------
+|   32   |   44   |   89   |   12   |   # Let's say the address of the first location is 2
+-------------------------------------
+    ^
+    |
+    2
+    
+# WE NEED A FORMULA TO ACCESS THE Nth MEMORY LOCATION FROM HERE. 
+# SUPPOSE WE WANT TO ACCESS THE LOCATION HOLDING 89.
+# WELL THATS: current_address + 2 (2 + 2 = 4 which is the address that contains 89)
+# THIS FORMULA NEEDS TO BE GENERAL SO IF WE WANTED THE FIRST LOCATION
+# THAT WOULD BE: current_address + 0 (2 + 0 = 2 which is the address of first location)</code></pre>
+ <p>
+  We don't actually count from 0 we start
+  <em>
+   indexes
+  </em>
+  (which we will get to later) with 0. It's just good practice to count from 0 in loops like this as we usually use a value such as i to
+  <em>
+   index
+  </em>
+  into lists (we'll get to these later) and I recommend getting used to it now. If this still confuses you, it will make complete sense when we get to
+  <em>
+   lists
+  </em>
+  a little later on.
+ </p>
+ <p>
+  It's very rare to see counters beginning at something like 30 and where counters do begin at odd or large number like these, there is usually a very, very good reason for doing so.
+ </p>
+ <p>
+  Let's look at another example. We'll write a program that allows the user to input 3 numbers and we'll add them up and print the result.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">total <span class="op">=</span> <span class="dv">0</span>
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">3</span>:
+    total <span class="op">=</span> total <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>())
+    i <span class="op">+=</span> <span class="dv">1</span>
+<span class="bu">print</span>(total)</code></pre>
+ </div>
+ <p>
+  <strong>
+   Important
+  </strong>
+  : Note how I wrote
+  <code>
+   i += 1
+  </code>
+  . This is shorthand for
+  <code>
+   i = i + 1
+  </code>
+  . We could have also shortened the first statement of the loop body to
+  <code>
+   total += int(input())
+  </code>
+  .
+ </p>
+ <h2 id="looping-patterns">
+  5.2 - Looping patterns
+ </h2>
+ <p>
+  You may have noticed in the previous
+  <em>
+   while loop
+  </em>
+  examples we had a re-occurring pattern (or structure) to our loops.
+ </p>
+ <p>
+  There are two patterns we usually follow when writing
+  <em>
+   while
+  </em>
+  loops. These are:
+ </p>
+ <ol style="list-style-type: decimal">
+  <li>
+   Do-something-n-times
+  </li>
+  <li>
+   Do-while-not-condition
+  </li>
+ </ol>
+ <p>
+  I'll get to the second pattern in a minute but for now I'll look at the first pattern.
+ </p>
+ <p>
+  We have been using the first pattern in the previous examples which is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">while</span> i <span class="op">&lt;</span> N:
+    <span class="co"># Do something</span>
+    i <span class="op">+=</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  In the above pattern, we know the value of
+  <code>
+   N
+  </code>
+  prior to evaluating the loops condition. It may have come from user input or it may be the result of some previous calculation.
+ </p>
+ <p>
+  As a
+  <em>
+   naming convention
+  </em>
+  , it's good practice to name the
+  <em>
+   counter
+  </em>
+  as
+  <code>
+   i
+  </code>
+  and if
+  <code>
+   i
+  </code>
+  is being used as a variable name somewhere else, then
+  <code>
+   j
+  </code>
+  or
+  <code>
+   k
+  </code>
+  will do.
+ </p>
+ <p>
+  Here's another example which may seem to go against this pattern upon thinking about the problem but what if we wanted to count backwards, so instead of 0, 1, 2, we wanted 2, 1, 0 (You're probably thinking we should do
+  <code>
+   i = i - 1
+  </code>
+  )?
+ </p>
+ <p>
+  Here is how it's done but the user inputs the number we're counting backwards from:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> n:
+    <span class="bu">print</span>(n <span class="op">-</span> i <span class="op">-</span> <span class="dv">1</span>)
+    i <span class="op">+=</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  Great! We're still conforming to the pattern.
+ </p>
+ <p>
+  Let's take a look at the second looping pattern, the "Do-while-not-condition" pattern. With this pattern we don't know how many times we'll go around the loop before it terminates.
+ </p>
+ <p>
+  It's structure is as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">while</span> <span class="op">not</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:
+    <span class="co"># Do something</span></code></pre>
+ </div>
+ <p>
+  Each pattern has their uses so let's look at an example where this pattern could be used.
+ </p>
+ <p>
+  Suppose the user inputs numbers some number of times, we don't know how many times yet, and our condition is that they can't input a negative number:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+
+<span class="cf">while</span> <span class="op">not</span> number <span class="op">&lt;</span> <span class="dv">0</span>:
+    <span class="bu">print</span>(number)
+    number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+<span class="bu">print</span>(<span class="st">"You entered a negative number"</span>)</code></pre>
+ </div>
+ <p>
+  In this example we continuously ask the user for a number and print it. We continue like this until they input a negative number in which case the condition fails and the loop terminates.
+ </p>
+ <p>
+  To recap:
+ </p>
+ <ul>
+  <li>
+   We use "Do-something-N-times" pattern when we know how many times we need to go around the loop
+  </li>
+  <li>
+   We use "Do-while-not-condition" pattern when we don't know how many times we need to go around the loop
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+ </p>
+ <p>
+  If you are using the "Do-something-N-times" pattern, don't forget to increment
+  <code>
+   i
+  </code>
+  ! Forgetting to increment the value of this variable may lead to something called an
+  <em>
+   infinite loop
+  </em>
+  and these are bad! If you are doing a counting loop for example, like the one we have seen above, and you're counting to 10 and forget to increment
+  <code>
+   i
+  </code>
+  , your program will count past 10 and continue on forever. Infinite loops can lead to your computer slowing down or even worse, freezing. So be careful!
+ </p>
+ <h2 id="break-and-continue">
+  5.3 -
+  <em>
+   break
+  </em>
+  and
+  <em>
+   continue
+  </em>
+ </h2>
+ <p>
+  In this section I'm going to discuss two new statements. The
+  <code>
+   break
+  </code>
+  statement and the
+  <code>
+   continue
+  </code>
+  statement. There is a bit of a debate around when and where you should use them and what is best practice regarding the use of these statements but I'll talk about that a little later on in this section.
+ </p>
+ <p>
+  The
+  <code>
+   break
+  </code>
+  statement is used to exit the loop by skipping the rest of the loop's code block without testing the condition for the loop.
+  <code>
+   break
+  </code>
+  interrupts the flow of the program by breaking out of the loop and continues to execute the rest of your program.
+ </p>
+ <p>
+  The
+  <code>
+   break
+  </code>
+  statement is used as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">while</span> <span class="op">&lt;</span>condition <span class="dv">1</span><span class="op">&gt;</span>:
+    <span class="co"># Statements</span>
+    <span class="cf">if</span> <span class="op">&lt;</span>condition <span class="dv">2</span><span class="op">&gt;</span>:
+        <span class="cf">break</span>
+    <span class="co"># More statements</span>
+<span class="co"># Rest of your program</span></code></pre>
+ </div>
+ <p>
+  Here's an example of it in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="dv">10</span>
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> number:
+    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">5</span>:
+        <span class="cf">break</span>
+    <span class="bu">print</span>(i)
+    i <span class="op">+=</span> <span class="dv">1</span>
+<span class="bu">print</span>(<span class="st">"Exiting program"</span>)
+
+<span class="co"># OUTPUT</span>
+<span class="dv">0</span>
+<span class="dv">1</span>
+<span class="dv">2</span>
+<span class="dv">3</span>
+<span class="dv">4</span>
+Exiting program</code></pre>
+ </div>
+ <p>
+  I think it's quite self explanatory how
+  <code>
+   break
+  </code>
+  works so let's take a look at the
+  <code>
+   continue
+  </code>
+  statement.
+ </p>
+ <p>
+  The
+  <code>
+   continue
+  </code>
+  statement is used to skip the remaining statements in the body of the loop and start the next iteration of the loop. Unlike the
+  <code>
+   break
+  </code>
+  statement,
+  <code>
+   continue
+  </code>
+  doesn't terminate the loop, it just jumps back to the start.
+ </p>
+ <p>
+  The
+  <code>
+   continue
+  </code>
+  statement is used as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="cf">while</span> <span class="op">&lt;</span>condition <span class="dv">1</span><span class="op">&gt;</span>:
+    <span class="co"># Statements</span>
+    <span class="cf">if</span> <span class="op">&lt;</span>condition <span class="dv">2</span><span class="op">&gt;</span>:
+        <span class="cf">continue</span>
+    <span class="co"># More statements</span>
+<span class="co"># Rest of your progam</span></code></pre>
+ </div>
+ <p>
+  Here's an example of it in action:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="dv">5</span>
+
+i <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> number:
+    i <span class="op">+=</span> <span class="dv">1</span>
+    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">2</span>:
+        <span class="cf">continue</span>
+    <span class="bu">print</span>(i)
+<span class="bu">print</span>(<span class="st">"Exiting program"</span>)
+
+<span class="co"># OUTPUT</span>
+<span class="dv">0</span>
+<span class="dv">1</span>
+<span class="dv">3</span>
+<span class="dv">4</span>
+Exiting program</code></pre>
+ </div>
+ <p>
+  Notice how this has kind of messed up our looping pattern as we had to put
+  <code>
+   i += 1
+  </code>
+  as the first statement and we had to initialize
+  <code>
+   i
+  </code>
+  to -1.
+ </p>
+ <p>
+  Now this is a trivial case but
+  <code>
+   continue
+  </code>
+  has its uses. Let's look at when and where these statements should be used. For now though, I recommend avoiding them and don't use them as a crutch to get out of a loop. For the most part, in this book, if you find yourself using these statements theres usually something wrong with your loop and you should think about the problem a bit more.
+ </p>
+ <p>
+  When used at the start of a loop's code block, they act like
+  <em>
+   preconditions
+  </em>
+  . A precondition is a condition placed on something (loop, function, etc) which must hold true at the beginning of that "something" in order for it work correctly.
+ </p>
+ <p>
+  When placed at the end of the loop's code block, they act like
+  <em>
+   postconditions
+  </em>
+  . A postcondition is a condition placed on something which must hold true after the execution of that "something" in order to be satisfied that it has executed correctly.
+ </p>
+ <p>
+  Now this next one might be a bit confusing so don't get too caught up in it, I'm putting it here for completeness.
+ </p>
+ <p>
+  These statements may also be used as
+  <em>
+   invariants
+  </em>
+  , in particular,
+  <em>
+   loop invariants
+  </em>
+  . An invariant is a statement that is placed in a code segment that is repeated (loops for example) and should be true each time about the loop. Invariants are often used in loops and recursion (which we will get too later).
+ </p>
+ <p>
+  This part may be confusing. If an invariant is placed at the beginning of a while loop whose condition doesn't change the state of the computation (that is, it has no side effects), then the invariant should also be true at the end of the loop. When used in object oriented programming (which we'll also get to later), invariants can refer to the state of an object.
+ </p>
+ <p>
+  For now though, avoid them, especially in the exercises later on.
+ </p>
+ <h2 id="while-loop-examples">
+  5.4 -
+  <em>
+   while
+  </em>
+  loop examples
+ </h2>
+ <p>
+  As I've said before,
+  <code>
+   while
+  </code>
+  loops can be confusing when starting out with them so I'm going to give some more examples of them in action before we move onto exercises.
+ </p>
+ <p>
+  The first example problem is to check if a given number is a prime number assuming the given number is greater than or equal to 2. Here's the code:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+
+i <span class="op">=</span> <span class="dv">2</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> n <span class="op">and</span> (n <span class="op">%</span> i) <span class="op">!=</span> <span class="dv">0</span>:
+    i <span class="op">+=</span> <span class="dv">1</span>
+<span class="cf">if</span> i <span class="op">&lt;</span> n:
+    <span class="bu">print</span>(<span class="st">"Your number is not a prime number"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Your number is a prime number!"</span>)</code></pre>
+ </div>
+ <p>
+  Try and figure out why I have the if/else statements by working it out on some paper with small numbers.
+ </p>
+ <h4 id="example-2">
+  Example 2
+ </h4>
+ <p>
+  The next example is going to be an extension to the Fizz-Buzz program you've written before. There is a slight change though. Last time you wrote a program that prints the number, fizz, buzz or fizz-buzz for a given number. This time I'm going to write a program that prints the sequence up to a given number.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+
+i <span class="op">=</span> <span class="dv">1</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> n:
+    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">and</span> i <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">"fizz-buzz"</span>)
+    <span class="cf">elif</span> i <span class="op">//</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">"fizz"</span>)
+    <span class="cf">elif</span> i <span class="op">//</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:
+        <span class="bu">print</span>(<span class="st">"buzz"</span>)
+    <span class="cf">else</span>:
+        <span class="bu">print</span>(i)
+    i <span class="op">+=</span> <span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  Notice the order the if/elif/else statements go in. Since in Python statements are executed sequentially, we need to check that the number isn't divisible by both 3 and 5 first.
+ </p>
+ <h4 id="example-3">
+  Example 3
+ </h4>
+ <p>
+  In this example program we're going to write a program that allows the user to continuously enter numbers until they enter the number 0. When they enter the number 0 we'll print out the total of all the other numbers they inputted.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+
+total <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> <span class="op">not</span> number <span class="op">==</span> <span class="dv">0</span>:
+    total <span class="op">+=</span> number
+    number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())
+<span class="bu">print</span>(total)</code></pre>
+ </div>
+ <p>
+  If you now feel a bit more comfortable with
+  <em>
+   while loops
+  </em>
+  then lets look at some problems for you to solve!
+ </p>
+ <h2 id="exercises">
+  5.5 - Exercises
+ </h2>
+ <p>
+  <strong>
+   Important Note:
+  </strong>
+ </p>
+ <p>
+  The solutions to some of these exercises require thinking outside-the-box. Don't expect to arrive at a solution immediately!
+ </p>
+ <p>
+  These exercises take a step up in difficulty so think carefully about your solutions.
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Write a program that prints the first
+  <em>
+   n
+  </em>
+  numbers of the Fibonacci sequence. The Fibonacci sequence is defined as :
+ </p>
+ <p>
+ </p>
+ <p>
+  That is, the next number in the sequence is the sum of the previous two numbers and the first two numbers in the sequence are 0 and 1. A part of the sequence is shown below:
+ </p>
+ <pre><code>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...</code></pre>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a program that prints a sequence such as the one shown below. The number of stars in the widest part should be equal to the number a user inputs:
+ </p>
+ <pre><code># INPUT
+7
+
+# OUTPUT
+*
+**
+***
+****
+*****
+******
+*******
+******
+*****
+****
+***
+**
+*</code></pre>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Write a Python program that reads in a single integer from the user. Then read in an unknown number of integers, each time printing whether or not the number was higher or lower than the previous. You can assume that every number is different and you can stop when the number entered is 0. Here is an example input and output:
+ </p>
+ <pre><code># INPUT
+5
+2
+9
+7
+0
+
+# OUTPUT
+lower
+higher
+lower
+Exiting...</code></pre>
+ <br/>
+ <!-- Begin Mailchimp Signup Form -->
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <!--End mc_embed_signup-->
+ <br/>
+ <div class="align-items-center">
+  <h4>
+   Help support the author by donating or purchasing a PDF copy of the book from EJunkie!
+  </h4>
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_4.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_6.html">
+  Next Chapter
+ </a>
+</div></html>

@@ -1,0 +1,508 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-13---binary-search">
+  Chapter 13 - Binary Search
+ </h1>
+ <h2 id="number-guessing-game">
+  13.1 - Number guessing game
+ </h2>
+ <p>
+  Let's assume we have a sorted array of length 100,000. Further assume somebody has chosen a number from that array, at random and we don't know what it is. We're given 20 attempts to guess the answer. This may seem impossible and that we only have luck on our side.
+ </p>
+ <p>
+  We can use the knowledge we have so far to write a function that guesses this and we have a couple of ways of doing it.
+ </p>
+ <p>
+  Let's look at two ways we might attempt this. The first is linear search.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> random <span class="im">import</span> randint
+arr <span class="op">=</span> [x <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">100000</span>)]
+secret <span class="op">=</span> randint(<span class="dv">0</span>, <span class="bu">len</span>(arr))
+
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">20</span> <span class="op">and</span> i <span class="op">!=</span> secret:
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">20</span>:
+    <span class="bu">print</span>(<span class="st">"The secret number is "</span> <span class="op">+</span> <span class="bu">str</span>(i))
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Hard luck, you didn't guess the secret number"</span>)</code></pre>
+ </div>
+ <p>
+  The first line imports the
+  <code>
+   randint()
+  </code>
+  function from the
+  <code>
+   random
+  </code>
+  module which takes two integer arguments and returns a random integer between the arguments.
+ </p>
+ <p>
+  The second line builds up the array using something called a
+  <em>
+   list comprehension
+  </em>
+  . We'll get back to these soon.
+ </p>
+ <p>
+  The third line chooses that random number as the secret number and the rest of the code is standard linear search to try find the secret.
+ </p>
+ <p>
+  Obviously this is a terrible idea as the secret number must be between 0 and 20 which has a 20/100000 chance of happening.
+ </p>
+ <p>
+  Another approach we could take is, taking 10 random guesses.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> random <span class="im">import</span> randint
+arr <span class="op">=</span> [x <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">100000</span>)]
+secret <span class="op">=</span> randint(<span class="dv">0</span>, <span class="bu">len</span>(arr))
+
+guess <span class="op">=</span> randint(<span class="dv">0</span>, <span class="bu">len</span>(arr))
+i <span class="op">=</span> <span class="dv">1</span>
+<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">20</span> <span class="op">and</span> guess <span class="op">!=</span> secret:
+    guess <span class="op">=</span> randint(<span class="dv">0</span>, <span class="bu">len</span>(arr))
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">20</span>:
+    <span class="bu">print</span>(<span class="st">"The secret number is "</span> <span class="op">+</span> <span class="bu">str</span>(i))
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Hard luck, you didn't guess the secret number"</span>)</code></pre>
+ </div>
+ <p>
+  Better approach? Maybe, but we can do much better. In fact, we can guess the number within 20 guesses every time without fail. We use a new algorithm called
+  <em>
+   Binary Search
+  </em>
+  to do that.
+ </p>
+ <h2 id="binary-search">
+  13.2 - Binary Search
+ </h2>
+ <p>
+  One of the assumptions made in the previous section was that the list was sorted. Knowing that the list is sorted allows us to take advantage of that fact. In this section we'll look at how we do that using a new searching algorithm called
+  <em>
+   binary search
+  </em>
+  .
+ </p>
+ <p>
+  Let me illustrate how binary search works:
+ </p>
+ <pre><code>2  4  9  12  34  35  77
+|_____________________|  # The number we were trying to guess is in here
+
+2  4  9  12  34  35  77
+| low                 | high
+|_____________________|        # We will call these two position low and high
+
+2  4  9  12  34  35  77
+| low                 | high
+|_____________________|        # The number is somewhere between low and high 
+
+2  4  9  12  34  35  77
+| low                 | high   # We're also able to calculate the index for
+|_____________________|        # the number in the middle of low and high
+
+2  4  9  12  34  35  77
+| low     | middle     | high   # We're also able to calculate the index for
+|_________|____________|        # the number in the middle of low and high
+
+#
+# Assume the number we're searching for is 4
+#
+
+2  4  9  12  34  35  77
+| low     | middle     | high   # We're also able to calculate the index for
+|_________|____________|        # the number in the middle of low and high
+
+2  4  9  12  34  35  77
+| low     | middle     | high   # As the list is sorted we can check if the
+|_________|____________|        # number at 'middle' is &lt;= or &gt; 4
+
+2  4  9  12  34  35  77
+| low     | middle     | high   # In this case 4 is &lt; 12 so we don't need to 
+|_________|____________|        # bother searching anything above middle index
+
+2  4  9  12
+| low     | high                # So we cut that portion of the list out
+|_________|                     # and make middle the new high
+
+2  4  9  12
+| low     | high                # Repeat the process,
+|_________|                     # continuously halving the list until the condition
+                                # that low &lt; high fails i.e low == high</code></pre>
+ <p>
+  So our approach here is:
+ </p>
+ <ul>
+  <li>
+   Find the midpoint between
+   <code>
+    high
+   </code>
+   and
+   <code>
+    low
+   </code>
+  </li>
+  <li>
+   Adjust
+   <code>
+    low
+   </code>
+   or
+   <code>
+    high
+   </code>
+   depending on whether what we're searching for is less than or equal to (
+   <code>
+    &lt;=
+   </code>
+   ) or greater than (
+   <code>
+    &gt;
+   </code>
+   ) the midpoint value.
+  </li>
+ </ul>
+ <p>
+  We calculate the midpoint by getting the average of low and high i.e.
+  <code>
+   (low + high) // 2
+  </code>
+  . Notice we're doing integer division here so we'll round down if there is a decimal place.
+ </p>
+ <p>
+  In the next section we'll look at implementing
+  <em>
+   binary search
+  </em>
+ </p>
+ <h2 id="implementing-binary-search">
+  13.3 - Implementing Binary Search
+ </h2>
+ <p>
+  In the previous section we looked at how binary search works. Now we need to code it.
+ </p>
+ <p>
+  Roughly, only 10% of developers are able to code binary search properly. Theres a little cop out in the middle of it so we need to be careful so that our solution works correctly in all cases.
+ </p>
+ <p>
+  Below is the commented implementation of binary search:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> binary_search(arr, elem):
+    low <span class="op">=</span> <span class="dv">0</span>                      <span class="co"># Define initial low value.</span>
+    high <span class="op">=</span> <span class="bu">len</span>(arr)              <span class="co"># Define initial high value.</span>
+    
+    <span class="cf">while</span> low <span class="op">&lt;</span> high:            <span class="co"># The condition that must hold true.</span>
+        mid <span class="op">=</span> (low <span class="op">+</span> high) <span class="op">//</span> <span class="dv">2</span>  <span class="co"># Calculate the mid index.</span>
+        
+        <span class="cf">if</span> arr[mid] <span class="op">&lt;</span> elem:         <span class="co"># Check if the value is in first or second half.</span>
+            low <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span>           <span class="co"># Update low value if mid val &lt; elem (in second half).</span>
+        <span class="cf">else</span>:               
+            high <span class="op">=</span> mid              <span class="co"># Otherwise update high value (elem in first half).</span>
+    <span class="cf">return</span> low                      <span class="co"># Return the position of the element</span>
+                                    <span class="co"># we're searching for.</span></code></pre>
+ </div>
+ <p>
+  It is important that
+  <code>
+   mid
+  </code>
+  and
+  <code>
+   high
+  </code>
+  are never equal. This is one place where some developers mess up when coding this algorithm.
+ </p>
+ <p>
+  We must add
+  <code>
+   1
+  </code>
+  when updating the low value because if
+  <code>
+   low == mid
+  </code>
+  , we will end up in an infinite loop and that is bad news! This is another place where developers mess up.
+ </p>
+ <p>
+  Since binary search has it's cop outs like those above, I recommend you learn it off by heart.
+ </p>
+ <h2 id="improving-our-number-guessing-game">
+  13.4 - Improving our number guessing game
+ </h2>
+ <p>
+  We can now take this binary search algorithm and modify it slightly to fit our game. We're going to add a check that we don't do more than 20 iterations of the binary search algorithm i.e. halve the list more than 20 times.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> random <span class="im">import</span> randint
+arr <span class="op">=</span> [x <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">100000</span>)]
+secret <span class="op">=</span> randint(<span class="dv">0</span>, <span class="bu">len</span>(arr))
+
+
+low <span class="op">=</span> <span class="dv">0</span>
+high <span class="op">=</span> <span class="bu">len</span>(arr)
+i <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">while</span> low <span class="op">&lt;</span> high <span class="op">and</span> i <span class="op">&lt;</span> <span class="dv">20</span>:
+    mid <span class="op">=</span> (low <span class="op">+</span> high) <span class="op">//</span> <span class="dv">2</span>
+    
+    <span class="cf">if</span> arr[mid] <span class="op">&lt;</span> secret:
+        low <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span>
+    <span class="cf">else</span>:               
+        high <span class="op">=</span> mid
+    i <span class="op">+=</span> <span class="dv">1</span>
+
+<span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">20</span>:
+    <span class="bu">print</span>(<span class="st">"The secret number is "</span> <span class="op">+</span> <span class="bu">str</span>(low))
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Hard luck, you didn't guess the secret number"</span>)</code></pre>
+ </div>
+ <p>
+  Our improved version of the game will guess (find) the secret number within 20 attempts every time.
+ </p>
+ <p>
+  This is important because we get guess the answer correctly, in the worst case, in 20 attempts, whereas our previous approaches, the worst case would have been 100,000 attempts!
+ </p>
+ <h2 id="analysis-of-binary-search">
+  13.5 Analysis of Binary Search
+ </h2>
+ <p>
+  In this section I'm going to look at Binary Search's runtime complexity much like I did with Insertion Sort and Selection Sort.
+ </p>
+ <p>
+  Insertion Sort and Selection Sort had a runtime complexity of:
+ </p>
+ <p>
+  Recall the graph of the Insertion Sort and an
+  <strong>
+   O(n)
+  </strong>
+  algorithm. Here is the graph of an algorithm with binary search's runtime complexity.
+ </p>
+ <div class="figure">
+  <img src="./assets/logplot.png">
+  </img>
+ </div>
+ <p>
+  You can clearly see that as the input get's much larger, the time it takes for the algorithm to complete begins to level off and increasing the input size begins to have a smaller and smaller effect on the algorithms performance.
+ </p>
+ <p>
+  Binary Search's space complexity is also
+  <strong>
+   O(1)
+  </strong>
+  , which is constant memory, as we don't create any copies of the list when searching.
+ </p>
+ <p>
+  This is considered a very efficient algorithm as it's runtime complexity is pretty close to constant and the space complexity is constant.
+ </p>
+ <h2 id="exercises">
+  13.6 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  Answer the following questions:
+ </p>
+ <ul>
+  <li>
+   Why must we add 1 to
+   <code>
+    low
+   </code>
+   when updating it's value?
+  </li>
+  <li>
+   What is the runtime complexity of Binary Search
+  </li>
+  <li>
+   What is the space complexity of Binary Search?
+  </li>
+ </ul>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Using what you've learned in this chapter, write a function called
+  <code>
+   insert()
+  </code>
+  that uses an efficient algorithm (hint, hint...) and takes a list and an element as input and returns the index at which that element should be inserted into the list.
+ </p>
+ <p>
+  For example, calling the insert function as such should return the following:
+ </p>
+ <pre><code>insert([1, 3, 4, 5], 2)
+
+# RETURNS
+1              # i.e. 2 should be inserted at index 1</code></pre>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Again, using what you've learned, write a function called
+  <code>
+   contains()
+  </code>
+  that takes two arguments, a list and an element and returns whether or not that element is contained within that list.
+ </p>
+ <p>
+  For example:
+ </p>
+ <pre><code>contains([1, 3, 5, 7], 3)
+
+# RETURNS
+True
+------------------------------
+contains([1, 3, 5, 7], 2)
+
+#RETURNS
+False</code></pre>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <br/>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_12.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_14.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

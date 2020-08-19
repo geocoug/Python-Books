@@ -1,0 +1,687 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+      /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+         We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-15---more-on-data-types">
+  Chapter 15 - More on Data Types
+ </h1>
+ <h2 id="tuples">
+  15.1 - Tuples
+ </h2>
+ <p>
+  A tuple is essentially an immutable list. Tuples, like strings, cannot be modified after creation. However, a tuple is different to a string in that while strings consist solely of characters, a tuple can contain objects of any type (like a list).
+ </p>
+ <p>
+  To create a tuple we use the comma operator:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_tuple <span class="op">=</span> <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>
+<span class="op">&gt;&gt;&gt;</span> my_tuple
+(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>)</code></pre>
+ </div>
+ <p>
+  We typically encapsulate a tuple in parenthesis as it makes things easier to read.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_tuple <span class="op">=</span> (<span class="st">"Hello"</span>, <span class="dv">6</span>, <span class="fl">3.14</span>)
+<span class="op">&gt;&gt;&gt;</span> my_tuple
+(<span class="st">"Hello"</span>, <span class="dv">6</span>, <span class="fl">3.14</span>)</code></pre>
+ </div>
+ <p>
+  To create a tuple with a single value you must include a comma!
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> (<span class="dv">4</span>,)
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(t)
+<span class="op">&lt;</span><span class="kw">class</span> <span class="st">'tuple'</span><span class="op">&gt;</span>
+<span class="op">&gt;&gt;&gt;</span> v <span class="op">=</span> (<span class="dv">4</span>)
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(v)
+<span class="op">&lt;</span><span class="kw">class</span> <span class="st">'int'</span><span class="op">&gt;</span></code></pre>
+ </div>
+ <p>
+  We can concatenate tuples using the
+  <code>
+   +
+  </code>
+  operator and repeat tuples using the
+  <code>
+   *
+  </code>
+  operator:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)
+<span class="op">&gt;&gt;&gt;</span> u <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">+</span> u
+(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)
+<span class="op">&gt;&gt;&gt;</span> t <span class="op">*</span> <span class="dv">2</span>
+(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</code></pre>
+ </div>
+ <p>
+  We can also slice and index in the same way we do with strings:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> (<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)
+<span class="op">&gt;&gt;&gt;</span> t[<span class="dv">3</span>]
+<span class="dv">2</span>
+<span class="op">&gt;&gt;&gt;</span> t[::<span class="op">-</span><span class="dv">1</span>]
+(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)
+<span class="op">&gt;&gt;&gt;</span> t[<span class="dv">1</span>:<span class="dv">3</span>]
+(<span class="dv">4</span>, <span class="dv">3</span>)</code></pre>
+ </div>
+ <p>
+  We can also iterate over tuples using loops. I'm going to use the
+  <code>
+   for
+  </code>
+  loop here but you can use
+  <code>
+   while
+  </code>
+  too:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> chars <span class="op">=</span> (<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)
+<span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> c <span class="op">in</span> chars:
+...     <span class="bu">print</span>(c)
+...
+a
+b
+c</code></pre>
+ </div>
+ <p>
+  We can use the
+  <code>
+   in
+  </code>
+  operator to check if a value exists in a tuple
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> (<span class="st">"John"</span>, <span class="st">"Liam"</span>, <span class="st">"Tony"</span>)
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(<span class="st">"Tony"</span> <span class="op">in</span> t)
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  And lastly, as expected, we get an error if we try to change a tuples contents:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> t <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+<span class="op">&gt;&gt;&gt;</span> t[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">4</span>
+Traceback (most recent call last):
+  File <span class="st">"&lt;stdin&gt;"</span>, line <span class="dv">1</span>, <span class="op">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span>
+<span class="pp">TypeError</span>: <span class="st">'tuple'</span> <span class="bu">object</span> does <span class="op">not</span> support item assignment</code></pre>
+ </div>
+ <p>
+  If you remember back to the chapter on dictionaries, the
+  <code>
+   d.item()
+  </code>
+  method returns a list of tuples.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> d <span class="op">=</span> {<span class="st">"a"</span>: <span class="dv">10</span>, <span class="st">"b"</span>: <span class="dv">11</span>, <span class="st">"c"</span>: <span class="dv">12</span>}
+<span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> (k, v) <span class="op">in</span> d.items():
+...     <span class="bu">print</span>(k, v)
+...
+a <span class="dv">10</span>
+b <span class="dv">11</span>
+c <span class="dv">12</span></code></pre>
+ </div>
+ <h2 id="sets">
+  15.2 - Sets
+ </h2>
+ <p>
+  A set is a collection of objects of
+  <em>
+   arbitrary
+  </em>
+  type. The set's objects are called its
+  <em>
+   members
+  </em>
+  . Set's are an unordered type (like dictionaries). They are also iterable. An important feature of sets is that they only contain one copy of a particular object i.e. duplicates are not allowed. Sets are mutable types.
+ </p>
+ <p>
+  Sets are generally used for membership testing and removing duplicates. They usually hold a collection of similar items.
+ </p>
+ <p>
+  To take full advantage of sets, you'll need to have a good understanding of
+  <em>
+   set theory
+  </em>
+  . I won't be covering set theory in this book so you can read up on it here:
+  <a href="https://courses.lumenlearning.com/atd-hostos-introcollegemath/chapter/set-theory/">
+   Introduction to Set Theory
+  </a>
+  . You may however be familiar with basic set theory as you covered it in school. Set's are very important and are one of the data types that creep up in interviews.
+ </p>
+ <p>
+  In Python, a set is created using the
+  <code>
+   set()
+  </code>
+  function.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="bu">set</span>() <span class="co"># s is now an empty set</span></code></pre>
+ </div>
+ <p>
+  We can also create a set using comma separated values enclosed in curly braces:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>}</code></pre>
+ </div>
+ <p>
+  Note that we cannot use
+  <code>
+   {}
+  </code>
+  to create an empty set as this would create an empty dictionary.
+ </p>
+ <p>
+  We use the
+  <code>
+   in
+  </code>
+  operator to check for membership:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>}
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">6</span> <span class="op">in</span> x
+<span class="va">True</span></code></pre>
+ </div>
+ <p>
+  When we use the
+  <code>
+   in
+  </code>
+  operator on strings and lists, the runtime complexity is O(n). When we use this operator on sets it's on average O(1). This is the same with dictionaries. It is therefore very fast to access.
+ </p>
+ <p>
+  To add a new member to a set we use the
+  <code>
+   add()
+  </code>
+  method:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}
+<span class="op">&gt;&gt;&gt;</span> x.add(<span class="dv">8</span>)
+<span class="op">&gt;&gt;&gt;</span> x
+{<span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}</code></pre>
+ </div>
+ <p>
+  Notice how the set doesn't have an order.
+ </p>
+ <p>
+  We can get the length of a set using the
+  <code>
+   len()
+  </code>
+  function:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">len</span>(x)
+<span class="dv">3</span></code></pre>
+ </div>
+ <p>
+  We can also create a set from other objects:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> s <span class="op">=</span> <span class="bu">set</span>(<span class="st">"abcdefghijk"</span>)
+<span class="op">&gt;&gt;&gt;</span> s
+{<span class="st">'d'</span>, <span class="st">'e'</span>, <span class="st">'i'</span>, <span class="st">'h'</span>, <span class="st">'k'</span>, <span class="st">'g'</span>, <span class="st">'j'</span>, <span class="st">'f'</span>, <span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>}
+<span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> <span class="bu">set</span>([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>])
+<span class="op">&gt;&gt;&gt;</span> x
+{<span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}</code></pre>
+ </div>
+ <p>
+  Remember: Duplicates are removed from sets!
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_list <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">9</span>]
+<span class="op">&gt;&gt;&gt;</span> my_set <span class="op">=</span> <span class="bu">set</span>(my_list)
+<span class="op">&gt;&gt;&gt;</span> my_set
+{<span class="dv">9</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</code></pre>
+ </div>
+ <p>
+  This is particularly useful when searching for unique elements in something.
+ </p>
+ <p>
+  We can get the intersection of two sets A and B using the
+  <code>
+   intersection()
+  </code>
+  method. This will return a set which contains the elements that are common to both A and B:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>}
+<span class="op">&gt;&gt;&gt;</span> B <span class="op">=</span> {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">34</span>, <span class="dv">22</span>, <span class="dv">1</span>}
+<span class="op">&gt;&gt;&gt;</span> A.intersection(B)
+{<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</code></pre>
+ </div>
+ <p>
+  We can get the union of two sets A and B using the
+  <code>
+   union()
+  </code>
+  method. The union of two sets is the set of elements in both A and B:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">7</span>}
+<span class="op">&gt;&gt;&gt;</span> B <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">8</span>}
+<span class="op">&gt;&gt;&gt;</span> A.union(B)
+{<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>}</code></pre>
+ </div>
+ <p>
+  We can get the
+  <em>
+   set difference
+  </em>
+  between two sets A and B using the
+  <code>
+   difference()
+  </code>
+  method. The A set difference B is the set of elements in A but not in B. Likewise, B set difference A is the set of elements in B but not in A:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}
+<span class="op">&gt;&gt;&gt;</span> B <span class="op">=</span> {<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>}
+<span class="op">&gt;&gt;&gt;</span> A.difference(B)
+{<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}
+<span class="op">&gt;&gt;&gt;</span> B.difference(A)
+{<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">7</span>}</code></pre>
+ </div>
+ <p>
+  We can also check if set B is a
+  <em>
+   subset
+  </em>
+  of A using the
+  <code>
+   issubset()
+  </code>
+  method. Set A is a subset of set B if every member of A is also a member of B:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}
+<span class="op">&gt;&gt;&gt;</span> B <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>}
+<span class="op">&gt;&gt;&gt;</span> A.issubset(B)
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> B.issubset(A)
+<span class="va">False</span></code></pre>
+ </div>
+ <p>
+  We can check if A is a superset of B using the
+  <code>
+   issuperset()
+  </code>
+  method. B is a superset of A if every member of A is also a member of B:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> A <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>}
+<span class="op">&gt;&gt;&gt;</span> B <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>}
+<span class="op">&gt;&gt;&gt;</span> B.issuperset(A)
+<span class="va">True</span>
+<span class="op">&gt;&gt;&gt;</span> A.issuperset(B)
+<span class="va">False</span></code></pre>
+ </div>
+ <h2 id="lists-list-comprehensions">
+  15.3 - Lists &amp; list comprehensions
+ </h2>
+ <p>
+  We've seen how to create lists and you should be used to doing it at this point. However consider the following task:
+ </p>
+ <blockquote>
+  <p>
+   Write a program that builds a list that contains all the even numbers from a second list.
+  </p>
+ </blockquote>
+ <p>
+  The task of building one list by processing elements from another list is a very common task in computing. Until now we have had to use some kind of loop to iterate over all the elements in the second list and pick out the even numbers. Python has provided a short-cut for this called a
+  <em>
+   list comprehension
+  </em>
+  . You have seen me using a list comprehension in a previous chapter to build a list of 1,000 integers.
+ </p>
+ <p>
+  In this section we're going to look at how to create list comprehensions.
+ </p>
+ <p>
+  A
+  <em>
+   list comprehension
+  </em>
+  is a short-cut for building one list from another.
+ </p>
+ <p>
+  The syntax for a
+  <em>
+   list comprehension
+  </em>
+  is:
+  <code>
+   [expression for-clause condition]
+  </code>
+  .
+ </p>
+ <p>
+  For example to create a list that contains every number from 0 to 1,000 we could use the following list comprehension:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">lst <span class="op">=</span> [x <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">1000</span>)]</code></pre>
+ </div>
+ <p>
+  The above list comprehension reads: "Add x to the new list for each x in the list of elements from 0 to 1000".
+ </p>
+ <p>
+  To solve the task I mentioned at the beginning of this section we could use the following list comprehension:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_lst <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>]
+<span class="op">&gt;&gt;&gt;</span> evens <span class="op">=</span> [x <span class="cf">for</span> x <span class="op">in</span> my_lst <span class="cf">if</span> <span class="op">not</span> x <span class="op">%</span> <span class="dv">2</span>]
+<span class="op">&gt;&gt;&gt;</span> evens
+[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">14</span>]</code></pre>
+ </div>
+ <p>
+  In the above list comprehension,
+  <code>
+   x
+  </code>
+  is the expression,
+  <code>
+   for x in my_lst
+  </code>
+  is the for-clause and
+  <code>
+   if not x % 2
+  </code>
+  is the condition. It reads as follows: "Add x to the new list for each x in my_lst if x modulus 2 does not equal 0".
+ </p>
+ <p>
+  Remember, 0 is falsey, therefore,
+  <code>
+   if not x % 2
+  </code>
+  is True if x % 2 is equal to 0.
+ </p>
+ <p>
+  We can use a list comprehension to build up a list of squared values from another list using the following list comprehension:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> vals <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]
+<span class="op">&gt;&gt;&gt;</span> squares <span class="op">=</span> [x <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> x <span class="op">in</span> vals]
+<span class="op">&gt;&gt;&gt;</span> squares
+[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">25</span>, <span class="dv">36</span>]</code></pre>
+ </div>
+ <p>
+  Let's look at a list comprehension that will square the even numbers and leave any odd numbers the same:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> vals <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]
+<span class="op">&gt;&gt;&gt;</span> evens_squared <span class="op">=</span> [x <span class="op">**</span> <span class="dv">2</span> <span class="cf">if</span> <span class="op">not</span> x <span class="op">%</span> <span class="dv">2</span> <span class="cf">else</span> x <span class="cf">for</span> x <span class="op">in</span> vals]
+<span class="op">&gt;&gt;&gt;</span> evens_squared
+[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">16</span>, <span class="dv">5</span>, <span class="dv">36</span>, <span class="dv">7</span>, <span class="dv">64</span>]</code></pre>
+ </div>
+ <p>
+  The above list comprehension reads as: "Add the square of x if x is even otherwise just x for each x in vals"
+ </p>
+ <p>
+  List comprehensions are so common to stumble across and you'll often see them being used if you research any problems online. They are generally a construct only found in Python. If you move on to Java for example in the future, you won't be able to use list comprehensions as they don't exist in Java.
+ </p>
+ <p>
+  Comprehensions don't just apply to lists. They can be used as short-cuts for building a new
+  <em>
+   collection
+  </em>
+  from another
+  <em>
+   collections
+  </em>
+  . We therefore have set and dictionary comprehensions:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> my_set <span class="op">=</span> {x <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}
+<span class="op">&gt;&gt;&gt;</span> my_set
+{<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>}
+<span class="op">&gt;&gt;&gt;</span> my_dict <span class="op">=</span> {x:<span class="va">True</span> <span class="cf">for</span> x <span class="op">in</span> <span class="bu">range</span>(<span class="dv">5</span>)}
+<span class="op">&gt;&gt;&gt;</span> my_dict
+{<span class="dv">0</span>: <span class="va">True</span>, <span class="dv">1</span>: <span class="va">True</span>, <span class="dv">2</span>: <span class="va">True</span>, <span class="dv">3</span>: <span class="va">True</span>, <span class="dv">4</span>: <span class="va">True</span>}</code></pre>
+ </div>
+ <p>
+  Practice with these! Use them when you can (which will probably be often). Making use of comprehensions is the
+  <em>
+   Pythonic
+  </em>
+  way of writing Python code.
+ </p>
+ <h2 id="exercises">
+  15.4 - Exercises
+ </h2>
+ <p>
+  Download the following file (copy this page to a text file):
+  <a href="https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt">
+   Dictionary
+  </a>
+  .
+ </p>
+ <p>
+  You'll be using this for some of the exercises.
+ </p>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  During a study, a number of software engineers were asked what their top 3 favourite programming languages were.
+ </p>
+ <p>
+  Write a program that determines the number of unique languages given as answers during the study. Below is the input file and each line is an answer given by a software engineer:
+ </p>
+ <pre><code>java python c++
+python scala c
+java haskell javascript
+javascript python c
+c c++ c#
+c# haskell java</code></pre>
+ <p>
+  Your program should be run as follows and give the following output:
+ </p>
+ <pre><code>$ py unique.py input.txt
+8</code></pre>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  Write a list comprehension that creates a list containing all the odd numbers between 0 and 10,000.
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words that are longer than or equal to 18 characters. You should use a list comprehension to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py long_words.py &lt; dictionary.txt</code></pre>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  This may take some time to run as the input file is large!
+ </p>
+ <h3 id="question-3-1">
+  Question 3
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words that contain every vowel (a, e, i, o and u). For example, the word "equation" should be in the list. You should make good use of a list comprehension to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py vowels.py &lt; dictionary.txt</code></pre>
+ <h3 id="question-4">
+  Question 4
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words that contain exactly 4 a's and end in 'ian'. For example, the word "alabastrian" should be in the list. You should make good use of a list comprehension to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py two_conditions.py &lt; dictionary.txt</code></pre>
+ <h3 id="question-5">
+  Question 5
+ </h3>
+ <p>
+  Using the dictionary you downloaded earlier, write a program that builds a list containing all the words in the dictionary whose reverse also occurs. For example, the words "lager" and "regal" should be in the list. You should make good use of comprehensions to do this!
+ </p>
+ <p>
+  Your program should be run as follows:
+ </p>
+ <pre><code>$ py reverse.py &lt; dictionary.txt</code></pre>
+ <p>
+  <strong>
+   Tip
+  </strong>
+  : You may want to think about your solution for this. Your program may take a very long time to run if you don't implement a more efficient solution!
+ </p>
+ <script>
+  (function() {
+    var pre = document.getElementsByTagName('pre'),
+        pl = pre.length;
+    for (var i = 0; i < pl; i++) {
+        pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+        var num = pre[i].innerHTML.split(/\n/).length;
+        for (var j = 0; j < num; j++) {
+            var line_num = pre[i].getElementsByTagName('span')[0];
+            line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+        }
+    }
+  })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+      /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+         We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_14.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_16.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>

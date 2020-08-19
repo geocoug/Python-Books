@@ -1,0 +1,699 @@
+<html><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"><head><style type="text/css">
+ code{white-space: pre;}
+</style>
+<style type="text/css">
+ div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+.content {
+  padding: 10px;
+  padding-top:100px;
+  max-width: 900px;
+  font-size: 17px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  white-space: pre;
+  overflow: auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: .5rem;
+  max-height: 800px;
+  font-family: monospace;
+}
+pre code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0;
+    display: block;
+  }
+pre .line-number {
+    display: block;
+    float: left;
+    margin: 0 1em 0 -1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+}
+pre .line-number span {
+      display: block;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+pre .cl {
+    display: block;
+    clear: both;
+  }
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+<style type="text/css">
+ #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style>
+ .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+</style>
+</head><div class="content" style="padding-top:10px;">
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <h1 id="chapter-22---basic-data-structures">
+  Chapter 21 - Basic Data Structures
+ </h1>
+ <p>
+  The backbone of every piece of software you will write will consist of two main things: data and algorithms. We know that algorithms are used to manipulate the data within our software (and that manipulation should be done as efficiently as possible). For this reason, it is important to structure our data so that our algorithms can manipulate the data efficiently.
+ </p>
+ <p>
+  We have met various data structures already, lists and dictionaries to name a few. You also know that using lists for example, makes it very easy for us to store and manipulate sequences of data (Trust me, without this abstraction it becomes a bit of a pain).
+ </p>
+ <p>
+  We have also seen that data structures allow us to model systems that we see in the real world. For example, we could design and build a class that allows us to model a library. We could easily use this to build a library management system.
+ </p>
+ <p>
+  In this chapter we're going to look at two fundamental data structures that are used everywhere in computing. We're also going to look at some examples of how to take advantage of them.
+ </p>
+ <h2 id="the-stack">
+  21.1 - The Stack
+ </h2>
+ <p>
+  The stack is one of the most fundamental data structures in computing. Every time you run a program, that program takes advantage of a stack. I'll first explain how it works, then I'll explain how your computer takes advantage of it.
+ </p>
+ <p>
+  A stack is a linear data structure that follows a particular order in which the operations are performed. A stack is a LIFO (Last in First Out) data structure. That is, the last element entered into the stack is the first element that will leave the stack. You can think of a stack as a stack of dinner plates. Plates are stacked, one on top of the other. The last plate to be put on top of the stack will be the first plate to be removed as we cant remove the plate at the bottom (or the stack of plates would fall over and they'd all smash).
+ </p>
+ <p>
+  A stack (usually) has 4 main operations: push (add an element to the top), pop(remove an element from the top), top (show the element at the top) and isEmpty (is the stack empty). We can also add a length method and it is usually useful!
+ </p>
+ <p>
+  Here is an illustration of a stack
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">                             <span class="op">|------|</span> <span class="op">&lt;--</span> Pop                 <span class="op">|------|</span> <span class="op">&lt;--</span> Push new
+<span class="op">|------|</span> <span class="op">&lt;--</span> Top                                              <span class="op">|------|</span>     element (new
+<span class="op">|------|</span>                     <span class="op">|------|</span> <span class="op">&lt;--</span> New top             <span class="op">|------|</span>     top)
+<span class="op">|------|</span>          If we pop: <span class="op">|------|</span>         If we push      <span class="op">|------|</span>
+<span class="op">|------|</span>                     <span class="op">|------|</span>         a new element:  <span class="op">|------|</span>
+<span class="op">|------|</span>                     <span class="op">|------|</span>                         <span class="op">|------|</span>
+<span class="op">|------|</span>                     <span class="op">|------|</span>                         <span class="op">|------|</span>
+<span class="op">|------|</span>                     <span class="op">|------|</span>                         <span class="op">|------|</span></code></pre>
+ </div>
+ <p>
+  The stack is such a fundamental data structure that many computer instruction sets provide special instructions for manipulating stacks. For example, the Intel Pentium processor implements the x86 instruction set. This allows for machine language programmers to program computers at a very low level (Assembly language for example).
+ </p>
+ <p>
+  A very special type of stack called the "Call stack" or "Program stack", usually shortened to "The stack" is what some of the instructions in the x86 instruction set manipulate.
+ </p>
+ <p>
+  Let's consider what happens with the following program at a low level (For anyone with a solid understanding of computers this is a little high level but a good example).
+ </p>
+ <pre><code>   .
+   .
+   .
+print(4)
+   .
+   .
+   .</code></pre>
+ <p>
+  In the above Python snippet, we have some set of instructions executing in order (Like we have always seen). At some point we call the print function to output the number 4 to our terminal window. This is where the stack comes into play. Lets look at how our program might be stored in memory (At a high level)
+ </p>
+ <pre><code>Memory Address       Instruction
+----------------------------------
+0x0000001            .......       # The interal code for the print function might
+0x0000002            .......       # be stored at 0x0...01 to 0x0...03. 
+0x0000003            .......
+    .
+    .
+    .
+0x0000004            .......       # Some instruction before the print.
+0x0000005            print(4)      # The call to print.
+0x0000006            .......       # Some instruction after print (The next
+    .                              # instruction to be executed).
+    .
+    .</code></pre>
+ <p>
+  (I'M AWARE THIS ISN'T WHAT ACTUALLY HAPPENS BUT LET'S GO WITH THIS FOR NOW).
+ </p>
+ <p>
+  When we run a program, it is loaded into memory as machine code (Code the computer knows how to execute). Instructions are stored sequentially. In this view, we can look at functions as "mini programs" inside our main program. That is, the code for them is stored elsewhere in memory. When we call
+  <code>
+   print(4)
+  </code>
+  we are basically saying, jump to where the code for print is and start sequentially executing instructions until the function has completed, then return to the original location and continue on executing where you left off.
+ </p>
+ <p>
+  Before I explain this, the CPU has many special pieces of memory within it, called registers (These are like tiny pieces of RAM, usually 32-bits or 64-bits in size). One of these registers is called the instruction pointer register often abbreviated to
+  <em>
+   IP
+  </em>
+  . It contains the memory address of the next piece of code to execute.
+ </p>
+ <p>
+  In this case we execute the instruction at
+  <code>
+   0x0000004
+  </code>
+  ( then increase the IP), in the next instruction we call
+  <code>
+   print(4)
+  </code>
+  which is at location
+  <code>
+   0x0000005
+  </code>
+  yet the code for the print function is stored at
+  <code>
+   0x0000001
+  </code>
+  to
+  <code>
+   0x0000003
+  </code>
+  . This is where the stack comes into play. We know that when we print the number we want to continue where we left off and execute the instruction at
+  <code>
+   0x0000006
+  </code>
+  . In this case we push the
+  <strong>
+   return address
+  </strong>
+  (
+  <code>
+   0x0000006
+  </code>
+  ) onto the stack, set the IP to
+  <code>
+   0x0000001
+  </code>
+  and start executing the code for the print function. When we're finished, we pop the return address off the stack (
+  <code>
+   0x0000006
+  </code>
+  ) and place this in the IP. Now our program continues to execute where we left off.
+ </p>
+ <p>
+  I'm sure you can imagine how recursion works now at this level (essentially a series of push, push, push ...... pop, pop, pop).
+ </p>
+ <p>
+  Things are a lot more complex than this but it isn't necessary for the explanation of how stacks are used at the most fundamental levels. Don't worry too much if you didn't understand all of that. It isn't necessary for this book but it shows just how important the stack is.
+ </p>
+ <p>
+  Stacks have many high level uses too, for example,
+  <em>
+   undo
+  </em>
+  mechanisms in text editors in which we keep track of all text changes in a stack. They may be used in browsers to implement a
+  <em>
+   back/forward
+  </em>
+  mechanism to go back and forward between web pages.
+ </p>
+ <p>
+  Let's look at the code for a stack in Python. We will implement a stack using a list
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Stack:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.stack <span class="op">=</span> []
+    
+    <span class="kw">def</span> push(<span class="va">self</span>, elem):
+        <span class="va">self</span>.stack.append(elem)
+    
+    <span class="kw">def</span> pop(<span class="va">self</span>):
+        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.stack) <span class="op">==</span> <span class="dv">0</span>:
+            <span class="cf">return</span> <span class="va">None</span>
+        <span class="cf">else</span>:
+            <span class="cf">return</span> <span class="va">self</span>.stack.pop()
+    
+    <span class="kw">def</span> isEmpty(<span class="va">self</span>):
+        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.stack) <span class="op">==</span> <span class="dv">0</span>:
+            <span class="cf">return</span> <span class="va">True</span>
+        <span class="cf">return</span> <span class="va">False</span>
+    
+    <span class="kw">def</span> top(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.stack[<span class="op">-</span><span class="dv">1</span>]</code></pre>
+ </div>
+ <p>
+  This is a very simple version of a stack, but we can now use our stack as follows:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">stack <span class="op">=</span> Stack()
+
+stack.push(<span class="dv">1</span>)
+stack.push(<span class="dv">4</span>)
+stack.push(<span class="dv">2</span>)
+
+<span class="bu">print</span>(stack.top())
+
+<span class="bu">print</span>(stack.pop())
+<span class="bu">print</span>(stack.pop())
+<span class="bu">print</span>(stack.pop())</code></pre>
+ </div>
+ <p>
+  We will get the following output if we run this program
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="dv">2</span> <span class="co"># top</span>
+<span class="dv">2</span>
+<span class="dv">4</span>
+<span class="dv">1</span></code></pre>
+ </div>
+ <p>
+  When we call the
+  <code>
+   top()
+  </code>
+  method, we don't actually remove the top element, we are just told what it is. When we use
+  <code>
+   pop()
+  </code>
+  method, we do remove the top element.
+ </p>
+ <p>
+  We will look at an example of where this can be used a bit later.
+ </p>
+ <h2 id="the-queue">
+  21.2 - The Queue
+ </h2>
+ <p>
+  Queues in some sense similar to stacks. They are a linear data structure except rather than the operation order being
+  <strong>
+   Last in First Out
+  </strong>
+  , they are FIFO (First in First Out). They behave exactly like any queue you may think of in real life. A queue at a super market for example, you get in line at the back and wait until you get to the front to leave.
+ </p>
+ <p>
+  In computing, a queue may be useful in CPU scheduling. In computers, there are many things happening at what seems to be, the same time. For example you may have music playing as you read an article. There are many things happening here. Your music is being played, your monitor is being updated (refreshed) as you scroll through your article and you're using your mouse wheel to indicate when to scroll. In a simple sense, your CPU can only deal with one thing at a time. Your music application needs time on the CPU to output the next bit of music, as you scroll while this is going on, your mouse driver needs CPU time to tell the computer what to do, then your monitor drivers need CPU time to refresh the pixels on your screen. This all seems to be happening at the same time, except it isn't (computers are just so fast it appears it is). What's actually happening in this situation is each program is quickly using the CPU, then jumping back in the queue. This is happening over and over again. A CPU scheduling algorithm deals with which program gets to go next on the CPU and may implement some variation of a queue to handle this. (A priority queue for example).
+ </p>
+ <p>
+  They have similar methods for adding and removing except they are
+  <code>
+   enqueue()
+  </code>
+  and
+  <code>
+   dequeue()
+  </code>
+  respectively.
+ </p>
+ <p>
+  I think you get the gist of how you may visualize a queue so I'm just going to jump to the code for implementing a queue. Again, we will implement a queue using a list.
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Queue:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):
+        <span class="va">self</span>.q <span class="op">=</span> []
+        
+    <span class="kw">def</span> enqueue(<span class="va">self</span>, elem):
+        <span class="va">self</span>.q.append(elem)
+        
+    <span class="kw">def</span> dequeue(<span class="va">self</span>):
+        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.q) <span class="op">!=</span> <span class="dv">0</span>:
+            <span class="cf">return</span> <span class="va">self</span>.q.pop(<span class="dv">0</span>)
+    
+    <span class="kw">def</span> isEmpty(<span class="va">self</span>):
+        <span class="cf">if</span> <span class="bu">len</span>(<span class="va">self</span>.q) <span class="op">&gt;</span> <span class="dv">0</span>:
+            <span class="cf">return</span> <span class="va">False</span>
+        <span class="cf">return</span> <span class="va">True</span></code></pre>
+ </div>
+ <p>
+  And there you go. A very simple Queue class. Notice how we pop from index 0. Recall that the
+  <code>
+   pop()
+  </code>
+  method for lists takes an optional argument which is the index of the list you want to remove an element from. If we don't supply this optional argument it defaults to -1 (the end of the list, which is what stacks do). Here we remove the element at the start of the list but add elements to the end.
+ </p>
+ <p>
+  Running the following program, will produce the following output
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">queue <span class="op">=</span> Queue()
+
+queue.enqueue(<span class="dv">1</span>)
+queue.enqueue(<span class="dv">4</span>)
+queue.enqueue(<span class="dv">2</span>)
+
+<span class="bu">print</span>(queue.isEmpty())
+
+<span class="bu">print</span>(queue.dequeue())
+<span class="bu">print</span>(queue.dequeue())
+<span class="bu">print</span>(queue.dequeue())
+
+<span class="bu">print</span>(queue.isEmpty())</code></pre>
+ </div>
+ <pre><code>False
+1
+4
+2
+True</code></pre>
+ <h2 id="examples">
+  21.3 - Examples
+ </h2>
+ <p>
+  The first example I'm going to look at is for stacks. This question is known to have been asked during past Google coding interviews!
+ </p>
+ <p>
+  The problem is: Given an input string consisting of opening and closing parentheses, write a python program that outputs whether or not the string is balanced.
+ </p>
+ <p>
+  For example:
+ </p>
+ <pre><code>Input: ([{}])
+Output: Balanced
+
+Input: (([])
+Output: Unbalanced
+
+Input: {(){[]}}
+Output: Balanced
+
+Input: [()(){]
+Output: Unbalanced</code></pre>
+ <p>
+  One approach we can take with this problem is to use a stack. Each time we encounter an opening bracket we append that to the stack. When we encounter a closing bracket we pop from the stack and check that the element we popped is the opening bracket for the closing bracket. For example,
+  <code>
+   [
+  </code>
+  is the opening bracket for
+  <code>
+   ]
+  </code>
+  , similarly,
+  <code>
+   {
+  </code>
+  is the opening bracket for
+  <code>
+   }
+  </code>
+  and so on.
+ </p>
+ <p>
+  Here is a possible solution. Assume our stack class from earlier exists:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">opening <span class="op">=</span> [<span class="st">"("</span>, <span class="st">"["</span>, <span class="st">"{"</span>]
+<span class="co"># Note that pairs is a dictionary that maps the closing bracket</span>
+<span class="co"># to the opening bracket</span>
+pairs <span class="op">=</span> {<span class="st">")"</span>: <span class="st">"("</span>, <span class="st">"]"</span>: <span class="st">"["</span>, <span class="st">"}"</span>: <span class="st">"{"</span>}
+
+<span class="kw">def</span> balanced(input_string):
+    stack <span class="op">=</span> Stack()
+    <span class="cf">for</span> bracket <span class="op">in</span> input_string:
+        <span class="cf">if</span> bracket <span class="op">in</span> opening:
+            stack.push(bracket)
+        <span class="cf">elif</span> stack.isEmpty():
+            <span class="cf">return</span> <span class="va">False</span> <span class="co"># Can't pop anything as stack is empty so it's unbalanced</span>
+        <span class="cf">elif</span> pairs[bracket] <span class="op">!=</span> stack.pop():
+            <span class="cf">return</span> <span class="va">False</span> <span class="co"># The brackets didn't match up so it's unbalanced</span>
+    
+    <span class="cf">return</span> <span class="op">not</span> stack.isEmpty() <span class="co"># If stack is empty at the end,</span>
+                               <span class="co"># return True, else, False</span></code></pre>
+ </div>
+ <p>
+  We can make better use of the pairs map and make our code a bit neater but it won't be as readable so I've taken a slightly longer approach.
+ </p>
+ <p>
+  Now we can run our code as follows to get the desired output from the example input and output above:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># ABOVE CODE HERE</span>
+
+inputString <span class="op">=</span> <span class="bu">input</span>()
+<span class="cf">if</span> (balanced(inputString)):
+    <span class="bu">print</span>(<span class="st">"Balanced"</span>)
+<span class="cf">else</span>:
+    <span class="bu">print</span>(<span class="st">"Unbalanced"</span>)</code></pre>
+ </div>
+ <p>
+  I don't have an example usage of queues as I can't think of anything useful to do with them with the knowledge we've got at the moment. Don't worry though, there will be a good question on queues coming up soon.
+ </p>
+ <h2 id="exercises">
+  21.4 - Exercises
+ </h2>
+ <h3 id="question-1">
+  Question 1
+ </h3>
+ <p>
+  You are given two strings
+  <code>
+   S
+  </code>
+  and
+  <code>
+   T
+  </code>
+  . Both strings either contain alphanumeric characters or a '#' character. A '#' means backspace. Your goal is to use your knowledge of stacks to design a function that will decide whether both strings are equal after the back space operation has been applied. For example:
+ </p>
+ <div class="sourceCode">
+  <pre class="sourceCode python"><code class="sourceCode python">Input: S <span class="op">=</span> <span class="st">"xy#z"</span>, T <span class="op">=</span> <span class="st">"xw#z"</span>
+Output: <span class="va">True</span>
+Explanation: When the backspace operation <span class="op">is</span> applied, both strings become <span class="st">"xz"</span>
+    
+Input: S <span class="op">=</span> <span class="st">"abcd##"</span>, T <span class="op">=</span> <span class="st">"acbd##"</span>
+Output: <span class="va">False</span>
+Explanation: S becomes <span class="st">'ab'</span> <span class="op">and</span> T becomes <span class="st">'ac'</span> which are <span class="op">not</span> the same
+    
+Input: S <span class="op">=</span> <span class="st">"z##y"</span>, T<span class="op">=</span><span class="st">"#d#y"</span>
+Output: <span class="va">True</span>
+Explanation: Both strings become <span class="st">'y'</span>
+    
+Input: S <span class="op">=</span> <span class="st">"er##"</span>, T <span class="op">=</span> <span class="st">"u#u#"</span>
+Output: true
+Explanation: Both S <span class="op">and</span> T become <span class="st">''</span> (empty string)</code></pre>
+ </div>
+ <h3 id="question-2">
+  Question 2
+ </h3>
+ <p>
+  It is possible to create a queue through the use of two stacks. Implement a queue class like above, except rather than using a list to implement the queue you use two stacks.
+ </p>
+ <p>
+  <em>
+   This might be a little tricky, you'll have to think about this
+  </em>
+  .
+ </p>
+ <h3 id="question-3">
+  Question 3
+ </h3>
+ <p>
+  It is also possible to create a stack through the use of two queues. Implement a stack class like the one we have seen earlier, except rather than using a list to implement the stack, use two queues.
+ </p>
+ <p>
+  <em>
+   This might be a little tricky, you'll have to think about this
+  </em>
+  .
+ </p>
+ <h3 id="mini-project-1">
+  Mini Project 1
+ </h3>
+ <p>
+  You are to design an RPN calculator. RPN stands for
+  <strong>
+   Reverse Polish Notation
+  </strong>
+  . An RPN calculator is also known as a postfix calculator. We as humans do math as follows, for example,
+  <code>
+   4 + 7
+  </code>
+  or we must use BEMDAS rules:
+  <code>
+   8 + ((10 * 3) / 2)
+  </code>
+  . In RPN, we would represent these as:
+  <code>
+   4 7 +
+  </code>
+  and the last expression we represent as
+  <code>
+   8 10 3 2 / * +
+  </code>
+  . Whats happening here is the operator (
+  <code>
+   +
+  </code>
+  is in the prefix position rather than infix position as we are used to). This might look a little confusing but its actually quite simple and we can use a stack to solve this problem.
+ </p>
+ <p>
+  Let' s look at how this works:
+ </p>
+ <pre><code>Expression: 4 7 +
+1) Read the first character (4)
+2) This is a number so we push it to the stack
+3) Read the next charactr (7)
+4) This is also a number so we push it to the stack
+5) Read the next character (+)
+6) This is an operator. It's a binary operator as it works on two operands, so we
+   pop two elements from the stack
+7) Add the two numbers together
+8) Push the result back onto the stack</code></pre>
+ <p>
+  If we had a unary operator such as negation then we would pop one element from the stack, calculate the result and push it back.
+ </p>
+ <p>
+  You are to implement the following operators in your calculator:
+ </p>
+ <ul>
+  <li>
+   Addition: (
+   <code>
+    +
+   </code>
+   )
+  </li>
+  <li>
+   Subtraction: (
+   <code>
+    -
+   </code>
+   )
+  </li>
+  <li>
+   Multiplication (
+   <code>
+    *
+   </code>
+   )
+  </li>
+  <li>
+   Floor division (
+   <code>
+    //
+   </code>
+   )
+  </li>
+  <li>
+   <p>
+    Negation (
+    <code>
+     n
+    </code>
+    )
+   </p>
+  </li>
+  <li>
+   <p>
+    Power (
+    <code>
+     e
+    </code>
+    )
+   </p>
+  </li>
+ </ul>
+ <p>
+  Your calculator should read in RPN expressions, one line at a time and evaluate them. There is one additional operator to implement. This is
+  <code>
+   p
+  </code>
+  which stands for print. If you encounter
+  <code>
+   p
+  </code>
+  then print the result. You can assume
+  <code>
+   p
+  </code>
+  will always occur at the end of the input.
+ </p>
+ <p>
+  Example:
+ </p>
+ <pre><code>Input: 4 7 3 + + p
+Output: 14
+Infix: 4 + 7 + 3
+
+Input: 5 8 * n p
+Output: -40
+Infix: -(5 * 8)
+
+Input: 3 6 1 + + 2 e p
+Output: 100
+Infix: (3 + 6 + 1)^2</code></pre>
+ <p>
+  Think carefully about this problem. It's even a great beginner project to host on your Github account to showcase your work to the world!
+ </p>
+ <script>
+  (function() {
+        var pre = document.getElementsByTagName('pre'),
+            pl = pre.length;
+        for (var i = 0; i < pl; i++) {
+            pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+            var num = pre[i].innerHTML.split(/\n/).length;
+            for (var j = 0; j < num; j++) {
+                var line_num = pre[i].getElementsByTagName('span')[0];
+                line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+            }
+        }
+      })();
+ </script>
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
+ <style type="text/css">
+  #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+             We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+ </style>
+ <br/>
+ <div class="align-items-center">
+ </div>
+ <style>
+  .bmc-button img{height: 34px !important;width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#FFFFFF !important;background-color:#FF813F !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 28px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#FFFFFF !important;}
+ </style>
+ <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"/>
+ <br/>
+ <br/>
+ <a href="./chapter_20.html">
+  Previous Chapter
+ </a>
+ -
+ <a href="./chapter_22.html">
+  Next Chapter
+ </a>
+ <br/>
+ <br/>
+</div></html>
